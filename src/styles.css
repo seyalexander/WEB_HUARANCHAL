@@ -1,3 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+
+:root {
+    /* COLORES PRIMARIOS */
+    verde_Cafe: #2F5D34;
+    verde_Naturaleza: #4F8A3F;
+    naranja_Huaranchal:#F28C28;
+    amarillo_Frutal: #F6C445;
+
+    /* COLORES SECUNDARIOS */
+    lima:#A4C639;
+    granadilla: #8E5EA2;
+    tierra: #8B5E3C;
+    agua: #3FA9F5;
+
+    /* NEUTROS */
+    fondo_Principal: #FAFAF7;
+    fondo_alternativo:#F5F5F0;
+    texto_principal:#1E293B;
+    texto_secundario:#64748B;
+    bordes: #E2E8F0;
+
+    /* GRADIENTE PRINCIPAL */
+    /*Hero Principal: bg-gradient-to-r from-[#2F5D34] via-[#4F8A3F] to-[#A4C639] */
+    /* Turismo: bg-gradient-to-r from-[#F28C28] to-[#F6C445] */
+    /* Cataratas: bg-gradient-to-r from-[#3FA9F5] to-[#4F8A3F] */
+}
