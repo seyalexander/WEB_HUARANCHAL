@@ -57,3 +57,13 @@ class="relative min-h-screen flex items-center justify-center overflow-hidden">
 <app-cta-inicio-components />
 
 <app-footer-inicio-components />
+
+@if(showScrollTop){
+    <button (click)="scrollToTop()"
+  class="fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center
+         bg-orange-500 hover:bg-orange-600 rounded-full shadow-2xl
+         transition-all duration-300 hover:scale-110">
+↑
+</button>
+}
+
