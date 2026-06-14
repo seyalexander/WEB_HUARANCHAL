@@ -11,22 +11,25 @@
 
             <div class="hidden md:flex gap-8">
 
-                <a href="#inicio"
-                    class="text-slate-700 hover:text-[#F28C28] transition">
+                <a href="#inicio" class="text-slate-700 hover:text-[#F28C28] transition">
                     Inicio
                 </a>
 
-                <a [routerLink]="'/Lugares'"
-                    class="text-slate-700 hover:text-[#F28C28] transition">
+                <a [routerLink]="'/Lugares'" class="text-slate-700 hover:text-[#F28C28] transition">
                     Lugares
                 </a>
 
-                <a href="#productos"
-                    class="text-slate-700 hover:text-[#F28C28] transition">
+                <a href="#productos" class="text-slate-700 hover:text-[#F28C28] transition">
                     Productos
                 </a>
 
             </div>
+
+            <!-- BOTÓN MOBILE -->
+            <button (click)="visible4 = true" class="md:hidden text-2xl">
+                ☰
+            </button>
+
 
         </div>
 
@@ -35,3 +38,68 @@
 
 
 <router-outlet />
+
+
+<p-drawer
+  header="Menu"
+  [(visible)]="visible4"
+  position="bottom"
+  appendTo="body"
+  [baseZIndex]="20000"
+  [modal]="true"
+  [style]="{ height: 'auto' }">
+
+  <div class="flex flex-col gap-4 mt-4">
+
+    <!-- ITEM -->
+    <a routerLink="/Inicio"
+
+       (click)="toggleMenu()"
+       class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
+
+      <img src="assets/huaranchal-hero.jpg"
+           class="w-12 h-12 rounded-xl object-cover">
+
+      <div class="flex flex-col">
+        <span class="font-semibold text-lg">Inicio</span>
+        <span class="text-sm text-gray-400">Página principal</span>
+      </div>
+
+      <span class="ml-auto opacity-0 group-hover:opacity-100 transition">→</span>
+    </a>
+
+    <!-- ITEM -->
+    <a routerLink="/Lugares"
+       (click)="toggleMenu()"
+       class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
+
+      <img src="assets/CATARATA-IMG.jpeg"
+           class="w-12 h-12 rounded-xl object-cover">
+
+      <div class="flex flex-col">
+        <span class="font-semibold text-lg">Lugares</span>
+        <span class="text-sm text-gray-400">Lugares Turísticos</span>
+      </div>
+
+      <span class="ml-auto opacity-0 group-hover:opacity-100 transition">→</span>
+    </a>
+
+    <!-- ITEM -->
+    <a routerLink="/funko-pop"
+       (click)="toggleMenu()"
+       class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
+
+      <img src="assets/GRANADILLAS-IMG.jpg"
+           class="w-12 h-12 rounded-xl object-cover">
+
+      <div class="flex flex-col">
+        <span class="font-semibold text-lg">Productos</span>
+        <span class="text-sm text-gray-400">Principales</span>
+      </div>
+
+      <span class="ml-auto opacity-0 group-hover:opacity-100 transition">→</span>
+    </a>
+
+  </div>
+
+</p-drawer>
