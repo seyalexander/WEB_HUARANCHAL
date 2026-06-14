@@ -1,10 +1,14 @@
 import { Routes } from '@angular/router';
 import { INICIO_ROUTES } from './feactures/inicio/inicio.routes';
 import { LUGARES_TURISTICOS_ROUTES } from './feactures/lugares-turisticos/lugaresTuristicos.routes';
+import { BANIOS_TERMALES_ROUTES } from './feactures/baniosTermales/baiosTerminales.route';
+import { CATARATA_LIMONES_ROUTES } from './feactures/catarateLosLimones/catarataLimones.routes';
 
 export const routes: Routes = [
     ...INICIO_ROUTES,
     ...LUGARES_TURISTICOS_ROUTES,
+    ...BANIOS_TERMALES_ROUTES,
+    ...CATARATA_LIMONES_ROUTES,
     {
         path:'**',
         redirectTo: 'Inicio'
