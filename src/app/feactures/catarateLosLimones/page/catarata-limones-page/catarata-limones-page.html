@@ -34,32 +34,123 @@
 
     <div class="max-w-7xl mx-auto px-6">
 
-        <h2 class="text-4xl font-bold text-slate-800">
+        <!-- Header -->
 
-            Galería
+        <div class="flex items-center justify-between mb-10">
 
-        </h2>
+            <div>
 
-        <div class="mt-12">
+                <span
+                    class="inline-flex px-4 py-2 rounded-full bg-[#2F5D34]/10 text-[#2F5D34] font-medium">
 
-            <img src="assets/LUGARES/PAKCHA/PACKCHA_01.jpeg"
-                class="w-full h-[600px] rounded-[32px] object-cover shadow-2xl">
+                    Galería Fotográfica
+
+                </span>
+
+                <h2
+                    class="mt-4 text-4xl md:text-5xl font-bold text-slate-800">
+
+                    Catarata Pakcha
+
+                </h2>
+
+            </div>
+
+            <button
+                class="hidden md:flex px-6 py-3 rounded-xl bg-[#F28C28] text-white font-semibold hover:bg-[#e07b18] transition">
+
+                Ver todas las fotos
+
+            </button>
 
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+        <!-- GALERÍA PRINCIPAL -->
 
-            <img src="assets/LUGARES/PAKCHA/PACKCHA_01.jpeg"
-                class="h-40 rounded-2xl object-cover cursor-pointer hover:scale-105 transition ">
+        <div
+            class="grid lg:grid-cols-3 gap-4">
 
-            <img src="assets/LUGARES/PAKCHA/PACKCHA_01.jpeg"
-                class="h-40 rounded-2xl object-cover cursor-pointer hover:scale-105 transition">
+            <!-- FOTO GRANDE -->
 
-            <img src="assets/LUGARES/PAKCHA/PACKCHA_01.jpeg"
-                class="h-40 rounded-2xl object-cover cursor-pointer hover:scale-105 transition">
+            <div
+                class="lg:col-span-2 overflow-hidden rounded-[32px] shadow-xl group">
 
-            <img src="assets/LUGARES/PAKCHA/PACKCHA_01.jpeg"
-                class="h-40 rounded-2xl object-cover cursor-pointer hover:scale-105 transition">
+                <img
+                    src="assets/LUGARES/PAKCHA/PACKCHA_01.jpeg"
+                    class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+
+            </div>
+
+            <!-- LATERAL -->
+
+            <div
+                class="grid grid-rows-2 gap-4">
+
+                <div
+                    class="overflow-hidden rounded-[28px] shadow-xl group">
+
+                    <img
+                        src="assets/LUGARES/PAKCHA/PAKCHA_06.jpeg"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+
+                </div>
+
+                <div
+                    class="overflow-hidden rounded-[28px] shadow-xl group">
+
+                    <img
+                        src="assets/LUGARES/PAKCHA/PAKCHA_07.jpeg"
+                        class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FILA INFERIOR -->
+
+        <div
+            class="grid md:grid-cols-3 gap-4 mt-4">
+
+            <div
+                class="overflow-hidden rounded-[28px] shadow-xl group">
+
+                <img
+                    src="assets/LUGARES/PAKCHA/PAKCHA_04.jpeg"
+                    class="w-full h-72 object-cover transition duration-700 group-hover:scale-105">
+
+            </div>
+
+            <div
+                class="overflow-hidden rounded-[28px] shadow-xl group">
+
+                <img
+                    src="assets/LUGARES/PAKCHA/PAKCHA_05.jpeg"
+                    class="w-full h-72 object-cover transition duration-700 group-hover:scale-105">
+
+            </div>
+
+            <div
+                class="overflow-hidden rounded-[28px] shadow-xl group relative">
+
+                <img
+                    src="assets/LUGARES/PAKCHA/PAKCHA_03.jpeg"
+                    class="w-full h-72 object-cover transition duration-700 group-hover:scale-105">
+
+                <div
+                    class="absolute inset-0 bg-black/40 flex items-center justify-center">
+
+                    <span
+                        class="text-white text-2xl font-bold">
+
+                        +12 Fotos
+
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -99,7 +190,7 @@
 
             <div>
 
-                <img src="assets/PAKCHA-IMG-2.jpg" class="rounded-[32px] shadow-2xl">
+                <img src="assets/LUGARES/PAKCHA/PAKCHA_08.jpeg" class="rounded-4xl shadow-2xl">
 
             </div>
 
@@ -206,28 +297,102 @@
 
 </section>
 
-<section class="py-24 bg-gradient-to-r from-[#2F5D34] to-[#4F8A3F]">
+<section
+    class="relative overflow-hidden py-32 bg-gradient-to-br from-[#1E3A22] via-[#2F5D34] to-[#4F8A3F]">
 
-    <div class="max-w-5xl mx-auto px-6 text-center">
+    <!-- Luces decorativas -->
 
-        <h2 class="text-5xl font-extrabold text-white">
+    <div
+        class="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-[#F6C445]/10 blur-3xl">
+    </div>
 
-            Continúa explorando Huaranchal
+    <div
+        class="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-[#F28C28]/10 blur-3xl">
+    </div>
+
+    <!-- Ruta turística -->
+
+    <svg
+        class="absolute inset-0 w-full h-full opacity-10"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <path
+            d="
+            M-100 250
+            C200 150,
+            450 350,
+            700 220
+            S1200 150,
+            1600 280"
+            fill="none"
+            stroke="white"
+            stroke-width="4"
+            stroke-dasharray="12 20" />
+
+    </svg>
+
+    <!-- Montañas -->
+
+    <svg
+        class="absolute bottom-0 left-0 w-full h-40 opacity-10"
+        viewBox="0 0 1440 320"
+        preserveAspectRatio="none">
+
+        <path
+            fill="white"
+            d="M0,224L180,96L360,224L540,64L720,224L900,96L1080,256L1260,128L1440,224L1440,320L0,320Z">
+        </path>
+
+    </svg>
+
+    <!-- Contenido -->
+
+    <div
+        class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+
+        <span
+            class="inline-flex px-5 py-2 rounded-full bg-white/10 backdrop-blur-md text-white">
+
+            Sigue descubriendo
+
+        </span>
+
+        <h2
+            class="mt-8 text-5xl md:text-6xl font-extrabold text-white leading-tight">
+
+            Continúa explorando
+            <span class="text-[#F6C445]">
+                Huaranchal
+            </span>
 
         </h2>
 
-        <p class="mt-6 text-slate-200">
+        <p
+            class="mt-6 text-xl text-slate-200 max-w-3xl mx-auto">
 
-            Descubre otros destinos naturales y culturales
-            que hacen único este distrito.
+            Cada rincón guarda paisajes, historias y experiencias
+            únicas que esperan ser descubiertas.
 
         </p>
 
-        <button class="mt-8 px-10 py-4 rounded-xl bg-[#F6C445] font-bold text-slate-900">
+        <div
+            class="mt-10 flex flex-wrap justify-center gap-4">
 
-            Ver más destinos
+            <button
+                class="px-10 py-4 rounded-2xl bg-[#F6C445] text-slate-900 font-bold shadow-xl hover:scale-105 transition">
 
-        </button>
+                Ver más destinos
+
+            </button>
+
+            <button
+                class="px-10 py-4 rounded-2xl border border-white/30 bg-white/10 backdrop-blur-md text-white font-semibold hover:bg-white/20 transition">
+
+                Volver al inicio
+
+            </button>
+
+        </div>
 
     </div>
 
