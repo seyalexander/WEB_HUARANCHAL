@@ -17,6 +17,9 @@ export interface lugarTuristico {
   styleUrl: './lugares-turisticos-pages.css',
 })
 export class LugaresTuristicosPages implements OnInit {
+
+  showTraveler = false;
+
   urlGlobal: string = "assets"
 
   items:lugarTuristico[] = [
@@ -47,7 +50,8 @@ export class LugaresTuristicosPages implements OnInit {
       titleH1: "Las Trillizas",
       descripcion: "Espacios ideales para relajarse y disfrutar de aguas naturales.",
       routerLink: "/BaniosTermales"
-    }
+    },
+    
   ]
 
   ngOnInit() {

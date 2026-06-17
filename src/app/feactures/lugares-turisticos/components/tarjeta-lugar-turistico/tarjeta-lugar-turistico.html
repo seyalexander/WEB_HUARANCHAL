@@ -1,6 +1,7 @@
 <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mt-20">
     @for (item of items; track $index) {
-        <a class="group relative h-125 rounded-4xl overflow-hidden shadow-2xl" [routerLink]="item.routerLink">
+        <a class="group relative h-125 rounded-4xl overflow-hidden shadow-2xl" [routerLink]="item.routerLink" (mouseenter)="onHoverCard()"
+  (mouseleave)="onLeaveCard()">
         <img alt="Imagen catarata" [src]="item.imagen"
             class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
 
@@ -33,4 +34,17 @@
     </a>
     }
     
+</div>
+
+<!-- PERSONAJE TURISTA (solo desktop) -->
+<div
+  class="hidden lg:block fixed -right-10 -bottom-12 w-[420px] z-50  pointer-events-none transition-all duration-500"
+  [class.opacity-0]="!showTraveler"
+  [class.opacity-100]="showTraveler">
+
+  <img
+    src="assets/turista_01.png"
+    alt="Turista"
+    class="w-full h-auto drop-shadow-2xl" />
+
 </div>

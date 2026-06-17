@@ -63,7 +63,8 @@
 
     <!-- TARJETAS -->
     <div class="mt-16">
-      <app-tarjeta-lugar-turistico [items]="items" />
+      <app-tarjeta-lugar-turistico [items]="items" (hover)="showTraveler = true"
+  (leave)="showTraveler = false"/>
     </div>
 
   </div>

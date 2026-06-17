@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, EventEmitter, Input, input, Output } from '@angular/core';
 import { lugarTuristico } from '../../page/lugares-turisticos-pages/lugares-turisticos-pages';
 import { RouterLink } from "@angular/router";
 
@@ -10,4 +10,17 @@ import { RouterLink } from "@angular/router";
 })
 export class TarjetaLugarTuristico {
   @Input() items: lugarTuristico[] = [];
+
+  @Output() hover = new EventEmitter<void>();
+  @Output() leave = new EventEmitter<void>();
+
+  showTraveler = false;
+
+  onHoverCard() {
+    this.showTraveler = true;
+  }
+
+  onLeaveCard() {
+    this.showTraveler = false;
+  }
 }
