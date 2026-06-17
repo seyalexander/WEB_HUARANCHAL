@@ -1,0 +1,345 @@
+<section class="py-32 bg-[#FAFAF7] relative overflow-hidden">
+
+    <!-- Decoración -->
+    <div
+        class="absolute top-0 right-0 w-96 h-96
+               bg-[#F6C445]/10 rounded-full blur-[140px]">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- Imagen -->
+            <div class="relative">
+
+                <img
+                    src="assets/COSTUMBRES/costumbres_01.jpg"
+                    alt="Costumbres de Huaranchal"
+                    class="w-full h-[600px] object-cover rounded-[32px] shadow-2xl">
+
+                <div
+                    class="absolute bottom-6 left-6 right-6
+                           bg-white/90 backdrop-blur-md
+                           rounded-3xl p-5">
+
+                    <h3
+                        class="font-bold text-xl text-slate-800">
+
+                        Cultura Viva
+
+                    </h3>
+
+                    <p
+                        class="mt-2 text-slate-600">
+
+                        Tradiciones que continúan formando parte de la vida diaria de la población.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Texto -->
+            <div>
+
+                <span
+                    class="inline-flex px-5 py-2 rounded-full
+                           bg-[#2F5D34]/10 text-[#2F5D34]">
+
+                    Patrimonio Cultural
+
+                </span>
+
+                <h2
+                    class="mt-6 text-5xl md:text-6xl
+                           font-black text-slate-800">
+
+                    La identidad cultural de Huaranchal
+
+                </h2>
+
+                <p
+                    class="mt-8 text-lg
+                           text-slate-600
+                           leading-8">
+
+                    Huaranchal conserva costumbres heredadas de sus antepasados andinos, donde la agricultura, la fe religiosa, el trabajo comunitario y el respeto por la naturaleza continúan siendo pilares fundamentales de la vida cotidiana.
+
+                </p>
+
+                <div
+                    class="grid grid-cols-3 gap-4 mt-10">
+
+                    <div
+                        class="bg-white rounded-3xl p-5 text-center shadow-sm">
+
+                        <div class="text-3xl">
+                            🌱
+                        </div>
+
+                        <p class="mt-2 font-semibold">
+                            Agricultura
+                        </p>
+
+                    </div>
+
+                    <div
+                        class="bg-white rounded-3xl p-5 text-center shadow-sm">
+
+                        <div class="text-3xl">
+                            ⛪
+                        </div>
+
+                        <p class="mt-2 font-semibold">
+                            Religión
+                        </p>
+
+                    </div>
+
+                    <div
+                        class="bg-white rounded-3xl p-5 text-center shadow-sm">
+
+                        <div class="text-3xl">
+                            🤝
+                        </div>
+
+                        <p class="mt-2 font-semibold">
+                            Comunidad
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section
+    class="sticky top-20 z-30
+           bg-white/90 backdrop-blur-xl
+           border-b border-slate-200">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div
+            class="flex gap-3 overflow-x-auto py-4">
+
+            @for(tab of tabs; track tab.id){
+
+                <button
+
+                    (click)="tabSeleccionado = $any(tab.id)"
+
+                    [ngClass]="{
+                        'bg-[#F28C28] text-white': tabSeleccionado === tab.id,
+                        'bg-slate-100 text-slate-700': tabSeleccionado !== tab.id
+                    }"
+
+                    class="px-5 py-2 rounded-full
+                           whitespace-nowrap
+                           transition-all duration-300">
+
+                    {{ tab.icono }}
+                    {{ tab.nombre }}
+
+                </button>
+
+            }
+
+        </div>
+
+    </div>
+
+</section>
+
+@if(tabSeleccionado === 'costumbres') {
+
+<section class="py-24 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <article class="bg-[#FAFAF7] p-8 rounded-4xl">
+
+                <div class="text-5xl">🌱</div>
+
+                <h3 class="mt-5 font-bold text-xl">
+                    Agricultura Tradicional
+                </h3>
+
+                <p class="mt-4 text-slate-600">
+                    Cultivo de maíz, papa, trigo y otros productos agrícolas transmitidos por generaciones.
+                </p>
+
+            </article>
+
+            <article class="bg-[#FAFAF7] p-8 rounded-4xl">
+
+                <div class="text-5xl">🤝</div>
+
+                <h3 class="mt-5 font-bold text-xl">
+                    Trabajo Comunitario
+                </h3>
+
+                <p class="mt-4 text-slate-600">
+                    Actividades colectivas para mejorar caminos, espacios públicos y áreas agrícolas.
+                </p>
+
+            </article>
+
+            <article class="bg-[#FAFAF7] p-8 rounded-4xl">
+
+                <div class="text-5xl">🏡</div>
+
+                <h3 class="mt-5 font-bold text-xl">
+                    Vida Familiar
+                </h3>
+
+                <p class="mt-4 text-slate-600">
+                    Reuniones familiares y apoyo mutuo como base de la comunidad.
+                </p>
+
+            </article>
+
+            <article class="bg-[#FAFAF7] p-8 rounded-4xl">
+
+                <div class="text-5xl">🙏</div>
+
+                <h3 class="mt-5 font-bold text-xl">
+                    Fe Religiosa
+                </h3>
+
+                <p class="mt-4 text-slate-600">
+                    Participación activa en celebraciones religiosas y festividades patronales.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+}
+
+@if(tabSeleccionado === 'tradiciones') {
+
+<section class="py-24 bg-white">
+
+    <div class="max-w-4xl mx-auto px-6">
+
+        <div class="space-y-8">
+
+            <div class="bg-[#FAFAF7] p-8 rounded-4xl">
+
+                <h3 class="font-bold text-2xl">
+                    🎭 Tradiciones Populares
+                </h3>
+
+                <p class="mt-4 text-slate-600 leading-8">
+                    Las costumbres transmitidas de generación en generación fortalecen la identidad cultural de Huaranchal.
+                </p>
+
+            </div>
+
+            <div class="bg-[#FAFAF7] p-8 rounded-4xl">
+
+                <h3 class="font-bold text-2xl">
+                    🎶 Música y Celebraciones
+                </h3>
+
+                <p class="mt-4 text-slate-600 leading-8">
+                    La música y las reuniones comunitarias acompañan diversas actividades festivas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+}
+
+@if(tabSeleccionado === 'festividades') {
+
+<section class="py-24 bg-white">
+
+    <div class="max-w-5xl mx-auto px-6">
+
+        <div class="space-y-6">
+
+            <div class="bg-[#FAFAF7] p-8 rounded-4xl">
+
+                <h3 class="font-bold text-2xl">
+                    ⛪ Fiesta Patronal de San Juan Bautista
+                </h3>
+
+                <p class="mt-4 text-slate-600">
+                    Una de las celebraciones religiosas más importantes del distrito, donde participan familias, visitantes y autoridades locales.
+                </p>
+
+            </div>
+
+            <div class="bg-[#FAFAF7] p-8 rounded-4xl">
+
+                <h3 class="font-bold text-2xl">
+                    ✝️ Semana Santa
+                </h3>
+
+                <p class="mt-4 text-slate-600">
+                    Celebración religiosa con actividades litúrgicas y participación de la comunidad.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+}
+
+@if(tabSeleccionado === 'galeria') {
+
+<section class="py-24 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div
+            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+            <img
+                src="assets/COSTUMBRES/costumbres_01.jpg"
+                class="rounded-3xl h-64 w-full object-cover">
+
+            <img
+                src="assets/COSTUMBRES/costumbres_02.jpg"
+                class="rounded-3xl h-64 w-full object-cover">
+
+            <img
+                src="assets/COSTUMBRES/costumbres_03.jpg"
+                class="rounded-3xl h-64 w-full object-cover">
+
+            <img
+                src="assets/COSTUMBRES/costumbres_04.jpg"
+                class="rounded-3xl h-64 w-full object-cover">
+
+        </div>
+
+    </div>
+
+</section>
+
+}

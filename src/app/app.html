@@ -12,7 +12,7 @@
 
                 <div
                     class="w-11 h-11 rounded-xl
-                           bg-gradient-to-br
+                           bg-linear-to-br
                            from-[#F28C28]
                            to-[#F6C445]
                            flex items-center justify-center
@@ -71,7 +71,7 @@
                                transition-all duration-300">
 
                         <a
-                            href="#costumbres"
+                            [routerLink]="'/Costumbres-Tradiciones'"
                             class="block px-5 py-4 hover:bg-slate-50">
 
                             Costumbres y tradiciones
@@ -79,7 +79,7 @@
                         </a>
 
                         <a
-                            href="#vestimenta"
+                            [routerLink]="'/Vestimentas-Tipicas'"
                             class="block px-5 py-4 hover:bg-slate-50">
 
                             Vestimenta típica
@@ -224,7 +224,7 @@
 
     <!-- COSTUMBRES -->
     <a
-      href="#costumbres"
+      [routerLink]="'/Costumbres-Tradiciones'"
       (click)="toggleMenu()"
       class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
 
@@ -305,7 +305,7 @@
 
     <!-- VESTIMENTA -->
     <a
-      href="#vestimenta"
+      [routerLink]="'/Vestimentas-Tipicas'"
       (click)="toggleMenu()"
       class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
 
