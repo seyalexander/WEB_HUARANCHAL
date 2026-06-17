@@ -49,7 +49,16 @@
         <div *ngFor="let m of others; let i = index" (click)="setActive(m.id)" class="absolute cursor-pointer group"
             [ngStyle]="getFanPosition(i, others.length)">
 
-            <div class="relative w-24 h-24 rounded-full flex items-center justify-center
+            <!-- DESKTOP -->
+<div class="hidden md:block relative z-10 w-full max-w-5xl h-[300px]">
+
+  <div
+    *ngFor="let m of others; let i = index"
+    (click)="setActive(m.id)"
+    class="absolute cursor-pointer group"
+    [ngStyle]="getFanPosition(i, others.length)"
+  >
+    <div class="relative w-24 h-24 rounded-full flex items-center justify-center
          border border-white/10 shadow-lg">
 
                 <!-- Avatar normal -->
@@ -78,6 +87,46 @@
 />
 
             </div>
+  </div>
+
+</div>
+
+
+<!-- MOBILE -->
+<div class="md:hidden relative z-10 w-full overflow-x-auto pb-4">
+  
+  <div class="flex gap-6 px-4 min-w-max">
+
+    <div
+      *ngFor="let m of others"
+      (click)="setActive(m.id)"
+      class="flex-shrink-0 group cursor-pointer"
+    >
+
+      <div class="relative w-24 h-24 rounded-full flex items-center justify-center border border-white/10 shadow-lg">
+
+        <img
+          [src]="m.image"
+          class="absolute inset-0 w-full h-full rounded-full object-cover transition-all duration-500 group-hover:opacity-0"
+        />
+
+        <img
+          [src]="m.imageHover"
+          class="absolute bottom-0 left-1/2 w-36 max-w-none -translate-x-1/2 opacity-0 scale-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-y-4"
+        />
+
+      </div>
+
+      <p class="text-xs mt-2 text-center">
+        {{ m.name }}
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+            
 
             <p class="text-xs mt-2 text-center opacity-70 group-hover:opacity-100 transition">
                 {{ m.name }}
