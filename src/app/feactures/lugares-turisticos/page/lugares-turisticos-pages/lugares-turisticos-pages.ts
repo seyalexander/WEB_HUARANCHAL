@@ -33,6 +33,20 @@ export class LugaresTuristicosPages implements OnInit {
       titleH1: "Termales",
       descripcion: "Espacios ideales para relajarse y disfrutar de aguas naturales.",
       routerLink: "/BaniosTermales"
+    },
+    {
+      imagen: `${this.urlGlobal}/LUGARES/BANIOS_TERMALES/TERMALES_01.jpeg`,
+      titleH3: "Cerro",
+      titleH1: "Chillin",
+      descripcion: "Espacios ideales para relajarse y disfrutar de aguas naturales.",
+      routerLink: "/BaniosTermales"
+    },
+    {
+      imagen: `${this.urlGlobal}/LUGARES/BANIOS_TERMALES/TERMALES_01.jpeg`,
+      titleH3: "Catarata",
+      titleH1: "Las Trillizas",
+      descripcion: "Espacios ideales para relajarse y disfrutar de aguas naturales.",
+      routerLink: "/BaniosTermales"
     }
   ]
 

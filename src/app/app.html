@@ -39,47 +39,166 @@
                     </button>
 
                     <div
-                        class="absolute overflow-hidden top-full left-0 mt-3
-                               w-72 bg-white rounded-2xl
-                               shadow-2xl border border-slate-200
-                               opacity-0 invisible
-                               group-hover:opacity-100
-                               group-hover:visible
-                               transition-all duration-300">
+    class="absolute top-full left-0 mt-4
+           w-96
+           bg-white/95
+           backdrop-blur-xl
+           rounded-3xl
+           shadow-[0_20px_60px_rgba(0,0,0,.15)]
+           border border-slate-100
+           p-3
+           opacity-0 invisible
+           translate-y-4
+           group-hover:opacity-100
+           group-hover:visible
+           group-hover:translate-y-0
+           transition-all duration-300">
 
-                        <a
-                            [routerLink]="'/Costumbres-Tradiciones'"
-                            class="block px-5 py-4 hover:bg-slate-50">
+    <!-- COSTUMBRES -->
 
-                            Costumbres y tradiciones
+    <a
+        [routerLink]="'/Costumbres-Tradiciones'"
+        class="flex gap-4 p-4 rounded-2xl hover:bg-slate-50 transition group/item">
 
-                        </a>
+        <div
+            class="w-12 h-12 rounded-xl
+                   bg-green-100
+                   flex items-center justify-center
+                   text-xl">
 
-                        <a
-                            [routerLink]="'/Vestimentas-Tipicas'"
-                            class="block px-5 py-4 hover:bg-slate-50">
+            🌿
 
-                            Vestimenta típica
+        </div>
 
-                        </a>
+        <div>
 
-                        <a
-                            [routerLink]="'/Agricultura'"
-                            class="block px-5 py-4 hover:bg-slate-50">
+            <h4
+                class="font-semibold text-slate-800">
 
-                            Agricultura
+                Costumbres y Tradiciones
 
-                        </a>
+            </h4>
 
-                        <a
-                            [routerLink]="'/Gastronomia'"
-                            class="block px-5 py-4 hover:bg-slate-50">
+            <p
+                class="text-sm text-slate-500">
 
-                            Gastronomía
+                Cultura viva del distrito
 
-                        </a>
+            </p>
 
-                    </div>
+        </div>
+
+    </a>
+
+    <!-- VESTIMENTA -->
+
+    <a
+        [routerLink]="'/Vestimentas-Tipicas'"
+        class="flex gap-4 p-4 rounded-2xl hover:bg-slate-50 transition">
+
+        <div
+            class="w-12 h-12 rounded-xl
+                   bg-amber-100
+                   flex items-center justify-center
+                   text-xl">
+
+            👒
+
+        </div>
+
+        <div>
+
+            <h4
+                class="font-semibold text-slate-800">
+
+                Vestimenta Típica
+
+            </h4>
+
+            <p
+                class="text-sm text-slate-500">
+
+                Identidad y tradición andina
+
+            </p>
+
+        </div>
+
+    </a>
+
+    <!-- AGRICULTURA -->
+
+    <a
+        [routerLink]="'/Agricultura'"
+        class="flex gap-4 p-4 rounded-2xl hover:bg-slate-50 transition">
+
+        <div
+            class="w-12 h-12 rounded-xl
+                   bg-lime-100
+                   flex items-center justify-center
+                   text-xl">
+
+            🍊
+
+        </div>
+
+        <div>
+
+            <h4
+                class="font-semibold text-slate-800">
+
+                Agricultura
+
+            </h4>
+
+            <p
+                class="text-sm text-slate-500">
+
+                Productos del Alto Chicama
+
+            </p>
+
+        </div>
+
+    </a>
+
+    <!-- GASTRONOMÍA -->
+
+    <a
+        [routerLink]="'/Gastronomia'"
+        class="flex gap-4 p-4 rounded-2xl hover:bg-slate-50 transition">
+
+        <div
+            class="w-12 h-12 rounded-xl
+                   bg-orange-100
+                   flex items-center justify-center
+                   text-xl">
+
+            🍽
+
+        </div>
+
+        <div>
+
+            <h4
+                class="font-semibold text-slate-800">
+
+                Gastronomía
+
+            </h4>
+
+            <p
+                class="text-sm text-slate-500">
+
+                Sabores tradicionales de Huaranchal
+
+            </p>
+
+        </div>
+
+    </a>
+
+</div>
 
                 </div>
 
@@ -158,7 +277,7 @@
             <!-- MOBILE -->
             <button
                 (click)="visible4 = true"
-                class="lg:hidden text-3xl text-[#2F5D34]">
+                class="lg:hidden text-3xl text-[#fff]">
 
                 ☰
 
