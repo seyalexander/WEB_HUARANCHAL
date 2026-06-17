@@ -5,6 +5,8 @@ import { BANIOS_TERMALES_ROUTES } from './feactures/baniosTermales/baiosTerminal
 import { CATARATA_LIMONES_ROUTES } from './feactures/catarateLosLimones/catarataLimones.routes';
 import { COSTUMBRES_TRADICIONES_ROUTES } from './feactures/costumbresTradiciones/costumbres.routes';
 import { VESTIMENTAS_TIPICAS_ROUTES } from './feactures/vestimentasTipicas/vestimentasTipicas.routes';
+import { AGRICULTURA_ROUTES } from './feactures/agricultura/agricultura.routes';
+import { GASTRONOMIA_ROUTES } from './feactures/gastronomia/gastronomia.routes';
 
 export const routes: Routes = [
     ...INICIO_ROUTES,
@@ -13,6 +15,8 @@ export const routes: Routes = [
     ...CATARATA_LIMONES_ROUTES,
     ...COSTUMBRES_TRADICIONES_ROUTES,
     ...VESTIMENTAS_TIPICAS_ROUTES,
+    ...AGRICULTURA_ROUTES,
+    ...GASTRONOMIA_ROUTES,
     {
         path:'**',
         redirectTo: 'Inicio'

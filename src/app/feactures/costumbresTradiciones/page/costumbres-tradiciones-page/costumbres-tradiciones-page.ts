@@ -20,22 +20,18 @@ export class CostumbresTradicionesPage {
 tabs = [
   {
     id: 'costumbres',
-    icono: '🌱',
     nombre: 'Costumbres'
   },
   {
     id: 'tradiciones',
-    icono: '🎭',
     nombre: 'Tradiciones'
   },
   {
     id: 'festividades',
-    icono: '⛪',
     nombre: 'Festividades'
   },
   {
     id: 'galeria',
-    icono: '📸',
     nombre: 'Galería Cultural'
   }
 ];
