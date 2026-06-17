@@ -32,7 +32,7 @@ export class LugaresTuristicosPages implements OnInit {
       titleH3: "Baños",
       titleH1: "Termales",
       descripcion: "Espacios ideales para relajarse y disfrutar de aguas naturales.",
-      routerLink: "/CatarataPakcha"
+      routerLink: "/BaniosTermales"
     }
   ]
 
