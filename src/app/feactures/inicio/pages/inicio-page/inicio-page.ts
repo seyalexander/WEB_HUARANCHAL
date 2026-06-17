@@ -38,36 +38,36 @@ export class InicioPage {
 
   // ANIMACION CUNADO PASEN EL MOUSE POR ENCIMA DEL HERO
 
-cursorX = 0;
-cursorY = 0;
-mouseX = 0;
-mouseY = 0;
+  cursorX = 0;
+  cursorY = 0;
+  mouseX = 0;
+  mouseY = 0;
 
-mostrarBrillo = false;
+  mostrarBrillo = false;
 
-onMouseMove(event: MouseEvent): void {
+  onMouseMove(event: MouseEvent): void {
 
-  // Cursor real
-  this.cursorX = event.clientX;
-  this.cursorY = event.clientY;
+    // Cursor real
+    this.cursorX = event.clientX;
+    this.cursorY = event.clientY;
 
-  const hero = event.currentTarget as HTMLElement;
-  const rect = hero.getBoundingClientRect();
+    const hero = event.currentTarget as HTMLElement;
+    const rect = hero.getBoundingClientRect();
 
-  // Parallax
-  this.mouseX =
-    (event.clientX / window.innerWidth - 0.5) * 15;
+    // Parallax
+    this.mouseX =
+      (event.clientX / window.innerWidth - 0.5) * 15;
 
-  this.mouseY =
-    (event.clientY / window.innerHeight - 0.5) * 15;
+    this.mouseY =
+      (event.clientY / window.innerHeight - 0.5) * 15;
 
-  this.mostrarBrillo = true;
-}
+    this.mostrarBrillo = true;
+  }
 
 
 
-onMouseLeave(): void {
+  onMouseLeave(): void {
 
-  this.mostrarBrillo = false;
-}
+    this.mostrarBrillo = false;
+  }
 }

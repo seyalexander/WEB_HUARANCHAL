@@ -272,7 +272,7 @@
 
             </div>
 
-            <button class="lg:block hidden text-white hover:text-[#F28C28] transition">Integrantes</button>
+            <button [routerLink]="'/Integrantes'" class="lg:block hidden text-white hover:text-[#F28C28] transition">Integrantes</button>
 
             <!-- MOBILE -->
             <button
@@ -501,6 +501,29 @@
         </span>
         <span class="text-sm text-gray-400">
           Explorar destinos
+        </span>
+      </div>
+
+      <span class="ml-auto">→</span>
+
+    </a>
+
+    <a
+      routerLink="/Integrantes"
+      (click)="toggleMenu()"
+      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
+
+      <img
+        src="assets/turista_01.png"
+        alt="Integrantes"
+        class="w-12 h-12 rounded-xl object-cover">
+
+      <div class="flex flex-col">
+        <span class="font-semibold text-lg">
+          Integrantes
+        </span>
+        <span class="text-sm text-gray-400">
+          Integrantes del proyecto
         </span>
       </div>
 

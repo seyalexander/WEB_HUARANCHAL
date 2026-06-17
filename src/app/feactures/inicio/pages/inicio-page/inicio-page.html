@@ -1,5 +1,5 @@
-<section (mousemove)="onMouseMove($event)"
-  (mouseleave)="onMouseLeave()" class="relative min-h-screen overflow-hidden flex items-center custom-hero">
+<section (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()"
+  class="relative min-h-screen overflow-hidden flex items-center custom-hero">
 
   <!-- Fondo -->
   <img [style.transform]="
@@ -151,15 +151,12 @@
 
   </div>
 
-    @if(mostrarBrillo){
+  @if(mostrarBrillo){
 
-<div
-  class="mouse-light"
-  [style.left.px]="cursorX"
-  [style.top.px]="cursorY">
-</div>
+  <div class="mouse-light" [style.left.px]="cursorX" [style.top.px]="cursorY">
+  </div>
 
-}
+  }
 
   <!-- Gradiente inferior -->
   <div class="absolute bottom-0 left-0 right-0
@@ -169,7 +166,7 @@
            to-transparent">
   </div>
 
- 
+
 
 </section>
 
