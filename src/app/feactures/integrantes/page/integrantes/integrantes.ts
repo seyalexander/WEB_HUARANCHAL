@@ -81,6 +81,10 @@ export class Integrantes {
     return this.members.filter(m => m.id !== this.activeId);
   }
 
+  get othersMobile(): TeamMember[] {
+    return this.members.filter(m => m.id );
+  }
+
   //  DISTRIBUCIÓN EN ARCO (ordenado y estable)
   getFanPosition(index: number, total: number) {
 
