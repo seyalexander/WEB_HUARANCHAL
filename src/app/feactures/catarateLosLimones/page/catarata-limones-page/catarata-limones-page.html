@@ -13,7 +13,7 @@
     <!-- Overlay -->
     <div
         class="absolute inset-0
-               bg-gradient-to-r
+               bg-linear-to-r
                from-black/85
                via-black/60
                to-black/30">
@@ -60,10 +60,10 @@
                    leading-none
                    text-white">
 
-            Catarata
+            Baños
 
             <span class="block text-[#F6C445]">
-                Pakcha
+                Termales
             </span>
 
         </h1>
@@ -168,14 +168,56 @@
     <div
         class="absolute bottom-0 left-0 right-0
                h-40
-               bg-gradient-to-t
+               bg-linear-to-t
                from-slate-950
                to-transparent">
     </div>
 
 </section>
 
-<section class="py-24 bg-white">
+
+<!-- TABS -->
+<section
+    class="sticky top-20 z-30
+           bg-white/90 backdrop-blur-xl
+           border-b border-slate-200">
+
+    <div class="max-w-7xl mx-auto md:px-6">
+
+        <div
+            class="flex gap-3 overflow-x-auto py-4 no-scrollbar">
+
+            @for(tab of tabs; track tab.id){
+
+                <button (click)="tabSeleccionado = $any(tab.id)" [class.bg-[#F28C28]]="tabSeleccionado === tab.id"
+                    [class.text-white]="tabSeleccionado === tab.id" class="px-5 py-2 rounded-full
+                                           bg-slate-100
+                                           hover:bg-slate-300
+                                           text-gray-900
+                                           hover:text-gray-900
+                                           whitespace-nowrap
+                                           transition-all duration-300">
+                
+                    {{ tab.icono }}
+                    {{ tab.nombre }}
+                
+                </button>
+
+            }
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTENIDO -->
+<section class="bg-[#FAFAF7] min-h-screen">
+
+    <!-- GALERIA -->
+    @if(tabSeleccionado === 'galeria'){
+
+        <section class="py-24 bg-white">
 
     <div class="max-w-7xl mx-auto px-6">
 
@@ -308,6 +350,14 @@
     </div>
 
 </section>
+
+
+    }
+
+    <!-- HISTORIA -->
+    @if(tabSeleccionado === 'historia'){
+
+        
 
 <section class="py-32 bg-[#FAFAF7] relative overflow-hidden">
 
@@ -479,7 +529,12 @@
 
 </section>
 
-<section class="py-24 bg-white">
+    }
+
+    <!-- SOUVENIRS -->
+    @if(tabSeleccionado === 'souvenirs'){
+
+        <section class="py-24 bg-white">
 
     <div class="max-w-7xl mx-auto px-6">
 
@@ -523,48 +578,49 @@
 
 </section>
 
-<section class="py-24 bg-[#FAFAF7]">
+    }
 
-    <div class="max-w-7xl mx-auto px-6">
+    <!-- UBICACION -->
+    @if(tabSeleccionado === 'ubicacion'){
 
-        <div class="grid lg:grid-cols-2 gap-12">
+        <div class="max-w-5xl mx-auto px-6 py-20">
 
-            <div>
+            <div class="text-center">
 
-                <h2 class="text-5xl font-bold text-slate-800">
+                <h2
+                    class="text-4xl font-bold text-slate-800">
 
-                    ¿Cómo llegar?
+                    Cómo llegar
 
                 </h2>
 
-                <p class="mt-6 text-slate-600 leading-8">
+            </div>
 
-                    La Catarata Pakcha se encuentra ubicada
-                    en el distrito de Huaranchal,
-                    provincia de Otuzco, región La Libertad.
+            <div
+                class="mt-12
+                       bg-white
+                       rounded-4xl
+                       p-10
+                       shadow-sm">
+
+                <p
+                    class="text-lg text-slate-600 leading-8">
+
+                    Desde la ciudad de Trujillo se puede acceder
+                    por la ruta hacia Otuzco y posteriormente
+                    hacia el distrito de Huaranchal.
 
                 </p>
 
-                <a href="#" class="inline-flex mt-8 px-8 py-4 rounded-xl bg-[#F28C28] text-white font-semibold">
+                <div
+                    class="mt-8 rounded-3xl overflow-hidden">
 
-                    Abrir en Google Maps
-
-                </a>
-
-            </div>
-
-            <div class="rounded-4xl overflow-hidden shadow-2xl relative">
-
-                <img alt="Imagen" src="assets/LUGARES/PAKCHA/PACKCHA_01.jpeg" class="w-full h-112.5 object-cover">
-
-                <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-
-                    <a rel="noopener noreferrer nofollow" href="https://maps.google.com/?q=Catarata+Pakcha+Huaranchal" target="_blank"
-                        class="px-8 py-4 rounded-xl bg-white text-slate-800 font-semibold">
-
-                        Ver ubicación en Google Maps
-
-                    </a>
+                    <iframe
+                        class="w-full h-[500px]"
+                        loading="lazy"
+                        allowfullscreen
+                        src="https://maps.google.com/maps?q=Huaranchal&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                    </iframe>
 
                 </div>
 
@@ -572,9 +628,13 @@
 
         </div>
 
-    </div>
+    }
 
 </section>
+
+
+
+
 
 <section
     class="relative overflow-hidden py-32 bg-linear-to-br from-[#1E3A22] via-[#2F5D34] to-[#4F8A3F]">
