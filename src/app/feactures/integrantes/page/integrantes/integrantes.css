@@ -17,3 +17,11 @@
 
     z-index: 9999;
 }
+
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
+
+.overflow-x-auto {
+  scrollbar-width: none;
+}
