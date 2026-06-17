@@ -1,39 +1,21 @@
 <nav
-    class="fixed top-0 left-0 w-full z-50
-           bg-white/80 backdrop-blur-xl
-           border-b border-slate-200">
-
+    class="fixed top-0 left-0 w-full bg-linear-to-b from-black via-black/80 to-transparent z-50 ">
     <div class="max-w-7xl mx-auto px-6">
-
         <div class="h-20 flex items-center justify-between">
 
             <!-- LOGO -->
             <div class="flex items-center gap-3 cursor-pointer">
-
-                <div
-                    class="w-11 h-11 rounded-xl
-                           bg-linear-to-br
-                           from-[#F28C28]
-                           to-[#F6C445]
-                           flex items-center justify-center
-                           text-xl">
-
-                    🌿
-
-                </div>
-
                 <div>
 
-                    <h1 class="text-2xl font-black text-[#2F5D34]">
+                    <h1 class="text-xl font-black text-[#F28C28]">
                         Huaranchal
                     </h1>
 
-                    <p class="text-xs text-slate-500">
+                    <p class="hidden lg:block text-[0.7rem] text-white">
                         Alto Chicama · La Libertad
                     </p>
 
                 </div>
-
             </div>
 
             <!-- DESKTOP -->
@@ -41,24 +23,19 @@
 
                 <a
                     href="#inicio"
-                    class="font-medium text-slate-700 hover:text-[#F28C28] transition">
-
+                    class="text-white hover:text-[#F28C28] transition">
                     Inicio
-
                 </a>
 
                 <!-- DESCUBRIR -->
                 <div class="relative group">
-
-                    <button
-                        class="flex items-center gap-2
-                               font-medium text-slate-700
-                               hover:text-[#F28C28] transition">
-
-                        Descubrir
-
-                        <span class="text-xs">▼</span>
-
+                    <button class="flex items-center gap-2 text-white hover:text-[#F28C28] transition">
+                      Descubrir
+                      <svg class="transition" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 11l3 3l3 -3" />
+                      </svg>
+                    
                     </button>
 
                     <div
@@ -111,12 +88,15 @@
 
                     <button
                         class="flex items-center gap-2
-                               font-medium text-slate-700
+                                text-white
                                hover:text-[#F28C28] transition">
 
                         Cultura
 
-                        <span class="text-xs">▼</span>
+                        <svg class="transition" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 11l3 3l3 -3" />
+                      </svg>
 
                     </button>
 
@@ -152,7 +132,7 @@
                 <!-- TURISMO -->
                 <a
                     [routerLink]="'/Lugares'"
-                    class="font-medium text-slate-700 hover:text-[#F28C28] transition">
+                    class=" text-white hover:text-[#F28C28] transition">
 
                     Lugares turísticos
 
@@ -173,6 +153,8 @@
 
             </div>
 
+            <button class="lg:block hidden text-white hover:text-[#F28C28] transition">Integrantes</button>
+
             <!-- MOBILE -->
             <button
                 (click)="visible4 = true"
@@ -185,7 +167,6 @@
         </div>
 
     </div>
-
 </nav>
 
 
