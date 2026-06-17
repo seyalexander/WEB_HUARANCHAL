@@ -1,47 +1,198 @@
-<nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/70 border-b border-slate-200">
+<nav
+    class="fixed top-0 left-0 w-full z-50
+           bg-white/80 backdrop-blur-xl
+           border-b border-slate-200">
+
     <div class="max-w-7xl mx-auto px-6">
 
         <div class="h-20 flex items-center justify-between">
 
-            <div>
-                <h1 class="text-2xl font-bold text-[#2F5D34]">
-                    Huaranchal
-                </h1>
+            <!-- LOGO -->
+            <div class="flex items-center gap-3 cursor-pointer">
+
+                <div
+                    class="w-11 h-11 rounded-xl
+                           bg-gradient-to-br
+                           from-[#F28C28]
+                           to-[#F6C445]
+                           flex items-center justify-center
+                           text-xl">
+
+                    🌿
+
+                </div>
+
+                <div>
+
+                    <h1 class="text-2xl font-black text-[#2F5D34]">
+                        Huaranchal
+                    </h1>
+
+                    <p class="text-xs text-slate-500">
+                        Alto Chicama · La Libertad
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="hidden md:flex gap-8">
+            <!-- DESKTOP -->
+            <div class="hidden lg:flex items-center gap-8">
 
-                <a href="#inicio" class="text-slate-700 hover:text-[#F28C28] transition">
+                <a
+                    href="#inicio"
+                    class="font-medium text-slate-700 hover:text-[#F28C28] transition">
+
                     Inicio
+
                 </a>
 
-                <a [routerLink]="'/Lugares'" class="text-slate-700 hover:text-[#F28C28] transition">
-                    Lugares
+                <!-- DESCUBRIR -->
+                <div class="relative group">
+
+                    <button
+                        class="flex items-center gap-2
+                               font-medium text-slate-700
+                               hover:text-[#F28C28] transition">
+
+                        Descubrir
+
+                        <span class="text-xs">▼</span>
+
+                    </button>
+
+                    <div
+                        class="absolute overflow-hidden top-full left-0 mt-3
+                               w-72 bg-white rounded-2xl
+                               shadow-2xl border border-slate-200
+                               opacity-0 invisible
+                               group-hover:opacity-100
+                               group-hover:visible
+                               transition-all duration-300">
+
+                        <a
+                            href="#costumbres"
+                            class="block px-5 py-4 hover:bg-slate-50">
+
+                            Costumbres y tradiciones
+
+                        </a>
+
+                        <a
+                            href="#vestimenta"
+                            class="block px-5 py-4 hover:bg-slate-50">
+
+                            Vestimenta típica
+
+                        </a>
+
+                        <a
+                            href="#agricultura"
+                            class="block px-5 py-4 hover:bg-slate-50">
+
+                            Agricultura
+
+                        </a>
+
+                        <a
+                            href="#gastronomia"
+                            class="block px-5 py-4 hover:bg-slate-50">
+
+                            Gastronomía
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- CULTURA -->
+                <div class="relative group">
+
+                    <button
+                        class="flex items-center gap-2
+                               font-medium text-slate-700
+                               hover:text-[#F28C28] transition">
+
+                        Cultura
+
+                        <span class="text-xs">▼</span>
+
+                    </button>
+
+                    <div
+                        class="absolute  overflow-hidden top-full left-0 mt-3
+                               w-72 bg-white rounded-2xl
+                               shadow-2xl border border-slate-200
+                               opacity-0 invisible
+                               group-hover:opacity-100
+                               group-hover:visible
+                               transition-all duration-300">
+
+                        <a
+                            href="#fiestas-patronales"
+                            class="block px-5 py-4 hover:bg-slate-50">
+
+                            Fiestas patronales
+
+                        </a>
+
+                        <a
+                            href="#fiestas-religiosas"
+                            class="block px-5 py-4 hover:bg-slate-50">
+
+                            Fiestas religiosas
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- TURISMO -->
+                <a
+                    [routerLink]="'/Lugares'"
+                    class="font-medium text-slate-700 hover:text-[#F28C28] transition">
+
+                    Lugares turísticos
+
                 </a>
 
-                <!-- <a href="#productos" class="text-slate-700 hover:text-[#F28C28] transition">
-                    Productos
-                </a> -->
+                <!-- CTA -->
+                <a
+                    [routerLink]="'/Lugares'"
+                    class="px-5 py-3 rounded-xl
+                           bg-[#F28C28]
+                           hover:bg-[#E67E22]
+                           text-white font-semibold
+                           transition">
+
+                    Explorar
+
+                </a>
 
             </div>
 
-            <!-- BOTÓN MOBILE -->
-            <button (click)="visible4 = true" class="md:hidden text-2xl text-[#2F5D34]">
-                ☰
-            </button>
+            <!-- MOBILE -->
+            <button
+                (click)="visible4 = true"
+                class="lg:hidden text-3xl text-[#2F5D34]">
 
+                ☰
+
+            </button>
 
         </div>
 
     </div>
+
 </nav>
 
 
 <router-outlet />
 
-
 <p-drawer
-  header="Menu"
+  header="Menú"
   [(visible)]="visible4"
   position="bottom"
   appendTo="body"
@@ -49,56 +200,213 @@
   [modal]="true"
   [style]="{ height: 'auto' }">
 
-  <div class="flex flex-col gap-4 mt-4">
+  <div class="flex flex-col gap-2 mt-4">
 
-    <!-- ITEM -->
-    <a routerLink="/Inicio"
+    <!-- INICIO -->
+    <a
+      routerLink="/Inicio"
+      (click)="toggleMenu()"
+      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
 
-       (click)="toggleMenu()"
-       class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
-
-      <img alt="Imagen" src="assets/huaranchal-hero.jpg"
-           class="w-12 h-12 rounded-xl object-cover">
+      <img
+        src="assets/huaranchal-hero.jpg"
+        alt="Inicio"
+        class="w-12 h-12 rounded-xl object-cover">
 
       <div class="flex flex-col">
         <span class="font-semibold text-lg">Inicio</span>
         <span class="text-sm text-gray-400">Página principal</span>
       </div>
 
-      <span class="ml-auto opacity-0 group-hover:opacity-100 transition">→</span>
+      <span class="ml-auto">→</span>
+
     </a>
 
-    <!-- ITEM -->
-    <a routerLink="/Lugares"
-       (click)="toggleMenu()"
-       class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
+    <!-- COSTUMBRES -->
+    <a
+      href="#costumbres"
+      (click)="toggleMenu()"
+      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
 
-      <img alt="Imagen" src="assets/CATARATA-IMG.jpeg"
-           class="w-12 h-12 rounded-xl object-cover">
+      <div
+        class="w-12 h-12 rounded-xl bg-orange-100
+               flex items-center justify-center text-xl">
 
-      <div class="flex flex-col">
-        <span class="font-semibold text-lg">Lugares</span>
-        <span class="text-sm text-gray-400">Lugares Turísticos</span>
+        🎭
+
       </div>
 
-      <span class="ml-auto opacity-0 group-hover:opacity-100 transition">→</span>
+      <div class="flex flex-col">
+        <span class="font-semibold text-lg">
+          Costumbres y tradiciones
+        </span>
+        <span class="text-sm text-gray-400">
+          Cultura local
+        </span>
+      </div>
+
+      <span class="ml-auto">→</span>
+
     </a>
 
-    <!-- ITEM -->
-    <!-- <a routerLink="/funko-pop"
-       (click)="toggleMenu()"
-       class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
+    <!-- FIESTAS -->
+    <a
+      href="#fiestas-patronales"
+      (click)="toggleMenu()"
+      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
 
-      <img src="assets/GRANADILLAS-IMG.jpg"
-           class="w-12 h-12 rounded-xl object-cover">
+      <div
+        class="w-12 h-12 rounded-xl bg-red-100
+               flex items-center justify-center text-xl">
 
-      <div class="flex flex-col">
-        <span class="font-semibold text-lg">Productos</span>
-        <span class="text-sm text-gray-400">Principales</span>
+        🎉
+
       </div>
 
-      <span class="ml-auto opacity-0 group-hover:opacity-100 transition">→</span>
-    </a> -->
+      <div class="flex flex-col">
+        <span class="font-semibold text-lg">
+          Fiestas patronales
+        </span>
+        <span class="text-sm text-gray-400">
+          Celebraciones tradicionales
+        </span>
+      </div>
+
+      <span class="ml-auto">→</span>
+
+    </a>
+
+    <!-- RELIGIOSAS -->
+    <a
+      href="#fiestas-religiosas"
+      (click)="toggleMenu()"
+      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
+
+      <div
+        class="w-12 h-12 rounded-xl bg-yellow-100
+               flex items-center justify-center text-xl">
+
+        ⛪
+
+      </div>
+
+      <div class="flex flex-col">
+        <span class="font-semibold text-lg">
+          Fiestas religiosas
+        </span>
+        <span class="text-sm text-gray-400">
+          Fe y tradición
+        </span>
+      </div>
+
+      <span class="ml-auto">→</span>
+
+    </a>
+
+    <!-- VESTIMENTA -->
+    <a
+      href="#vestimenta"
+      (click)="toggleMenu()"
+      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
+
+      <div
+        class="w-12 h-12 rounded-xl bg-purple-100
+               flex items-center justify-center text-xl">
+
+        👘
+
+      </div>
+
+      <div class="flex flex-col">
+        <span class="font-semibold text-lg">
+          Vestimenta típica
+        </span>
+        <span class="text-sm text-gray-400">
+          Identidad cultural
+        </span>
+      </div>
+
+      <span class="ml-auto">→</span>
+
+    </a>
+
+    <!-- AGRICULTURA -->
+    <a
+      href="#agricultura"
+      (click)="toggleMenu()"
+      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
+
+      <div
+        class="w-12 h-12 rounded-xl bg-green-100
+               flex items-center justify-center text-xl">
+
+        🌾
+
+      </div>
+
+      <div class="flex flex-col">
+        <span class="font-semibold text-lg">
+          Agricultura
+        </span>
+        <span class="text-sm text-gray-400">
+          Producción local
+        </span>
+      </div>
+
+      <span class="ml-auto">→</span>
+
+    </a>
+
+    <!-- GASTRONOMÍA -->
+    <a
+      href="#gastronomia"
+      (click)="toggleMenu()"
+      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
+
+      <div
+        class="w-12 h-12 rounded-xl bg-amber-100
+               flex items-center justify-center text-xl">
+
+        🍲
+
+      </div>
+
+      <div class="flex flex-col">
+        <span class="font-semibold text-lg">
+          Gastronomía
+        </span>
+        <span class="text-sm text-gray-400">
+          Sabores de Huaranchal
+        </span>
+      </div>
+
+      <span class="ml-auto">→</span>
+
+    </a>
+
+    <!-- LUGARES -->
+    <a
+      routerLink="/Lugares"
+      (click)="toggleMenu()"
+      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition group">
+
+      <img
+        src="assets/CATARATA-IMG.jpeg"
+        alt="Lugares"
+        class="w-12 h-12 rounded-xl object-cover">
+
+      <div class="flex flex-col">
+        <span class="font-semibold text-lg">
+          Lugares turísticos
+        </span>
+        <span class="text-sm text-gray-400">
+          Explorar destinos
+        </span>
+      </div>
+
+      <span class="ml-auto">→</span>
+
+    </a>
 
   </div>
 

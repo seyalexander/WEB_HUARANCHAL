@@ -1,53 +1,253 @@
-
 <section
-class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  class="relative min-h-screen overflow-hidden flex items-center">
 
-    <img
-        alt="Imagen"
-        src="assets/CTA-IMG.jpg"
-        class="absolute inset-0 w-full h-full object-cover">
+  <!-- Fondo -->
+  <img
+    src="assets/CTA-IMG.jpg"
+    alt="Huaranchal"
+    class="absolute inset-0 w-full h-full object-cover">
 
-    <div class="absolute inset-0 bg-black/50"></div>
+  <!-- Overlay cinematográfico -->
+  <div
+    class="absolute inset-0
+           bg-linear-to-r
+           from-black/85
+           via-black/60
+           to-black/20">
+  </div>
 
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+  <!-- Luces -->
+  <div
+    class="absolute top-20 left-20
+           w-96 h-96
+           bg-amber-500/20
+           rounded-full
+           blur-[150px]">
+  </div>
 
-        <span
-            class="inline-flex px-5 py-2 rounded-full bg-white/20 backdrop-blur-md text-white">
+  <div
+    class="absolute bottom-0 right-0
+           w-125 h-125
+           bg-yellow-400/10
+           rounded-full
+           blur-[180px]">
+  </div>
 
-            Provincia de Otuzco · La Libertad
+  <!-- Contenido -->
+<div class="relative z-10
+           max-w-7xl mx-auto
+           px-6 lg:px-12
+           w-full">
 
-        </span>
+    <div
+      class="grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- IZQUIERDA -->
+      <div>
 
         <h1
-            class="mt-8 text-5xl md:text-7xl font-extrabold text-white leading-tight">
+          class="mt-8
+                 text-5xl
+                 md:text-7xl
+                 lg:text-7xl
+                 font-black
+                 leading-none
+                 text-white">
 
-            Descubre la magia de
-            <span class="text-[#F6C445]">
-                Huaranchal
-            </span>
+          Descubre la magia de
+
+          <span
+            class="block mt-3 text-[#F6C445]">
+
+            Huaranchal
+
+          </span>
 
         </h1>
 
         <p
-            class="mt-6 text-xl text-slate-200 max-w-3xl mx-auto">
+          class="mt-8
+                 text-lg md:text-xl
+                 text-slate-300
+                 max-w-xl
+                 leading-relaxed">
 
-            Cataratas, baños termales, paisajes naturales,
-            cultura viva y los sabores auténticos del Alto Chicama.
+          Explora cataratas escondidas,
+          aguas termales naturales y
+          paisajes únicos en el corazón
+          del Alto Chicama.
 
         </p>
 
-        <div class="mt-10 flex justify-center">
+        <div
+          class="mt-10 flex flex-wrap gap-4">
 
-            <button
-                class="px-10 py-4 rounded-xl bg-[#F28C28] hover:bg-[#e07b18] text-white font-semibold transition">
+          <button
+            class="px-8 py-4 rounded-xl
+                   bg-[#F28C28]
+                   hover:bg-[#E67E22]
+                   text-white
+                   font-semibold
+                   shadow-2xl
+                   hover:scale-105
+                   transition-all">
 
-                Explorar destinos
+            Explorar destinos
 
-            </button>
+          </button>
+
+          <button
+            class="px-8 py-4 rounded-xl
+                   border border-white/20
+                   bg-white/10
+                   backdrop-blur-md
+                   text-white
+                   hover:bg-white/20
+                   transition-all">
+
+            Cómo llegar
+
+          </button>
 
         </div>
 
+        <!-- Mini Stats -->
+        <div
+          class="mt-12 flex flex-wrap gap-8">
+
+          <div>
+            <h3
+              class="text-4xl font-bold text-[#F6C445]">
+
+              4+
+
+            </h3>
+
+            <p
+              class="text-slate-300">
+
+              Destinos
+
+            </p>
+          </div>
+
+          <div>
+            <h3
+              class="text-4xl font-bold text-[#F6C445]">
+
+              2500m
+
+            </h3>
+
+            <p
+              class="text-slate-300">
+
+              Altitud
+
+            </p>
+          </div>
+
+          <div>
+            <h3
+              class="text-4xl font-bold text-[#F6C445]">
+
+              365
+
+            </h3>
+
+            <p
+              class="text-slate-300">
+
+              Días al año
+
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- DERECHA -->
+      <div
+        class="hidden lg:flex justify-end">
+
+        <div
+          class="w-80
+                 bg-white/10
+                 backdrop-blur-xl
+                 border border-white/20
+                 rounded-3xl
+                 overflow-hidden
+                 shadow-2xl">
+
+          <img
+            src="assets/CATARATA-IMG.jpeg"
+            alt="Catarata La Paccha"
+            class="w-full h-56 object-cover">
+
+          <div class="p-6">
+
+            <span
+              class="text-sm text-amber-400">
+
+              DESTINO DESTACADO
+
+            </span>
+
+            <h3
+              class="mt-2 text-2xl
+                     font-bold text-white">
+
+              Catarata La Paccha
+
+            </h3>
+
+            <p
+              class="mt-3 text-slate-300">
+
+              Uno de los atractivos
+              naturales más visitados
+              de Huaranchal.
+
+            </p>
+
+            <div
+              class="mt-5 flex justify-between items-center">
+
+              <span
+                class="text-yellow-400">
+
+                ★ 4.9
+
+              </span>
+
+              <button
+                class="text-white font-semibold">
+
+                Ver más →
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
+  </div>
+
+  <!-- Gradiente inferior -->
+  <div
+    class="absolute bottom-0 left-0 right-0
+           h-40
+           bg-linear-to-t
+           from-slate-950
+           to-transparent">
+  </div>
 
 </section>
 
