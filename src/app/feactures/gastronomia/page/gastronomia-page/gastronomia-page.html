@@ -1,202 +1,217 @@
-<section class="relative min-h-[85vh] flex items-center overflow-hidden mt-20">
+<section
+  id="gastronomia"
+  class="relative min-h-screen overflow-hidden bg-[#0B0B0F] py-24 px-6">
 
-    <!-- Imagen de fondo -->
-    <img
-        src="assets/GASTRONOMIA/GASTRONOMIA_01.png"
-        alt="Gastronomía de Huaranchal"
-        class="absolute inset-0 w-full h-full object-cover">
+  <!-- DECORACIONES -->
+  <div
+    class="absolute top-20 left-10 w-52 h-52 bg-[#F6C445]/10 rounded-full blur-3xl">
+  </div>
 
-    <!-- Overlay -->
-    <div
-        class="absolute inset-0
-               bg-linear-to-r
-               from-black/80
-               via-black/50
-               to-black/30">
-    </div>
+  <div
+    class="absolute bottom-20 right-10 w-72 h-72 bg-[#F28C28]/10 rounded-full blur-3xl">
+  </div>
 
-    <!-- Decoración -->
-    <div
-        class="absolute top-0 right-0
-               w-[500px] h-[500px]
-               bg-[#F28C28]/10
-               rounded-full
-               blur-[140px]">
-    </div>
+  <!-- CONTENEDOR -->
+  <div
+    class="relative z-10 max-w-7xl mx-auto rounded-[40px]
+           bg-white/5 backdrop-blur-xl
+           border border-white/10
+           overflow-hidden">
 
-    <div
-        class="relative z-10
-               max-w-7xl mx-auto
-               px-6 py-6 w-full">
+    <!-- HEADER -->
+    <div class="grid lg:grid-cols-2 gap-12 p-10 lg:p-16">
 
-        <div class="max-w-3xl">
+      <!-- TEXTO -->
+      <div class="flex flex-col justify-center">
 
-            <span
-                class="inline-flex items-center gap-2
-                       px-5 py-2
-                       rounded-full
-                       bg-white/15
-                       backdrop-blur-md
-                       text-white">
+        <span
+          class="inline-flex w-fit px-4 py-2 rounded-full
+                 bg-[#F6C445]/20
+                 text-[#F6C445]
+                 text-sm font-semibold">
 
-                🍽️ Sabores Tradicionales
+          Gastronomía Tradicional
 
-            </span>
+        </span>
 
-            <h1
-                class="mt-8
-                       text-5xl md:text-7xl
-                       font-black
-                       text-white
-                       leading-tight">
+        <h2
+          class="mt-6 text-5xl lg:text-6xl font-black text-white leading-tight">
 
-                Gastronomía de
+          Sabores de
+          <span class="block text-[#F6C445]">
+            Huaranchal
+          </span>
 
-                <span class="text-[#F6C445]">
-                    Huaranchal
-                </span>
+        </h2>
 
-            </h1>
+        <p
+          class="mt-6 text-slate-300 text-lg leading-relaxed max-w-xl">
 
-            <p
-                class="mt-8
-                       text-xl
-                       text-slate-200
-                       leading-relaxed">
+          Descubre los platos más representativos preparados
+          por generaciones de familias huaranchalinas.
+          Recetas tradicionales, ingredientes frescos y
+          el auténtico sabor de la sierra liberteña.
 
-                Descubre los sabores que forman parte de la identidad
-                cultural de Huaranchal. Platos preparados con ingredientes
-                locales, recetas tradicionales y el legado culinario
-                transmitido de generación en generación.
+        </p>
 
-            </p>
+        <!-- BUSCADOR -->
+        <div class="mt-8 flex gap-3">
 
-            <!-- Chips -->
-            <div
-                class="flex flex-wrap gap-3 mt-10">
+          <input
+            type="text"
+            placeholder="Buscar comida típica..."
+            class="flex-1 px-5 py-4 rounded-xl
+                   bg-white/10
+                   border border-white/10
+                   text-white
+                   outline-none">
 
-                <span
-                    class="px-4 py-2 rounded-full
-                           bg-white/10 backdrop-blur-md
-                           text-white">
+          <button
+            class="px-8 py-4 rounded-xl
+                   bg-[#F28C28]
+                   hover:bg-[#E67E22]
+                   text-white font-semibold">
 
-                    🌽 Productos Locales
+            Buscar
 
-                </span>
-
-                <span
-                    class="px-4 py-2 rounded-full
-                           bg-white/10 backdrop-blur-md
-                           text-white">
-
-                    🥔 Ingredientes Andinos
-
-                </span>
-
-                <span
-                    class="px-4 py-2 rounded-full
-                           bg-white/10 backdrop-blur-md
-                           text-white">
-
-                    🍲 Recetas Tradicionales
-
-                </span>
-
-            </div>
-
-            <!-- Indicadores -->
-            <div
-                class="grid grid-cols-3 gap-4
-                       mt-12 max-w-2xl">
-
-                <div
-                    class="bg-white/10
-                           backdrop-blur-md
-                           rounded-3xl
-                           p-5">
-
-                    <div class="text-3xl">
-                        🍲
-                    </div>
-
-                    <p
-                        class="mt-3
-                               text-sm text-white">
-
-                        Platos Típicos
-
-                    </p>
-
-                </div>
-
-                <div
-                    class="bg-white/10
-                           backdrop-blur-md
-                           rounded-3xl
-                           p-5">
-
-                    <div class="text-3xl">
-                        🌽
-                    </div>
-
-                    <p
-                        class="mt-3
-                               text-sm text-white">
-
-                        Productos Locales
-
-                    </p>
-
-                </div>
-
-                <div
-                    class="bg-white/10
-                           backdrop-blur-md
-                           rounded-3xl
-                           p-5">
-
-                    <div class="text-3xl">
-                        ❤️
-                    </div>
-
-                    <p
-                        class="mt-3
-                               text-sm text-white">
-
-                        Tradición Familiar
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- CTA -->
-            <div class="mt-12">
-
-                <a
-                    href="#gastronomia"
-                    class="inline-flex items-center gap-3
-                           px-8 py-4
-                           rounded-2xl
-                           bg-[#F28C28]
-                           hover:bg-[#E67E22]
-                           text-white
-                           font-semibold
-                           transition">
-
-                    Descubrir sabores
-
-                    <span>
-                        →
-                    </span>
-
-                </a>
-
-            </div>
+          </button>
 
         </div>
 
+        <!-- CATEGORIAS -->
+        <div class="mt-8 flex flex-wrap gap-3">
+
+          <button
+            class="px-5 py-3 rounded-xl
+                   bg-[#F6C445]
+                   text-black font-semibold">
+
+            Todo
+
+          </button>
+
+          <button
+            class="px-5 py-3 rounded-xl
+                   bg-white/10 text-white">
+
+            Sopas
+
+          </button>
+
+          <button
+            class="px-5 py-3 rounded-xl
+                   bg-white/10 text-white">
+
+            Guisos
+
+          </button>
+
+          <button
+            class="px-5 py-3 rounded-xl
+                   bg-white/10 text-white">
+
+            Bebidas
+
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- IMAGEN DESTACADA -->
+      <div class="relative flex items-center justify-center">
+
+        <div
+          class="absolute w-96 h-96 rounded-full
+                 bg-[#F6C445]/20 blur-3xl">
+        </div>
+
+        <img
+          [src]="platoSeleccionado.imagen"
+          class="relative z-10
+                 w-full max-w-lg
+                 drop-shadow-2xl
+                 rounded-2xl
+                 hover:scale-105
+                 transition-all duration-500">
+
+      </div>
+
     </div>
 
+    <!-- GRID DE COMIDAS -->
+    <div
+      class="grid md:grid-cols-2 lg:grid-cols-4 gap-6
+             p-10 border-t border-white/10">
+
+      @for(plato of comidas; track plato.id){
+
+      <div
+        (mouseenter)="seleccionarPlato(plato)"
+        (mouseleave)="onLeaveCard()"
+        class="group rounded-3xl
+               bg-white/5
+               border border-white/10
+               overflow-hidden
+               hover:border-[#F6C445]/50
+               transition-all
+               cursor-pointer">
+
+        <div class="overflow-hidden">
+
+          <img
+            [src]="plato.imagen"
+            class="h-52 w-full object-cover
+                   group-hover:scale-110
+                   transition-all duration-500">
+
+        </div>
+
+        <div class="p-5">
+
+          <h3
+            class="text-white text-xl font-bold">
+
+            {{ plato.nombre }}
+
+          </h3>
+
+          <p
+            class="text-slate-400 text-sm mt-2 line-clamp-3">
+
+            {{ plato.descripcion }}
+
+          </p>
+
+          <button
+            class="mt-4 text-[#F6C445]
+                   font-semibold">
+
+            Ver más →
+
+          </button>
+
+        </div>
+
+      </div>
+
+      }
+
+    </div>
+
+  </div>
+
 </section>
+
+<div
+  class="hidden lg:block fixed -right-10 -bottom-12 w-105 z-50  pointer-events-none transition-all duration-500"
+  [class.opacity-0]="!showModelo "
+  [class.opacity-100]="showModelo ">
+
+  <img
+     [src]="platoSeleccionado.modelo"
+    alt="Turista"
+    class="w-full h-auto drop-shadow-2xl" />
+
+</div>
+
