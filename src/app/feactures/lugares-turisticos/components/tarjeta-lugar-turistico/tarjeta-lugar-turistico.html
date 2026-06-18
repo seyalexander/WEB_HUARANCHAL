@@ -37,8 +37,26 @@
 </div>
 
 <!-- PERSONAJE TURISTA (solo desktop) -->
+
 <div
-  class="hidden lg:block fixed -right-10 -bottom-12 w-[420px] z-50  pointer-events-none transition-all duration-500"
+  class="hidden lg:block fixed -left-10 top-0 h-screen -z-10 pointer-events-none transition-all duration-500"
+  [class.opacity-0]="!showTraveler"
+  [class.opacity-100]="showTraveler"
+>
+
+  <!-- Imagen -->
+  <img
+  src="assets/NATURALEZA-IMG.jpeg"
+  alt="Turista"
+  class="w-full h-screen drop-shadow-2xl opacity-50
+  [mask-image:linear-gradient(to_right,black_50%,transparent_100%)]
+  [-webkit-mask-image:linear-gradient(to_right,black_50%,transparent_100%)]"
+/>
+
+</div>
+
+<div
+  class="hidden lg:block fixed -right-10 -bottom-12 w-105 z-50  pointer-events-none transition-all duration-500"
   [class.opacity-0]="!showTraveler"
   [class.opacity-100]="showTraveler">
 
