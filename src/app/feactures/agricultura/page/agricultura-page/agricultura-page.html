@@ -1,177 +1,193 @@
-<section class="relative min-h-[85vh] flex items-center overflow-hidden mt-10">
+<section
+  id="agricultura"
+  class="relative min-h-screen overflow-hidden bg-[#0B0B0F] py-24 px-6">
 
-    <!-- Imagen de fondo -->
-    <img
-        src="assets/AGRICULTURA/agricultura.jpeg"
-        alt="Agricultura de Huaranchal"
-        class="absolute inset-0 w-full h-full object-cover">
+  <!-- DECORACIONES -->
+  <div
+    class="absolute top-10 left-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl">
+  </div>
 
-    <!-- Overlay -->
-    <div
-        class="absolute inset-0
-               bg-gradient-to-r
-               from-black/80
-               via-black/50
-               to-black/20">
-    </div>
+  <div
+    class="absolute bottom-10 right-10 w-72 h-72 bg-yellow-500/10 rounded-full blur-3xl">
+  </div>
 
-    <!-- Decoración -->
-    <div
-        class="absolute top-20 right-20
-               w-96 h-96
-               rounded-full
-               bg-[#F6C445]/10
-               blur-[120px]">
-    </div>
+  <!-- CONTENEDOR -->
+  <div
+    class="relative z-10 max-w-7xl mx-auto
+           rounded-[40px]
+           bg-white/5
+           backdrop-blur-xl
+           border border-white/10
+           overflow-hidden">
 
-    <!-- Contenido -->
-    <div
-        class="relative z-10
-               max-w-7xl mx-auto
-               px-6 w-full">
+    <!-- HEADER -->
+    <div class="grid lg:grid-cols-2 gap-12 p-10 lg:p-16">
 
-        <div class="max-w-3xl">
+      <!-- TEXTO -->
+      <div class="flex flex-col justify-center">
 
-            <span
-                class="inline-flex items-center
-                       px-5 py-2
-                       rounded-full
-                       bg-white/15
-                       backdrop-blur-md
-                       text-white">
+        <span
+          class="inline-flex w-fit px-4 py-2 rounded-full
+                 bg-green-500/20
+                 text-green-400
+                 text-sm font-semibold">
 
-                🌱 Actividad Productiva Tradicional
+          Agricultura Tradicional
 
-            </span>
+        </span>
 
-            <h1
-                class="mt-8
-                       text-5xl md:text-7xl
-                       font-black
-                       text-white
-                       leading-tight">
+        <h2
+          class="mt-6 text-5xl lg:text-6xl
+                 font-black text-white">
 
-                Agricultura en
+          Campos de
+          <span class="block text-green-400">
+            Huaranchal
+          </span>
 
-                <span class="text-[#F6C445]">
-                    Huaranchal
-                </span>
+        </h2>
 
-            </h1>
+        <p
+          class="mt-6 text-slate-300 text-lg leading-relaxed max-w-xl">
 
-            <p
-                class="mt-8
-                       text-xl
-                       text-slate-200
-                       leading-relaxed">
+          La agricultura es una de las principales actividades
+          económicas de Huaranchal. Sus fértiles tierras producen
+          diversos cultivos que abastecen a las familias de la zona
+          y a mercados cercanos.
 
-                El trabajo agrícola forma parte de la identidad
-                del distrito desde generaciones. Los cultivos,
-                las técnicas tradicionales y el respeto por la tierra
-                continúan siendo fundamentales para la comunidad.
+        </p>
 
+        <!-- ESTADISTICAS -->
+        <div class="grid grid-cols-3 gap-4 mt-8">
+
+          <div
+            class="rounded-2xl bg-white/5 p-4 border border-white/10">
+
+            <h3 class="text-3xl font-black text-green-400">
+              120+
+            </h3>
+
+            <p class="text-slate-400 text-sm">
+              Agricultores
             </p>
 
-            <!-- Estadísticas -->
-            <div
-                class="grid grid-cols-3 gap-4
-                       mt-12 max-w-2xl">
+          </div>
 
-                <div
-                    class="bg-white/10
-                           backdrop-blur-md
-                           rounded-3xl
-                           p-5">
+          <div
+            class="rounded-2xl bg-white/5 p-4 border border-white/10">
 
-                    <h3
-                        class="text-3xl font-black
-                               text-[#F6C445]">
+            <h3 class="text-3xl font-black text-yellow-400">
+              15+
+            </h3>
 
-                        🌽
+            <p class="text-slate-400 text-sm">
+              Cultivos
+            </p>
 
-                    </h3>
+          </div>
 
-                    <p
-                        class="mt-2
-                               text-sm text-white">
+          <div
+            class="rounded-2xl bg-white/5 p-4 border border-white/10">
 
-                        Cultivos Tradicionales
+            <h3 class="text-3xl font-black text-green-400">
+              Todo el año
+            </h3>
 
-                    </p>
+            <p class="text-slate-400 text-sm">
+              Producción
+            </p>
 
-                </div>
-
-                <div
-                    class="bg-white/10
-                           backdrop-blur-md
-                           rounded-3xl
-                           p-5">
-
-                    <h3
-                        class="text-3xl font-black
-                               text-[#F6C445]">
-
-                        🚜
-
-                    </h3>
-
-                    <p
-                        class="mt-2
-                               text-sm text-white">
-
-                        Trabajo Agrícola
-
-                    </p>
-
-                </div>
-
-                <div
-                    class="bg-white/10
-                           backdrop-blur-md
-                           rounded-3xl
-                           p-5">
-
-                    <h3
-                        class="text-3xl font-black
-                               text-[#F6C445]">
-
-                        🌿
-
-                    </h3>
-
-                    <p
-                        class="mt-2
-                               text-sm text-white">
-
-                        Tradición Rural
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- Scroll -->
-            <div class="mt-14">
-
-                <a
-                    href="#agricultura-info"
-                    class="inline-flex items-center gap-3
-                           text-white hover:text-[#F6C445]
-                           transition">
-
-                    Explorar agricultura
-
-                    <span class="animate-bounce">
-                        ↓
-                    </span>
-
-                </a>
-
-            </div>
+          </div>
 
         </div>
 
+      </div>
+
+      <!-- IMAGEN PRINCIPAL -->
+      <div class="relative flex items-center justify-center">
+
+        <div
+          class="absolute w-96 h-96
+                 bg-green-500/20
+                 rounded-full blur-3xl">
+        </div>
+
+        <img
+          [src]="cultivoSeleccionado.imagen"
+          class="relative z-10
+                 w-full max-w-xl
+                 rounded-3xl
+                 drop-shadow-2xl
+                 hover:scale-105
+                 transition-all duration-500">
+
+      </div>
+
     </div>
+
+    <!-- TARJETAS -->
+    <div
+      class="grid md:grid-cols-2 lg:grid-cols-4 gap-6
+             p-10 border-t border-white/10">
+
+      @for(cultivo of cultivos; track cultivo.id){
+
+      <div
+        (mouseenter)="seleccionarCultivo(cultivo)"
+        class="group
+               bg-white/5
+               border border-white/10
+               rounded-3xl
+               overflow-hidden
+               hover:border-green-400/40
+               cursor-pointer
+               transition-all">
+
+        <div class="overflow-hidden">
+
+          <img
+            [src]="cultivo.imagen"
+            class="h-52 w-full object-cover
+                   group-hover:scale-110
+                   transition-all duration-500">
+
+        </div>
+
+        <div class="p-5">
+
+          <h3
+            class="text-white font-bold text-xl">
+
+            {{ cultivo.nombre }}
+
+          </h3>
+
+          <p
+            class="text-slate-400 text-sm mt-2 line-clamp-3">
+
+            {{ cultivo.descripcion }}
+
+          </p>
+
+          <div
+            class="mt-4 inline-flex
+                   px-3 py-2 rounded-xl
+                   bg-green-500/10
+                   text-green-400
+                   text-sm">
+
+            Ver producción
+
+          </div>
+
+        </div>
+
+      </div>
+
+      }
+
+    </div>
+
+  </div>
 
 </section>

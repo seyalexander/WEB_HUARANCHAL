@@ -1,329 +1,297 @@
-<section class="py-32 bg-[#FAFAF7] relative overflow-hidden">
+<section
+  id="vestimenta"
+  class="relative min-h-screen overflow-hidden bg-[#0B0B0F] py-24 px-6">
+
+  <!-- DECORACIONES -->
+  <div
+    class="absolute top-20 left-20 w-80 h-80
+           bg-[#F6C445]/10 rounded-full blur-3xl">
+  </div>
+
+  <div
+    class="absolute bottom-20 right-20 w-96 h-96
+           bg-[#8B5E3C]/10 rounded-full blur-3xl">
+  </div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+
+    <!-- HEADER -->
+    <div class="text-center">
+
+      <span
+        class="inline-flex px-5 py-2 rounded-full
+               bg-[#F6C445]/20
+               text-[#F6C445]">
+
+        Patrimonio Cultural
+
+      </span>
+
+      <h2
+        class="mt-6 text-5xl lg:text-7xl
+               font-black text-white">
+
+        Vestimenta Tradicional
+      </h2>
+
+      <p
+        class="mt-6 text-slate-400
+               max-w-3xl mx-auto">
+
+        La vestimenta típica de Huaranchal refleja
+        la identidad, el trabajo y las costumbres
+        heredadas por generaciones.
+
+      </p>
+
+    </div>
+
+    <!-- HOMBRE Y MUJER -->
+    <div
+      class="grid lg:grid-cols-2 gap-10 mt-20">
+
+      <!-- VARÓN -->
+      <div
+        (mouseenter)="seleccionarPersona('varon')"
+        class="group relative overflow-hidden
+               rounded-[40px]
+               bg-white/5
+               border border-white/10">
+
+        <img
+          src="assets/VESTIMENTA/varon.png"
+          class="h-[700px]
+                 w-full
+                 object-contain
+                 transition-all
+                 duration-500
+                 group-hover:scale-105">
+
+        <div class="p-8">
+
+          <h3
+            class="text-3xl font-bold text-white">
+
+            Vestimenta Masculina
+
+          </h3>
+
+          <p class="text-slate-400 mt-3">
+
+            Utilizada durante labores agrícolas,
+            festividades y actividades comunales.
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- MUJER -->
+      <div
+        (mouseenter)="seleccionarPersona('mujer')"
+        class="group relative overflow-hidden
+               rounded-[40px]
+               bg-white/5
+               border border-white/10">
+
+        <img
+          src="assets/VESTIMENTAS/vestimenta_mujeres_01.png"
+          class="h-[700px]
+                 w-full
+                 object-contain
+                 transition-all
+                 duration-500
+                 group-hover:scale-105">
+
+        <div class="p-8">
+
+          <h3
+            class="text-3xl font-bold text-white">
+
+            Vestimenta Femenina
+
+          </h3>
+
+          <p class="text-slate-400 mt-3">
+
+            Destaca por sus tejidos, colores
+            y accesorios elaborados artesanalmente.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section
+  class="py-32 bg-[#111111]">
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="text-center">
+
+      <h2
+        class="text-5xl font-black text-white">
+
+        Conoce cada prenda
+
+      </h2>
+
+    </div>
 
     <div
-        class="absolute top-0 left-0
-               w-96 h-96
-               bg-[#F6C445]/10
-               rounded-full
-               blur-[120px]">
+      class="grid lg:grid-cols-2 gap-16 mt-16 items-center">
+
+      <!-- MODELO -->
+      <div class="relative">
+
+        <img
+          [src]="personaSeleccionada.imagen"
+          class="w-full max-h-[700px]
+                 object-contain">
+
+        <!-- PUNTO SOMBRERO -->
+        <button
+          class="absolute top-[10%] left-[48%]
+                 w-5 h-5 rounded-full
+                 bg-[#F6C445] animate-ping">
+        </button>
+
+        <!-- PUNTO PONCHO -->
+        <button
+          class="absolute top-[35%] left-[50%]
+                 w-5 h-5 rounded-full
+                 bg-[#F6C445] animate-ping">
+        </button>
+
+      </div>
+
+      <!-- INFO -->
+      <div>
+
+        <span
+          class="px-4 py-2 rounded-full
+                 bg-[#F6C445]/20
+                 text-[#F6C445]">
+
+          Elemento Tradicional
+
+        </span>
+
+        <h3
+          class="mt-5 text-4xl
+                 font-black text-white">
+
+          {{ prendaSeleccionada.nombre }}
+
+        </h3>
+
+        <p
+          class="mt-6 text-slate-400 leading-8">
+
+          {{ prendaSeleccionada.descripcion }}
+
+        </p>
+
+      </div>
+
     </div>
 
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-            <div>
-
-                <span
-                    class="inline-flex px-5 py-2 rounded-full
-                           bg-[#2F5D34]/10
-                           text-[#2F5D34]">
-
-                    Patrimonio Cultural
-
-                </span>
-
-                <h2
-                    class="mt-6 text-5xl md:text-6xl
-                           font-black text-slate-800">
-
-                    Vestimenta Tradicional de Huaranchal
-
-                </h2>
-
-                <p
-                    class="mt-8 text-lg text-slate-600 leading-8">
-
-                    La vestimenta tradicional refleja la identidad cultural
-                    de los pueblos andinos. Sus colores, tejidos y accesorios
-                    representan la historia, las costumbres y la relación
-                    de la población con su entorno natural.
-
-                </p>
-
-            </div>
-
-            <div>
-
-                <img
-                    src="assets/VESTIMENTA/vestimenta_01.jpg"
-                    alt="Vestimenta típica"
-                    class="w-full h-[550px]
-                           object-cover
-                           rounded-[32px]
-                           shadow-2xl">
-
-            </div>
-
-        </div>
-
-    </div>
+  </div>
 
 </section>
 
-<section class="py-24 bg-white">
 
-    <div class="max-w-7xl mx-auto px-6">
+<section
+  class="py-32 bg-[#0B0B0F]">
 
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
+  <div class="max-w-6xl mx-auto px-6">
 
-            <div>
+    <h2
+      class="text-center text-5xl
+             font-black text-white">
 
-                <img
-                    src="assets/VESTIMENTA/varon.jpg"
-                    alt="Vestimenta masculina"
-                    class="rounded-[32px]
-                           shadow-xl
-                           h-[500px]
-                           w-full
-                           object-cover">
+      Evolución Histórica
 
-            </div>
+    </h2>
 
-            <div>
+    <div
+      class="mt-20 border-l-2 border-[#F6C445]/30
+             pl-10 space-y-16">
 
-                <span
-                    class="inline-flex px-4 py-2 rounded-full
-                           bg-blue-50 text-blue-700">
+      <div>
 
-                    Vestimenta Masculina
+        <span class="text-[#F6C445] font-bold">
+          Siglo XIX
+        </span>
 
-                </span>
+        <h3 class="text-white text-2xl mt-2">
 
-                <h2
-                    class="mt-5 text-4xl font-bold">
+          Vestimenta tradicional andina
 
-                    Tradición y trabajo
+        </h3>
 
-                </h2>
+        <p class="text-slate-400 mt-3">
 
-                <p
-                    class="mt-6 text-slate-600 leading-8">
+          Predominaban prendas tejidas
+          artesanalmente con lana.
 
-                    Los hombres tradicionalmente utilizaban sombreros,
-                    ponchos de lana y prendas elaboradas para protegerse
-                    del clima de la sierra.
+        </p>
 
-                </p>
+      </div>
 
-                <div class="mt-8 space-y-4">
+      <div>
 
-                    <div class="flex gap-4">
+        <span class="text-[#F6C445] font-bold">
+          Siglo XX
+        </span>
 
-                        <span class="text-2xl">👒</span>
+        <h3 class="text-white text-2xl mt-2">
 
-                        <div>
+          Incorporación de nuevos materiales
 
-                            <h4 class="font-bold">
-                                Sombrero
-                            </h4>
+        </h3>
 
-                            <p class="text-slate-600">
-                                Protección frente al sol y al clima.
-                            </p>
+        <p class="text-slate-400 mt-3">
 
-                        </div>
+          Se introducen telas industriales
+          manteniendo los diseños tradicionales.
 
-                    </div>
+        </p>
 
-                    <div class="flex gap-4">
+      </div>
 
-                        <span class="text-2xl">🧥</span>
+      <div>
 
-                        <div>
+        <span class="text-[#F6C445] font-bold">
+          Actualidad
+        </span>
 
-                            <h4 class="font-bold">
-                                Poncho
-                            </h4>
+        <h3 class="text-white text-2xl mt-2">
 
-                            <p class="text-slate-600">
-                                Prenda tradicional de abrigo.
-                            </p>
+          Patrimonio cultural vivo
 
-                        </div>
+        </h3>
 
-                    </div>
+        <p class="text-slate-400 mt-3">
 
-                </div>
+          La vestimenta continúa presente
+          en festividades y celebraciones.
 
-            </div>
+        </p>
 
-        </div>
+      </div>
 
     </div>
 
-</section>
-
-<section class="py-24 bg-[#FAFAF7]">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-            <div>
-
-                <span
-                    class="inline-flex px-4 py-2 rounded-full
-                           bg-pink-50 text-pink-700">
-
-                    Vestimenta Femenina
-
-                </span>
-
-                <h2
-                    class="mt-5 text-4xl font-bold">
-
-                    Color y tradición
-
-                </h2>
-
-                <p
-                    class="mt-6 text-slate-600 leading-8">
-
-                    Las mujeres destacan por el uso de polleras,
-                    mantas y accesorios tejidos artesanalmente,
-                    reflejando la riqueza cultural de los Andes.
-
-                </p>
-
-                <div
-                    class="grid sm:grid-cols-2 gap-4 mt-8">
-
-                    <div
-                        class="bg-white p-6 rounded-3xl">
-
-                        <h4 class="font-bold">
-                            🧶 Tejidos
-                        </h4>
-
-                        <p class="mt-2 text-slate-600">
-                            Elaborados con técnicas tradicionales.
-                        </p>
-
-                    </div>
-
-                    <div
-                        class="bg-white p-6 rounded-3xl">
-
-                        <h4 class="font-bold">
-                            👗 Polleras
-                        </h4>
-
-                        <p class="mt-2 text-slate-600">
-                            Parte importante de la identidad cultural.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <img
-                    src="assets/VESTIMENTA/mujer.jpg"
-                    alt="Vestimenta femenina"
-                    class="rounded-[32px]
-                           shadow-xl
-                           h-[500px]
-                           w-full
-                           object-cover">
-
-            </div>
-
-        </div>
-
-    </div>
+  </div>
 
 </section>
-
-<section class="py-24 bg-white">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="text-center">
-
-            <span
-                class="inline-flex px-5 py-2 rounded-full
-                       bg-[#F28C28]/10 text-[#F28C28]">
-
-                Elementos Tradicionales
-
-            </span>
-
-            <h2
-                class="mt-6 text-5xl font-bold">
-
-                Componentes de la vestimenta
-
-            </h2>
-
-        </div>
-
-        <div
-            class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
-
-            <article class="bg-[#FAFAF7] p-8 rounded-4xl">
-                <div class="text-5xl">👒</div>
-                <h3 class="mt-5 font-bold">Sombrero</h3>
-            </article>
-
-            <article class="bg-[#FAFAF7] p-8 rounded-4xl">
-                <div class="text-5xl">🧥</div>
-                <h3 class="mt-5 font-bold">Poncho</h3>
-            </article>
-
-            <article class="bg-[#FAFAF7] p-8 rounded-4xl">
-                <div class="text-5xl">👗</div>
-                <h3 class="mt-5 font-bold">Pollera</h3>
-            </article>
-
-            <article class="bg-[#FAFAF7] p-8 rounded-4xl">
-                <div class="text-5xl">🧶</div>
-                <h3 class="mt-5 font-bold">Tejidos</h3>
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="py-24 bg-[#FAFAF7]">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="text-center">
-
-            <h2
-                class="text-5xl font-bold">
-
-                Galería de Vestimentas
-
-            </h2>
-
-        </div>
-
-        <div
-            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-14">
-
-            <img src="assets/VESTIMENTA/01.jpg"
-                 class="rounded-3xl h-72 object-cover w-full">
-
-            <img src="assets/VESTIMENTA/02.jpg"
-                 class="rounded-3xl h-72 object-cover w-full">
-
-            <img src="assets/VESTIMENTA/03.jpg"
-                 class="rounded-3xl h-72 object-cover w-full">
-
-            <img src="assets/VESTIMENTA/04.jpg"
-                 class="rounded-3xl h-72 object-cover w-full">
-
-        </div>
-
-    </div>
-
-</section>
-
-<app-footer-lugares-turisticos />
