@@ -44,8 +44,8 @@ export class Integrantes {
       apellido: 'Moreno Mercedes',
       role: 'Estudiante',
       description: '4° Grado - Sección "A"',
-      image: 'https://i.pravatar.cc/150?img=3',
-      imageHover: 'https://i.pravatar.cc/150?img=13'
+      image: 'https://i.pravatar.cc/150?img=4',
+      imageHover: 'https://i.pravatar.cc/150?img=4',
     },
     {
       id: 4,
@@ -54,7 +54,7 @@ export class Integrantes {
       role: 'Estudiante',
       description: '4° Grado - Sección "A"',
       image: 'https://i.pravatar.cc/150?img=4',
-      imageHover: 'https://i.pravatar.cc/150?img=14'
+      imageHover: 'https://i.pravatar.cc/150?img=4',
     },
     {
       id: 5,
@@ -62,8 +62,8 @@ export class Integrantes {
       apellido: 'Yupanqui Vidal ',
       role: 'Estudiante',
       description: '4° Grado - Sección "A"',
-      image: 'https://i.pravatar.cc/150?img=5',
-      imageHover: 'https://i.pravatar.cc/150?img=15'
+      image: 'https://i.pravatar.cc/150?img=4',
+      imageHover: 'https://i.pravatar.cc/150?img=4',
     },
   ];
 
