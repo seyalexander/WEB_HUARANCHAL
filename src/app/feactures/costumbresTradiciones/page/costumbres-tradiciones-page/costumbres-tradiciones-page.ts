@@ -15,24 +15,36 @@ export type TabCultural =
   styleUrl: './costumbres-tradiciones-page.css',
 })
 export class CostumbresTradicionesPage {
-  tabSeleccionado: TabCultural = 'costumbres';
-
-tabs = [
+ tradiciones = [
   {
-    id: 'costumbres',
-    nombre: 'Costumbres'
+    id: 1,
+    nombre: 'Fiesta Patronal',
+    imagen: 'assets/COSTUMBRES/costumbres_05.jpg',
+    descripcion: 'Celebración religiosa tradicional.',
+    descripcionLarga:
+      'La fiesta patronal reúne a pobladores y visitantes mediante actividades religiosas, música y expresiones culturales.'
   },
   {
-    id: 'tradiciones',
-    nombre: 'Tradiciones'
+    id: 2,
+    nombre: 'Faenas Comunales',
+    imagen: 'assets/COSTUMBRES/faena.jpg',
+    descripcion: 'Trabajo colaborativo entre vecinos.',
+    descripcionLarga:
+      'Las faenas comunales fortalecen la unión y permiten realizar obras de beneficio para toda la comunidad.'
   },
   {
-    id: 'festividades',
-    nombre: 'Festividades'
-  },
-  {
-    id: 'galeria',
-    nombre: 'Galería Cultural'
+    id: 3,
+    nombre: 'Festividades Agrícolas',
+    imagen: 'assets/COSTUMBRES/agricultura.jpg',
+    descripcion: 'Tradiciones ligadas a la producción agrícola.',
+    descripcionLarga:
+      'Diversas actividades acompañan las épocas de siembra y cosecha, manteniendo vivas las costumbres ancestrales.'
   }
 ];
+
+tradicionSeleccionada = this.tradiciones[0];
+
+seleccionarTradicion(tradicion: any) {
+  this.tradicionSeleccionada = tradicion;
+}
 }
