@@ -21,6 +21,8 @@ export class LugaresTuristicosPages implements OnInit {
   showTraveler = false;
 
   urlGlobal: string = "assets"
+  carouselDirection: 'left' | 'right' | null = null;
+  isAnimating = false;
 
   items:lugarTuristico[] = [
     {
@@ -58,5 +60,44 @@ export class LugaresTuristicosPages implements OnInit {
     this.items;
   }
 
+ activeIndex = 0;
+
+get activeItem(): lugarTuristico {
+  return this.items[this.activeIndex];
+}
+
+nextPlace(): void {
+  this.activeIndex =
+    (this.activeIndex + 1) % this.items.length;
+}
+
+prevPlace(): void {
+  this.activeIndex =
+    (this.activeIndex - 1 + this.items.length) %
+    this.items.length;
+}
+
+selectPlace(index: number): void {
+  this.activeIndex = index;
+}
+
+getVisibleCards() {
+  const result = [];
+
+  for (let i = -2; i <= 2; i++) {
+
+    const index =
+      (this.activeIndex + i + this.items.length) %
+      this.items.length;
+
+    result.push({
+      item: this.items[index],
+      position: i
+    });
+
+  }
+
+  return result;
+}
 
 }

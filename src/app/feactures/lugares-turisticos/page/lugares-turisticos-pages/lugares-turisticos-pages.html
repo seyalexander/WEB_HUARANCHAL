@@ -1,71 +1,143 @@
 <section
   id="lugares"
-  class="relative min-h-screen py-28 overflow-hidden bg-[#FAFAF7]">
+  class="relative w-full bg-[#FAFAF7] overflow-hidden">
 
-  <!-- CAPA 1: GRADIENTE NATURAL BASE -->
+  <!-- ========================= -->
+  <!-- FONDO (solo desktop hero usa, pero lo dejamos global) -->
+  <!-- ========================= -->
   <div class="absolute inset-0 bg-gradient-to-b from-[#F8F9F4] via-[#FAFAF7] to-[#F3F4EE]"></div>
 
-  <!-- CAPA 2: TOPOGRAFÍA ABSTRACTA (MUY SUAVE) -->
-  <div class="absolute inset-0 opacity-[0.06] pointer-events-none">
-    <svg class="w-full h-full" viewBox="0 0 1440 600" preserveAspectRatio="none">
-
-      <path
-        d="M0,420 C150,380 300,460 450,420 C600,380 750,340 900,380 C1050,420 1200,480 1440,420"
-        fill="none"
-        stroke="#2F5D34"
-        stroke-width="2"
-      />
-
-      <path
-        d="M0,300 C200,260 400,340 600,300 C800,260 1000,220 1200,260 C1320,280 1380,320 1440,300"
-        fill="none"
-        stroke="#F28C28"
-        stroke-width="2"
-      />
-
-    </svg>
-  </div>
-
-  <!-- CAPA 3: PUNTOS DE EXPLORACIÓN (tipo mapa turístico moderno) -->
   <div class="absolute inset-0 opacity-[0.05] pointer-events-none
               bg-[radial-gradient(#2F5D34_1px,transparent_1px)]
-              [background-size:26px_26px]">
+              [background-size:26px_26px]"></div>
+
+  <!-- ========================= -->
+  <!-- DESKTOP (HERO + CARRUSEL) -->
+  <!-- ========================= -->
+  <div class="hidden lg:block relative w-full h-screen z-10">
+
+    <div class="absolute inset-0 rounded-[40px] overflow-hidden
+                shadow-[0_40px_80px_rgba(0,0,0,.18)]">
+
+      <!-- IMAGEN PRINCIPAL -->
+      <img
+        [src]="activeItem.imagen"
+        class="absolute inset-0 w-full h-full object-cover scale-105 transition-all duration-700" />
+
+      <!-- OVERLAY -->
+      <div class="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent"></div>
+
+      <!-- HEADER -->
+      <div class="absolute top-20 left-1/2 -translate-x-1/2 text-center z-30 text-white">
+
+        <span class="inline-flex px-5 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20">
+          Destinos Turísticos
+        </span>
+
+        <h2 class="mt-5 text-5xl md:text-7xl font-black">
+          Explora <span class="text-[#F6C445]">Huaranchal</span>
+        </h2>
+
+      </div>
+
+      <!-- CONTENIDO -->
+      <div class="absolute left-10 md:left-16 top-1/2 -translate-y-1/2
+                  max-w-2xl text-white z-20">
+
+        <span class="inline-flex px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-sm">
+          {{activeItem.titleH3}}
+        </span>
+
+        <h2 class="mt-5 text-6xl md:text-8xl font-black leading-none">
+          {{activeItem.titleH1}}
+        </h2>
+
+        <p class="mt-6 text-lg md:text-xl text-white/85 leading-relaxed">
+          {{activeItem.descripcion}}
+        </p>
+
+        <a
+          [routerLink]="activeItem.routerLink"
+          class="inline-flex mt-8 px-8 py-4 rounded-2xl bg-[#F6C445] text-slate-900 font-bold hover:scale-105 transition">
+          Explorar destino
+        </a>
+
+      </div>
+
+      <!-- CARRUSEL -->
+      <div class="absolute bottom-20 left-1/2 -translate-x-1/2 z-30">
+
+        <div class="flex items-center gap-4">
+
+          <button (click)="prevPlace()"
+            class="w-14 h-14 rounded-full bg-white/90 backdrop-blur-md shadow-xl">
+            ←
+          </button>
+
+          @for(card of getVisibleCards(); track $index){
+          <div
+            (click)="selectPlace(items.indexOf(card.item))"
+            class="cursor-pointer transition-all">
+
+            <div class="relative overflow-hidden rounded-3xl shadow-2xl"
+              [class.w-[300px]]="card.position === 0"
+              [class.w-[200px]]="card.position !== 0"
+              [class.h-[200px]]="true">
+
+              <img [src]="card.item.imagen" class="w-full h-full object-cover" />
+
+              <div class="absolute bottom-3 left-3 text-white">
+                <h3 class="font-bold">{{card.item.titleH1}}</h3>
+              </div>
+
+            </div>
+          </div>
+          }
+
+          <button (click)="nextPlace()"
+            class="w-14 h-14 rounded-full bg-white/90 backdrop-blur-md shadow-xl">
+            →
+          </button>
+
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <!-- CAPA 4: LUZ DIRECCIONAL (sensación de “destino”) -->
-  <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#F6C445]/10 rounded-full blur-[180px]"></div>
+  <!-- ========================= -->
+<!-- MOBILE (SOLO LISTA DE CARDS) -->
+<!-- ========================= -->
+<div class="lg:hidden relative z-10 px-5 py-8">
 
-  <!-- CONTENIDO -->
-  <div class="relative z-10 max-w-6xl mx-auto px-6">
+  <h2 class="text-2xl font-black text-[#2F5D34] mb-6 mt-10">
+    Lugares turísticos
+  </h2>
 
-    <!-- HEADER -->
-    <div class="text-center">
+  <div class="grid grid-cols-2 gap-4">
 
-      <span
-        class="inline-flex px-5 py-2 rounded-full bg-[#2F5D34]/10 text-[#2F5D34] text-sm font-medium border border-[#2F5D34]/15">
-        Destinos Turísticos
-      </span>
+    @for(item of items; track $index){
+    <div
+      class="relative rounded-2xl overflow-hidden shadow-lg cursor-pointer"
+      (click)="selectPlace($index)"
+      [routerLink]="item.routerLink">
 
-      <h2 class="mt-6 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-800">
-        Explora <span class="text-[#2F5D34]">Huaranchal</span>
-      </h2>
+      <img
+        [src]="item.imagen"
+        class="w-full h-48 object-cover" />
 
-      <p class="mt-5 text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
-        Descubre cada uno de los lugares que convierten a Huaranchal en uno de los destinos más atractivos de la provincia de Otuzco.
-      </p>
+      <div class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent"></div>
+
+      <div class="absolute bottom-3 left-3 text-white">
+        <h3 class="font-bold text-base">{{item.titleH1}}</h3>
+        <p class="text-white/80 text-xs">{{item.titleH3}}</p>
+      </div>
 
     </div>
-
-    <!-- SEPARADOR -->
-    <div class="mt-10 flex justify-center">
-      <div class="w-28 h-[2px] bg-gradient-to-r from-transparent via-[#F28C28] to-transparent"></div>
-    </div>
-
-    <!-- TARJETAS -->
-    <div class="mt-16">
-      <app-tarjeta-lugar-turistico [items]="items" (hover)="showTraveler = true"
-  (leave)="showTraveler = false"/>
-    </div>
+    }
 
   </div>
+
+</div>
+
 </section>
