@@ -10,27 +10,30 @@
 
   <!-- FOTO 1 -->
   <img
+  alt="Iamgen"
     src="assets/COSTUMBRES/costumbres_01.jpg"
     class="hidden lg:block absolute
            top-20 left-20
            w-64 h-80 object-cover
            rotate-[-8deg]
            opacity-70
-           [mask-image:linear-gradient(to_bottom,black_80%,transparent)]
+           mask-[linear-gradient(to_bottom,black_80%,transparent)]
            [-webkit-mask-image:linear-gradient(to_bottom,black_80%,transparent)]">
 
   <!-- FOTO 2 -->
   <img
+  alt="Iamgen"
     src="assets/COSTUMBRES/costumbres_02.png"
     class="hidden lg:block absolute
            top-32 right-20
            w-72 h-96 object-cover
-           rotate-[6deg]
+           rotate-6
            opacity-70
            [clip-path:polygon(10%_0%,100%_0%,90%_100%,0%_100%)]">
 
   <!-- FOTO 3 -->
   <img
+  alt="Iamgen"
     src="assets/COSTUMBRES/costumbres_03.png"
     class="hidden lg:block absolute
            bottom-16 left-32
@@ -40,13 +43,14 @@
 
   <!-- FOTO 4 -->
   <img
+  alt="Iamgen"
     src="assets/COSTUMBRES/costumbres_04.png"
     class="hidden lg:block absolute
            bottom-24 right-28
            w-64 h-80 object-cover
-           rotate-[10deg]
+           rotate-10
            opacity-70
-           [mask-image:linear-gradient(to_top,black_80%,transparent)]
+           mask-[linear-gradient(to_top,black_80%,transparent)]
            [-webkit-mask-image:linear-gradient(to_top,black_80%,transparent)]">
 
   <!-- CONTENIDO -->
@@ -100,7 +104,7 @@
       <article
         (mouseenter)="seleccionarTradicion(tradicion)"
         class="group overflow-hidden
-               rounded-[32px]
+               rounded-4xl
                border border-white/10
                bg-white/5
                cursor-pointer">
@@ -108,6 +112,7 @@
         <div class="overflow-hidden">
 
           <img
+          alt="Imagen"
             [src]="tradicion.imagen"
             class="h-72 w-full object-cover
                    group-hover:scale-110
@@ -153,9 +158,10 @@
     <div>
 
       <img
+      alt="Imagen"
         [src]="tradicionSeleccionada.imagen"
         class="rounded-[40px]
-               h-[600px]
+               h-150
                object-cover
                w-full">
 
@@ -198,7 +204,7 @@
   class="py-24 bg-[#111111] relative">
  
    <!-- DECORACIÓN SUAVE -->
-  <div class="absolute top-30 -left-20 w-[300px] h-[300px] bg-[#F6C445]/20 rounded-full blur-3xl"></div>
+  <div class="absolute top-30 -left-20 w-75 h-75 bg-[#F6C445]/20 rounded-full blur-3xl"></div>
 
 
 
@@ -331,12 +337,13 @@
       <article
         class="lg:col-span-6
                relative
-               h-[650px]
+               h-162.5
                rounded-[40px]
                overflow-hidden
                group">
 
         <img
+        alt="Imagen"
           src="assets/COSTUMBRES/costumbres_10.png"
           class="absolute inset-0
                  w-full h-full
@@ -346,7 +353,7 @@
 
         <div
           class="absolute inset-0
-                 bg-gradient-to-t
+                 bg-linear-to-t
                  from-black
                  via-black/40
                  to-transparent">
@@ -401,12 +408,13 @@
 
         <article
           class="relative
-                 h-[312px]
-                 rounded-[32px]
+                 h-78
+                 rounded-4xl
                  overflow-hidden
                  group">
 
           <img
+          alt="Imagen"
             src="assets/COSTUMBRES/costumbres_08.png"
             class="absolute inset-0
                    w-full h-full
@@ -416,7 +424,7 @@
 
           <div
             class="absolute inset-0
-                   bg-gradient-to-t
+                   bg-linear-to-t
                    from-black
                    via-black/40
                    to-transparent">
@@ -445,12 +453,13 @@
 
           <article
             class="relative
-                   h-[320px]
-                   rounded-[32px]
+                   h-80
+                   rounded-4xl
                    overflow-hidden
                    group">
 
             <img
+            alt="Imagen"
               src="assets/COSTUMBRES/costumbres_09.png"
               class="absolute inset-0
                      w-full h-full
@@ -460,7 +469,7 @@
 
             <div
               class="absolute inset-0
-                     bg-gradient-to-t
+                     bg-linear-to-t
                      from-black
                      via-black/40
                      to-transparent">
@@ -484,12 +493,13 @@
 
           <article
             class="relative
-                   h-[320px]
-                   rounded-[32px]
+                   h-80
+                   rounded-4xl
                    overflow-hidden
                    group">
 
             <img
+            alt="Imagen"
               src="assets/COSTUMBRES/costumbres_11.png"
               class="absolute inset-0
                      w-full h-full
@@ -499,7 +509,7 @@
 
             <div
               class="absolute inset-0
-                     bg-gradient-to-t
+                     bg-linear-to-t
                      from-black
                      via-black/40
                      to-transparent">

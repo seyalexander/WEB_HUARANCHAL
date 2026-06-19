@@ -5,7 +5,7 @@
 
   <div class="absolute inset-0 opacity-[0.05] pointer-events-none
               bg-[radial-gradient(#2F5D34_1px,transparent_1px)]
-              [background-size:26px_26px]"></div>
+              bg-size-[26px_26px]"></div>
 
   <!-- ========================= -->
   <!-- DESKTOP (RESTO ORIGINAL TUYO) -->
@@ -63,10 +63,11 @@
 
   <div class="relative">
 
-    <!-- 🧍 TURISTA (por ahora mismo PNG) -->
+    <!--TURISTA -->
     <img
+    alt="Imagen"
       src="assets/turista_01.png"
-      class="w-[420px] drop-shadow-[0_30px_80px_rgba(0,0,0,.35)]
+      class="w-105 drop-shadow-[0_30px_80px_rgba(0,0,0,.35)]
              transition-all duration-500"
       [class.scale-105]="activeItem.estadoTurista === 'sorprendido'"
       [class.scale-100]="activeItem.estadoTurista === 'feliz'"
@@ -74,7 +75,7 @@
     />
 
     <!-- 💬 BURBUJA -->
-    <div class="absolute -top-16 left-10 max-w-[260px]
+    <div class="absolute -top-16 left-10 max-w-65
                 bg-white/20 backdrop-blur-xl
                 text-white
                 px-5 py-4 rounded-2xl
