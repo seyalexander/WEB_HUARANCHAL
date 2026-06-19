@@ -2,21 +2,19 @@
   id="lugares"
   class="relative w-full bg-[#FAFAF7] overflow-hidden">
 
-  <!-- ========================= -->
-  <!-- FONDO (solo desktop hero usa, pero lo dejamos global) -->
-  <!-- ========================= -->
-  <div class="absolute inset-0 bg-gradient-to-b from-[#F8F9F4] via-[#FAFAF7] to-[#F3F4EE]"></div>
+  <!-- FONDO -->
+  <div class="absolute inset-0 bg-linear-to-b from-[#F8F9F4] via-[#FAFAF7] to-[#F3F4EE]"></div>
 
   <div class="absolute inset-0 opacity-[0.05] pointer-events-none
               bg-[radial-gradient(#2F5D34_1px,transparent_1px)]
               [background-size:26px_26px]"></div>
 
   <!-- ========================= -->
-  <!-- DESKTOP (HERO + CARRUSEL) -->
+  <!-- DESKTOP (RESTO ORIGINAL TUYO) -->
   <!-- ========================= -->
   <div class="hidden lg:block relative w-full h-screen z-10">
 
-    <div class="absolute inset-0 rounded-[40px] overflow-hidden
+    <div class="absolute inset-0 ] overflow-hidden
                 shadow-[0_40px_80px_rgba(0,0,0,.18)]">
 
       <!-- IMAGEN PRINCIPAL -->
@@ -64,10 +62,19 @@
 
       </div>
 
-      <!-- CARRUSEL -->
+      <!-- TURISTA (RESTO ORIGINAL RESTAURADO) -->
+      <div class="hidden xl:block absolute right-0 -bottom-10 z-20 pointer-events-none">
+        <img
+          src="assets/turista_01.png"
+          class="w-[420px] drop-shadow-[0_30px_80px_rgba(0,0,0,.35)]" />
+      </div>
+
+      <!-- ========================= -->
+      <!-- CARRUSEL ORIGINAL RESTAURADO -->
+      <!-- ========================= -->
       <div class="absolute bottom-20 left-1/2 -translate-x-1/2 z-30">
 
-        <div class="flex items-center gap-4">
+        <div class="flex items-center">
 
           <button (click)="prevPlace()"
             class="w-14 h-14 rounded-full bg-white/90 backdrop-blur-md shadow-xl">
@@ -77,17 +84,33 @@
           @for(card of getVisibleCards(); track $index){
           <div
             (click)="selectPlace(items.indexOf(card.item))"
-            class="cursor-pointer transition-all">
+            class="cursor-pointer transition-all duration-500">
 
             <div class="relative overflow-hidden rounded-3xl shadow-2xl"
-              [class.w-[300px]]="card.position === 0"
-              [class.w-[200px]]="card.position !== 0"
-              [class.h-[200px]]="true">
+
+              [class.w-[320px]]="card.position === 0"
+              [class.h-[210px]]="card.position === 0"
+
+              [class.w-[240px]]="card.position === -1 || card.position === 1"
+              [class.h-[170px]]="card.position === -1 || card.position === 1"
+
+              [class.w-[180px]]="card.position === -2 || card.position === 2"
+              [class.h-[140px]]="card.position === -2 || card.position === 2"
+
+              [class.scale-100]="card.position === 0"
+              [class.scale-90]="card.position === -1 || card.position === 1"
+              [class.scale-75]="card.position === -2 || card.position === 2"
+
+              [class.opacity-100]="card.position === 0"
+              [class.opacity-70]="card.position === -1 || card.position === 1"
+              [class.opacity-40]="card.position === -2 || card.position === 2">
 
               <img [src]="card.item.imagen" class="w-full h-full object-cover" />
 
-              <div class="absolute bottom-3 left-3 text-white">
-                <h3 class="font-bold">{{card.item.titleH1}}</h3>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="font-bold text-lg">
+                  {{card.item.titleH1}}
+                </h3>
               </div>
 
             </div>
@@ -106,38 +129,38 @@
   </div>
 
   <!-- ========================= -->
-<!-- MOBILE (SOLO LISTA DE CARDS) -->
-<!-- ========================= -->
-<div class="lg:hidden relative z-10 px-5 py-8">
+  <!-- MOBILE (SOLO LISTA CORRECTA) -->
+  <!-- ========================= -->
+  <div class="lg:hidden relative z-10 px-5 py-8">
 
-  <h2 class="text-2xl font-black text-[#2F5D34] mb-6 mt-10">
-    Lugares turísticos
-  </h2>
+    <h2 class="text-2xl font-black text-[#2F5D34] mb-6 mt-10">
+      Lugares turísticos
+    </h2>
 
-  <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-2 gap-4">
 
-    @for(item of items; track $index){
-    <div
-      class="relative rounded-2xl overflow-hidden shadow-lg cursor-pointer"
-      (click)="selectPlace($index)"
-      [routerLink]="item.routerLink">
+      @for(item of items; track $index){
+      <div
+        class="relative rounded-2xl overflow-hidden shadow-lg cursor-pointer"
+        (click)="selectPlace($index)"
+        [routerLink]="item.routerLink">
 
-      <img
-        [src]="item.imagen"
-        class="w-full h-48 object-cover" />
+        <img
+          [src]="item.imagen"
+          class="w-full h-48 object-cover" />
 
-      <div class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent"></div>
 
-      <div class="absolute bottom-3 left-3 text-white">
-        <h3 class="font-bold text-base">{{item.titleH1}}</h3>
-        <p class="text-white/80 text-xs">{{item.titleH3}}</p>
+        <div class="absolute bottom-3 left-3 text-white">
+          <h3 class="font-bold text-base">{{item.titleH1}}</h3>
+          <p class="text-white/80 text-xs">{{item.titleH3}}</p>
+        </div>
+
       </div>
+      }
 
     </div>
-    }
 
   </div>
-
-</div>
 
 </section>
