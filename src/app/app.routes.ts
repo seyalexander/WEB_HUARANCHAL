@@ -10,6 +10,10 @@ import { GASTRONOMIA_ROUTES } from './feactures/gastronomia/gastronomia.routes';
 import { INTEGRANTES_ROUTES } from './feactures/integrantes/integrantes.routes';
 
 export const routes: Routes = [
+    {
+        path: '',
+        loadComponent: () => import('../app/shared/components/splash-screen/splash-screen').then(m => m.SplashScreen)
+    },
     ...INICIO_ROUTES,
     ...LUGARES_TURISTICOS_ROUTES,
     ...BANIOS_TERMALES_ROUTES,
@@ -20,7 +24,7 @@ export const routes: Routes = [
     ...GASTRONOMIA_ROUTES,
     ...INTEGRANTES_ROUTES,
     {
-        path:'**',
+        path: '**',
         redirectTo: 'Inicio'
     }
 ];

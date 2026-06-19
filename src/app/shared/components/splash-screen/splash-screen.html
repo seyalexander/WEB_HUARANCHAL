@@ -1,0 +1,63 @@
+<div
+  class="fixed inset-0 flex items-center justify-center bg-[#0B0B0F] overflow-hidden"
+  [ngClass]="{ 'opacity-0 scale-110 blur-xl': exiting }"
+  style="transition: all 1s ease-in-out;"
+>
+
+  <!-- AURORA BACKGROUND -->
+  <div class="absolute inset-0">
+
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                w-[750px] h-[750px] bg-[#F6C445]/20 rounded-full blur-[140px]
+                animate-[pulse_6s_ease-in-out_infinite]">
+    </div>
+
+    <div class="absolute top-20 left-10
+                w-[500px] h-[500px] bg-white/10 rounded-full blur-[140px]
+                animate-[float_10s_ease-in-out_infinite]">
+    </div>
+
+    <div class="absolute bottom-10 right-10
+                w-[500px] h-[500px] bg-[#F6C445]/10 rounded-full blur-[140px]
+                animate-[float_12s_ease-in-out_infinite_reverse]">
+    </div>
+
+  </div>
+
+  <!-- PARTICULAS -->
+  <div class="absolute inset-0 opacity-20">
+    <div class="w-full h-full bg-[radial-gradient(circle,_rgba(255,255,255,0.08)_1px,_transparent_1px)] bg-[length:35px_35px]"></div>
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="relative text-center px-6">
+
+    <!-- LOGO / TITULO -->
+    <h1 class="text-6xl md:text-7xl font-black text-white tracking-tight
+               animate-[fadeUp_1.2s_ease-out_forwards] opacity-0
+               drop-shadow-[0_0_30px_rgba(246,196,69,0.6)]">
+
+      Huaranchal
+    </h1>
+
+    <!-- SUBTITULO -->
+    <p class="mt-4 text-white/70 text-lg
+              animate-[fadeUp_1.5s_ease-out_forwards] opacity-0">
+
+      Proyecto cultural interactivo
+    </p>
+
+    <p class="mt-2 text-white/40 text-sm
+              animate-[fadeUp_1.8s_ease-out_forwards] opacity-0">
+
+      Tradiciones • Vestimenta • Cultura • Identidad
+    </p>
+
+    <!-- LINEA -->
+    <div class="mt-8 w-40 h-[2px] mx-auto bg-[#F6C445] rounded-full
+                animate-[fadeUp_2s_ease-out_forwards] opacity-0">
+    </div>
+
+  </div>
+
+</div>
