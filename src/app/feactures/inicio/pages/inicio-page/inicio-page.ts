@@ -4,10 +4,11 @@ import { CTAInicioComponents } from "../../components/cta-inicio-components/cta-
 import { ProductosEmblematicosInicioComponents } from "../../components/productos-emblematicos-inicio-components/productos-emblematicos-inicio-components";
 import { QueConocerasInicioComponents } from "../../components/que-conoceras-inicio-components/que-conoceras-inicio-components";
 import { RouterLink } from "@angular/router";
+import { PanoramicaComponents } from "../../components/panoramica-components/panoramica-components";
 
 @Component({
   selector: 'app-inicio-page',
-  imports: [FooterInicioComponents, CTAInicioComponents, ProductosEmblematicosInicioComponents, QueConocerasInicioComponents, RouterLink],
+  imports: [FooterInicioComponents, CTAInicioComponents, ProductosEmblematicosInicioComponents, QueConocerasInicioComponents, RouterLink, PanoramicaComponents],
   templateUrl: './inicio-page.html',
   styleUrl: './inicio-page.css',
 })
