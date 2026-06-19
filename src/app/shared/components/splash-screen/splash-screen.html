@@ -4,38 +4,46 @@
   style="transition: all 1s ease-in-out;"
 >
 
-  <!-- AURORA BACKGROUND -->
+  <!-- AURORA (PROFUNDIDAD REAL) -->
   <div class="absolute inset-0">
 
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                w-[750px] h-[750px] bg-[#F6C445]/20 rounded-full blur-[140px]
-                animate-[pulse_6s_ease-in-out_infinite]">
+                w-[900px] h-[900px] bg-[#F6C445]/15 rounded-full blur-[180px]
+                animate-[float_12s_ease-in-out_infinite]">
     </div>
 
-    <div class="absolute top-20 left-10
-                w-[500px] h-[500px] bg-white/10 rounded-full blur-[140px]
-                animate-[float_10s_ease-in-out_infinite]">
+    <div class="absolute top-10 left-[-120px]
+                w-[600px] h-[600px] bg-white/5 rounded-full blur-[160px]
+                animate-[float_14s_ease-in-out_infinite_reverse]">
     </div>
 
-    <div class="absolute bottom-10 right-10
-                w-[500px] h-[500px] bg-[#F6C445]/10 rounded-full blur-[140px]
-                animate-[float_12s_ease-in-out_infinite_reverse]">
+    <div class="absolute bottom-[-150px] right-[-150px]
+                w-[700px] h-[700px] bg-[#F6C445]/10 rounded-full blur-[200px]
+                animate-[float_16s_ease-in-out_infinite]">
     </div>
 
   </div>
 
-  <!-- PARTICULAS -->
-  <div class="absolute inset-0 opacity-20">
-    <div class="w-full h-full bg-[radial-gradient(circle,_rgba(255,255,255,0.08)_1px,_transparent_1px)] bg-[length:35px_35px]"></div>
+  <!-- PARTÍCULAS / ATMÓSFERA -->
+  <div class="absolute inset-0 opacity-30">
+    <div class="w-full h-full
+                bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.06)_1px,_transparent_1px)]
+                bg-[length:30px_30px]">
+    </div>
+  </div>
+
+  <!--  VIGNETTE (EFECTO CINE) -->
+  <div class="absolute inset-0
+              bg-[radial-gradient(circle,_transparent_40%,_black_100%)] opacity-70">
   </div>
 
   <!-- CONTENIDO -->
   <div class="relative text-center px-6">
 
-    <!-- LOGO / TITULO -->
+    <!-- TITULO -->
     <h1 class="text-6xl md:text-7xl font-black text-white tracking-tight
                animate-[fadeUp_1.2s_ease-out_forwards] opacity-0
-               drop-shadow-[0_0_30px_rgba(246,196,69,0.6)]">
+               drop-shadow-[0_0_40px_rgba(246,196,69,0.6)]">
 
       Huaranchal
     </h1>
