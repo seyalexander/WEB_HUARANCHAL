@@ -10,22 +10,44 @@ import { Router } from '@angular/router';
 })
 export class SplashScreen {
   exiting = false;
+  audio = new Audio('assets/audio/audio_intro.mp3');
 
   constructor(private router: Router) {}
 
   ngOnInit() {
 
-    // tiempo en pantalla
+    this.audio.volume = 0;
+    this.audio.play().catch(() => {});
+
+    let vol = 0;
+    const fadeIn = setInterval(() => {
+      if (vol < 0.4) {
+        vol += 0.05;
+        this.audio.volume = vol;
+      } else {
+        clearInterval(fadeIn);
+      }
+    }, 150);
+
     setTimeout(() => {
 
-      // activa animación de salida
+      let outVol = this.audio.volume;
+      const fadeOut = setInterval(() => {
+        if (outVol > 0.05) {
+          outVol -= 0.05;
+          this.audio.volume = outVol;
+        } else {
+          clearInterval(fadeOut);
+          this.audio.pause();
+        }
+      }, 80);
+
       this.exiting = true;
 
-      // espera transición antes de navegar
       setTimeout(() => {
         this.router.navigateByUrl('/Inicio');
       }, 900);
 
-    }, 3000);
+    }, 4000);
   }
 }
