@@ -49,3 +49,22 @@ button:hover {
     black 25%
   );
 }
+
+@keyframes windMove {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.tourist-wind {
+  animation: windMove 7s ease-in-out infinite;
+}
+
+@keyframes fadeBubble {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.tourist-bubble {
+  animation: fadeBubble 0.4s ease;
+}
