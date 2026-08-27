@@ -9,6 +9,7 @@ export interface TeamMember {
   description: string;
   image: string;
   imageHover: string;
+  telefono: string;
 }
 
 @Component({
@@ -27,7 +28,8 @@ export class Integrantes {
       role: 'Estudiante',
       description: '4° Grado - Sección "A"',
       image: 'assets/INTEGRANTES/Adriano_01.jpeg',
-      imageHover: 'assets/INTEGRANTES/Adriano_hover.png'
+      imageHover: 'assets/INTEGRANTES/Adriano_hover.png',
+      telefono: '928 286 257'
     },
     {
       id: 2,
@@ -36,7 +38,8 @@ export class Integrantes {
       role: 'Estudiante',
       description: '4° Grado - Sección "A"',
       image: 'assets/INTEGRANTES/Misa_01.jpeg',
-      imageHover: 'assets/INTEGRANTES/Misa_01.jpeg'
+      imageHover: 'assets/INTEGRANTES/Misa_01.jpeg',
+      telefono: '928 286 257'
     },
     {
       id: 3,
@@ -46,6 +49,7 @@ export class Integrantes {
       description: '4° Grado - Sección "A"',
       image: 'https://i.pravatar.cc/150?img=4',
       imageHover: 'https://i.pravatar.cc/150?img=4',
+      telefono: '928 286 257'
     },
     {
       id: 4,
@@ -55,6 +59,7 @@ export class Integrantes {
       description: '4° Grado - Sección "A"',
       image: 'https://i.pravatar.cc/150?img=4',
       imageHover: 'https://i.pravatar.cc/150?img=4',
+      telefono: '928 286 257'
     },
     {
       id: 5,
@@ -64,6 +69,7 @@ export class Integrantes {
       description: '4° Grado - Sección "A"',
       image: 'https://i.pravatar.cc/150?img=4',
       imageHover: 'https://i.pravatar.cc/150?img=4',
+      telefono: '928 286 257'
     },
   ];
 
