@@ -68,6 +68,11 @@ html {
     background: transparent;
 }
 
+:host ::ng-deep .p-galleria-close {
+    z-index: 999999 !important;
+    pointer-events: auto !important;
+}
+
 @keyframes fadeUp {
   0% {
     opacity: 0;
