@@ -152,32 +152,153 @@
   <!-- ========================= -->
   <!-- MOBILE (SOLO LISTA CORRECTA) -->
   <!-- ========================= -->
-  <div class="lg:hidden relative z-10 px-5 py-8">
+  <!-- ========================= -->
+<!-- MOBILE -->
+<!-- ========================= -->
+<div class="lg:hidden relative z-10 px-5 pt-24 pb-10">
 
-    <h2 class="text-2xl font-black text-[#2F5D34] mb-6 mt-10">
-      Lugares turísticos
+  <!-- DECORACIÓN -->
+  <div class="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-[#A4C639]/10 blur-3xl pointer-events-none"></div>
+
+  <div class="absolute bottom-0 -left-20 w-56 h-56 rounded-full bg-[#F28C28]/10 blur-3xl pointer-events-none"></div>
+
+  <!-- HEADER -->
+  <div class="relative text-center mb-8">
+
+    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2F5D34]/10 border border-[#2F5D34]/10 text-[#2F5D34] text-xs font-bold uppercase tracking-wider">
+      <span class="w-2 h-2 rounded-full bg-[#F28C28]"></span>
+      Destinos turísticos
+    </span>
+
+    <h2 class="mt-4 text-4xl font-black leading-tight text-slate-800">
+      Explora
+      <span class="text-[#2F5D34]">Huaranchal</span>
     </h2>
 
-    <div class="grid grid-cols-2 gap-4">
+    <p class="mt-3 text-sm leading-6 text-slate-600 max-w-sm mx-auto">
+      Descubre lugares únicos, paisajes naturales y experiencias que te esperan en Huaranchal.
+    </p>
 
-      @for(item of items; track $index){
-      <div class="relative rounded-2xl overflow-hidden shadow-lg cursor-pointer" (click)="selectPlace($index)"
-        [routerLink]="item.routerLink">
+  </div>
 
-        <img alt="imagen" [src]="item.imagen" class="w-full h-48 object-cover" />
+  <!-- DESTINO PRINCIPAL -->
+  <div class="relative">
 
-        <div class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent"></div>
+    <!-- TARJETA -->
+    <div class="relative overflow-hidden rounded-[2rem] shadow-[0_25px_60px_rgba(0,0,0,.18)] bg-black">
 
-        <div class="absolute bottom-3 left-3 text-white">
-          <h3 class="font-bold text-base">{{item.titleH1}}</h3>
-          <p class="text-white/80 text-xs">{{item.titleH3}}</p>
+      <img alt="Imagen de {{activeItem.titleH1}}" [src]="activeItem.imagen" class="w-full h-[430px] object-cover transition-all duration-700" />
+
+      <!-- OVERLAY -->
+      <div class="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent"></div>
+
+      <!-- NÚMERO -->
+      <div class="absolute top-5 left-5 w-12 h-12 rounded-full bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center">
+        <span class="text-white text-sm font-black">
+          {{ (activeIndex + 1).toString().padStart(2, '0') }}
+        </span>
+      </div>
+
+      <!-- ETIQUETA -->
+      <div class="absolute top-5 right-5">
+        <span class="inline-flex px-4 py-2 rounded-full bg-black/25 backdrop-blur-md border border-white/20 text-white text-xs font-semibold">
+          {{activeItem.titleH3}}
+        </span>
+      </div>
+
+      <!-- CONTENIDO -->
+      <div class="absolute left-0 right-0 bottom-0 p-6 text-white">
+
+        <div class="max-w-sm">
+
+          <h3 class="text-4xl font-black leading-none">
+            {{activeItem.titleH1}}
+          </h3>
+
+          <div class="mt-3 w-12 h-1 rounded-full bg-[#F6C445]"></div>
+
+          <p class="mt-4 text-sm leading-6 text-white/85">
+            {{activeItem.descripcion}}
+          </p>
+
+          <a [routerLink]="activeItem.routerLink" class="inline-flex items-center gap-3 mt-5 px-5 py-3 rounded-xl bg-[#F6C445] text-slate-900 font-bold text-sm shadow-lg hover:scale-105 transition-transform duration-300">
+            Explorar destino
+            <span class="text-lg">→</span>
+          </a>
+
         </div>
 
       </div>
+
+    </div>
+
+    <!-- FLECHAS -->
+    <button (click)="prevPlace()" class="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 backdrop-blur-md shadow-xl flex items-center justify-center text-xl font-bold text-slate-800 hover:bg-white hover:scale-110 transition-all duration-300 z-20">
+      ←
+    </button>
+
+    <button (click)="nextPlace()" class="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 backdrop-blur-md shadow-xl flex items-center justify-center text-xl font-bold text-slate-800 hover:bg-white hover:scale-110 transition-all duration-300 z-20">
+      →
+    </button>
+
+  </div>
+
+  <!-- INDICADORES -->
+  <div class="flex items-center justify-center gap-2 mt-6">
+
+    @for(item of items; track $index) {
+
+      <button (click)="selectPlace($index)" class="h-2 rounded-full transition-all duration-500" [class.w-8]="activeIndex === $index" [class.w-2]="activeIndex !== $index" [class.bg-[#2F5D34]]="activeIndex === $index" [class.bg-slate-300]="activeIndex !== $index"></button>
+
+    }
+
+  </div>
+
+  <!-- MINI LISTA -->
+  <div class="mt-8">
+
+    <div class="flex items-center justify-between mb-4">
+
+      <h3 class="text-lg font-black text-slate-800">
+        Otros destinos
+      </h3>
+
+      <span class="text-xs font-semibold text-slate-400">
+        {{items.length}} lugares
+      </span>
+
+    </div>
+
+    <div class="flex gap-3 overflow-x-auto pb-3 snap-x snap-mandatory scrollbar-none">
+
+      @for(item of items; track $index) {
+
+        <button (click)="selectPlace($index)" class="relative flex-none w-36 h-24 rounded-2xl overflow-hidden snap-start shadow-md transition-all duration-300" [class.ring-2]="activeIndex === $index" [class.ring-[#F6C445]]="activeIndex === $index" [class.scale-105]="activeIndex === $index">
+
+          <img alt="Imagen de {{item.titleH1}}" [src]="item.imagen" class="w-full h-full object-cover" />
+
+          <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/10 to-transparent"></div>
+
+          <div class="absolute bottom-2 left-3 right-2 text-left text-white">
+
+            <span class="block text-[9px] uppercase tracking-wider text-white/70">
+              {{item.titleH3}}
+            </span>
+
+            <span class="block text-sm font-black truncate">
+              {{item.titleH1}}
+            </span>
+
+          </div>
+
+        </button>
+
       }
 
     </div>
 
   </div>
+
+</div>
 
 </section>
