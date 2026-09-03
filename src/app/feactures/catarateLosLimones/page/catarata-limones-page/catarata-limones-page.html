@@ -263,80 +263,60 @@
                 <!-- ============================================== -->
                 <!-- GRID DE IMÁGENES -->
                 <!-- ============================================== -->
+                
+              <!-- ============================================== -->
+<!-- GRID DE IMÁGENES -->
+<!-- ============================================== -->
 
-                <div class="grid
-                        grid-cols-2
-                        md:grid-cols-3
-                        lg:grid-cols-4
-                        gap-2">
+<div class="columns-2 md:columns-3 lg:columns-4 gap-2">
 
-                    @for (
-                    item of (
-                    mostrarTodas
-                    ? galeria
-                    : galeria.slice(0, 10)
-                    );
-                    track $index
-                    ) {
+    @for (
+        item of (mostrarTodas ? galeria : galeria.slice(0, 10));
+        track $index
+    ) {
 
-                    <div class="overflow-hidden
-                                rounded-3xl
-                                shadow-lg
-                                group
-                                relative
-                                cursor-pointer" (click)="abrirImagen($index)">
+        <div
+            class="relative mb-2 break-inside-avoid overflow-hidden rounded-sm shadow-sm group cursor-pointer"
+            (click)="abrirImagen($index)">
 
-                        <!-- IMAGEN -->
-                        <img [src]="item.foto" alt="Imagen de Baños Termales" class="w-full
-                                    h-56
-                                    object-cover
-                                    transition
-                                    duration-500
-                                    group-hover:scale-110">
+            <img
+                [src]="item.foto"
+                alt="Imagen del lugar"
+                class="w-full h-auto object-cover
+                       transition-transform duration-500
+                       group-hover:scale-105">
 
+            @if (
+                !mostrarTodas &&
+                $index === 9 &&
+                galeria.length > 10
+            ) {
 
-                        <!-- ================================= -->
-                        <!-- +X -->
-                        <!-- ================================= -->
+                <!-- ========================================== -->
+                <!-- OVERLAY +N -->
+                <!-- ========================================== -->
 
-                        @if (
-                        !mostrarTodas &&
-                        $index === 9 &&
-                        galeria.length > 10
-                        ) {
+                <div
+                    class="absolute inset-0
+                           bg-black/60
+                           flex items-center justify-center
+                           text-white
+                           text-3xl
+                           font-bold
+                           backdrop-blur-[2px]"
+                    (click)="mostrarGaleriaCompleta(); $event.stopPropagation()">
 
-                        <button type="button" class="absolute
-                                        inset-0
-                                        w-full
-                                        h-full
-                                        bg-black/50
-                                        hover:bg-black/60
-                                        flex
-                                        items-center
-                                        justify-center
-                                        transition
-                                        duration-300
-                                        cursor-pointer" (click)="mostrarGaleriaCompleta(); $event.stopPropagation()">
-
-                            <span class="text-white
-                                            text-2xl
-                                            md:text-3xl
-                                            font-bold">
-
-                                +{{ galeria.length - 10 }}
-
-                            </span>
-
-                        </button>
-
-                        }
-
-                    </div>
-
-                    }
+                    +{{ galeria.length - 10 }}
 
                 </div>
 
+            }
+
+        </div>
+
+    }
+
+</div>
 
                 <!-- ============================================== -->
                 <!-- VER MENOS -->
@@ -373,45 +353,27 @@
         </section>
 
 
-       <p-galleria
-[value]="galeria"
-[(visible)]="mostrarGalleria"
-[(activeIndex)]="imagenSeleccionada"
-(visibleChange)="mostrarGalleria = $event"
-
-```
-[fullScreen]="true"
-[showItemNavigators]="true"
-[showThumbnails]="true"
-[showIndicators]="true"
-[circular]="true"
-[showIndicatorsOnItem]="true"
-[numVisible]="6"
-
-[baseZIndex]="99999"
-
-[containerStyle]="{
+        <p-galleria [value]="galeria" [(visible)]="mostrarGalleria" [(activeIndex)]="imagenSeleccionada"
+            (visibleChange)="mostrarGalleria = $event" ``` [fullScreen]="true" [showItemNavigators]="true"
+            [showThumbnails]="true" [showIndicators]="true" [circular]="true" [showIndicatorsOnItem]="true"
+            [numVisible]="6" [baseZIndex]="99999" [containerStyle]="{
     'max-width': '95vw'
 }">
 
-<!-- ========================================== -->
-<!-- IMAGEN PRINCIPAL -->
-<!-- ========================================== -->
+            <!-- ========================================== -->
+            <!-- IMAGEN PRINCIPAL -->
+            <!-- ========================================== -->
 
-<ng-template #item let-item>
+            <ng-template #item let-item>
 
-    <div
-        class="flex
+                <div class="flex
                items-center
                justify-center
                w-full
                h-full
                min-h-[80vh]">
 
-        <img
-            [src]="item.foto"
-            alt="Imagen ampliada"
-            class="max-h-[80vh]
+                    <img [src]="item.foto" alt="Imagen ampliada" class="max-h-[80vh]
                    max-w-[90vw]
                    w-auto
                    h-auto
@@ -420,43 +382,38 @@
                    rounded-xl
                    shadow-2xl">
 
-    </div>
+                </div>
 
-</ng-template>
+            </ng-template>
 
 
-<!-- ========================================== -->
-<!-- MINIATURAS -->
-<!-- ========================================== -->
+            <!-- ========================================== -->
+            <!-- MINIATURAS -->
+            <!-- ========================================== -->
 
-<ng-template #thumbnail let-item>
+            <ng-template #thumbnail let-item>
 
-    <div
-        class="flex
+                <div class="flex
                items-center
                justify-center
                p-1">
 
-        <img
-            [src]="item.foto"
-            alt="Miniatura"
-            class="w-20
+                    <img [src]="item.foto" alt="Miniatura" class="w-20
                    h-14
                    object-cover
                    rounded-lg">
 
-    </div>
+                </div>
 
-</ng-template>
-```
+            </ng-template>
+            ```
 
-</p-galleria>
+        </p-galleria>
 
 
 
     </section>
     }
-
 
     <!-- HISTORIA -->
     @if(tabSeleccionado === 'historia'){
