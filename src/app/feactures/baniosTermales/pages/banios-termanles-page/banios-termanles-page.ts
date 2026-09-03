@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FooterLugaresTuristicos } from "../../../../shared/components/footer-lugares-turisticos/footer-lugares-turisticos";
+import { GalleriaModule } from 'primeng/galleria';
 
 export type TabLugar =
   | 'galeria'
@@ -9,14 +10,26 @@ export type TabLugar =
 
 @Component({
   selector: 'app-banios-termanles-page',
-  imports: [FooterLugaresTuristicos],
+  imports: [
+    FooterLugaresTuristicos,
+    GalleriaModule
+  ],
   templateUrl: './banios-termanles-page.html',
   styleUrl: './banios-termanles-page.css',
 })
 export class BaniosTermanlesPage {
 
   tabSeleccionado: TabLugar = 'galeria';
+
+  // Controla si se muestran las imágenes después de las primeras 10
   mostrarTodas = false;
+
+  // Controla si Galleria está abierto
+  mostrarGalleria = false;
+
+  // Índice de la imagen seleccionada
+  imagenSeleccionada = 0;
+
 
   tabs = [
     {
@@ -41,6 +54,7 @@ export class BaniosTermanlesPage {
     }
   ];
 
+
   hero = {
     imagen: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg',
     titulo_1: 'Baños',
@@ -50,40 +64,37 @@ export class BaniosTermanlesPage {
       de Huaranchal, rodeado de vegetación,
       senderos ecológicos y vistas espectaculares.
     `
-  }
+  };
+
 
   galeria = [
     {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_05.jpeg',
-      ultimo: false
+      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_05.jpeg'
     },
     {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_06.jpeg',
-      ultimo: false
+      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_06.jpeg'
     },
     {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_07.jpeg',
-      ultimo: false
+      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_07.jpeg'
     },
     {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg',
-      ultimo: false
+      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg'
     },
     {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_09.jpeg',
-      ultimo: false
+      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_09.jpeg'
     },
     {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_10.jpeg',
-      ultimo: true
+      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_10.jpeg'
     },
-  ]
+  ];
+
 
   historia = {
     imagen: 'assets/LUGARES/BANIOS_TERMALES/termales_02.jpeg',
     lugar: 'Catarata Pakcha',
     descripcion: 'Uno de los paisajes más impresionantes de Huaranchal, rodeado de vegetación, senderos naturales y vistas únicas del Valle Alto Chicama.',
     titulo: 'Un símbolo natural de Huaranchal',
+
     historia: [
       {
         p: `
@@ -97,7 +108,6 @@ export class BaniosTermanlesPage {
           Rodeada por la exuberante vegetación del Valle Alto Chicama,
           esta caída de agua ha sido durante generaciones un lugar
           especial para los pobladores locales y visitantes.
-        
         `
       },
       {
@@ -108,19 +118,22 @@ export class BaniosTermanlesPage {
         `
       }
     ],
-    significado:`Pakcha significa cascada o caída de agua en lengua quechua.`,
+
+    significado: `Pakcha significa cascada o caída de agua en lengua quechua.`,
+
     ubicacion: `
       Distrito de Huaranchal,
       provincia de Otuzco,
-      región La Libertad.`
-  }
+      región La Libertad.
+    `
+  };
+
 
   souvenirs = [
     {
       imagen: 'assets/LUGARES/PAKCHA/souvenir_pakcha_01.png',
       titulo: 'Imán de Refrigerador',
       descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
-      
       lugar: 'Huaranchal',
       turistico: 'Pakcha',
       tipo: 'Recuerdo'
@@ -129,19 +142,43 @@ export class BaniosTermanlesPage {
       imagen: 'assets/LUGARES/PAKCHA/souvenir_pakcha_01.png',
       titulo: 'Taza decorativa',
       descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
-      
       lugar: 'Huaranchal',
       turistico: 'Pakcha',
       tipo: 'Recuerdo'
     }
-  ]
+  ];
+
+
+  // =========================================================
+  // GALERÍA
+  // =========================================================
 
   mostrarGaleriaCompleta(): void {
     this.mostrarTodas = true;
   }
 
+
   ocultarGaleria(): void {
     this.mostrarTodas = false;
+  }
+
+
+  // =========================================================
+  // GALLERIA PRIME NG
+  // =========================================================
+
+  abrirImagen(index: number): void {
+
+    this.imagenSeleccionada = index;
+    this.mostrarGalleria = true;
+
+  }
+
+
+  cerrarGalleria(): void {
+
+    this.mostrarGalleria = false;
+
   }
 
 }
