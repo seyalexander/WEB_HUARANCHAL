@@ -76,6 +76,30 @@ export class CatarataLimonesPage {
       foto: 'assets/LUGARES/PAKCHA/PAKCHA_03.jpeg',
       ultimo: true
     },
+    {
+      foto: 'assets/LUGARES/PAKCHA/PAKCHA_02.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/PAKCHA/PAKCHA_08.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/PAKCHA/PAKCHA_09.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/PAKCHA/PAKCHA_10.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/PAKCHA/PAKCHA_11.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/PAKCHA/PAKCHA_12.jpeg',
+      ultimo: true
+    },
   ]
 
   historia = {
