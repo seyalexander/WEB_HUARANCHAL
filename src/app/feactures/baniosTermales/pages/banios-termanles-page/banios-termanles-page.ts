@@ -89,7 +89,7 @@ export class BaniosTermanlesPage {
 
   historia = {
     imagen: 'assets/LUGARES/BANIOS_TERMALES/termales_02.jpeg',
-    lugar: 'Catarata Pakcha',
+    lugar: 'Baños Termales',
     descripcion: 'Uno de los paisajes más impresionantes de Huaranchal, rodeado de vegetación, senderos naturales y vistas únicas del Valle Alto Chicama.',
     titulo: 'Un símbolo natural de Huaranchal',
 
