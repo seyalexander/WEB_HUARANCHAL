@@ -24,10 +24,8 @@ export class BaniosTermanlesPage {
   // Controla si se muestran las imágenes después de las primeras 10
   mostrarTodas = false;
 
-  // Controla si Galleria está abierto
   mostrarGalleria = false;
 
-  // Índice de la imagen seleccionada
   imagenSeleccionada = 0;
 
 
@@ -171,6 +169,13 @@ export class BaniosTermanlesPage {
 
     this.imagenSeleccionada = index;
     this.mostrarGalleria = true;
+
+  }
+
+
+  cambiarImagen(index: number): void {
+
+    this.imagenSeleccionada = index;
 
   }
 
