@@ -87,92 +87,357 @@
 
             @for (producto of productos; track producto.nombre; let i = $index) {
 
-                <article
-                    pAnimateOnScroll
-                    enterClass="animate-enter fade-in-10 {{ producto.animacion }} animate-duration-1000"
-                    leaveClass="animate-leave fade-out-0"
-                    class="group relative h-107.5 md:h-125 overflow-hidden rounded-[1.75rem] bg-[#2F5D34] shadow-2xl cursor-pointer">
+    <article
+        pAnimateOnScroll
+        enterClass="animate-enter fade-in-10 {{ producto.animacion }} animate-duration-1000"
+        leaveClass="animate-leave fade-out-0"
+        class="group relative h-107.5 md:h-125 overflow-hidden rounded-[1.75rem] bg-[#2F5D34] shadow-2xl cursor-pointer">
 
-                    <!-- IMAGEN -->
+        <!-- ====================================================== -->
+        <!-- IMAGEN DE FONDO -->
+        <!-- ====================================================== -->
 
-                    <img
-                        [src]="producto.imagen"
-                        [alt]="producto.nombre + ' de Huaranchal'"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110">
+        <img
+            [src]="producto.imagen"
+            [alt]="producto.nombre + ' de Huaranchal'"
+            class="
+                absolute inset-0
+                w-full h-full
+                object-cover
+                transition-all
+                duration-1000
+                ease-out
+                group-hover:scale-110
+            ">
 
-                    <!-- CAPA OSCURA -->
 
-                    <div class="absolute inset-0 bg-linear-to-t from-[#14291a]/95 via-[#2F5D34]/20 to-black/10">
-                    </div>
+        <!-- ====================================================== -->
+        <!-- CAPA OSCURA NORMAL -->
+        <!-- ====================================================== -->
 
-                    <!-- BRILLO HOVER -->
+        <div
+            class="
+                absolute inset-0
+                bg-linear-to-t
+                from-[#14291a]/95
+                via-[#2F5D34]/20
+                to-black/10
+            ">
+        </div>
 
-                    <div class="absolute inset-0 bg-linear-to-t from-[#F6C445]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                    </div>
 
-                    <!-- NÚMERO -->
+        <!-- ====================================================== -->
+        <!-- OSCURECER + BLUR AL APARECER EL PERSONAJE -->
+        <!-- SOLO DESKTOP -->
+        <!-- ====================================================== -->
 
-                    <div class="absolute top-5 right-5">
+        <div
+            class="
+                hidden lg:block
+                absolute inset-0
+                z-5
 
-                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-black/20 backdrop-blur-md border border-white/20 text-white text-sm font-bold">
+                bg-black/0
+                backdrop-blur-0
 
-                            {{ (i + 1).toString().padStart(2, '0') }}
+                group-hover:bg-black/35
+                group-hover:backdrop-blur-[3px]
 
-                        </span>
+                transition-all
+                duration-700
+                ease-out
+            ">
+        </div>
 
-                    </div>
 
-                    <!-- ETIQUETA -->
+        <!-- ====================================================== -->
+        <!-- GRADIENTE PARA DAR MÁS CONTRASTE AL PERSONAJE -->
+        <!-- ====================================================== -->
 
-                    <div class="absolute top-6 left-6">
+        <div
+            class="
+                hidden lg:block
+                absolute inset-0
+                z-6
 
-                        <span class="inline-flex px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-xs font-medium">
+                opacity-0
+                group-hover:opacity-100
 
-                            Huaranchal
+                bg-linear-to-r
+                from-black/10
+                via-black/35
+                to-black/55
 
-                        </span>
+                transition-opacity
+                duration-700
+            ">
+        </div>
 
-                    </div>
 
-                    <!-- CONTENIDO -->
+        <!-- ====================================================== -->
+        <!-- BRILLO DORADO -->
+        <!-- ====================================================== -->
 
-                    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-7 text-white">
+        <div
+            class="
+                absolute inset-0
+                z-7
 
-                        <div class="w-10 h-1 bg-[#F6C445] rounded-full mb-4 transition-all duration-500 group-hover:w-16">
-                        </div>
+                bg-linear-to-t
+                from-[#F6C445]/20
+                via-transparent
+                to-transparent
 
-                        <h3 class="text-3xl md:text-4xl font-black tracking-tight">
+                opacity-0
+                group-hover:opacity-100
 
-                            {{ producto.nombre }}
+                transition-opacity
+                duration-700
+            ">
+        </div>
 
-                        </h3>
 
-                        <p class="mt-3 text-sm md:text-base leading-6 text-white/75 max-w-sm">
+        <!-- ====================================================== -->
+        <!-- PERSONAJE -->
+        <!-- SOLO DESKTOP -->
+        <!-- ====================================================== -->
 
-                            {{ producto.descripcion }}
+        <img
+            [src]="producto.personaje"
+            [alt]="'Personaje mostrando ' + producto.nombre"
 
-                        </p>
+            class="
+                hidden lg:block
 
-                        <!-- INDICADOR -->
+                absolute
+                bottom-[-5px]
+                left-[-10px]
 
-                        <div class="mt-5 flex items-center gap-2 text-[#F6C445] text-sm font-semibold opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                z-10
 
-                            <span>
-                                Producto local
-                            </span>
+                h-[78%]
+                max-w-[390px]
 
-                            <span class="transition-transform duration-500 group-hover:translate-x-2">
-                                →
-                            </span>
+                h-[92%]
 
-                        </div>
+                object-contain
+                object-bottom
 
-                    </div>
+                pointer-events-none
 
-                </article>
+                opacity-0
+                translate-y-[25%]
+                scale-[0.92]
 
-            }
+                transition-all
+                duration-700
+                ease-[cubic-bezier(0.22,1,0.36,1)]
 
+                drop-shadow-[0_15px_25px_rgba(0,0,0,0.45)]
+
+                group-hover:opacity-100
+                group-hover:translate-y-0
+                group-hover:scale-100
+            ">
+
+
+        <!-- ====================================================== -->
+        <!-- BRILLO DETRÁS DEL PERSONAJE -->
+        <!-- ====================================================== -->
+
+        <div
+            class="
+                hidden lg:block
+                absolute
+
+                right-[10%]
+                bottom-[8%]
+
+                w-[55%]
+                h-[70%]
+
+                z-8
+
+                rounded-full
+
+                bg-[#F6C445]/10
+
+                blur-[70px]
+
+                opacity-0
+                group-hover:opacity-100
+
+                transition-opacity
+                duration-1000
+
+                pointer-events-none
+            ">
+        </div>
+
+
+        <!-- ====================================================== -->
+        <!-- NÚMERO -->
+        <!-- ====================================================== -->
+
+        <div class="absolute top-5 right-5 z-30">
+
+            <span
+                class="
+                    flex items-center justify-center
+                    w-10 h-10
+                    rounded-full
+                    bg-black/20
+                    backdrop-blur-md
+                    border border-white/20
+                    text-white
+                    text-sm
+                    font-bold
+                ">
+
+                {{ (i + 1).toString().padStart(2, '0') }}
+
+            </span>
+
+        </div>
+
+
+        <!-- ====================================================== -->
+        <!-- ETIQUETA -->
+        <!-- ====================================================== -->
+
+        <div class="absolute top-6 left-6 z-30">
+
+            <span
+                class="
+                    inline-flex
+                    px-3.5 py-1.5
+                    rounded-full
+                    bg-white/15
+                    backdrop-blur-md
+                    border border-white/20
+                    text-white
+                    text-xs
+                    font-medium
+                ">
+
+                Huaranchal
+
+            </span>
+
+        </div>
+
+
+        <!-- ====================================================== -->
+        <!-- CONTENIDO -->
+        <!-- ====================================================== -->
+
+        <div
+            class="
+                absolute
+                bottom-0
+                left-0
+                right-0
+
+                z-20
+
+                p-6
+                md:p-7
+
+                text-white
+            ">
+
+            <!-- LÍNEA -->
+
+            <div
+                class="
+                    w-10
+                    h-1
+                    bg-[#F6C445]
+                    rounded-full
+                    mb-4
+
+                    transition-all
+                    duration-500
+
+                    group-hover:w-16
+                ">
+            </div>
+
+
+            <!-- NOMBRE -->
+
+            <h3
+                class="
+                    text-3xl
+                    md:text-4xl
+                    font-black
+                    tracking-tight
+                ">
+
+                {{ producto.nombre }}
+
+            </h3>
+
+
+            <!-- DESCRIPCIÓN -->
+
+            <p
+                class="
+                    mt-3
+                    text-sm
+                    md:text-base
+                    leading-6
+                    text-white/75
+                    max-w-sm
+                ">
+
+                {{ producto.descripcion }}
+
+            </p>
+
+
+            <!-- INDICADOR -->
+
+            <div
+                class="
+                    mt-5
+                    flex
+                    items-center
+                    gap-2
+
+                    text-[#F6C445]
+                    text-sm
+                    font-semibold
+
+                    opacity-70
+                    group-hover:opacity-100
+
+                    transition-opacity
+                    duration-500
+                ">
+
+                <span>
+                    Producto local
+                </span>
+
+                <span
+                    class="
+                        transition-transform
+                        duration-500
+                        group-hover:translate-x-2
+                    ">
+
+                    →
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </article>
+
+}
         </div>
 
     </div>
