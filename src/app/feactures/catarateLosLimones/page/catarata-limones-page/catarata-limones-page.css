@@ -1,7 +1,30 @@
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+/* =========================================================
+GALLERIA - BOTON CERRAR
+========================================================= */
+
+:host ::ng-deep .p-galleria-close {
+z-index: 999999 !important;
+pointer-events: auto !important;
 }
 
-.no-scrollbar {
-  scrollbar-width: none;
+/* =========================================================
+GALLERIA - FULLSCREEN
+========================================================= */
+
+:host ::ng-deep .p-galleria-fullscreen {
+z-index: 99999 !important;
+}
+
+/* =========================================================
+GALLERIA - AREA DE TOQUE DEL BOTON CERRAR
+========================================================= */
+
+:host ::ng-deep .p-galleria-close-button,
+:host ::ng-deep .p-galleria-close {
+min-width: 48px !important;
+min-height: 48px !important;
+width: 48px !important;
+height: 48px !important;
+pointer-events: auto !important;
+z-index: 999999 !important;
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FooterLugaresTuristicos } from "../../../../shared/components/footer-lugares-turisticos/footer-lugares-turisticos";
+import { GalleriaModule } from 'primeng/galleria';
 
 export type TabLugar =
   | 'galeria'
@@ -9,7 +10,10 @@ export type TabLugar =
 
 @Component({
   selector: 'app-catarata-limones-page',
-  imports: [FooterLugaresTuristicos],
+  imports: [
+    FooterLugaresTuristicos,
+    GalleriaModule
+  ],
   templateUrl: './catarata-limones-page.html',
   styleUrl: './catarata-limones-page.css',
 })
@@ -165,5 +169,33 @@ export class CatarataLimonesPage {
 
   ocultarGaleria(): void {
     this.mostrarTodas = false;
+  }
+
+   // =========================================================
+  // GALLERIA PRIME NG
+  // =========================================================
+   mostrarGalleria = false;
+
+  imagenSeleccionada = 0;
+
+  abrirImagen(index: number): void {
+
+    this.imagenSeleccionada = index;
+    this.mostrarGalleria = true;
+
+  }
+
+
+  cambiarImagen(index: number): void {
+
+    this.imagenSeleccionada = index;
+
+  }
+
+
+  cerrarGalleria(): void {
+
+    this.mostrarGalleria = false;
+
   }
 }

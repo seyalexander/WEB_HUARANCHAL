@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FooterLugaresTuristicos } from "../../../../shared/components/footer-lugares-turisticos/footer-lugares-turisticos";
+import { GalleriaModule } from 'primeng/galleria';
 
 export type TabLugar =
   | 'galeria'
@@ -10,7 +11,10 @@ export type TabLugar =
 
 @Component({
   selector: 'app-chillin-page',
-  imports: [FooterLugaresTuristicos],
+  imports: [
+    FooterLugaresTuristicos,
+    GalleriaModule
+  ],
   templateUrl: './chillin-page.html',
   styleUrl: './chillin-page.css',
 })
@@ -174,5 +178,33 @@ export class ChillinPage {
 
   ocultarGaleria(): void {
     this.mostrarTodas = false;
+  }
+
+  // =========================================================
+  // GALLERIA PRIME NG
+  // =========================================================
+   mostrarGalleria = false;
+
+  imagenSeleccionada = 0;
+
+  abrirImagen(index: number): void {
+
+    this.imagenSeleccionada = index;
+    this.mostrarGalleria = true;
+
+  }
+
+
+  cambiarImagen(index: number): void {
+
+    this.imagenSeleccionada = index;
+
+  }
+
+
+  cerrarGalleria(): void {
+
+    this.mostrarGalleria = false;
+
   }
 }
