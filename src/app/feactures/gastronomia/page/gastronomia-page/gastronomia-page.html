@@ -1,6 +1,6 @@
 <section
   id="gastronomia"
-  class="relative min-h-screen overflow-hidden bg-[#0B0B0F] py-24 px-6">
+  class="relative min-h-screen overflow-hidden bg-[#0B0B0F] py-24 px-0 md:px-6">
 
   <!-- DECORACIONES -->
   <div
@@ -13,9 +13,9 @@
 
   <!-- CONTENEDOR -->
   <div
-    class="relative z-10 max-w-7xl mx-auto rounded-[40px]
+    class="relative z-10 max-w-7xl mx-auto md:rounded-[40px]
            bg-white/5 backdrop-blur-xl
-           border border-white/10
+           md:border border-white/10
            overflow-hidden">
 
     <!-- HEADER -->
@@ -54,30 +54,7 @@
 
         </p>
 
-        <!-- BUSCADOR -->
-        <div class="mt-8 flex gap-3 flex-col md:flex-row">
-
-          <input
-            type="text"
-            placeholder="Buscar comida típica..."
-            class="flex-1 px-5 py-4 rounded-xl
-                   bg-white/10
-                   border border-white/10
-                   text-white
-                   outline-none">
-
-          <button
-            class="px-8 py-4 rounded-xl
-                   bg-[#F28C28]
-                   hover:bg-[#E67E22]
-                   text-white font-semibold">
-
-            Buscar
-
-          </button>
-
-        </div>
-
+        
         <!-- CATEGORIAS -->
         <div class="mt-8 flex flex-wrap gap-3">
 
@@ -142,7 +119,7 @@
     <!-- GRID DE COMIDAS -->
     <div
       class="grid md:grid-cols-2 lg:grid-cols-4 gap-6
-             p-10 border-t border-white/10">
+            p-6 md:p-10 border-t border-white/10">
 
       @for(plato of comidas; track plato.id){
 
