@@ -373,14 +373,13 @@
         </section>
 
 
-        <p-galleria
+       <p-galleria
 [value]="galeria"
 [(visible)]="mostrarGalleria"
 [(activeIndex)]="imagenSeleccionada"
-
-```
 (visibleChange)="mostrarGalleria = $event"
 
+```
 [fullScreen]="true"
 [showItemNavigators]="true"
 [showThumbnails]="true"
@@ -388,6 +387,8 @@
 [circular]="true"
 [showIndicatorsOnItem]="true"
 [numVisible]="6"
+
+[baseZIndex]="99999"
 
 [containerStyle]="{
     'max-width': '95vw'
@@ -450,6 +451,7 @@
 ```
 
 </p-galleria>
+
 
 
     </section>
