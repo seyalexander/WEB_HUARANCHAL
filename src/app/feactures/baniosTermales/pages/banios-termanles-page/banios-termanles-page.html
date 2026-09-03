@@ -373,27 +373,44 @@
         </section>
 
 
-        <p-galleria [value]="galeria" [(visible)]="mostrarGalleria" [(activeIndex)]="imagenSeleccionada"
-            [fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="true" [showIndicators]="true"
-            [circular]="true" [showIndicatorsOnItem]="true" [numVisible]="6" [containerStyle]="{
-'max-width': '95vw'
+        <p-galleria
+[value]="galeria"
+[(visible)]="mostrarGalleria"
+[(activeIndex)]="imagenSeleccionada"
+
+```
+(visibleChange)="mostrarGalleria = $event"
+
+[fullScreen]="true"
+[showItemNavigators]="true"
+[showThumbnails]="true"
+[showIndicators]="true"
+[circular]="true"
+[showIndicatorsOnItem]="true"
+[numVisible]="6"
+
+[containerStyle]="{
+    'max-width': '95vw'
 }">
 
-            ```
-            <!-- ========================================== -->
-            <!-- IMAGEN PRINCIPAL -->
-            <!-- ========================================== -->
+<!-- ========================================== -->
+<!-- IMAGEN PRINCIPAL -->
+<!-- ========================================== -->
 
-            <ng-template #item let-item>
+<ng-template #item let-item>
 
-                <div class="flex
+    <div
+        class="flex
                items-center
                justify-center
                w-full
                h-full
                min-h-[80vh]">
 
-                    <img [src]="item.foto" alt="Imagen ampliada" class="max-h-[80vh]
+        <img
+            [src]="item.foto"
+            alt="Imagen ampliada"
+            class="max-h-[80vh]
                    max-w-[90vw]
                    w-auto
                    h-auto
@@ -402,33 +419,37 @@
                    rounded-xl
                    shadow-2xl">
 
-                </div>
+    </div>
 
-            </ng-template>
+</ng-template>
 
 
-            <!-- ========================================== -->
-            <!-- MINIATURAS -->
-            <!-- ========================================== -->
+<!-- ========================================== -->
+<!-- MINIATURAS -->
+<!-- ========================================== -->
 
-            <ng-template #thumbnail let-item>
+<ng-template #thumbnail let-item>
 
-                <div class="flex
+    <div
+        class="flex
                items-center
                justify-center
                p-1">
 
-                    <img [src]="item.foto" alt="Miniatura" class="w-20
+        <img
+            [src]="item.foto"
+            alt="Miniatura"
+            class="w-20
                    h-14
                    object-cover
                    rounded-lg">
 
-                </div>
+    </div>
 
-            </ng-template>
+</ng-template>
+```
 
-
-        </p-galleria>
+</p-galleria>
 
 
     </section>
