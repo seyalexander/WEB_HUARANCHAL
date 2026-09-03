@@ -1,37 +1,315 @@
-<section class="relative py-32 h-120 flex items-center justify-center">
+<section
+    class="
+        relative
+        h-120
+        flex
+        items-center
+        justify-center
+        overflow-hidden
+    ">
+
+    <!-- ====================================================== -->
+    <!-- FONDO -->
+    <!-- ====================================================== -->
 
     <img
-        alt="Imagen"
         src="assets/CTA-IMG.jpg"
-        class="absolute inset-0 w-full h-full object-cover">
+        alt="Huaranchal"
+        class="
+            absolute
+            inset-0
+            w-full
+            h-full
+            object-cover
+            scale-105
+        ">
 
-    <div class="absolute inset-0 bg-linear-to-b from-[#2F5D34]/40 via-[#23492B]/90 to-[#1E3A22]"></div>
+
+    <!-- ====================================================== -->
+    <!-- OVERLAY PRINCIPAL -->
+    <!-- ====================================================== -->
 
     <div
-        class="absolute z-40 max-w-4xl mx-auto text-center px-6">
+        class="
+            absolute
+            inset-0
+            bg-linear-to-b
+            from-[#14291a]/55
+            via-[#23492B]/85
+            to-[#14291a]/98
+        ">
+    </div>
+
+     <div class="absolute inset-0 bg-linear-to-b from-[#2F5D34]/40 via-[#23492B]/90 to-[#1E3A22]"></div>
+
+
+    <!-- ====================================================== -->
+    <!-- BRILLO CENTRAL -->
+    <!-- ====================================================== -->
+
+    <div
+        class="
+            absolute
+            inset-0
+            bg-[radial-gradient(circle_at_center,rgba(246,196,69,0.10),transparent_60%)]
+        ">
+    </div>
+
+
+    <!-- ====================================================== -->
+    <!-- CONTENIDO -->
+    <!-- ====================================================== -->
+
+    <div
+        class="
+            relative
+            z-10
+            max-w-4xl
+            mx-auto
+            text-center
+            px-6
+        ">
+
+        <!-- ================================================== -->
+        <!-- ETIQUETA -->
+        <!-- ================================================== -->
+
+        <div
+            class="
+                inline-flex
+                items-center
+                gap-2
+                px-4
+                py-2
+                rounded-full
+                bg-white/10
+                backdrop-blur-md
+                border
+                border-white/20
+                text-[#F6C445]
+                text-xs
+                sm:text-sm
+                font-semibold
+                tracking-widest
+                uppercase
+            ">
+
+            <span
+                class="
+                    w-2
+                    h-2
+                    rounded-full
+                    bg-[#F6C445]
+                    shadow-[0_0_10px_rgba(246,196,69,0.8)]
+                ">
+            </span>
+
+            Proyecto escolar
+
+        </div>
+
+
+        <!-- ================================================== -->
+        <!-- TÍTULO -->
+        <!-- ================================================== -->
 
         <h2
-            class="text-5xl font-bold text-white">
+            class="
+                mt-6
+                text-4xl
+                sm:text-5xl
+                md:text-6xl
+                font-black
+                tracking-tight
+                text-white
+            ">
 
-            Huaranchal te espera
+            Huaranchal
+            <span class="text-[#F6C445]">
+                te espera
+            </span>
 
         </h2>
 
+
+        <!-- ================================================== -->
+        <!-- DESCRIPCIÓN -->
+        <!-- ================================================== -->
+
         <p
-            class="mt-6 text-slate-200">
+            class="
+                mt-5
+                max-w-2xl
+                mx-auto
+                text-base
+                sm:text-lg
+                leading-7
+                text-slate-200/85
+            ">
 
             Vive una experiencia única entre naturaleza,
             cultura y tradición.
 
         </p>
 
-        <button
-            class="mt-8 px-10 py-4 rounded-xl bg-[#F28C28] text-white">
 
-            Comenzar recorrido
+        <!-- ================================================== -->
+        <!-- DIVISOR -->
+        <!-- ================================================== -->
+
+        <div
+            class="
+                flex
+                items-center
+                justify-center
+                gap-3
+                mt-7
+            ">
+
+            <span
+                class="
+                    w-12
+                    h-px
+                    bg-white/20
+                ">
+            </span>
+
+            <span
+                class="
+                    w-1.5
+                    h-1.5
+                    rounded-full
+                    bg-[#F6C445]
+                ">
+            </span>
+
+            <span
+                class="
+                    w-12
+                    h-px
+                    bg-white/20
+                ">
+            </span>
+
+        </div>
+
+
+        <!-- ================================================== -->
+        <!-- AUTORÍA DEL PROYECTO -->
+        <!-- ================================================== -->
+
+        <div class="mt-7">
+
+            <p
+                class="
+                    text-sm
+                    sm:text-base
+                    text-white/70
+                ">
+
+                Un proyecto realizado por los estudiantes del
+
+            </p>
+
+            <p
+                class="
+                    mt-1
+                    text-base
+                    sm:text-lg
+                    font-bold
+                    text-white
+                ">
+
+                4.º "A" de Secundaria
+
+            </p>
+
+            <p
+                class="
+                    mt-1
+                    text-sm
+                    sm:text-base
+                    text-[#F6C445]
+                    font-semibold
+                ">
+
+                I.E. 80826 – Miguel Grau
+
+            </p>
+
+        </div>
+
+
+        <!-- ================================================== -->
+        <!-- BOTÓN -->
+        <!-- ================================================== -->
+
+        <button
+            type="button"
+            class="
+                mt-8
+                inline-flex
+                items-center
+                gap-3
+
+                px-8
+                sm:px-10
+                py-3.5
+                sm:py-4
+
+                rounded-xl
+
+                bg-[#F6C445]
+                hover:bg-[#d9ad35]
+
+                text-[#172218]
+                font-bold
+
+                shadow-[0_10px_30px_rgba(246,196,69,0.20)]
+
+                transition-all
+                duration-300
+
+                hover:scale-105
+         
+            ">
+
+            <span>
+                Comenzar recorrido
+            </span>
+
+            <span
+                class="
+                    text-xl
+                    transition-transform
+                    duration-300
+                    group-hover:translate-x-1
+                ">
+
+                →
+
+            </span>
 
         </button>
 
+    </div>
+
+
+    <!-- ====================================================== -->
+    <!-- DECORACIÓN INFERIOR -->
+    <!-- ====================================================== -->
+
+    <div
+        class="
+            absolute
+            bottom-0
+            left-0
+            right-0
+            h-24
+            bg-linear-to-t
+            from-[#1E3A22]
+            to-transparent
+        ">
     </div>
 
 </section>
