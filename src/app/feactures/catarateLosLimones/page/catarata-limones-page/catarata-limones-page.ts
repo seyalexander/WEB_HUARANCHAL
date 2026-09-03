@@ -15,6 +15,7 @@ export type TabLugar =
 })
 export class CatarataLimonesPage {
   tabSeleccionado: TabLugar = 'galeria';
+  mostrarTodas = false;
 
   tabs = [
     {
@@ -133,4 +134,12 @@ export class CatarataLimonesPage {
       tipo: 'Recuerdo'
     }
   ]
+
+  mostrarGaleriaCompleta(): void {
+    this.mostrarTodas = true;
+  }
+
+  ocultarGaleria(): void {
+    this.mostrarTodas = false;
+  }
 }

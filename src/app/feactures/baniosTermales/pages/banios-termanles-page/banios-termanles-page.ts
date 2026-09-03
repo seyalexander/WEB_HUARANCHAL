@@ -16,6 +16,7 @@ export type TabLugar =
 export class BaniosTermanlesPage {
 
   tabSeleccionado: TabLugar = 'galeria';
+  mostrarTodas = false;
 
   tabs = [
     {
@@ -134,5 +135,13 @@ export class BaniosTermanlesPage {
       tipo: 'Recuerdo'
     }
   ]
+
+  mostrarGaleriaCompleta(): void {
+    this.mostrarTodas = true;
+  }
+
+  ocultarGaleria(): void {
+    this.mostrarTodas = false;
+  }
 
 }

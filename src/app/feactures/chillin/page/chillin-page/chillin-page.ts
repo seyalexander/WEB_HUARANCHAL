@@ -16,6 +16,7 @@ export type TabLugar =
 })
 export class ChillinPage {
   tabSeleccionado: TabLugar = 'galeria';
+  mostrarTodas = false;
 
   tabs = [
     {
@@ -76,6 +77,38 @@ export class ChillinPage {
       foto: 'assets/LUGARES/CHILLIN/chillin-07.jpeg',
       ultimo: true
     },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-08.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-09.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-10.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-11.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-12.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-13.jpeg',
+      ultimo: true
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-14.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-15.jpeg',
+      ultimo: true
+    },
   ]
 
   historia = {
@@ -134,4 +167,12 @@ export class ChillinPage {
       tipo: 'Recuerdo'
     }
   ]
+
+  mostrarGaleriaCompleta(): void {
+    this.mostrarTodas = true;
+  }
+
+  ocultarGaleria(): void {
+    this.mostrarTodas = false;
+  }
 }
