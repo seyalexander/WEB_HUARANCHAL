@@ -116,74 +116,44 @@ export class InicioPage implements OnDestroy {
   }
 
 
-  // ======================================================
-  // MÚSICA
-  // ======================================================
 
-  mostrarReproductor = false;
+// ======================================================
+// MÚSICA
+// ======================================================
 
-  musicaReproduciendo = false;
+mostrarReproductor = false;
+musicaReproduciendo = false;
 
-  private musicaSubscription?: Subscription;
+private musicaSubscription?: Subscription;
 
+constructor(
+  private musicaService: MusicaService
+) {
 
-  constructor(
-    private musicaService: MusicaService
-  ) {
+  this.musicaSubscription =
+    this.musicaService.reproduciendo$
+      .subscribe(reproduciendo => {
 
-    this.musicaSubscription =
-      this.musicaService.reproduciendo$
-        .subscribe(reproduciendo => {
+        this.musicaReproduciendo =
+          reproduciendo;
 
-          this.musicaReproduciendo =
-            reproduciendo;
+      });
+}
 
-        });
+abrirReproductor(): void {
+  this.mostrarReproductor = true;
+}
 
-  }
+cerrarReproductor(): void {
+  this.mostrarReproductor = false;
+}
 
+alternarMusica(): void {
+  this.musicaService.alternar();
+}
 
-  // ======================================================
-  // ABRIR REPRODUCTOR
-  // ======================================================
-
-  abrirReproductor(): void {
-
-    this.mostrarReproductor = true;
-
-  }
-
-
-  // ======================================================
-  // CERRAR / MINIMIZAR REPRODUCTOR
-  // ======================================================
-
-  cerrarReproductor(): void {
-
-    this.mostrarReproductor = false;
-
-  }
-
-
-  // ======================================================
-  // REPRODUCIR / PAUSAR MÚSICA
-  // ======================================================
-
-  alternarMusica(): void {
-
-    this.musicaService.alternar();
-
-  }
-
-
-  // ======================================================
-  // DESTRUIR COMPONENTE
-  // ======================================================
-
-  ngOnDestroy(): void {
-
-    this.musicaSubscription?.unsubscribe();
-
-  }
+ngOnDestroy(): void {
+  this.musicaSubscription?.unsubscribe();
+}
 
 }

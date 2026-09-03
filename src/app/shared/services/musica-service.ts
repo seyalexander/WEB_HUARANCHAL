@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class MusicaService {
+
   private audio: HTMLAudioElement;
 
   private reproduciendoSubject =
@@ -13,20 +14,22 @@ export class MusicaService {
   reproduciendo$ =
     this.reproduciendoSubject.asObservable();
 
-
   constructor() {
 
     this.audio = new Audio(
       'assets/audio/Huaranchal.mp3'
     );
 
-    // La música se repite continuamente
+    // Repetir la música
     this.audio.loop = true;
 
     // Volumen inicial
     this.audio.volume = 0.5;
 
-    // Cuando la música termina
+    // ==============================================
+    // EVENTOS DEL AUDIO
+    // ==============================================
+
     this.audio.addEventListener('play', () => {
       this.reproduciendoSubject.next(true);
     });
@@ -40,6 +43,9 @@ export class MusicaService {
     });
   }
 
+  // ==============================================
+  // REPRODUCIR
+  // ==============================================
 
   reproducir(): void {
 
@@ -47,6 +53,8 @@ export class MusicaService {
       .play()
       .then(() => {
 
+        // IMPORTANTE:
+        // Actualizamos inmediatamente el estado
         this.reproduciendoSubject.next(true);
 
       })
@@ -57,17 +65,25 @@ export class MusicaService {
           error
         );
 
+        this.reproduciendoSubject.next(false);
       });
   }
 
+  // ==============================================
+  // PAUSAR
+  // ==============================================
 
   pausar(): void {
 
     this.audio.pause();
 
+    // Actualizamos inmediatamente el estado
     this.reproduciendoSubject.next(false);
   }
 
+  // ==============================================
+  // PLAY / PAUSE
+  // ==============================================
 
   alternar(): void {
 
@@ -82,6 +98,9 @@ export class MusicaService {
     }
   }
 
+  // ==============================================
+  // VOLUMEN
+  // ==============================================
 
   cambiarVolumen(valor: number): void {
 
@@ -89,20 +108,17 @@ export class MusicaService {
       0,
       Math.min(1, valor)
     );
-
   }
-
 
   obtenerVolumen(): number {
-
     return this.audio.volume;
-
   }
 
+  // ==============================================
+  // ESTADO
+  // ==============================================
 
   estaReproduciendo(): boolean {
-
     return !this.audio.paused;
-
   }
 }
