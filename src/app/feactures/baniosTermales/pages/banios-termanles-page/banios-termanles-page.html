@@ -241,15 +241,15 @@
                     <div>
 
                         <span class="inline-flex px-4 py-2 rounded-full
-                                bg-[#2F5D34]/10
-                                text-[#2F5D34]">
+                                    bg-[#2F5D34]/10
+                                    text-[#2F5D34]">
 
                             Galería Fotográfica
 
                         </span>
 
                         <h2 class="mt-4 text-4xl md:text-5xl
-                                font-bold text-slate-800">
+                                    font-bold text-slate-800">
 
                             Baños Termales
 
@@ -263,60 +263,54 @@
                 <!-- ============================================== -->
                 <!-- GRID DE IMÁGENES -->
                 <!-- ============================================== -->
-                
-              <!-- ============================================== -->
-<!-- GRID DE IMÁGENES -->
-<!-- ============================================== -->
 
-<div class="columns-2 md:columns-3 lg:columns-4 gap-2">
+                <!-- ============================================== -->
+                <!-- GRID DE IMÁGENES -->
+                <!-- ============================================== -->
 
-    @for (
-        item of (mostrarTodas ? galeria : galeria.slice(0, 10));
-        track $index
-    ) {
+                <div class="columns-2 md:columns-3 lg:columns-4 gap-1">
 
-        <div
-            class="relative mb-2 break-inside-avoid overflow-hidden rounded-sm shadow-sm group cursor-pointer"
-            (click)="abrirImagen($index)">
+                    @for (
+                    item of (mostrarTodas ? galeria : galeria.slice(0, 10));
+                    track $index
+                    ) {
 
-            <img
-                [src]="item.foto"
-                alt="Imagen del lugar"
-                class="w-full h-auto object-cover
-                       transition-transform duration-500
-                       group-hover:scale-105">
+                    <div class="relative mb-2 break-inside-avoid overflow-hidden rounded-sm shadow-sm group cursor-pointer"
+                        (click)="abrirImagen($index)">
 
-            @if (
-                !mostrarTodas &&
-                $index === 9 &&
-                galeria.length > 10
-            ) {
+                        <img [src]="item.foto" alt="Imagen del lugar" class="w-full h-auto object-cover
+                           transition-transform duration-500
+                           group-hover:scale-105">
 
-                <!-- ========================================== -->
-                <!-- OVERLAY +N -->
-                <!-- ========================================== -->
+                        @if (
+                        !mostrarTodas &&
+                        $index === 9 &&
+                        galeria.length > 10
+                        ) {
 
-                <div
-                    class="absolute inset-0
-                           bg-black/60
-                           flex items-center justify-center
-                           text-white
-                           text-3xl
-                           font-bold
-                           backdrop-blur-[2px]"
-                    (click)="mostrarGaleriaCompleta(); $event.stopPropagation()">
+                        <!-- ========================================== -->
+                        <!-- OVERLAY +N -->
+                        <!-- ========================================== -->
 
-                    +{{ galeria.length - 10 }}
+                        <div class="absolute inset-0
+                               bg-black/60
+                               flex items-center justify-center
+                               text-white
+                               text-3xl
+                               font-bold
+                               backdrop-blur-[2px]" (click)="mostrarGaleriaCompleta(); $event.stopPropagation()">
+
+                            +{{ galeria.length - 10 }}
+
+                        </div>
+
+                        }
+
+                    </div>
+
+                    }
 
                 </div>
-
-            }
-
-        </div>
-
-    }
-
-</div>
 
                 <!-- ============================================== -->
                 <!-- VER MENOS -->
@@ -357,8 +351,8 @@
             (visibleChange)="mostrarGalleria = $event" ``` [fullScreen]="true" [showItemNavigators]="true"
             [showThumbnails]="true" [showIndicators]="true" [circular]="true" [showIndicatorsOnItem]="true"
             [numVisible]="6" [baseZIndex]="99999" [containerStyle]="{
-    'max-width': '95vw'
-}">
+                'max-width': '95vw'
+            }">
 
             <!-- ========================================== -->
             <!-- IMAGEN PRINCIPAL -->
