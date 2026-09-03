@@ -1,155 +1,216 @@
+<p-drawer header="Menú" [(visible)]="visible4" position="bottom" appendTo="body" [baseZIndex]="20000" [modal]="true"
+  [style]="{ height: '85vh' }" styleClass="menu-mobile-drawer">
 
-<p-drawer
-  header="Menú"
-  [(visible)]="visible4"
-  position="bottom"
-  appendTo="body"
-  [baseZIndex]="20000"
-  [modal]="true"
-  [style]="{ height: '85vh' }"
->
+  <div class="menu-mobile-content">
 
+    <!-- CABECERA DEL MENÚ -->
+    <div class="menu-intro">
 
-
-  <!-- SOLO ITEMS SCROLL -->
-  <div class="overflow-y-auto max-h-[65vh] px-2 py-4 space-y-2 bg-[#111111]">
-
-    <!-- ITEM BASE (YA CORREGIDO DARK MODE) -->
-
-    <a routerLink="/Inicio" (click)="cerrar()"
-      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
-
-      <svg class="w-6 h-6 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M3 12l9-9 9 9M4 10v10h16V10" />
-      </svg>
+      <div class="menu-intro-line"></div>
 
       <div>
-        <span class="font-semibold text-white">Inicio</span>
-        <p class="text-xs text-white/60">Página principal</p>
+        <span class="menu-intro-label">Descubre Huaranchal</span>
+        <h2>Explora nuestro distrito</h2>
       </div>
 
-    </a>
+    </div>
 
-    <a routerLink="/Costumbres-Tradiciones" (click)="cerrar()"
-      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
+    <!-- OPCIONES -->
+    <div class="menu-options">
 
-      <svg class="w-6 h-6 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M12 8c-1.5-2-4-2-5 0s1 5 5 8c4-3 6-6 5-8s-3.5-2-5 0z" />
-      </svg>
+      <!-- INICIO -->
+      <a routerLink="/Inicio" (click)="cerrar()" class="menu-item">
 
-      <div>
-        <span class="font-semibold text-white">Costumbres y tradiciones</span>
-        <p class="text-xs text-white/60">Cultura local</p>
-      </div>
+        <div class="menu-icon bg-[#2F5D34]/10 text-[#2F5D34]">
 
-    </a>
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l9-9 9 9M4 10v10h16V10" />
+          </svg>
 
-    <a href="#fiestas-patronales" (click)="cerrar()"
-      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
+        </div>
 
-      <svg class="w-6 h-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M5 11l7-7 7 7M5 19h14" />
-      </svg>
+        <div class="menu-item-text">
+          <span>Inicio</span>
+          <p>Página principal</p>
+        </div>
 
-      <div>
-        <span class="font-semibold text-white">Fiestas patronales</span>
-        <p class="text-xs text-white/60">Celebraciones tradicionales</p>
-      </div>
+        <span class="menu-arrow">→</span>
 
-    </a>
+      </a>
 
-    <a href="#fiestas-religiosas" (click)="cerrar()"
-      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
+      <!-- COSTUMBRES -->
+      <a routerLink="/Costumbres-Tradiciones" (click)="cerrar()" class="menu-item">
 
-      <svg class="w-6 h-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M12 3v18m-6-6h12" />
-      </svg>
+        <div class="menu-icon bg-orange-50 text-orange-500">
 
-      <div>
-        <span class="font-semibold text-white">Fiestas religiosas</span>
-        <p class="text-xs text-white/60">Fe y tradición</p>
-      </div>
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8c-1.5-2-4-2-5 0s1 5 5 8c4-3 6-6 5-8s-3.5-2-5 0z" />
+          </svg>
 
-    </a>
+        </div>
 
-    <a routerLink="/Vestimentas-Tipicas" (click)="cerrar()"
-      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
+        <div class="menu-item-text">
+          <span>Costumbres y tradiciones</span>
+          <p>Cultura local</p>
+        </div>
 
-      <svg class="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M6 2l6 4 6-4v6l-6 4-6-4V2z" />
-      </svg>
+        <span class="menu-arrow">→</span>
 
-      <div>
-        <span class="font-semibold text-white">Vestimenta típica</span>
-        <p class="text-xs text-white/60">Identidad cultural</p>
-      </div>
+      </a>
 
-    </a>
+      <!-- FIESTAS PATRONALES -->
+      <a href="#fiestas-patronales" (click)="cerrar()" class="menu-item">
 
-    <a routerLink="/Agricultura" (click)="cerrar()"
-      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
+        <div class="menu-icon bg-red-50 text-red-500">
 
-      <svg class="w-6 h-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M12 2v20M2 12h20" />
-      </svg>
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19h14" />
+          </svg>
 
-      <div>
-        <span class="font-semibold text-white">Agricultura</span>
-        <p class="text-xs text-white/60">Producción local</p>
-      </div>
+        </div>
 
-    </a>
+        <div class="menu-item-text">
+          <span>Fiestas patronales</span>
+          <p>Celebraciones tradicionales</p>
+        </div>
 
-    <a routerLink="/Gastronomia" (click)="cerrar()"
-      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
+        <span class="menu-arrow">→</span>
 
-      <svg class="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M12 6v12m6-6H6" />
-      </svg>
+      </a>
 
-      <div>
-        <span class="font-semibold text-white">Gastronomía</span>
-        <p class="text-xs text-white/60">Sabores de Huaranchal</p>
-      </div>
+      <!-- FIESTAS RELIGIOSAS -->
+      <a href="#fiestas-religiosas" (click)="cerrar()" class="menu-item">
 
-    </a>
+        <div class="menu-icon bg-yellow-50 text-yellow-500">
 
-    <a routerLink="/Lugares" (click)="cerrar()"
-      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18m-6-6h12" />
+          </svg>
 
-      <svg class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M9 20l-5.447-2.724A1 1 0 013 16.382V7.618a1 1 0 01.553-.894L9 4m0 16l6-3m-6 3V4m6 13l6-3V7m-6 10V4" />
-      </svg>
+        </div>
 
-      <div>
-        <span class="font-semibold text-white">Lugares turísticos</span>
-        <p class="text-xs text-white/60">Explorar destinos</p>
-      </div>
+        <div class="menu-item-text">
+          <span>Fiestas religiosas</span>
+          <p>Fe y tradición</p>
+        </div>
 
-    </a>
+        <span class="menu-arrow">→</span>
 
-    <a routerLink="/Integrantes" (click)="cerrar()"
-      class="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition">
+      </a>
 
-      <svg class="w-6 h-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m10-4a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
+      <!-- VESTIMENTA -->
+      <a routerLink="/Vestimentas-Tipicas" (click)="cerrar()" class="menu-item">
 
-      <div>
-        <span class="font-semibold text-white">Integrantes</span>
-        <p class="text-xs text-white/60">Equipo del proyecto</p>
-      </div>
+        <div class="menu-icon bg-purple-50 text-purple-500">
 
-    </a>
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 2l6 4 6-4v6l-6 4-6-4V2z" />
+          </svg>
+
+        </div>
+
+        <div class="menu-item-text">
+          <span>Vestimenta típica</span>
+          <p>Identidad cultural</p>
+        </div>
+
+        <span class="menu-arrow">→</span>
+
+      </a>
+
+      <!-- AGRICULTURA -->
+      <a routerLink="/Agricultura" (click)="cerrar()" class="menu-item">
+
+        <div class="menu-icon bg-green-50 text-green-500">
+
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v20M2 12h20" />
+          </svg>
+
+        </div>
+
+        <div class="menu-item-text">
+          <span>Agricultura</span>
+          <p>Producción local</p>
+        </div>
+
+        <span class="menu-arrow">→</span>
+
+      </a>
+
+      <!-- GASTRONOMÍA -->
+      <a routerLink="/Gastronomia" (click)="cerrar()" class="menu-item">
+
+        <div class="menu-icon bg-amber-50 text-amber-500">
+
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" />
+          </svg>
+
+        </div>
+
+        <div class="menu-item-text">
+          <span>Gastronomía</span>
+          <p>Sabores de Huaranchal</p>
+        </div>
+
+        <span class="menu-arrow">→</span>
+
+      </a>
+
+      <!-- LUGARES TURÍSTICOS -->
+      <a routerLink="/Lugares" (click)="cerrar()" class="menu-item menu-item-featured">
+
+        <div class="menu-icon bg-[#2F5D34] text-white">
+
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 20l-5.447-2.724A1 1 0 013 16.382V7.618a1 1 0 01.553-.894L9 4m0 16l6-3m-6 3V4m6 13l6-3V7m-6 10V4" />
+          </svg>
+
+        </div>
+
+        <div class="menu-item-text">
+          <span>Lugares turísticos</span>
+          <p>Explora nuestros destinos</p>
+        </div>
+
+        <span class="menu-arrow">→</span>
+
+      </a>
+
+      <!-- INTEGRANTES -->
+      <a routerLink="/Integrantes" (click)="cerrar()" class="menu-item">
+
+        <div class="menu-icon bg-indigo-50 text-indigo-500">
+
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m10-4a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+
+        </div>
+
+        <div class="menu-item-text">
+          <span>Integrantes</span>
+          <p>Equipo del proyecto</p>
+        </div>
+
+        <span class="menu-arrow">→</span>
+
+      </a>
+
+    </div>
+
+    <!-- PIE -->
+    <div class="menu-footer">
+
+      <span class="menu-footer-dot"></span>
+
+      <span>Conoce, disfruta y vive Huaranchal</span>
+
+    </div>
 
   </div>
 

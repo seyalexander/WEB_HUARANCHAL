@@ -1,0 +1,19 @@
+.menu-mobile-drawer {
+  background: #FAFAF7 !important;
+}
+
+.menu-mobile-drawer .p-drawer-header {
+  background: #FAFAF7 !important;
+  color: #2F5D34 !important;
+  border-bottom: 1px solid rgba(47, 93, 52, 0.12);
+}
+
+.menu-mobile-drawer .p-drawer-title {
+  color: #2F5D34 !important;
+  font-weight: 800;
+}
+
+.menu-mobile-drawer .p-drawer-content {
+  background: #FAFAF7 !important;
+  padding: 0 !important;
+}
