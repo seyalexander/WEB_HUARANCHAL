@@ -7,14 +7,14 @@ export type TabLugar =
   | 'souvenirs'
   | 'ubicacion';
 
-@Component({
-  selector: 'app-banios-termanles-page',
-  imports: [FooterLugaresTuristicos],
-  templateUrl: './banios-termanles-page.html',
-  styleUrl: './banios-termanles-page.css',
-})
-export class BaniosTermanlesPage {
 
+@Component({
+  selector: 'app-chillin-page',
+  imports: [FooterLugaresTuristicos],
+  templateUrl: './chillin-page.html',
+  styleUrl: './chillin-page.css',
+})
+export class ChillinPage {
   tabSeleccionado: TabLugar = 'galeria';
 
   tabs = [
@@ -41,9 +41,9 @@ export class BaniosTermanlesPage {
   ];
 
   hero = {
-    imagen: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg',
-    titulo_1: 'Baños',
-    titulo_2: 'Termales',
+    imagen: 'assets/LUGARES/CHILLIN/chillin-03.jpeg',
+    titulo_1: 'Mirador',
+    titulo_2: 'el Chillin',
     descripcion: `
       Uno de los paisajes naturales más impresionantes
       de Huaranchal, rodeado de vegetación,
@@ -53,34 +53,34 @@ export class BaniosTermanlesPage {
 
   galeria = [
     {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_05.jpeg',
+      foto: 'assets/LUGARES/CHILLIN/chillin-03.jpeg',
       ultimo: false
     },
     {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_06.jpeg',
+      foto: 'assets/LUGARES/CHILLIN/chillin-02.jpeg',
       ultimo: false
     },
     {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_07.jpeg',
+      foto: 'assets/LUGARES/CHILLIN/chillin-06.jpeg',
       ultimo: false
     },
     {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg',
+      foto: 'assets/LUGARES/CHILLIN/chillin-05.jpeg',
       ultimo: false
     },
     {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_09.jpeg',
+      foto: 'assets/LUGARES/CHILLIN/chillin-04.jpeg',
       ultimo: false
     },
     {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_10.jpeg',
+      foto: 'assets/LUGARES/CHILLIN/chillin-07.jpeg',
       ultimo: true
     },
   ]
 
   historia = {
-    imagen: 'assets/LUGARES/BANIOS_TERMALES/termales_02.jpeg',
-    lugar: 'Catarata Pakcha',
+    imagen: 'assets/LUGARES/CHILLIN/chillin-07.jpeg',
+    lugar: 'Mirador el Chillin',
     descripcion: 'Uno de los paisajes más impresionantes de Huaranchal, rodeado de vegetación, senderos naturales y vistas únicas del Valle Alto Chicama.',
     titulo: 'Un símbolo natural de Huaranchal',
     historia: [
@@ -134,5 +134,4 @@ export class BaniosTermanlesPage {
       tipo: 'Recuerdo'
     }
   ]
-
 }

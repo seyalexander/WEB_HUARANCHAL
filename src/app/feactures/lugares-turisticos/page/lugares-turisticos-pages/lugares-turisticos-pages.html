@@ -59,82 +59,91 @@
       </div>
 
       <!-- TURISTA -->
-<div class="hidden xl:block absolute right-0 bottom-0 z-20 pointer-events-none">
+      <div class="hidden xl:block absolute right-0 bottom-0 z-20 pointer-events-none">
 
-  <div class="relative">
+        <div class="relative">
 
-    <!--TURISTA -->
-    <img
-    alt="Imagen"
-      src="assets/turista_01.png"
-      class="w-105 drop-shadow-[0_30px_80px_rgba(0,0,0,.35)]
-             transition-all duration-500"
-      [class.scale-105]="activeItem.estadoTurista === 'sorprendido'"
-      [class.scale-100]="activeItem.estadoTurista === 'feliz'"
-      [class.scale-95]="activeItem.estadoTurista === 'relajado'"
-    />
+          <!--TURISTA -->
+          <img alt="Imagen" src="assets/turista_01.png" class="w-105 drop-shadow-[0_30px_80px_rgba(0,0,0,.35)]
+             transition-all duration-500" [class.scale-105]="activeItem.estadoTurista === 'sorprendido'"
+            [class.scale-100]="activeItem.estadoTurista === 'feliz'"
+            [class.scale-95]="activeItem.estadoTurista === 'relajado'" />
 
-    <!-- 💬 BURBUJA -->
-    <div class="absolute -top-16 left-10 max-w-65
+          <!-- 💬 BURBUJA -->
+          <div class="absolute -top-16 left-10 max-w-65
                 bg-white/20 backdrop-blur-xl
                 text-white
                 px-5 py-4 rounded-2xl
                 border border-white/20
                 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
 
-      <p class="text-sm leading-snug font-medium">
-        {{activeItem.fraseTurista}}
-      </p>
+            <p class="text-sm leading-snug font-medium">
+              {{activeItem.fraseTurista}}
+            </p>
 
-      <div class="absolute -bottom-2 left-6 w-4 h-4 bg-white/20 rotate-45"></div>
+            <div class="absolute -bottom-2 left-6 w-4 h-4 bg-white/20 rotate-45"></div>
 
-    </div>
+          </div>
 
-  </div>
+        </div>
 
-</div>
+      </div>
 
-      <!-- ========================= -->
-      <!-- CARRUSEL ORIGINAL RESTAURADO -->
-      <!-- ========================= -->
       <div class="absolute bottom-20 left-1/2 -translate-x-1/2 z-30">
 
-        <div class="flex items-center">
+        <div class="flex items-center gap-3">
 
-          <button (click)="prevPlace()" class="w-14 h-14 rounded-full bg-white/90 backdrop-blur-md shadow-xl">
+          <button (click)="prevPlace()" [disabled]="isAnimating"
+            class="w-14 h-14 rounded-full bg-white/90 backdrop-blur-md shadow-xl flex items-center justify-center text-2xl font-bold text-slate-800 hover:bg-white hover:scale-110 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
             ←
           </button>
 
-          @for(card of getVisibleCards(); track $index){
-          <div (click)="selectPlace(items.indexOf(card.item))" class="cursor-pointer transition-all duration-500">
+          <div class="relative flex items-center justify-center w-190 h-57.5">
 
-            <div class="relative overflow-hidden rounded-3xl shadow-2xl" [class.w-[320px]]="card.position === 0"
-              [class.h-[210px]]="card.position === 0" [class.w-[240px]]="card.position === -1 || card.position === 1"
-              [class.h-[170px]]="card.position === -1 || card.position === 1"
-              [class.w-[180px]]="card.position === -2 || card.position === 2"
-              [class.h-[140px]]="card.position === -2 || card.position === 2" [class.scale-100]="card.position === 0"
-              [class.scale-90]="card.position === -1 || card.position === 1"
-              [class.scale-75]="card.position === -2 || card.position === 2" [class.opacity-100]="card.position === 0"
-              [class.opacity-70]="card.position === -1 || card.position === 1"
-              [class.opacity-40]="card.position === -2 || card.position === 2">
+            @for(card of getVisibleCards(); track card.item.titleH1) {
 
-              <img alt="imagen" [src]="card.item.imagen" class="w-full h-full object-cover" />
+            <div (click)="selectPlace(items.indexOf(card.item))"
+              class="absolute cursor-pointer transition-all duration-700 ease-in-out "
+              [class.-translate-x-[250px]]="card.position === -1" [class.translate-x-0]="card.position === 0"
+              [class.translate-x-[250px]]="card.position === 1" [class.scale-90]="card.position !== 0"
+              [class.scale-100]="card.position === 0" [class.opacity-70]="card.position !== 0"
+              [class.opacity-100]="card.position === 0" [class.z-20]="card.position !== 0"
+              [class.z-30]="card.position === 0">
 
-              <div class="absolute bottom-4 left-4 text-white">
-                <h3 class="font-bold text-lg">
-                  {{card.item.titleH1}}
-                </h3>
+              <div class="relative w-[320px] h-[210px] overflow-hidden rounded-3xl shadow-2xl">
+
+                <img alt="imagen" [src]="card.item.imagen"
+                  class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+
+                <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/10 to-transparent"></div>
+
+                <div class="absolute bottom-4 left-5 text-white">
+
+                  <span class="text-xs uppercase tracking-widest font-semibold text-white/70">
+                    {{card.item.titleH3}}
+                  </span>
+
+                  <h3 class="font-black text-2xl">
+                    {{card.item.titleH1}}
+                  </h3>
+
+                </div>
+
               </div>
 
             </div>
-          </div>
-          }
 
-          <button (click)="nextPlace()" class="w-14 h-14 rounded-full bg-white/90 backdrop-blur-md shadow-xl">
+            }
+
+          </div>
+
+          <button (click)="nextPlace()" [disabled]="isAnimating"
+            class="w-14 h-14 rounded-full bg-white/90 backdrop-blur-md shadow-xl flex items-center justify-center text-2xl font-bold text-slate-800 hover:bg-white hover:scale-110 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
             →
           </button>
 
         </div>
+
       </div>
 
     </div>

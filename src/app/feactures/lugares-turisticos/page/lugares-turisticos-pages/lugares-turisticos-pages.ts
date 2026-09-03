@@ -29,7 +29,7 @@ export class LugaresTuristicosPages implements OnInit {
 
   items: lugarTuristico[] = [
   {
-    imagen: `${this.urlGlobal}/CATARATA-IMG.jpeg`,
+    imagen: `${this.urlGlobal}/LUGARES/PAKCHA/catarata_pakcha-paul.jpeg`,
     titleH3: "Catarata",
     titleH1: "Pakcha",
     descripcion: "Una impresionante caída de agua rodeada de vegetación y senderos naturales.",
@@ -47,11 +47,11 @@ export class LugaresTuristicosPages implements OnInit {
     estadoTurista: 'relajado'
   },
   {
-    imagen: `${this.urlGlobal}/LUGARES/BANIOS_TERMALES/TERMALES_01.jpeg`,
+    imagen: `${this.urlGlobal}/LUGARES/CHILLIN/Chillin.jpeg`,
     titleH3: "Mirador",
     titleH1: "Chillin",
     descripcion: "Espacios ideales para relajarse y disfrutar de aguas naturales.",
-    routerLink: "/BaniosTermales",
+    routerLink: "/Chillin",
     fraseTurista: "Desde aquí todo el valle se ve increíble...",
     estadoTurista: 'feliz'
   }
@@ -67,6 +67,17 @@ get activeItem(): lugarTuristico {
   return this.items[this.activeIndex];
 }
 
+// nextPlace(): void {
+//   this.activeIndex =
+//     (this.activeIndex + 1) % this.items.length;
+// }
+
+// prevPlace(): void {
+//   this.activeIndex =
+//     (this.activeIndex - 1 + this.items.length) %
+//     this.items.length;
+// }
+
 nextPlace(): void {
   this.activeIndex =
     (this.activeIndex + 1) % this.items.length;
@@ -74,8 +85,7 @@ nextPlace(): void {
 
 prevPlace(): void {
   this.activeIndex =
-    (this.activeIndex - 1 + this.items.length) %
-    this.items.length;
+    (this.activeIndex - 1 + this.items.length) % this.items.length;
 }
 
 selectPlace(index: number): void {
@@ -85,7 +95,7 @@ selectPlace(index: number): void {
 getVisibleCards() {
   const result = [];
 
-  for (let i = -2; i <= 2; i++) {
+  for (let i = -1; i <= 1; i++) {
 
     const index =
       (this.activeIndex + i + this.items.length) %

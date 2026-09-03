@@ -5,10 +5,11 @@ import { ProductosEmblematicosInicioComponents } from "../../components/producto
 import { QueConocerasInicioComponents } from "../../components/que-conoceras-inicio-components/que-conoceras-inicio-components";
 import { RouterLink } from "@angular/router";
 import { PanoramicaComponents } from "../../components/panoramica-components/panoramica-components";
+import { HeroInicio } from "../../components/hero-inicio/hero-inicio";
 
 @Component({
   selector: 'app-inicio-page',
-  imports: [FooterInicioComponents, CTAInicioComponents, ProductosEmblematicosInicioComponents, QueConocerasInicioComponents, RouterLink, PanoramicaComponents],
+  imports: [FooterInicioComponents, CTAInicioComponents, ProductosEmblematicosInicioComponents, QueConocerasInicioComponents, RouterLink, PanoramicaComponents, HeroInicio],
   templateUrl: './inicio-page.html',
   styleUrl: './inicio-page.css',
 })

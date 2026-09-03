@@ -1,288 +1,177 @@
-<section id="productos" class="relative py-28 overflow-hidden bg-linear-to-r from-[#F28C28] to-[#F6C445]">
+<section id="productos" class="relative py-24 md:py-28 overflow-hidden bg-linear-to-br from-[#F28C28] via-[#F6C445] to-[#F28C28]">
 
-    <!-- Blobs decorativos -->
+    <!-- FONDOS DECORATIVOS -->
 
-    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none">
     </div>
 
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl">
+    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none">
     </div>
 
-    <!-- Ruta turística punteada -->
+    <!-- RUTA TURÍSTICA -->
 
     <svg class="absolute inset-0 w-full h-full opacity-20 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
 
-        <path d="M50 300
-               C250 100, 450 500, 700 250
-               S1100 150, 1400 350" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"
-            stroke-dasharray="10 15" />
+        <path d="M50 300 C250 100, 450 500, 700 250 S1100 150, 1400 350" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 15">
+        </path>
 
     </svg>
 
-    <!-- Granadilla abstracta -->
+    <!-- CÍRCULOS DECORATIVOS -->
 
-    <div class="absolute top-20 right-20 w-72 h-72 rounded-full border border-white/10">
+    <div class="absolute top-20 right-10 md:right-20 w-40 md:w-72 h-40 md:h-72 rounded-full border border-white/10">
     </div>
 
-    <div class="absolute top-28 right-28 w-56 h-56 rounded-full border border-white/10">
+    <div class="absolute top-28 right-16 md:right-28 w-32 md:w-56 h-32 md:h-56 rounded-full border border-white/10">
     </div>
 
-    <div class="absolute top-36 right-36 w-40 h-40 rounded-full border border-white/10">
+    <div class="absolute top-36 right-24 md:right-36 w-24 md:w-40 h-24 md:h-40 rounded-full border border-white/10">
     </div>
 
-    <!-- Hoja decorativa -->
+    <!-- HOJA DECORATIVA -->
 
-    <svg class="absolute left-10 bottom-16 w-40 h-40 opacity-10" viewBox="0 0 200 200">
+    <svg class="absolute left-0 md:left-10 bottom-10 md:bottom-16 w-28 md:w-40 h-28 md:h-40 opacity-10 pointer-events-none" viewBox="0 0 200 200">
 
-        <path d="M100 20
-               C150 50 180 120 100 180
-               C20 120 50 50 100 20" fill="none" stroke="white" stroke-width="3" />
+        <path d="M100 20 C150 50 180 120 100 180 C20 120 50 50 100 20" fill="none" stroke="white" stroke-width="3">
+        </path>
 
     </svg>
 
-    <!-- Partículas -->
+    <!-- PARTÍCULAS -->
 
-    <div class="absolute top-24 left-24 w-3 h-3 rounded-full bg-white/20">
+    <div class="absolute top-24 left-10 md:left-24 w-3 h-3 rounded-full bg-white/20">
     </div>
 
-    <div class="absolute top-80 left-72 w-2 h-2 rounded-full bg-white/20">
+    <div class="absolute top-80 left-40 md:left-72 w-2 h-2 rounded-full bg-white/20">
     </div>
 
-    <div class="absolute bottom-40 right-64 w-4 h-4 rounded-full bg-white/20">
+    <div class="absolute bottom-40 right-32 md:right-64 w-4 h-4 rounded-full bg-white/20">
     </div>
 
-    <div class="absolute bottom-24 left-1/2 w-2 h-2 rounded-full bg-white/20">
-    </div>
+    <!-- CONTENIDO -->
 
-    <!-- Contenido -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <!-- CABECERA -->
 
-        <div class="text-center">
+        <div class="max-w-3xl mx-auto text-center">
 
-            <span class="inline-block px-5 py-2 rounded-full bg-white/20 backdrop-blur-md text-white">
+            <span class="inline-flex items-center px-5 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-sm md:text-base font-medium">
 
                 Productos Emblemáticos
 
             </span>
 
-            <h2 class="mt-6 text-5xl font-extrabold text-white">
+            <h2 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white">
 
-                Sabores de Huaranchal
+                Sabores de
+
+                <span class="text-[#2F5D34]">
+                    Huaranchal
+                </span>
 
             </h2>
 
-            <p class="mt-4 text-white/80 max-w-2xl mx-auto">
+            <p class="mt-5 text-base md:text-lg leading-8 text-white/80 max-w-2xl mx-auto">
 
-                Descubre los productos agrícolas que representan la identidad
-                y riqueza natural de Huaranchal.
+                Descubre los productos agrícolas que representan la identidad,
+                tradición y riqueza natural de Huaranchal.
 
             </p>
 
         </div>
 
-        <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mt-20">
+        <!-- PRODUCTOS -->
 
-            <!-- Café -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 mt-14 md:mt-20">
 
-            <article 
-            pAnimateOnScroll
-    enterClass="animate-enter fade-in-10 slide-in-from-l-20 animate-duration-1000"
-    leaveClass="animate-leave fade-out-0"
-            class="group relative overflow-hidden rounded-4xl h-130 shadow-2xl">
+            @for (producto of productos; track producto.nombre; let i = $index) {
 
-                <img 
-                    alt="Imagen"
-                    src="assets/CAFE-IMG.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <article
+                    pAnimateOnScroll
+                    enterClass="animate-enter fade-in-10 {{ producto.animacion }} animate-duration-1000"
+                    leaveClass="animate-leave fade-out-0"
+                    class="group relative h-107.5 md:h-125 overflow-hidden rounded-[1.75rem] bg-[#2F5D34] shadow-2xl cursor-pointer">
 
-                <div class="absolute inset-0 bg-linear-to-t from-[#2F5D34] via-transparent to-transparent">
-                </div>
+                    <!-- IMAGEN -->
 
-                <div class="absolute top-6 left-6">
+                    <img
+                        [src]="producto.imagen"
+                        [alt]="producto.nombre + ' de Huaranchal'"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110">
 
-                    <span class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-white">
+                    <!-- CAPA OSCURA -->
 
-                        Huaranchal
+                    <div class="absolute inset-0 bg-linear-to-t from-[#14291a]/95 via-[#2F5D34]/20 to-black/10">
+                    </div>
 
-                    </span>
+                    <!-- BRILLO HOVER -->
 
-                </div>
+                    <div class="absolute inset-0 bg-linear-to-t from-[#F6C445]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
 
-                <div class="absolute bottom-8 left-8 right-8 text-white">
+                    <!-- NÚMERO -->
 
-                    <h3 class="text-4xl font-bold">
+                    <div class="absolute top-5 right-5">
 
-                        Café
+                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-black/20 backdrop-blur-md border border-white/20 text-white text-sm font-bold">
 
-                    </h3>
+                            {{ (i + 1).toString().padStart(2, '0') }}
 
-                    <p class="mt-3 text-white/80">
+                        </span>
 
-                        Uno de los productos más representativos del distrito.
+                    </div>
 
-                    </p>
+                    <!-- ETIQUETA -->
 
-                    <!-- <button class="mt-5 px-5 py-3 rounded-xl bg-white text-[#2F5D34] font-semibold">
+                    <div class="absolute top-6 left-6">
 
-                        Conocer más
+                        <span class="inline-flex px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-xs font-medium">
 
-                    </button> -->
+                            Huaranchal
 
-                </div>
+                        </span>
 
-            </article>
+                    </div>
 
-            <!-- Naranja -->
+                    <!-- CONTENIDO -->
 
-            <article 
-            pAnimateOnScroll
-    enterClass="animate-enter fade-in-10 slide-in-from-l-20 animate-duration-1000"
-    leaveClass="animate-leave fade-out-0"
-            class="group relative overflow-hidden rounded-4xl h-130 shadow-2xl">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-7 text-white">
 
-                <img 
-                    alt="Imagen"
-                    src="assets/NARANJA-IMG.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <div class="w-10 h-1 bg-[#F6C445] rounded-full mb-4 transition-all duration-500 group-hover:w-16">
+                        </div>
 
-                <div class="absolute inset-0 bg-linear-to-t from-[#2F5D34] via-transparent to-transparent">
-                </div>
+                        <h3 class="text-3xl md:text-4xl font-black tracking-tight">
 
-                <div class="absolute top-6 left-6">
+                            {{ producto.nombre }}
 
-                    <span class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-white">
+                        </h3>
 
-                        Huaranchal
+                        <p class="mt-3 text-sm md:text-base leading-6 text-white/75 max-w-sm">
 
-                    </span>
+                            {{ producto.descripcion }}
 
-                </div>
+                        </p>
 
-                <div class="absolute bottom-8 left-8 right-8 text-white">
+                        <!-- INDICADOR -->
 
-                    <h3 class="text-4xl font-bold">
+                        <div class="mt-5 flex items-center gap-2 text-[#F6C445] text-sm font-semibold opacity-70 group-hover:opacity-100 transition-opacity duration-500">
 
-                        Naranja
+                            <span>
+                                Producto local
+                            </span>
 
-                    </h3>
+                            <span class="transition-transform duration-500 group-hover:translate-x-2">
+                                →
+                            </span>
 
-                    <p class="mt-3 text-white/80">
+                        </div>
 
-                        Fruta emblemática del distrito,
-                        apreciada por su dulzura y frescura.
+                    </div>
 
-                    </p>
+                </article>
 
-                    <!-- <button class="mt-5 px-5 py-3 rounded-xl bg-white text-[#2F5D34] font-semibold">
-
-                        Conocer más
-
-                    </button> -->
-
-                </div>
-
-            </article>
-
-            <!-- Granadilla -->
-
-            <article 
-            pAnimateOnScroll
-    enterClass="animate-enter fade-in-10 slide-in-from-r-20 animate-duration-1000"
-    leaveClass="animate-leave fade-out-0"
-            class="group relative overflow-hidden rounded-4xl h-130 shadow-2xl">
-
-                <img 
-                    alt="Imagen"
-                    src="assets/GRANADILLAS-IMG.avif"
-                    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-
-                <div class="absolute inset-0 bg-linear-to-t from-[#2F5D34] via-transparent to-transparent">
-                </div>
-
-                <div class="absolute top-6 left-6">
-
-                    <span class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-white">
-
-                        Huaranchal
-
-                    </span>
-
-                </div>
-
-                <div class="absolute bottom-8 left-8 right-8 text-white">
-
-                    <h3 class="text-4xl font-bold">
-
-                        Granadilla
-
-                    </h3>
-
-                    <p class="mt-3 text-white/80">
-
-                        Conocida por su sabor delicado y propiedades nutritivas.
-
-                    </p>
-
-                    <!-- <button class="mt-5 px-5 py-3 rounded-xl bg-white text-[#2F5D34] font-semibold">
-
-                        Conocer más
-
-                    </button> -->
-
-                </div>
-
-            </article>
-
-            <!-- Lima -->
-
-            <article 
-            pAnimateOnScroll
-    enterClass="animate-enter fade-in-10 slide-in-from-r-20 animate-duration-1000"
-    leaveClass="animate-leave fade-out-0"
-            class="group relative overflow-hidden rounded-4xl h-130 shadow-2xl">
-
-                <img 
-                    alt="Imagen"
-                    src="assets/LIMAS-IMG.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
-
-                <div class="absolute inset-0 bg-linear-to-t from-[#2F5D34] via-transparent to-transparent">
-                </div>
-
-                <div class="absolute top-6 left-6">
-
-                    <span class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-white">
-
-                        Huaranchal
-
-                    </span>
-
-                </div>
-
-                <div class="absolute bottom-8 left-8 right-8 text-white">
-
-                    <h3 class="text-4xl font-bold">
-
-                        Lima
-
-                    </h3>
-
-                    <p class="mt-3 text-white/80">
-
-                        Producto tradicional utilizado en la gastronomía regional.
-
-                    </p>
-
-                    <!-- <button class="mt-5 px-5 py-3 rounded-xl bg-white text-[#2F5D34] font-semibold">
-
-                        Conocer más
-
-                    </button> -->
-
-                </div>
-
-            </article>
+            }
 
         </div>
 
