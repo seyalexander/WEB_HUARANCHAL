@@ -113,6 +113,38 @@ export class ChillinPage {
       foto: 'assets/LUGARES/CHILLIN/chillin-15.jpeg',
       ultimo: true
     },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-16.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-17.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-18.jpeg',
+      ultimo: true
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-19.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-20.jpeg',
+      ultimo: true
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-21.jpeg',
+      ultimo: true
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-22.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/CHILLIN/chillin-23.jpeg',
+      ultimo: true
+    },
   ]
 
   historia = {
