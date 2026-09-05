@@ -407,87 +407,139 @@
 
     <!-- HISTORIA -->
     @if(tabSeleccionado === 'historia'){
-    <section class="py-10 bg-[#FAFAF7] relative overflow-hidden">
-        <!-- Decoración -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-[#F6C445]/10 rounded-full blur-[120px]">
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-start">
-                <!-- FOTO PRINCIPAL -->
-                <div class="relative">
-                    <div class="relative overflow-hidden rounded-4xl shadow-2xl">
-                        <img [src]="historia.imagen" alt="Catarata Pakcha" class="w-full h-162.5 object-cover">
-
-                        <!-- Overlay -->
-                        <div class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent">
-                        </div>
-
-                        <!-- Texto sobre imagen -->
-                        <div class="absolute bottom-0 left-0 right-0 p-8 md:p-10">
-                            <span class="inline-flex px-4 py-2 rounded-full bg-white/15  backdrop-blur-md text-white">
-                                Destino Natural
-                            </span>
-
-                            <h2 class="mt-4 text-4xl md:text-5xl font-black text-white">
+    <section class="py-20 bg-gradient-to-b from-[#FAFAF7] via-slate-100/70 to-[#FAFAF7] relative overflow-hidden">
+        <!-- Luces decorativas suaves -->
+        <div class="absolute top-1/4 -left-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+    
+            <!-- ENCABEZADO DE SECCIÓN -->
+            <div
+                class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 border-b border-slate-200/80 pb-6">
+                <div>
+                    <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#2F5D34]">
+                        <span class="w-2 h-2 rounded-full bg-[#2F5D34]"></span>
+                        Patrimonio & Naturaleza
+                    </span>
+                    <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-2">
+                        {{historia.titulo}}
+                    </h2>
+                </div>
+    
+                <!-- BOTÓN DESTACADO DE DESCARGA PDF -->
+                <button (click)="descargarPdf()"
+                    class="group relative inline-flex items-center justify-center gap-3 bg-slate-900 hover:bg-[#2F5D34] text-white font-medium text-sm px-6 py-3.5 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-emerald-900/20 transition-all duration-300 active:scale-95 shrink-0">
+                    <div
+                        class="w-8 h-8 rounded-xl bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+                        <svg class="w-4 h-4 text-emerald-400 group-hover:text-white transition-colors" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="text-left">
+                        <span
+                            class="block text-[10px] text-slate-400 group-hover:text-emerald-200 font-semibold uppercase tracking-wider leading-none">Documento
+                            Oficial</span>
+                        <span class="block font-bold text-sm leading-tight mt-0.5">Descargar Ficha PDF</span>
+                    </div>
+                </button>
+            </div>
+    
+            <!-- CONTENEDOR PRINCIPAL: COMPOSICIÓN EDITORIAL -->
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+    
+                <!-- TARJETA FOTOGRÁFICA INTERACTIVA (5 COLS) -->
+                <div class="lg:col-span-5 relative">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/60 bg-slate-900 group">
+                        <img [src]="historia.imagen" [alt]="historia.lugar"
+                            class="w-full h-[520px] object-cover transition-transform duration-700 group-hover:scale-105 opacity-90">
+    
+                        <!-- Overlay Gradiente -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+    
+                        <!-- Badge flotante -->
+                        <div class="absolute top-5 left-5">
+                            <span
+                                class="px-4 py-1.5 rounded-full bg-slate-950/60 backdrop-blur-md text-white text-xs font-semibold tracking-wide border border-white/10 shadow-lg">
                                 {{historia.lugar}}
-                            </h2>
-
-                            <p class="mt-4 text-slate-200 leading-relaxed">
+                            </span>
+                        </div>
+    
+                        <!-- Panel Inferior Glassmorphic -->
+                        <div
+                            class="absolute bottom-5 left-5 right-5 p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-white shadow-2xl">
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-emerald-400">Resumen del
+                                Destino</span>
+                            <p class="text-xs text-slate-200 mt-1.5 leading-relaxed font-normal">
                                 {{historia.descripcion}}
                             </p>
                         </div>
                     </div>
                 </div>
-
-                <!-- HISTORIA -->
-                <div>
-
-                    <span class="inline-flex px-5 py-2 rounded-full bg-[#2F5D34]/10 text-[#2F5D34] font-medium">
-                        Historia y Origen
-                    </span>
-
-                    <h3 class="mt-6 text-4xl font-black text-slate-800">
-                        {{historia.titulo}}
-                    </h3>
-
-                    @for (parrafo of historia.historia; track $index) {
-                    <p class="mt-6 text-slate-600 leading-8">
-                        {{parrafo.p}}
-                    </p>
-                    }
-
-                    <!-- Tarjetas -->
-                    <div class="grid sm:grid-cols-2 gap-4 mt-10">
-                        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-300">
-                            <h4 class="font-bold text-[#2F5D34]">
-                                Significado
-                            </h4>
-
-                            <p class="mt-2 text-sm text-slate-600">
+    
+                <!-- CUERPO DE LA HISTORIA Y DATOS TECNICOS (7 COLS) -->
+                <div class="lg:col-span-7 space-y-6">
+    
+                    <!-- BLOQUE NARRATIVO -->
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200/80">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-[#2F5D34]/10 text-[#2F5D34] flex items-center justify-center font-black">
+    
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900">Reseña Histórica</h3>
+                                <p class="text-xs text-slate-500">Origen y trascendencia en el tiempo</p>
+                            </div>
+                        </div>
+    
+                        <div class="space-y-4 text-slate-700 text-base leading-relaxed">
+                            @for (parrafo of historia.historia; track $index) {
+                            <p
+                                class="relative pl-4 border-l-2 border-emerald-500/40 first:border-emerald-600 first:font-medium text-justify">
+                                {{parrafo.p}}
+                            </p>
+                            }
+                        </div>
+                    </div>
+    
+                    <!-- FICHA TÉCNICA (2 COLUMNAS DE DATOS) -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+    
+                        <!-- Significado -->
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:border-emerald-500/50 transition-colors">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="p-2 rounded-lg bg-amber-50 text-amber-700 font-bold text-sm"></span>
+                                <h4 class="font-bold text-slate-900 text-sm">Significado & Etimología</h4>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed pl-1">
                                 {{historia.significado}}
                             </p>
                         </div>
-
-                        <div class="bg-white rounded-3xl p-6  shadow-sm  border border-gray-300">
-                            <h4 class="font-bold text-[#2F5D34]">
-                                Ubicación
-                            </h4>
-
-                            <p class="mt-2 text-sm  text-slate-600">
+    
+                        <!-- Ubicación -->
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:border-emerald-500/50 transition-colors">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="p-2 rounded-lg bg-emerald-50 text-[#2F5D34] font-bold text-sm"></span>
+                                <h4 class="font-bold text-slate-900 text-sm">Ubicación Geográfica</h4>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed pl-1">
                                 {{historia.ubicacion}}
                             </p>
-
                         </div>
-
+    
                     </div>
-
+    
                 </div>
-
+    
             </div>
-
         </div>
-
     </section>
     }
 
@@ -676,6 +728,5 @@
     }
 
 </section>
-
 
 <app-footer-lugares-turisticos />
