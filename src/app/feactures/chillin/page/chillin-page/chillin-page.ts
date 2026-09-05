@@ -190,7 +190,7 @@ export class ChillinPage {
 
   souvenirs = [
     {
-      imagen: 'assets/LUGARES/PAKCHA/souvenir_pakcha_01.png',
+      imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_1.png',
       titulo: 'Imán de Refrigerador',
       descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
       
@@ -199,12 +199,30 @@ export class ChillinPage {
       tipo: 'Recuerdo'
     },
     {
-      imagen: 'assets/LUGARES/PAKCHA/souvenir_pakcha_01.png',
-      titulo: 'Taza decorativa',
-      descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
-      
+      imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_3.png',
+      titulo: 'Llavero Cruz del Chillin',
+      descripcion: 'Lleva contigo un recuerdo de la Cruz del Chillin, uno de los lugares representativos de Huaranchal, como símbolo de fe, tradición y conexión con este hermoso destino.',
+
       lugar: 'Huaranchal',
-      turistico: 'Pakcha',
+      turistico: 'Chillin',
+      tipo: 'Recuerdo'
+    },
+    {
+      imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_4.png',
+      titulo: 'Adorno decorativo de madera',
+      descripcion: 'Lleva a casa un recuerdo del Chillin con este adorno de madera, inspirado en sus hermosos paisajes y pensado para decorar cualquier espacio con un toque especial de Huaranchal.',
+
+      lugar: 'Huaranchal',
+      turistico: 'Chillin',
+      tipo: 'Recuerdo'
+    },
+    {
+      imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_5.png',
+      titulo: 'Señal decorativa de madera',
+      descripcion: 'Lleva contigo un recuerdo del Chillin con esta decoración de madera, formada por pequeñas señalizaciones con frases representativas que evocan sus paisajes, tradición y encanto natural.',
+
+      lugar: 'Huaranchal',
+      turistico: 'Chillin',
       tipo: 'Recuerdo'
     }
   ]

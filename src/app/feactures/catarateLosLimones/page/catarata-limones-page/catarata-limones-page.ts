@@ -77,6 +77,14 @@ export class CatarataLimonesPage {
       foto: 'assets/LUGARES/PAKCHA/PAKCHA_05.jpeg',
       ultimo: false
     },
+     {
+      foto: 'assets/LUGARES/PAKCHA/PAKCHA_15.jpeg',
+      ultimo: true
+    },
+    {
+      foto: 'assets/LUGARES/PAKCHA/PAKCHA_16.jpeg',
+      ultimo: true
+    },
     {
       foto: 'assets/LUGARES/PAKCHA/PAKCHA_03.jpeg',
       ultimo: true
@@ -87,6 +95,10 @@ export class CatarataLimonesPage {
     },
     {
       foto: 'assets/LUGARES/PAKCHA/PAKCHA_08.jpeg',
+      ultimo: false
+    },
+    {
+      foto: 'assets/LUGARES/PAKCHA/PAKCHA_17.jpeg',
       ultimo: false
     },
     {
@@ -105,6 +117,15 @@ export class CatarataLimonesPage {
       foto: 'assets/LUGARES/PAKCHA/PAKCHA_12.jpeg',
       ultimo: true
     },
+    {
+      foto: 'assets/LUGARES/PAKCHA/PAKCHA_13.jpeg',
+      ultimo: true
+    },
+    {
+      foto: 'assets/LUGARES/PAKCHA/PAKCHA_14.jpeg',
+      ultimo: true
+    },
+   
   ]
 
   historia = {
@@ -145,7 +166,7 @@ export class CatarataLimonesPage {
 
   souvenirs = [
     {
-      imagen: 'assets/LUGARES/PAKCHA/souvenir_pakcha_01.png',
+      imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_1.png',
       titulo: 'Imán de Refrigerador',
       descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
       
@@ -154,7 +175,7 @@ export class CatarataLimonesPage {
       tipo: 'Recuerdo'
     },
     {
-      imagen: 'assets/LUGARES/PAKCHA/souvenir_pakcha_01.png',
+      imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_3.png',
       titulo: 'Taza decorativa',
       descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
       
