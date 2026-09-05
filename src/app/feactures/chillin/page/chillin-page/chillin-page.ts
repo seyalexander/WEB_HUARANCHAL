@@ -11,6 +11,13 @@ export type TabLugar =
   | 'souvenirs'
   | 'ubicacion';
 
+interface FotoGaleria {
+  foto: string;
+  titulo?: string;
+  categoria?: string;
+  favorita?: boolean;
+  ubicacion?: string;
+}
 
 @Component({
   selector: 'app-chillin-page',
@@ -61,96 +68,48 @@ export class ChillinPage {
     `
   }
 
-  galeria = [
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-03.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-02.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-06.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-05.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-04.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-07.jpeg',
-      ultimo: true
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-08.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-09.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-10.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-11.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-12.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-13.jpeg',
-      ultimo: true
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-14.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-15.jpeg',
-      ultimo: true
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-16.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-17.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-18.jpeg',
-      ultimo: true
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-19.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-20.jpeg',
-      ultimo: true
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-21.jpeg',
-      ultimo: true
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-22.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/CHILLIN/chillin-23.jpeg',
-      ultimo: true
-    },
-  ]
+
+  categoriaSeleccionada: string = 'todas';
+
+galeria: FotoGaleria[] = [
+  { foto: 'assets/LUGARES/CHILLIN/chillin-03.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-02.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-06.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-05.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-04.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-07.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-08.jpeg', titulo: 'Noche en Chillín', categoria: 'paisajes', favorita: true },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-09.jpeg', titulo: 'Comedor', categoria: 'interiores', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-10.jpeg', titulo: 'Sendero', categoria: 'paisajes', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-11.jpeg', titulo: 'Terraza', categoria: 'exteriores', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-12.jpeg', titulo: 'Habitación Matrimonial', categoria: 'interiores', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-13.jpeg', titulo: 'Vista Panorámica', categoria: 'paisajes', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-14.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-15.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-16.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-17.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-18.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-19.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-20.jpeg', titulo: 'Noche en Chillín', categoria: 'paisajes', favorita: true },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-21.jpeg', titulo: 'Comedor', categoria: 'interiores', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-22.jpeg', titulo: 'Sendero', categoria: 'paisajes', favorita: false },
+  { foto: 'assets/LUGARES/CHILLIN/chillin-23.jpeg', titulo: 'Terraza', categoria: 'exteriores', favorita: false }
+];
+
+// Getter para obtener solo las favoritas
+get fotosFavoritas() {
+  return this.galeria.filter(item => item.favorita);
+}
+
+// Getter para filtrar según la categoría activa
+get galeriaFiltrada() {
+  if (this.categoriaSeleccionada === 'todas') return this.galeria;
+  return this.galeria.filter(item => item.categoria === this.categoriaSeleccionada);
+}
+
+filtrar(categoria: string) {
+  this.categoriaSeleccionada = categoria;
+}
 
   historia = {
     imagen: 'assets/LUGARES/CHILLIN/chillin-07.jpeg',

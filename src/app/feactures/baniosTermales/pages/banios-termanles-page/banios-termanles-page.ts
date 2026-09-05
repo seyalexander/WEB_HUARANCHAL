@@ -9,6 +9,14 @@ export type TabLugar =
   | 'souvenirs'
   | 'ubicacion';
 
+interface FotoGaleria {
+  foto: string;
+  titulo?: string;
+  categoria?: string;
+  favorita?: boolean;
+  ubicacion?: string;
+}
+
 @Component({
   selector: 'app-banios-termanles-page',
   imports: [
@@ -66,26 +74,32 @@ export class BaniosTermanlesPage {
   };
 
 
-  galeria = [
-    {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_05.jpeg'
-    },
-    {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_06.jpeg'
-    },
-    {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_07.jpeg'
-    },
-    {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg'
-    },
-    {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_09.jpeg'
-    },
-    {
-      foto: 'assets/LUGARES/BANIOS_TERMALES/termales_10.jpeg'
-    },
-  ];
+  // Propiedades adicionales en tu componente
+categoriaSeleccionada: string = 'todas';
+
+galeria: FotoGaleria[] = [
+  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_05.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
+  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_06.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
+  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_07.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
+  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
+  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_09.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
+  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_10.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
+];
+
+// Getter para obtener solo las favoritas
+get fotosFavoritas() {
+  return this.galeria.filter(item => item.favorita);
+}
+
+// Getter para filtrar según la categoría activa
+get galeriaFiltrada() {
+  if (this.categoriaSeleccionada === 'todas') return this.galeria;
+  return this.galeria.filter(item => item.categoria === this.categoriaSeleccionada);
+}
+
+filtrar(categoria: string) {
+  this.categoriaSeleccionada = categoria;
+}
 
 
   historia = {

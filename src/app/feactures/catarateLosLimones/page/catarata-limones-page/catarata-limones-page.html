@@ -228,184 +228,181 @@
 
     <!-- GALERIA -->
     @if (tabSeleccionado === 'galeria') {
-    <section class="bg-[#FAFAF7] min-h-screen">
+    <section class="bg-[#FAFAF7] min-h-screen py-10">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
 
-        <section class="py-10 bg-white">
+    <!-- HEADER -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+      <div>
+        <span class="inline-flex px-4 py-1.5 rounded-full bg-[#2F5D34]/10 text-[#2F5D34] text-sm font-medium">
+          Galería Fotográfica
+        </span>
+        <h2 class="mt-2 text-3xl md:text-5xl font-bold text-slate-800">
+          {{hero.titulo_1}} {{hero.titulo_2}}
+        </h2>
+      </div>
 
-            <div class="max-w-7xl mx-auto px-1 md:px-6">
+      <!-- FILTROS POR CATEGORÍA -->
+      <div class="flex flex-wrap gap-2">
+        <button type="button" (click)="filtrar('todas')"
+          [class]="categoriaSeleccionada === 'todas' ? 'bg-[#2F5D34] text-white' : 'bg-white text-slate-600 hover:bg-slate-100'"
+          class="px-4 py-2 rounded-xl text-sm font-semibold transition border border-slate-200 ">
+          Todas ({{galeria.length}})
+        </button>
+        <button type="button" (click)="filtrar('exteriores')"
+          [class]="categoriaSeleccionada === 'exteriores' ? 'bg-[#2F5D34] text-white' : 'bg-white text-slate-600 hover:bg-slate-100'"
+          class="px-4 py-2 rounded-xl text-sm font-semibold transition border border-slate-200">
+          Exteriores
+        </button>
+        <button type="button" (click)="filtrar('interiores')"
+          [class]="categoriaSeleccionada === 'interiores' ? 'bg-[#2F5D34] text-white' : 'bg-white text-slate-600 hover:bg-slate-100'"
+          class="px-4 py-2 rounded-xl text-sm font-semibold transition border border-slate-200 ">
+          Interiores
+        </button>
+        <button type="button" (click)="filtrar('paisajes')"
+          [class]="categoriaSeleccionada === 'paisajes' ? 'bg-[#2F5D34] text-white' : 'bg-white text-slate-600 hover:bg-slate-100'"
+          class="px-4 py-2 rounded-xl text-sm font-semibold transition border border-slate-200">
+          Paisajes
+        </button>
+      </div>
+    </div>
 
-                <!-- HEADER -->
-                <div class="flex items-center justify-between mb-10">
+    <!-- ESTRUCTURA PRINCIPAL DE 2 COLUMNAS -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-                    <div>
+      <!-- COLUMNA IZQUIERDA: GALERÍA MASONRY (8 Col) -->
+      <div class="lg:col-span-8">
+        <div class="columns-2 md:columns-3 gap-3">
+          @for (
+            item of (mostrarTodas ? galeriaFiltrada : galeriaFiltrada.slice(0, 9));
+            track $index
+          ) {
+            <div class="relative mb-3 break-inside-avoid overflow-hidden rounded-xl shadow-sm group cursor-pointer bg-slate-100"
+                 (click)="abrirImagen($index)">
 
-                        <span class="inline-flex px-4 py-2 rounded-full
-                                bg-[#2F5D34]/10
-                                text-[#2F5D34]">
+              <img [src]="item.foto" [alt]="item.titulo || 'Imagen'" 
+                   class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
 
-                            Galería Fotográfica
+              <!-- BADGE DE FAVORITO -->
+              @if (item.favorita) {
+                <span class="absolute top-2 left-2 bg-yellow-400/90 text-slate-900 text-xs px-2 py-1 rounded-full font-bold flex items-center gap-1 shadow">
+                  ★ Favorita
+                </span>
+              }
 
-                        </span>
+              <!-- OVERLAY CON TÍTULO -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                <p class="text-white text-sm font-medium truncate">{{ item.titulo || 'Ver imagen' }}</p>
+              </div>
 
-                        <h2 class="mt-4 text-4xl md:text-5xl
-                                font-bold text-slate-800">
-
-                            {{hero.titulo_1}} {{hero.titulo_2}}
-
-                        </h2>
-
-                    </div>
-
+              <!-- OVERLAY +N -->
+              @if (!mostrarTodas && $index === 8 && galeriaFiltrada.length > 9) {
+                <div class="absolute inset-0 bg-black/60 flex items-center justify-center text-white text-3xl font-bold backdrop-blur-[2px]" 
+                     (click)="mostrarGaleriaCompleta(); $event.stopPropagation()">
+                  +{{ galeriaFiltrada.length - 9 }}
                 </div>
-
-
-                <!-- ============================================== -->
-                <!-- GRID DE IMÁGENES -->
-                <!-- ============================================== -->
-
-                <!-- ============================================== -->
-                <!-- GRID DE IMÁGENES -->
-                <!-- ============================================== -->
-
-                <div class="columns-2 md:columns-3 lg:columns-4 gap-1">
-
-                    @for (
-                    item of (mostrarTodas ? galeria : galeria.slice(0, 10));
-                    track $index
-                    ) {
-
-                    <div class="relative mb-2 break-inside-avoid overflow-hidden rounded-sm shadow-sm group cursor-pointer"
-                        (click)="abrirImagen($index)">
-
-                        <img [src]="item.foto" alt="Imagen del lugar" class="w-full h-auto object-cover
-                       transition-transform duration-500
-                       group-hover:scale-105">
-
-                        @if (
-                        !mostrarTodas &&
-                        $index === 9 &&
-                        galeria.length > 10
-                        ) {
-
-                        <!-- ========================================== -->
-                        <!-- OVERLAY +N -->
-                        <!-- ========================================== -->
-
-                        <div class="absolute inset-0
-                           bg-black/60
-                           flex items-center justify-center
-                           text-white
-                           text-3xl
-                           font-bold
-                           backdrop-blur-[2px]" (click)="mostrarGaleriaCompleta(); $event.stopPropagation()">
-
-                            +{{ galeria.length - 10 }}
-
-                        </div>
-
-                        }
-
-                    </div>
-
-                    }
-
-                </div>
-
-                <!-- ============================================== -->
-                <!-- VER MENOS -->
-                <!-- ============================================== -->
-
-                @if (mostrarTodas && galeria.length > 10) {
-
-                <div class="flex
-                            justify-center
-                            mt-8">
-
-                    <button type="button" (click)="ocultarGaleria()" class="px-6
-                                py-3
-                                rounded-full
-                                bg-[#2F5D34]
-                                hover:bg-[#244A29]
-                                text-white
-                                font-semibold
-                                transition
-                                duration-300
-                                shadow-md
-                                hover:shadow-lg">
-
-                        Ver menos
-
-                    </button>
-
-                </div>
-
-                }
-
+              }
             </div>
+          }
+        </div>
 
-        </section>
+        @if (mostrarTodas && galeriaFiltrada.length > 9) {
+          <div class="flex justify-center mt-6">
+            <button type="button" (click)="ocultarGaleria()" 
+                    class="px-6 py-2.5 rounded-full bg-[#2F5D34] hover:bg-[#244A29] text-white font-semibold transition duration-300 shadow-md">
+              Ver menos
+            </button>
+          </div>
+        }
+      </div>
 
+      <!-- COLUMNA DERECHA: SIDEBAR DE INFORMACIÓN Y FAVORITAS (4 Col) -->
+      <div class="lg:col-span-4 space-y-6">
 
-        <p-galleria [value]="galeria" [(visible)]="mostrarGalleria" [(activeIndex)]="imagenSeleccionada"
-            (visibleChange)="mostrarGalleria = $event" ``` [fullScreen]="true" [showItemNavigators]="true"
-            [showThumbnails]="true" [showIndicators]="true" [circular]="true" [showIndicatorsOnItem]="true"
-            [numVisible]="6" [baseZIndex]="99999" [containerStyle]="{
-    'max-width': '95vw'
-}">
+        <!-- WIDGET 1: RESUMEN DEL LUGAR -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 ">
+          <h3 class="text-lg font-bold text-slate-800 mb-3 flex items-center gap-2">
+             Sobre el Destino
+          </h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-4">
+            Explora la colección fotográfica completa de nuestros espacios, paisajes y momentos destacados.
+          </p>
+          <div class="grid grid-cols-2 gap-3 pt-3 border-t border-slate-100 text-center">
+            <div class="bg-slate-50 p-3 rounded-xl">
+              <span class="block text-2xl font-bold text-[#2F5D34]">{{ galeria.length }}</span>
+              <span class="text-xs text-slate-500 font-medium">Fotos Totales</span>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl">
+              <span class="block text-2xl font-bold text-[#2F5D34]">{{ fotosFavoritas.length }}</span>
+              <span class="text-xs text-slate-500 font-medium">Destacadas</span>
+            </div>
+          </div>
+        </div>
 
-            <!-- ========================================== -->
-            <!-- IMAGEN PRINCIPAL -->
-            <!-- ========================================== -->
+        <!-- WIDGET 2: FOTOS FAVORITAS / DESTACADAS -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 ">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+               Capturas Destacadas
+            </h3>
+            <span class="text-xs font-semibold text-[#2F5D34] bg-[#2F5D34]/10 px-2.5 py-1 rounded-full">Top Selección</span>
+          </div>
 
-            <ng-template #item let-item>
-
-                <div class="flex
-               items-center
-               justify-center
-               w-full
-               h-full
-               min-h-[80vh]">
-
-                    <img [src]="item.foto" alt="Imagen ampliada" class="max-h-[80vh]
-                   max-w-[90vw]
-                   w-auto
-                   h-auto
-                   object-contain
-                   mx-auto
-                   rounded-xl
-                   shadow-2xl">
-
+          <div class="space-y-3">
+            @for (fav of fotosFavoritas.slice(0, 3); track $index) {
+              <div class="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition cursor-pointer border border-transparent hover:border-slate-100"
+                   (click)="abrirImagen(galeria.indexOf(fav))">
+                <img [src]="fav.foto" [alt]="fav.titulo" class="w-16 h-16 object-cover rounded-lg shadow-sm flex-shrink-0">
+                <div class="overflow-hidden">
+                  <h4 class="text-sm font-semibold text-slate-800 truncate">{{ fav.titulo || 'Fotografía Destacada' }}</h4>
+                  <p class="text-xs text-slate-500 mt-0.5">{{ fav.ubicacion || 'Chillín' }}</p>
+                  <span class="inline-block mt-1 text-[10px] font-medium text-[#2F5D34] uppercase tracking-wider">
+                    {{ fav.categoria }}
+                  </span>
                 </div>
+              </div>
+            }
+          </div>
+        </div>
 
-            </ng-template>
+      </div>
 
+    </div>
+  </div>
+</section>
 
-            <!-- ========================================== -->
-            <!-- MINIATURAS -->
-            <!-- ========================================== -->
+<!-- PRIMENG GALLERIA (MODAL FULLSCREEN) -->
+<p-galleria [value]="galeria" 
+            [(visible)]="mostrarGalleria" 
+            [(activeIndex)]="imagenSeleccionada"
+            (visibleChange)="mostrarGalleria = $event"
+            [fullScreen]="true" 
+            [showItemNavigators]="true"
+            [showThumbnails]="true" 
+            [showIndicators]="true" 
+            [circular]="true" 
+            [numVisible]="6" 
+            [baseZIndex]="99999" 
+            [containerStyle]="{'max-width': '95vw'}">
 
-            <ng-template #thumbnail let-item>
+  <ng-template #item let-item>
+    <div class="flex flex-col items-center justify-center w-full h-full min-h-[80vh]">
+      <img [src]="item.foto" [alt]="item.titulo || 'Imagen ampliada'" 
+           class="max-h-[75vh] max-w-[90vw] object-contain rounded-xl shadow-2xl">
+      @if (item.titulo) {
+        <p class="text-white text-center mt-3 text-lg font-medium bg-black/40 px-4 py-1.5 rounded-full backdrop-blur-sm">
+          {{ item.titulo }}
+        </p>
+      }
+    </div>
+  </ng-template>
 
-                <div class="flex
-               items-center
-               justify-center
-               p-1">
-
-                    <img [src]="item.foto" alt="Miniatura" class="w-20
-                   h-14
-                   object-cover
-                   rounded-lg">
-
-                </div>
-
-            </ng-template>
-            ```
-
-        </p-galleria>
-
-
-
-    </section>
+  <ng-template #thumbnail let-item>
+    <div class="flex items-center justify-center p-1">
+      <img [src]="item.foto" alt="Miniatura" class="w-20 h-14 object-cover rounded-lg">
+    </div>
+  </ng-template>
+</p-galleria>
     }
 
     <!-- HISTORIA -->

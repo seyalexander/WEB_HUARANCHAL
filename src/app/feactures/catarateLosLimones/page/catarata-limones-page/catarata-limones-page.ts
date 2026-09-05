@@ -9,6 +9,14 @@ export type TabLugar =
   | 'souvenirs'
   | 'ubicacion';
 
+interface FotoGaleria {
+  foto: string;
+  titulo?: string;
+  categoria?: string;
+  favorita?: boolean;
+  ubicacion?: string;
+}
+
 @Component({
   selector: 'app-catarata-limones-page',
   imports: [
@@ -56,77 +64,45 @@ export class CatarataLimonesPage {
     `
   }
 
-  galeria = [
-    {
-      foto: 'assets/LUGARES/PAKCHA/PACKCHA_01.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_06.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_07.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_04.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_05.jpeg',
-      ultimo: false
-    },
-     {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_15.jpeg',
-      ultimo: true
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_16.jpeg',
-      ultimo: true
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_03.jpeg',
-      ultimo: true
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_02.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_08.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_17.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_09.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_10.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_11.jpeg',
-      ultimo: false
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_12.jpeg',
-      ultimo: true
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_13.jpeg',
-      ultimo: true
-    },
-    {
-      foto: 'assets/LUGARES/PAKCHA/PAKCHA_14.jpeg',
-      ultimo: true
-    },
-   
-  ]
+
+  
+  categoriaSeleccionada: string = 'todas';
+
+  galeria: FotoGaleria[] = [
+    { foto: 'assets/LUGARES/PAKCHA/PACKCHA_01.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_02.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_03.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_04.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_05.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_06.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_07.jpeg', titulo: 'Noche en Chillín', categoria: 'paisajes', favorita: true },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_08.jpeg', titulo: 'Comedor', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_09.jpeg', titulo: 'Sendero', categoria: 'paisajes', favorita: false },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_10.jpeg', titulo: 'Terraza', categoria: 'exteriores', favorita: false },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_11.jpeg', titulo: 'Habitación Matrimonial', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_12.jpeg', titulo: 'Vista Panorámica', categoria: 'paisajes', favorita: false },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_13.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_14.jpeg', titulo: 'Sendero', categoria: 'paisajes', favorita: false },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_15.jpeg', titulo: 'Terraza', categoria: 'exteriores', favorita: false },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_16.jpeg', titulo: 'Habitación Matrimonial', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/PAKCHA/PAKCHA_17.jpeg', titulo: 'Vista Panorámica', categoria: 'paisajes', favorita: false },
+  ];
+
+  // Getter para obtener solo las favoritas
+  get fotosFavoritas() {
+    return this.galeria.filter(item => item.favorita);
+  }
+
+  // Getter para filtrar según la categoría activa
+  get galeriaFiltrada() {
+    if (this.categoriaSeleccionada === 'todas') return this.galeria;
+    return this.galeria.filter(item => item.categoria === this.categoriaSeleccionada);
+  }
+
+  filtrar(categoria: string) {
+    this.categoriaSeleccionada = categoria;
+  }
+
 
   historia = {
     imagen: 'assets/LUGARES/PAKCHA/PAKCHA_08.jpeg',
