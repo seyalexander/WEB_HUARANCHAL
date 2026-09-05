@@ -75,31 +75,31 @@ export class BaniosTermanlesPage {
 
 
   // Propiedades adicionales en tu componente
-categoriaSeleccionada: string = 'todas';
+  categoriaSeleccionada: string = 'todas';
 
-galeria: FotoGaleria[] = [
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_05.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_06.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_07.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_09.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_10.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
-];
+  galeria: FotoGaleria[] = [
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_05.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_06.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_07.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_09.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_10.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
+  ];
 
-// Getter para obtener solo las favoritas
-get fotosFavoritas() {
-  return this.galeria.filter(item => item.favorita);
-}
+  // Getter para obtener solo las favoritas
+  get fotosFavoritas() {
+    return this.galeria.filter(item => item.favorita);
+  }
 
-// Getter para filtrar según la categoría activa
-get galeriaFiltrada() {
-  if (this.categoriaSeleccionada === 'todas') return this.galeria;
-  return this.galeria.filter(item => item.categoria === this.categoriaSeleccionada);
-}
+  // Getter para filtrar según la categoría activa
+  get galeriaFiltrada() {
+    if (this.categoriaSeleccionada === 'todas') return this.galeria;
+    return this.galeria.filter(item => item.categoria === this.categoriaSeleccionada);
+  }
 
-filtrar(categoria: string) {
-  this.categoriaSeleccionada = categoria;
-}
+  filtrar(categoria: string) {
+    this.categoriaSeleccionada = categoria;
+  }
 
 
   historia = {
@@ -208,7 +208,7 @@ filtrar(categoria: string) {
 
   descargarPdf(): void {
     const párrafosHistoria = this.historia.historia.map(item => `<p class="m-0">${item.p}</p>`).join('');
-    
+
     const tarjetasSouvenirs = this.souvenirs.map(s => `
       <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 flex flex-col justify-between">
         <img src="${s.imagen}" class="w-full h-[38mm] object-cover rounded-md mb-2 border border-slate-200" />

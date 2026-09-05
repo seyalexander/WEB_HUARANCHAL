@@ -65,7 +65,7 @@ export class CatarataLimonesPage {
   }
 
 
-  
+
   categoriaSeleccionada: string = 'todas';
 
   galeria: FotoGaleria[] = [
@@ -133,7 +133,7 @@ export class CatarataLimonesPage {
         `
       }
     ],
-    significado:`Pakcha significa cascada o caída de agua en lengua quechua.`,
+    significado: `Pakcha significa cascada o caída de agua en lengua quechua.`,
     ubicacion: `
       Distrito de Huaranchal,
       provincia de Otuzco,
@@ -145,7 +145,7 @@ export class CatarataLimonesPage {
       imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_1.png',
       titulo: 'Imán de Refrigerador',
       descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
-      
+
       lugar: 'Huaranchal',
       turistico: 'Pakcha',
       tipo: 'Recuerdo'
@@ -154,7 +154,7 @@ export class CatarataLimonesPage {
       imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_3.png',
       titulo: 'Taza decorativa',
       descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
-      
+
       lugar: 'Huaranchal',
       turistico: 'Pakcha',
       tipo: 'Recuerdo'
@@ -169,10 +169,10 @@ export class CatarataLimonesPage {
     this.mostrarTodas = false;
   }
 
-   // =========================================================
+  // =========================================================
   // GALLERIA PRIME NG
   // =========================================================
-   mostrarGalleria = false;
+  mostrarGalleria = false;
 
   imagenSeleccionada = 0;
 
@@ -204,7 +204,7 @@ export class CatarataLimonesPage {
 
   descargarPdf(): void {
     const párrafosHistoria = this.historia.historia.map(item => `<p class="m-0">${item.p}</p>`).join('');
-    
+
     const tarjetasSouvenirs = this.souvenirs.map(s => `
       <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 flex flex-col justify-between">
         <img src="${s.imagen}" class="w-full h-[38mm] object-cover rounded-md mb-2 border border-slate-200" />

@@ -26,7 +26,7 @@ interface FotoGaleria {
     GalleriaModule,
     PdfTuristicoComponent,
     Button
-],
+  ],
   templateUrl: './chillin-page.html',
   styleUrl: './chillin-page.css',
 })
@@ -71,45 +71,45 @@ export class ChillinPage {
 
   categoriaSeleccionada: string = 'todas';
 
-galeria: FotoGaleria[] = [
-  { foto: 'assets/LUGARES/CHILLIN/chillin-03.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-02.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-06.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-05.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-04.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-07.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-08.jpeg', titulo: 'Noche en Chillín', categoria: 'paisajes', favorita: true },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-09.jpeg', titulo: 'Comedor', categoria: 'interiores', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-10.jpeg', titulo: 'Sendero', categoria: 'paisajes', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-11.jpeg', titulo: 'Terraza', categoria: 'exteriores', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-12.jpeg', titulo: 'Habitación Matrimonial', categoria: 'interiores', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-13.jpeg', titulo: 'Vista Panorámica', categoria: 'paisajes', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-14.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-15.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-16.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-17.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-18.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-19.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-20.jpeg', titulo: 'Noche en Chillín', categoria: 'paisajes', favorita: true },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-21.jpeg', titulo: 'Comedor', categoria: 'interiores', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-22.jpeg', titulo: 'Sendero', categoria: 'paisajes', favorita: false },
-  { foto: 'assets/LUGARES/CHILLIN/chillin-23.jpeg', titulo: 'Terraza', categoria: 'exteriores', favorita: false }
-];
+  galeria: FotoGaleria[] = [
+    { foto: 'assets/LUGARES/CHILLIN/chillin-03.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-02.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-06.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-05.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-04.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-07.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-08.jpeg', titulo: 'Noche en Chillín', categoria: 'paisajes', favorita: true },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-09.jpeg', titulo: 'Comedor', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-10.jpeg', titulo: 'Sendero', categoria: 'paisajes', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-11.jpeg', titulo: 'Terraza', categoria: 'exteriores', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-12.jpeg', titulo: 'Habitación Matrimonial', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-13.jpeg', titulo: 'Vista Panorámica', categoria: 'paisajes', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-14.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-15.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-16.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-17.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-18.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-19.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-20.jpeg', titulo: 'Noche en Chillín', categoria: 'paisajes', favorita: true },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-21.jpeg', titulo: 'Comedor', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-22.jpeg', titulo: 'Sendero', categoria: 'paisajes', favorita: false },
+    { foto: 'assets/LUGARES/CHILLIN/chillin-23.jpeg', titulo: 'Terraza', categoria: 'exteriores', favorita: false }
+  ];
 
-// Getter para obtener solo las favoritas
-get fotosFavoritas() {
-  return this.galeria.filter(item => item.favorita);
-}
+  // Getter para obtener solo las favoritas
+  get fotosFavoritas() {
+    return this.galeria.filter(item => item.favorita);
+  }
 
-// Getter para filtrar según la categoría activa
-get galeriaFiltrada() {
-  if (this.categoriaSeleccionada === 'todas') return this.galeria;
-  return this.galeria.filter(item => item.categoria === this.categoriaSeleccionada);
-}
+  // Getter para filtrar según la categoría activa
+  get galeriaFiltrada() {
+    if (this.categoriaSeleccionada === 'todas') return this.galeria;
+    return this.galeria.filter(item => item.categoria === this.categoriaSeleccionada);
+  }
 
-filtrar(categoria: string) {
-  this.categoriaSeleccionada = categoria;
-}
+  filtrar(categoria: string) {
+    this.categoriaSeleccionada = categoria;
+  }
 
   historia = {
     imagen: 'assets/LUGARES/CHILLIN/chillin-07.jpeg',
@@ -140,7 +140,7 @@ filtrar(categoria: string) {
         `
       }
     ],
-    significado:`Pakcha significa cascada o caída de agua en lengua quechua.`,
+    significado: `Pakcha significa cascada o caída de agua en lengua quechua.`,
     ubicacion: `
       Distrito de Huaranchal,
       provincia de Otuzco,
@@ -152,7 +152,7 @@ filtrar(categoria: string) {
       imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_1.png',
       titulo: 'Imán de Refrigerador',
       descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
-      
+
       lugar: 'Huaranchal',
       turistico: 'Pakcha',
       tipo: 'Recuerdo'
@@ -197,7 +197,7 @@ filtrar(categoria: string) {
   // =========================================================
   // GALLERIA PRIME NG
   // =========================================================
-   mostrarGalleria = false;
+  mostrarGalleria = false;
 
   imagenSeleccionada = 0;
 
@@ -230,7 +230,7 @@ filtrar(categoria: string) {
 
   descargarPdf(): void {
     const párrafosHistoria = this.historia.historia.map(item => `<p class="m-0">${item.p}</p>`).join('');
-    
+
     const tarjetasSouvenirs = this.souvenirs.map(s => `
       <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 flex flex-col justify-between">
         <img src="${s.imagen}" class="w-full h-[38mm] object-cover rounded-md mb-2 border border-slate-200" />
