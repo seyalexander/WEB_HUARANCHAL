@@ -39,7 +39,7 @@ export class ProductosEmblematicosInicioComponents {
             nombre: 'Granadilla',
             descripcion: 'Conocida por su sabor delicado y propiedades nutritivas.',
             imagen: 'assets/GRANADILLAS-IMG.avif',
-            personaje: 'assets/INICIO/PRODUCTOS/personaje-cafe.png',
+            personaje: 'assets/INICIO/PRODUCTOS/personaje-granadilla.png',
             animacion: 'slide-in-from-r-20'
         },
 
@@ -47,7 +47,7 @@ export class ProductosEmblematicosInicioComponents {
             nombre: 'Lima',
             descripcion: 'Producto tradicional utilizado en la gastronomía regional.',
             imagen: 'assets/LIMAS-IMG.jpg',
-            personaje: 'assets/INICIO/PRODUCTOS/personaje-naranja.png',
+            personaje: 'assets/INICIO/PRODUCTOS/personaje-lima.png',
             animacion: 'slide-in-from-r-20'
         }
 
