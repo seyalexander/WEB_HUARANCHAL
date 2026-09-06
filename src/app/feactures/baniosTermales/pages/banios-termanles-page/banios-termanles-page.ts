@@ -112,28 +112,31 @@ export class BaniosTermanlesPage {
     titulo: 'Un símbolo natural de Huaranchal',
 
     historia: [
-      {
-        p: `
-          La Catarata Pakcha es uno de los atractivos naturales
-          más representativos del distrito de Huaranchal,
-          ubicado en la provincia de Otuzco, región La Libertad.
-        `
-      },
-      {
-        p: `
-          Rodeada por la exuberante vegetación del Valle Alto Chicama,
-          esta caída de agua ha sido durante generaciones un lugar
-          especial para los pobladores locales y visitantes.
-        `
-      },
-      {
-        p: `
-          Su nombre proviene de la palabra quechua "Pakcha",
-          utilizada en los Andes para referirse a una cascada
-          o caída natural de agua.
-        `
-      }
-    ],
+  {
+    p: `
+      Ubicado a 1900 msnm, entre imponentes cerros y a un costado del río Huaranchalino, 
+      este espacio se encuentra rodeado de abundante vegetación y árboles frutales. 
+      Se sitúa en el sector La Tranca Vieja, dentro del distrito de Huaranchal, 
+      provincia de Otuzco, a solo 30 minutos del pueblo.
+    `
+  },
+  {
+    p: `
+      Consiste en una fuente o manantial de aguas termales que emanan a una temperatura de 70 °C. 
+      Sus aguas son ricas en minerales como fierro y azufre, 
+      lo que las convierte en una alternativa altamente saludable para el tratamiento, 
+      alivio y curación de diversas dolencias.
+    `
+  },
+  {
+    p: `
+      Estas aguas termales son aprovechadas por los habitantes locales y 
+      reciben a más de 3000 visitantes durante las Fiestas Patronales del 24 de junio. 
+      Asimismo, en vacaciones de medio año son muy concurridas por estudiantes de Lima y Trujillo, 
+      así como por familias que acuden a disfrutar de su excelente clima.
+    `
+  },
+],
 
     significado: `Pakcha significa cascada o caída de agua en lengua quechua.`,
 

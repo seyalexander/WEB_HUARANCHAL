@@ -173,7 +173,7 @@ export class ChillinPage {
       },
       {
         p: `
-      Durante estas celebraciones se realiza el tradicional evento denominado "Florcer", 
+      Durante estas celebraciones se realiza el tradicional evento denominado "Florecer", 
       en el que los habitantes se reúnen al amanecer para disfrutar de la música, compartir 
       en comunidad y contemplar las espectaculares vistas desde las alturas. Esta celebración 
       representa una muestra de la identidad, las costumbres y la devoción de los pobladores 
