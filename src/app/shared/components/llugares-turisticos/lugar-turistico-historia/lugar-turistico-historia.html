@@ -6,38 +6,75 @@
     <div class="max-w-7xl mx-auto px-6 relative z-10">
 
         <!-- ENCABEZADO DE SECCIÓN -->
-        <div
-            class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 border-b border-slate-200/80 pb-6">
-            <div>
-                <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#2F5D34]">
-                    <span class="w-2 h-2 rounded-full bg-[#2F5D34]"></span>
-                    Patrimonio & Naturaleza
-                </span>
-                <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-2">
-                    {{historia.titulo}}
-                </h2>
+        <!-- ENCABEZADO DE SECCIÓN -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 border-b border-slate-200/80 pb-6">
+
+    <div>
+        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#2F5D34]">
+            <span class="w-2 h-2 rounded-full bg-[#2F5D34]"></span>
+            Patrimonio & Naturaleza
+        </span>
+
+        <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-2">
+            {{historia.titulo}}
+        </h2>
+    </div>
+
+
+    <!-- ACCIONES -->
+    <div class="flex flex-wrap items-center justify-end gap-3">
+
+        <!-- ESCUCHAR -->
+        <button
+            type="button"
+            (click)="leerHistoria.emit()"
+            class="group inline-flex items-center justify-center gap-3 bg-[#2F5D34] hover:bg-[#244A29] text-white font-medium text-sm px-5 py-3.5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 shrink-0">
+
+            <div class="w-8 h-8 rounded-xl bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M12 18.5a1.5 1.5 0 01-1.5-1.5v-10A1.5 1.5 0 0112 5.5l4 3v7l-4 3z"></path>
+                </svg>
             </div>
 
-            <!-- BOTÓN DESTACADO DE DESCARGA PDF -->
-            <button (click)="descargarPdf.emit()"
-                class="group relative inline-flex items-center justify-center gap-3 bg-slate-900 hover:bg-[#2F5D34] text-white font-medium text-sm px-6 py-3.5 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-emerald-900/20 transition-all duration-300 active:scale-95 shrink-0">
-                <div
-                    class="w-8 h-8 rounded-xl bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
-                    <svg class="w-4 h-4 text-emerald-400 group-hover:text-white transition-colors" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                        </path>
-                    </svg>
-                </div>
-                <div class="text-left">
-                    <span
-                        class="block text-[10px] text-slate-400 group-hover:text-emerald-200 font-semibold uppercase tracking-wider leading-none">Documento
-                        Oficial</span>
-                    <span class="block font-bold text-sm leading-tight mt-0.5">Descargar Ficha PDF</span>
-                </div>
-            </button>
-        </div>
+            <div class="text-left">
+                <span class="block text-[10px] text-emerald-200 font-semibold uppercase tracking-wider leading-none">
+                    Audio
+                </span>
+
+                <span class="block font-bold text-sm leading-tight mt-0.5">
+                    Escuchar historia
+                </span>
+            </div>
+
+        </button>
+
+
+        <!-- PDF -->
+        <button
+            (click)="descargarPdf.emit()"
+            class="group relative inline-flex items-center justify-center gap-3 bg-slate-900 hover:bg-[#2F5D34] text-white font-medium text-sm px-6 py-3.5 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-emerald-900/20 transition-all duration-300 active:scale-95 shrink-0">
+
+            <div class="w-8 h-8 rounded-xl bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+                <svg class="w-4 h-4 text-emerald-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a2 2 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+            </div>
+
+            <div class="text-left">
+                <span class="block text-[10px] text-slate-400 group-hover:text-emerald-200 font-semibold uppercase tracking-wider leading-none">
+                    Documento Oficial
+                </span>
+
+                <span class="block font-bold text-sm leading-tight mt-0.5">
+                    Descargar Ficha PDF
+                </span>
+            </div>
+
+        </button>
+
+    </div>
+
+</div>
 
         <!-- CONTENEDOR PRINCIPAL: COMPOSICIÓN EDITORIAL -->
         <div class="grid lg:grid-cols-12 gap-8 items-start">

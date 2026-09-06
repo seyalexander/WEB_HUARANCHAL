@@ -274,7 +274,7 @@
 
     <!-- HISTORIA -->
     @if(tabSeleccionado === 'historia'){
-        <app-lugar-turistico-historia [historia]="historia" (descargarPdf)="descargarPdf()"/>
+        <app-lugar-turistico-historia [historia]="historia" (descargarPdf)="descargarPdf()"  (leerHistoria)="leerHistoria()"/>
     }
 
     <!-- SOUVENIRS -->

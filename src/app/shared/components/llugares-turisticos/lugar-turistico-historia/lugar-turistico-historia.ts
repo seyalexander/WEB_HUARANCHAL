@@ -9,4 +9,5 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class LugarTuristicoHistoria {
   @Input() historia: any;
   @Output() descargarPdf = new EventEmitter<void>();
+  @Output() leerHistoria = new EventEmitter<void>(); 
 }
