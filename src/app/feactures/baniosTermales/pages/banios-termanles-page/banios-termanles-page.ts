@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FooterLugaresTuristicos } from "../../../../shared/components/footer-lugares-turisticos/footer-lugares-turisticos";
 import { GalleriaModule } from 'primeng/galleria';
 import { PdfExportService } from '../../../../shared/services/pdf/pdf-export-service';
+import { LugarTuristicoHistoria } from "../../../../shared/components/llugares-turisticos/lugar-turistico-historia/lugar-turistico-historia";
+import { LugarTuristicoGaleria } from "../../../../shared/components/llugares-turisticos/lugar-turistico-galeria/lugar-turistico-galeria";
 
 export type TabLugar =
   | 'galeria'
@@ -21,8 +23,10 @@ interface FotoGaleria {
   selector: 'app-banios-termanles-page',
   imports: [
     FooterLugaresTuristicos,
-    GalleriaModule
-  ],
+    GalleriaModule,
+    LugarTuristicoHistoria,
+    LugarTuristicoGaleria
+],
   templateUrl: './banios-termanles-page.html',
   styleUrl: './banios-termanles-page.css',
 })
@@ -78,16 +82,16 @@ export class BaniosTermanlesPage {
   categoriaSeleccionada: string = 'todas';
 
   galeria: FotoGaleria[] = [
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_05.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_07.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_06.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_09.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_12.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_10.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_11.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
-  { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_13.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
-];
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_05.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_07.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_06.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_09.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_12.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_10.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_11.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
+    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_13.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
+  ];
 
   // Getter para obtener solo las favoritas
   get fotosFavoritas() {
@@ -112,31 +116,31 @@ export class BaniosTermanlesPage {
     titulo: 'Un símbolo natural de Huaranchal',
 
     historia: [
-  {
-    p: `
+      {
+        p: `
       Ubicado a 1900 msnm, entre imponentes cerros y a un costado del río Huaranchalino, 
       este espacio se encuentra rodeado de abundante vegetación y árboles frutales. 
       Se sitúa en el sector La Tranca Vieja, dentro del distrito de Huaranchal, 
       provincia de Otuzco, a solo 30 minutos del pueblo.
     `
-  },
-  {
-    p: `
+      },
+      {
+        p: `
       Consiste en una fuente o manantial de aguas termales que emanan a una temperatura de 70 °C. 
       Sus aguas son ricas en minerales como fierro y azufre, 
       lo que las convierte en una alternativa altamente saludable para el tratamiento, 
       alivio y curación de diversas dolencias.
     `
-  },
-  {
-    p: `
+      },
+      {
+        p: `
       Estas aguas termales son aprovechadas por los habitantes locales y 
       reciben a más de 3000 visitantes durante las Fiestas Patronales del 24 de junio. 
       Asimismo, en vacaciones de medio año son muy concurridas por estudiantes de Lima y Trujillo, 
       así como por familias que acuden a disfrutar de su excelente clima.
     `
-  },
-],
+      },
+    ],
 
     significado: `Pakcha significa cascada o caída de agua en lengua quechua.`,
 

@@ -228,320 +228,43 @@
 
     <!-- GALERIA -->
     @if (tabSeleccionado === 'galeria') {
-    <section class="bg-[#FAFAF7] min-h-screen py-10">
-  <div class="max-w-7xl mx-auto px-4 md:px-6">
-
-    <!-- HEADER -->
-    <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
-      <div>
-        <span class="inline-flex px-4 py-1.5 rounded-full bg-[#2F5D34]/10 text-[#2F5D34] text-sm font-medium">
-          Galería Fotográfica
-        </span>
-        <h2 class="mt-2 text-3xl md:text-5xl font-bold text-slate-800">
-          {{hero.titulo_1}} {{hero.titulo_2}}
-        </h2>
-      </div>
-
-      <!-- FILTROS POR CATEGORÍA -->
-      <div class="flex flex-wrap gap-2">
-        <button type="button" (click)="filtrar('todas')"
-          [class]="categoriaSeleccionada === 'todas' ? 'bg-[#2F5D34] text-white' : 'bg-white text-slate-600 hover:bg-slate-100'"
-          class="px-4 py-2 rounded-xl text-sm font-semibold transition border border-slate-200 ">
-          Todas ({{galeria.length}})
-        </button>
-        <button type="button" (click)="filtrar('exteriores')"
-          [class]="categoriaSeleccionada === 'exteriores' ? 'bg-[#2F5D34] text-white' : 'bg-white text-slate-600 hover:bg-slate-100'"
-          class="px-4 py-2 rounded-xl text-sm font-semibold transition border border-slate-200 ">
-          Exteriores
-        </button>
-        <button type="button" (click)="filtrar('interiores')"
-          [class]="categoriaSeleccionada === 'interiores' ? 'bg-[#2F5D34] text-white' : 'bg-white text-slate-600 hover:bg-slate-100'"
-          class="px-4 py-2 rounded-xl text-sm font-semibold transition border border-slate-200 ">
-          Interiores
-        </button>
-        <button type="button" (click)="filtrar('paisajes')"
-          [class]="categoriaSeleccionada === 'paisajes' ? 'bg-[#2F5D34] text-white' : 'bg-white text-slate-600 hover:bg-slate-100'"
-          class="px-4 py-2 rounded-xl text-sm font-semibold transition border border-slate-200 ">
-          Paisajes
-        </button>
-      </div>
-    </div>
-
-    <!-- ESTRUCTURA PRINCIPAL DE 2 COLUMNAS -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-      <!-- COLUMNA IZQUIERDA: GALERÍA MASONRY (8 Col) -->
-      <div class="lg:col-span-8">
-        <div class="columns-2 md:columns-3 gap-3">
-          @for (
-            item of (mostrarTodas ? galeriaFiltrada : galeriaFiltrada.slice(0, 9));
-            track $index
-          ) {
-            <div class="relative mb-3 break-inside-avoid overflow-hidden rounded-xl shadow-sm group cursor-pointer bg-slate-100"
-                 (click)="abrirImagen($index)">
-
-              <img [src]="item.foto" [alt]="item.titulo || 'Imagen'" 
-                   class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
-
-              <!-- BADGE DE FAVORITO -->
-              @if (item.favorita) {
-                <span class="absolute top-2 left-2 bg-yellow-400/90 text-slate-900 text-xs px-2 py-1 rounded-full font-bold flex items-center gap-1 shadow">
-                  ★ Favorita
-                </span>
-              }
-
-              <!-- OVERLAY CON TÍTULO -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                <p class="text-white text-sm font-medium truncate">{{ item.titulo || 'Ver imagen' }}</p>
-              </div>
-
-              <!-- OVERLAY +N -->
-              @if (!mostrarTodas && $index === 8 && galeriaFiltrada.length > 9) {
-                <div class="absolute inset-0 bg-black/60 flex items-center justify-center text-white text-3xl font-bold backdrop-blur-[2px]" 
-                     (click)="mostrarGaleriaCompleta(); $event.stopPropagation()">
-                  +{{ galeriaFiltrada.length - 9 }}
-                </div>
-              }
+    <app-lugar-turistico-galeria hero="hero" (filtrarOutput)="filtrar($event)"
+        [categoriaSeleccionada]="categoriaSeleccionada" [galeria]="galeria" [mostrarTodas]="mostrarTodas"
+        [galeriaFiltrada]="galeriaFiltrada" (abrirImagenOutput)="abrirImagen( $event)"
+        (mostrarGaleriaCompletaOutput)="mostrarGaleriaCompleta()" (ocultarGaleriaOutput)="ocultarGaleria()"
+        [fotosFavoritas]="fotosFavoritas" />
+    
+    <!-- PRIMENG GALLERIA (MODAL FULLSCREEN) -->
+    <p-galleria [value]="galeria" [(visible)]="mostrarGalleria" [(activeIndex)]="imagenSeleccionada"
+        (visibleChange)="mostrarGalleria = $event" [fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="true"
+        [showIndicators]="true" [circular]="true" [numVisible]="6" [baseZIndex]="99999"
+        [containerStyle]="{'max-width': '95vw'}">
+    
+        <ng-template #item let-item>
+            <div class="flex flex-col items-center justify-center w-full h-full min-h-[80vh]">
+                <img [src]="item.foto" [alt]="item.titulo || 'Imagen ampliada'"
+                    class="max-h-[75vh] max-w-[90vw] object-contain rounded-xl shadow-2xl">
+                @if (item.titulo) {
+                <p
+                    class="text-white text-center mt-3 text-lg font-medium bg-black/40 px-4 py-1.5 rounded-full backdrop-blur-sm">
+                    {{ item.titulo }}
+                </p>
+                }
             </div>
-          }
-        </div>
-
-        @if (mostrarTodas && galeriaFiltrada.length > 9) {
-          <div class="flex justify-center mt-6">
-            <button type="button" (click)="ocultarGaleria()" 
-                    class="px-6 py-2.5 rounded-full bg-[#2F5D34] hover:bg-[#244A29] text-white font-semibold transition duration-300 shadow-md">
-              Ver menos
-            </button>
-          </div>
-        }
-      </div>
-
-      <!-- COLUMNA DERECHA: SIDEBAR DE INFORMACIÓN Y FAVORITAS (4 Col) -->
-      <div class="lg:col-span-4 space-y-6">
-
-        <!-- WIDGET 1: RESUMEN DEL LUGAR -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 ">
-          <h3 class="text-lg font-bold text-slate-800 mb-3 flex items-center gap-2">
-             Sobre el Destino
-          </h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-4">
-            Explora la colección fotográfica completa de nuestros espacios, paisajes y momentos destacados.
-          </p>
-          <div class="grid grid-cols-2 gap-3 pt-3 border-t border-slate-100 text-center">
-            <div class="bg-slate-50 p-3 rounded-xl">
-              <span class="block text-2xl font-bold text-[#2F5D34]">{{ galeria.length }}</span>
-              <span class="text-xs text-slate-500 font-medium">Fotos Totales</span>
+        </ng-template>
+    
+        <ng-template #thumbnail let-item>
+            <div class="flex items-center justify-center p-1">
+                <img [src]="item.foto" alt="Miniatura" class="w-20 h-14 object-cover rounded-lg">
             </div>
-            <div class="bg-slate-50 p-3 rounded-xl">
-              <span class="block text-2xl font-bold text-[#2F5D34]">{{ fotosFavoritas.length }}</span>
-              <span class="text-xs text-slate-500 font-medium">Destacadas</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- WIDGET 2: FOTOS FAVORITAS / DESTACADAS -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 ">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
-              Capturas Destacadas
-            </h3>
-            <span class="text-xs font-semibold text-[#2F5D34] bg-[#2F5D34]/10 px-2.5 py-1 rounded-full">Top Selección</span>
-          </div>
-
-          <div class="space-y-3">
-            @for (fav of fotosFavoritas.slice(0, 3); track $index) {
-              <div class="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition cursor-pointer border border-transparent hover:border-slate-100"
-                   (click)="abrirImagen(galeria.indexOf(fav))">
-                <img [src]="fav.foto" [alt]="fav.titulo" class="w-16 h-16 object-cover rounded-lg shadow-sm flex-shrink-0">
-                <div class="overflow-hidden">
-                  <h4 class="text-sm font-semibold text-slate-800 truncate">{{ fav.titulo || 'Fotografía Destacada' }}</h4>
-                  <p class="text-xs text-slate-500 mt-0.5">{{ fav.ubicacion || 'Chillín' }}</p>
-                  <span class="inline-block mt-1 text-[10px] font-medium text-[#2F5D34] uppercase tracking-wider">
-                    {{ fav.categoria }}
-                  </span>
-                </div>
-              </div>
-            }
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PRIMENG GALLERIA (MODAL FULLSCREEN) -->
-<p-galleria [value]="galeria" 
-            [(visible)]="mostrarGalleria" 
-            [(activeIndex)]="imagenSeleccionada"
-            (visibleChange)="mostrarGalleria = $event"
-            [fullScreen]="true" 
-            [showItemNavigators]="true"
-            [showThumbnails]="true" 
-            [showIndicators]="true" 
-            [circular]="true" 
-            [numVisible]="6" 
-            [baseZIndex]="99999" 
-            [containerStyle]="{'max-width': '95vw'}">
-
-  <ng-template #item let-item>
-    <div class="flex flex-col items-center justify-center w-full h-full min-h-[80vh]">
-      <img [src]="item.foto" [alt]="item.titulo || 'Imagen ampliada'" 
-           class="max-h-[75vh] max-w-[90vw] object-contain rounded-xl shadow-2xl">
-      @if (item.titulo) {
-        <p class="text-white text-center mt-3 text-lg font-medium bg-black/40 px-4 py-1.5 rounded-full backdrop-blur-sm">
-          {{ item.titulo }}
-        </p>
-      }
-    </div>
-  </ng-template>
-
-  <ng-template #thumbnail let-item>
-    <div class="flex items-center justify-center p-1">
-      <img [src]="item.foto" alt="Miniatura" class="w-20 h-14 object-cover rounded-lg">
-    </div>
-  </ng-template>
-</p-galleria>
+        </ng-template>
+    </p-galleria>
     }
 
 
     <!-- HISTORIA -->
     @if(tabSeleccionado === 'historia'){
-    <section class="py-20 bg-gradient-to-b from-[#FAFAF7] via-slate-100/70 to-[#FAFAF7] relative overflow-hidden">
-        <!-- Luces decorativas suaves -->
-        <div class="absolute top-1/4 -left-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-10 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
-    
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-    
-            <!-- ENCABEZADO DE SECCIÓN -->
-            <div
-                class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 border-b border-slate-200/80 pb-6">
-                <div>
-                    <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#2F5D34]">
-                        <span class="w-2 h-2 rounded-full bg-[#2F5D34]"></span>
-                        Patrimonio & Naturaleza
-                    </span>
-                    <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-2">
-                        {{historia.titulo}}
-                    </h2>
-                </div>
-    
-                <!-- BOTÓN DESTACADO DE DESCARGA PDF -->
-                <button (click)="descargarPdf()"
-                    class="group relative inline-flex items-center justify-center gap-3 bg-slate-900 hover:bg-[#2F5D34] text-white font-medium text-sm px-6 py-3.5 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-emerald-900/20 transition-all duration-300 active:scale-95 shrink-0">
-                    <div
-                        class="w-8 h-8 rounded-xl bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
-                        <svg class="w-4 h-4 text-emerald-400 group-hover:text-white transition-colors" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                            </path>
-                        </svg>
-                    </div>
-                    <div class="text-left">
-                        <span
-                            class="block text-[10px] text-slate-400 group-hover:text-emerald-200 font-semibold uppercase tracking-wider leading-none">Documento
-                            Oficial</span>
-                        <span class="block font-bold text-sm leading-tight mt-0.5">Descargar Ficha PDF</span>
-                    </div>
-                </button>
-            </div>
-    
-            <!-- CONTENEDOR PRINCIPAL: COMPOSICIÓN EDITORIAL -->
-            <div class="grid lg:grid-cols-12 gap-8 items-start">
-    
-                <!-- TARJETA FOTOGRÁFICA INTERACTIVA (5 COLS) -->
-                <div class="lg:col-span-5 relative">
-                    <div
-                        class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/60 bg-slate-900 group">
-                        <img [src]="historia.imagen" [alt]="historia.lugar"
-                            class="w-full h-[520px] object-cover transition-transform duration-700 group-hover:scale-105 opacity-90">
-    
-                        <!-- Overlay Gradiente -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-    
-                        <!-- Badge flotante -->
-                        <div class="absolute top-5 left-5">
-                            <span
-                                class="px-4 py-1.5 rounded-full bg-slate-950/60 backdrop-blur-md text-white text-xs font-semibold tracking-wide border border-white/10 shadow-lg">
-                                {{historia.lugar}}
-                            </span>
-                        </div>
-    
-                        <!-- Panel Inferior Glassmorphic -->
-                        <div
-                            class="absolute bottom-5 left-5 right-5 p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-white shadow-2xl">
-                            <span class="text-[11px] font-bold uppercase tracking-widest text-emerald-400">Resumen del
-                                Destino</span>
-                            <p class="text-xs text-slate-200 mt-1.5 leading-relaxed font-normal">
-                                {{historia.descripcion}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- CUERPO DE LA HISTORIA Y DATOS TECNICOS (7 COLS) -->
-                <div class="lg:col-span-7 space-y-6">
-    
-                    <!-- BLOQUE NARRATIVO -->
-                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200/80">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div
-                                class="w-10 h-10 rounded-xl bg-[#2F5D34]/10 text-[#2F5D34] flex items-center justify-center font-black">
-    
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-slate-900">Reseña Histórica</h3>
-                                <p class="text-xs text-slate-500">Origen y trascendencia en el tiempo</p>
-                            </div>
-                        </div>
-    
-                        <div class="space-y-4 text-slate-700 text-base leading-relaxed">
-                            @for (parrafo of historia.historia; track $index) {
-                            <p
-                                class="relative pl-4 border-l-2 border-emerald-500/40 first:border-emerald-600 first:font-medium text-justify">
-                                {{parrafo.p}}
-                            </p>
-                            }
-                        </div>
-                    </div>
-    
-                    <!-- FICHA TÉCNICA (2 COLUMNAS DE DATOS) -->
-                    <div class="grid sm:grid-cols-2 gap-4">
-    
-                        <!-- Significado -->
-                        <div
-                            class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:border-emerald-500/50 transition-colors">
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="p-2 rounded-lg bg-amber-50 text-amber-700 font-bold text-sm"></span>
-                                <h4 class="font-bold text-slate-900 text-sm">Significado & Etimología</h4>
-                            </div>
-                            <p class="text-xs text-slate-600 leading-relaxed pl-1">
-                                {{historia.significado}}
-                            </p>
-                        </div>
-    
-                        <!-- Ubicación -->
-                        <div
-                            class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:border-emerald-500/50 transition-colors">
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="p-2 rounded-lg bg-emerald-50 text-[#2F5D34] font-bold text-sm"></span>
-                                <h4 class="font-bold text-slate-900 text-sm">Ubicación Geográfica</h4>
-                            </div>
-                            <p class="text-xs text-slate-600 leading-relaxed pl-1">
-                                {{historia.ubicacion}}
-                            </p>
-                        </div>
-    
-                    </div>
-    
-                </div>
-    
-            </div>
-        </div>
-    </section>
+        <app-lugar-turistico-historia [historia]="historia" (descargarPdf)="descargarPdf()"/>
     }
 
     <!-- SOUVENIRS -->

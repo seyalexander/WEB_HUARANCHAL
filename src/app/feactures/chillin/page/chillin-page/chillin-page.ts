@@ -4,6 +4,8 @@ import { GalleriaModule } from 'primeng/galleria';
 import { DatosLugarPdf, PdfTuristicoComponent } from '../../../../shared/components/pdf-turistico-component/pdf-turistico-component';
 import { Button } from "primeng/button";
 import { PdfExportService } from '../../../../shared/services/pdf/pdf-export-service';
+import { LugarTuristicoHistoria } from "../../../../shared/components/llugares-turisticos/lugar-turistico-historia/lugar-turistico-historia";
+import { LugarTuristicoGaleria } from "../../../../shared/components/llugares-turisticos/lugar-turistico-galeria/lugar-turistico-galeria";
 
 export type TabLugar =
   | 'galeria'
@@ -11,7 +13,7 @@ export type TabLugar =
   | 'souvenirs'
   | 'ubicacion';
 
-interface FotoGaleria {
+ interface FotoGaleria {
   foto: string;
   titulo?: string;
   categoria?: string;
@@ -25,8 +27,10 @@ interface FotoGaleria {
     FooterLugaresTuristicos,
     GalleriaModule,
     PdfTuristicoComponent,
-    Button
-  ],
+    Button,
+    LugarTuristicoHistoria,
+    LugarTuristicoGaleria
+],
   templateUrl: './chillin-page.html',
   styleUrl: './chillin-page.css',
 })
@@ -252,10 +256,8 @@ export class ChillinPage {
   imagenSeleccionada = 0;
 
   abrirImagen(index: number): void {
-
     this.imagenSeleccionada = index;
     this.mostrarGalleria = true;
-
   }
 
 

@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FooterLugaresTuristicos } from "../../../../shared/components/footer-lugares-turisticos/footer-lugares-turisticos";
 import { GalleriaModule } from 'primeng/galleria';
 import { PdfExportService } from '../../../../shared/services/pdf/pdf-export-service';
+import { LugarTuristicoHistoria } from "../../../../shared/components/llugares-turisticos/lugar-turistico-historia/lugar-turistico-historia";
+import { LugarTuristicoGaleria } from "../../../../shared/components/llugares-turisticos/lugar-turistico-galeria/lugar-turistico-galeria";
 
 export type TabLugar =
   | 'galeria'
@@ -21,8 +23,10 @@ interface FotoGaleria {
   selector: 'app-catarata-limones-page',
   imports: [
     FooterLugaresTuristicos,
-    GalleriaModule
-  ],
+    GalleriaModule,
+    LugarTuristicoHistoria,
+    LugarTuristicoGaleria
+],
   templateUrl: './catarata-limones-page.html',
   styleUrl: './catarata-limones-page.css',
 })
@@ -54,7 +58,7 @@ export class CatarataLimonesPage {
   ];
 
   hero = {
-    imagen: 'assets/LUGARES/BANIOS_TERMALES/TERMALES_01.jpeg',
+    imagen: 'assets/LUGARES/PAKCHA/PAKCHA_08.jpeg',
     titulo_1: 'Catarata',
     titulo_2: 'La Pakcha',
     descripcion: `
