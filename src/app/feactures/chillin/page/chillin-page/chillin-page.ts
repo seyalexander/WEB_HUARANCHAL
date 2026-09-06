@@ -117,30 +117,45 @@ export class ChillinPage {
     descripcion: 'Uno de los paisajes más impresionantes de Huaranchal, rodeado de vegetación, senderos naturales y vistas únicas del Valle Alto Chicama.',
     titulo: 'Un símbolo natural de Huaranchal',
     historia: [
-      {
-        p: `
-          La Catarata Pakcha es uno de los atractivos naturales
-          más representativos del distrito de Huaranchal,
-          ubicado en la provincia de Otuzco, región La Libertad.
-        `
-      },
-      {
-        p: `
-          Rodeada por la exuberante vegetación del Valle Alto Chicama,
-          esta caída de agua ha sido durante generaciones un lugar
-          especial para los pobladores locales y visitantes.
-        
-        `
-      },
-      {
-        p: `
-          Su nombre proviene de la palabra quechua "Pakcha",
-          utilizada en los Andes para referirse a una cascada
-          o caída natural de agua.
-        `
-      }
-    ],
-    significado: `Pakcha significa cascada o caída de agua en lengua quechua.`,
+  {
+    p: `
+      La aventura continúa con la exploración del emocionante Cerro Chillin. 
+      En esta ocasión, el recorrido se realiza en moto hasta el recientemente inaugurado mirador, 
+      siendo esta la primera visita a este lugar. La emoción por descubrir este nuevo espacio 
+      acompaña todo el recorrido.
+    `
+  },
+  {
+    p: `
+      Desde lo alto del mirador se puede disfrutar de una vista espectacular de todo Huaranchal. 
+      El paisaje resulta realmente hermoso y supera las expectativas. 
+      Desde este punto, el recorrido continúa ascendiendo hasta llegar al Cerro Chillin. 
+      En un primer intento por llegar caminando, el recorrido no logró alcanzar siquiera el caserío El Jacinto, 
+      ubicado antes de este cerro. Sin embargo, en esta ocasión, con una mejor preparación y utilizando una moto, 
+      el recorrido permite explorar con mayor facilidad todo lo que ofrece este lugar, 
+      considerado también otro mirador natural de Huaranchal.
+    `
+  },
+  {
+    p: `
+      En el Cerro Chillin se celebra el Día del Trabajador cada primero de mayo. 
+      Los pobladores suben de madrugada o incluso la noche anterior para acampar en este lugar, 
+      al igual que en el caserío El Jacinto, que también celebra su fiesta patronal. 
+      Durante esta celebración se realiza un evento llamado "Florcer", donde al amanecer, 
+      al ritmo de la música y rodeados de vistas espectaculares, los habitantes celebran 
+      la belleza y la importancia de este lugar para la comunidad.
+    `
+  },
+  {
+    p: `
+      El Cerro Chillin ofrece una experiencia que permite descubrir sus maravillas naturales 
+      y culturales, así como conocer las tradiciones que forman parte de la identidad de Huaranchal. 
+      Cada recorrido por este lugar permite apreciar de cerca la belleza de sus paisajes 
+      y el valor que tiene para la comunidad.
+    `
+  }
+],
+    significado: `Mirador El Chillin.`,
     ubicacion: `
       Distrito de Huaranchal,
       provincia de Otuzco,
