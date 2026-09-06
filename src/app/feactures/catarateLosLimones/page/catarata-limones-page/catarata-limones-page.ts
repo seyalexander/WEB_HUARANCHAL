@@ -425,95 +425,107 @@ export class CatarataLimonesPage {
   }
 
 
-   // Lectura historia
+  // Lectura historia
 
-  leyendo = false;
-  pausado = false;
+leyendo = false;
+pausado = false;
 
-  private synth = window.speechSynthesis;
-  private textoHistoria: string[] = [];
-  private indiceParrafo = 0;
+private synth = window.speechSynthesis;
+private textoHistoria: string[] = [];
+private indiceParrafo = 0;
 
-  leerHistoria(): void {
+leerHistoria(): void {
 
+  // Si está pausado, continuar desde donde quedó
+  if (this.pausado) {
+    this.continuarHistoria();
+    return;
+  }
+
+  // Si está leyendo, pausar
+  if (this.leyendo) {
+    this.pausarHistoria();
+    return;
+  }
+
+  // Iniciar lectura desde el principio
+  this.synth.cancel();
+
+  this.textoHistoria = this.historia.historia
+    .map(parrafo => parrafo.p.trim())
+    .filter(parrafo => parrafo.length > 0);
+
+  if (this.textoHistoria.length === 0) {
+    return;
+  }
+
+  this.indiceParrafo = 0;
+  this.leyendo = true;
+  this.pausado = false;
+
+  this.leerParrafo();
+}
+
+private leerParrafo(): void {
+
+  if (!this.leyendo || this.indiceParrafo >= this.textoHistoria.length) {
     this.detenerHistoria();
+    return;
+  }
 
-    this.textoHistoria = this.historia.historia
-      .map(parrafo => parrafo.p.trim())
-      .filter(parrafo => parrafo.length > 0);
+  const texto = this.textoHistoria[this.indiceParrafo];
 
-    if (this.textoHistoria.length === 0) {
+  const voz = new SpeechSynthesisUtterance(texto);
+
+  voz.lang = 'es-PE';
+  voz.rate = 0.9;
+  voz.pitch = 1;
+  voz.volume = 1;
+
+  voz.onend = () => {
+
+    if (!this.leyendo || this.pausado) {
       return;
     }
 
-    this.indiceParrafo = 0;
-    this.leyendo = true;
-    this.pausado = false;
+    this.indiceParrafo++;
 
     this.leerParrafo();
-  }
+  };
 
-
-  private leerParrafo(): void {
-
-    if (!this.leyendo || this.indiceParrafo >= this.textoHistoria.length) {
-      this.detenerHistoria();
-      return;
-    }
-
-    const texto = this.textoHistoria[this.indiceParrafo];
-
-    const voz = new SpeechSynthesisUtterance(texto);
-
-    voz.lang = 'es-PE';
-    voz.rate = 0.9;
-    voz.pitch = 1;
-    voz.volume = 1;
-
-    voz.onend = () => {
-
-      if (!this.leyendo) {
-        return;
-      }
-
-      this.indiceParrafo++;
-
-      this.leerParrafo();
-    };
-
-    voz.onerror = () => {
-      this.leyendo = false;
-      this.pausado = false;
-    };
-
-    this.synth.speak(voz);
-  }
-
-  pausarHistoria(): void {
-
-    if (this.synth.speaking && !this.synth.paused) {
-      this.synth.pause();
-      this.pausado = true;
-    }
-
-  }
-
-  continuarHistoria(): void {
-
-    if (this.synth.paused) {
-      this.synth.resume();
-      this.pausado = false;
-    }
-
-  }
-
-  detenerHistoria(): void {
-
-    this.synth.cancel();
-
+  voz.onerror = () => {
     this.leyendo = false;
     this.pausado = false;
-    this.indiceParrafo = 0;
+  };
 
+  this.synth.speak(voz);
+}
+
+pausarHistoria(): void {
+
+  if (this.synth.speaking && !this.synth.paused) {
+    this.synth.pause();
+    this.pausado = true;
   }
+
+}
+
+continuarHistoria(): void {
+
+  if (this.synth.paused) {
+    this.synth.resume();
+    this.pausado = false;
+  }
+
+}
+
+detenerHistoria(): void {
+
+  this.synth.cancel();
+
+  this.leyendo = false;
+  this.pausado = false;
+  this.indiceParrafo = 0;
+
+}
 }
