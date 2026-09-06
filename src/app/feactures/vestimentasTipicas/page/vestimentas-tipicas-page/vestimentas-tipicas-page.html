@@ -105,26 +105,9 @@
 
     <!-- PERSONAJES -->
 
-    <div
-      class="relative
-             mt-24
-             grid lg:grid-cols-2
-             gap-20
-             items-center">
-
+    <div class="relative mt-24 grid lg:grid-cols-2 gap-20 items-center">
       <!-- LÍNEA CENTRAL -->
-
-      <div
-        class="hidden lg:block
-               absolute
-               left-1/2
-               top-0
-               bottom-0
-               w-px
-               bg-linear-to-b
-               from-transparent
-               via-[#F6C445]/30
-               to-transparent">
+      <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-[#F6C445]/30 to-transparent">
       </div>
 
       <!-- VARÓN -->
@@ -394,57 +377,76 @@
     <!-- GRID -->
     <div class="grid lg:grid-cols-3 gap-10 mt-16 items-start">
 
-      <!-- LISTA PRENDAS -->
-      <div class="space-y-4">
+  <!-- LISTA PRENDAS -->
+  <div class="space-y-4">
 
-        <div
-          *ngFor="let prenda of (personaSeleccionada === personas.varon ? prendasVaron : prendasMujer)"
-          (click)="seleccionarPrenda(prenda)"
-          class="cursor-pointer p-4 rounded-xl bg-[#1a1a1a] border transition hover:border-[#F6C445]"
-          [ngClass]="{
-            'border-[#F6C445]': prenda === prendaSeleccionada,
-            'border-transparent': prenda !== prendaSeleccionada
-          }"
-        >
-          <p class="text-white font-semibold">
-            {{ prenda.nombre }}
-          </p>
-        </div>
+    <div
+      *ngFor="let prenda of (personaSeleccionada === personas.varon ? prendasVaron : prendasMujer)"
+      (click)="seleccionarPrenda(prenda)"
+      class="cursor-pointer p-4 rounded-xl bg-[#1a1a1a] border transition hover:border-[#F6C445]"
+      [ngClass]="{
+        'border-[#F6C445]': prenda === prendaSeleccionada,
+        'border-transparent': prenda !== prendaSeleccionada
+      }"
+    >
+      <p class="text-white font-semibold">
+        {{ prenda.nombre }}
+      </p>
+    </div>
 
-      </div>
+  </div>
 
-      <!-- IMAGEN CENTRAL CON GLOW -->
-      <div class="relative flex justify-center items-center">
+  <!-- IMAGEN CENTRAL CON GLOW -->
+  <div class="relative flex justify-center items-center">
 
-        <!-- glow detrás de la imagen -->
-        <div class="absolute w-100 h-100 bg-[#F6C445]/30 blur-[100px] rounded-full"></div>
+    <!-- Glow detrás de la imagen -->
+    <div class="absolute w-100 h-100 bg-[#F6C445]/30 blur-[100px] rounded-full"></div>
 
-        <img
-        alt="Imagen"
-          [src]="prendaSeleccionada.imagen"
-          class="relative z-10 w-full max-h-150 object-contain"
-        >
+    <!-- CONTENEDOR 360° -->
+    <div
+      class="relative z-10 w-full max-h-150 flex justify-center items-center cursor-grab active:cursor-grabbing select-none touch-none"
+      (mousedown)="iniciarRotacion($event)"
+      (mousemove)="rotar($event)"
+      (mouseup)="terminarRotacion()"
+      (mouseleave)="terminarRotacion()"
+      (touchstart)="iniciarRotacionTouch($event)"
+      (touchmove)="rotarTouch($event)"
+      (touchend)="terminarRotacion()"
+    >
 
-      </div>
-
-      <!-- INFO -->
-      <div>
-
-        <span class="px-4 py-2 rounded-full bg-[#F6C445]/20 text-[#F6C445]">
-          Elemento Tradicional
-        </span>
-
-        <h3 class="mt-5 text-4xl font-black text-white">
-          {{ prendaSeleccionada.nombre }}
-        </h3>
-
-        <p class="mt-6 text-slate-400 leading-8">
-          {{ prendaSeleccionada.descripcion }}
-        </p>
-
-      </div>
+      <img
+        alt="Imagen de {{ prendaSeleccionada.nombre }}"
+        [src]="prendaSeleccionada.imagenes[indiceImagen]"
+        class="w-full max-h-150 object-contain pointer-events-none select-none"
+        draggable="false"
+      >
 
     </div>
+
+  </div>
+
+  <!-- INFO -->
+  <div>
+
+    <span class="px-4 py-2 rounded-full bg-[#F6C445]/20 text-[#F6C445]">
+      Elemento Tradicional
+    </span>
+
+    <h3 class="mt-5 text-4xl font-black text-white">
+      {{ prendaSeleccionada.nombre }}
+    </h3>
+
+    <p class="mt-6 text-slate-400 leading-8">
+      {{ prendaSeleccionada.descripcion }}
+    </p>
+
+    <p class="mt-5 text-sm text-slate-500">
+      Arrastra la imagen para explorar la prenda
+    </p>
+
+  </div>
+
+</div>
 
   </div>
 
