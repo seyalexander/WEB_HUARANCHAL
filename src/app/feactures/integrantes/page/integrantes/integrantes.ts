@@ -37,8 +37,8 @@ export class Integrantes {
       apellido: 'Carazas Mendoza',
       role: 'Estudiante',
       description: '4° Grado - Sección "A"',
-      image: 'assets/INTEGRANTES/Misa_01.jpeg',
-      imageHover: 'assets/INTEGRANTES/Misa_01.jpeg',
+      image: 'assets/INTEGRANTES/Misael_01.jpeg',
+      imageHover: 'assets/INTEGRANTES/Misael_hover.png',
       telefono: '928 286 257'
     },
     {
@@ -47,8 +47,8 @@ export class Integrantes {
       apellido: 'Moreno Mercedes',
       role: 'Estudiante',
       description: '4° Grado - Sección "A"',
-      image: 'https://i.pravatar.cc/150?img=4',
-      imageHover: 'https://i.pravatar.cc/150?img=4',
+      image: 'assets/INTEGRANTES/Moises_01.jpg',
+      imageHover: 'assets/INTEGRANTES/Moises_hover.png',
       telefono: '928 286 257'
     },
     {
