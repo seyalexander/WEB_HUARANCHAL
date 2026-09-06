@@ -12,11 +12,9 @@
     <!-- RUTA TURÍSTICA -->
 
     <svg class="absolute inset-0 w-full h-full opacity-20 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-
         <path d="M50 300 C250 100, 450 500, 700 250 S1100 150, 1400 350" fill="none" stroke="white" stroke-width="3"
             stroke-linecap="round" stroke-dasharray="10 15">
         </path>
-
     </svg>
 
     <!-- CÍRCULOS DECORATIVOS -->
@@ -102,114 +100,34 @@
                 <div class="  absolute inset-0 bg-linear-to-t from-[#14291a]/95 via-[#2F5D34]/20 to-black/10">
                 </div>
 
-
                 <!-- ====================================================== -->
                 <!-- OSCURECER + BLUR AL APARECER EL PERSONAJE -->
                 <!-- SOLO DESKTOP -->
                 <!-- ====================================================== -->
-
-                <div
-                    class="  hidden lg:block absolute inset-0 z-5  bg-black/0  backdrop-blur-0  group-hover:bg-black/35  group-hover:backdrop-blur-[3px] transition-all duration-700  ease-out ">
+                <div class="  hidden lg:block absolute inset-0 z-5  bg-black/0  backdrop-blur-0  group-hover:bg-black/35  group-hover:backdrop-blur-[3px] transition-all duration-700  ease-out ">
                 </div>
-
 
                 <!-- ====================================================== -->
                 <!-- GRADIENTE PARA DAR MÁS CONTRASTE AL PERSONAJE -->
                 <!-- ====================================================== -->
-
-                <div
-                    class=" hidden lg:block absolute inset-0 z-6  opacity-0  group-hover:opacity-100 bg-linear-to-r  from-black/10 via-black/35 to-black/55 transition-opacity  duration-700 ">
+                <div class=" hidden lg:block absolute inset-0 z-6  opacity-0  group-hover:opacity-100 bg-linear-to-r  from-black/10 via-black/35 to-black/55 transition-opacity  duration-700 ">
                 </div>
-
 
                 <!-- ====================================================== -->
                 <!-- BRILLO DORADO -->
                 <!-- ====================================================== -->
 
-                <div class="
-                absolute inset-0
-                z-7
-
-                bg-linear-to-t
-                from-[#F6C445]/20
-                via-transparent
-                to-transparent
-
-                opacity-0
-                group-hover:opacity-100
-
-                transition-opacity
-                duration-700
-            ">
+                <div class="  absolute inset-0  z-7  bg-linear-to-t from-[#F6C445]/20 via-transparent  to-transparent  opacity-0  group-hover:opacity-100 transition-opacity duration-700">
                 </div>
-
-
-                <!-- ====================================================== -->
-                <!-- PERSONAJE -->
-                <!-- SOLO DESKTOP -->
-                <!-- ====================================================== -->
 
                 <img [src]="producto.personaje" [alt]="'Personaje mostrando ' + producto.nombre"
                     class=" hidden lg:block absolute bottom-[-5px] rigth-[-10px] z-10 h-[78%] max-w-[390px] h-[92%] object-contain object-bottom pointer-events-none opacity-0 translate-y-[25%] scale-[0.92] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] drop-shadow-[0_15px_25px_rgba(0,0,0,0.45)] group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100">
 
-
                 <!-- ====================================================== -->
                 <!-- BRILLO DETRÁS DEL PERSONAJE -->
                 <!-- ====================================================== -->
-
-                <div class="
-                hidden lg:block
-                absolute
-
-                right-[10%]
-                bottom-[8%]
-
-                w-[55%]
-                h-[70%]
-
-                z-8
-
-                rounded-full
-
-                bg-[#F6C445]/10
-
-                blur-[70px]
-
-                opacity-0
-                group-hover:opacity-100
-
-                transition-opacity
-                duration-1000
-
-                pointer-events-none
-            ">
+                <div class=" hidden lg:block  absolute  right-[10%] bottom-[8%] w-[55%] h-[70%] z-8 rounded-full bg-[#F6C445]/10 blur-[70px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000  pointer-events-none">
                 </div>
-
-
-                <!-- ====================================================== -->
-                <!-- NÚMERO -->
-                <!-- ====================================================== -->
-
-                <div class="absolute top-5 right-5 z-30">
-
-                    <span class="
-                    flex items-center justify-center
-                    w-10 h-10
-                    rounded-full
-                    bg-black/20
-                    backdrop-blur-md
-                    border border-white/20
-                    text-white
-                    text-sm
-                    font-bold
-                ">
-
-                        {{ (i + 1).toString().padStart(2, '0') }}
-
-                    </span>
-
-                </div>
-
 
                 <!-- ====================================================== -->
                 <!-- ETIQUETA -->
@@ -248,9 +166,7 @@
 
                     <!-- INDICADOR -->
 
-                    <div
-                        class=" mt-5 flex items-center  gap-2 text-[#F6C445]  text-sm font-semibold opacity-70 group-hover:opacity-100 transition-opacity duration-500 ">
-
+                    <div class=" mt-5 flex items-center  gap-2 text-[#F6C445]  text-sm font-semibold opacity-70 group-hover:opacity-100 transition-opacity duration-500 ">
                         <span>
                             Producto local
                         </span>
@@ -258,16 +174,11 @@
                         <span class=" transition-transform duration-500 group-hover:translate-x-2 ">
                             →
                         </span>
-
                     </div>
-
                 </div>
-
             </article>
 
             }
         </div>
-
     </div>
-
 </section>

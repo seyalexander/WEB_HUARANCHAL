@@ -546,141 +546,251 @@
     <!-- SOUVENIRS -->
     @if(tabSeleccionado === 'souvenirs'){
 
-    <section class="py-10 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
+      <section class="py-10 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
 
-            <!-- Encabezado -->
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <!-- Encabezado -->
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
 
-                <!-- Título -->
-                <div class="text-center lg:text-left">
-                    <h2 class="text-5xl font-bold text-slate-800">
-                        Souvenirs
-                    </h2>
+            <!-- Título -->
+            <div class="text-center lg:text-left">
 
-                    <p class="mt-3 text-slate-500">
-                        Llévate un recuerdo especial de nuestro destino
-                    </p>
+                <!-- Indicador de próximamente -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F28C28]/10 text-[#F28C28] text-sm font-semibold mb-4">
+                    <span class="w-2 h-2 rounded-full bg-[#F28C28] animate-pulse"></span>
+                    Próximamente
                 </div>
 
-                <!-- Información de contacto -->
-                <div class="group flex items-center gap-4 px-6 py-4
-                       bg-white border border-slate-200
-                       rounded-2xl shadow-sm
-                       hover:shadow-lg hover:border-[#F28C28]/40
-                       transition-all duration-300">
+                <h2 class="text-5xl font-bold text-slate-800">
+                    Souvenirs
+                </h2>
 
-                    <!-- Icono teléfono -->
-                    <div class="flex items-center justify-center
-                           w-12 h-12 rounded-full
-                           bg-[#F28C28]/10
-                           text-[#F28C28]
-                           group-hover:bg-[#F28C28]
-                           group-hover:text-white
-                           transition-all duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A2 2 0 0121 15.72V19a2 2 0 01-2 2h-1C9.611 21 3 14.389 3 6V5z" />
-                        </svg>
-                    </div>
-
-                    <!-- Texto de contacto -->
-                    <div>
-                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                            ¿Quieres adquirir uno?
-                        </p>
-
-                        <p class="mt-1 text-sm text-slate-500">
-                            Contáctanos
-                        </p>
-
-                        <a href="tel:+51928586257"
-                            class="text-lg font-bold text-slate-800 hover:text-[#F28C28] transition-colors">
-                            +51 928 586 257
-                        </a>
-                    </div>
-
-                </div>
+                <p class="mt-3 text-slate-500 max-w-xl">
+                    Muy pronto podrás llevarte un recuerdo especial de
+                    Huaranchal y sus lugares turísticos.
+                </p>
 
             </div>
 
-            <!-- Grid de souvenirs -->
-            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mt-16">
 
-                @for (item of souvenirs; track $index) {
+            <!-- Información de contacto -->
+            <div class="group flex items-center gap-4 px-6 py-4
+                        bg-white border border-slate-200
+                        rounded-2xl shadow-sm
+                        hover:shadow-lg hover:border-[#F28C28]/40
+                        transition-all duration-300">
 
-                <article class="group bg-white rounded-4xl overflow-hidden
-                           shadow-sm hover:shadow-2xl
-                           border border-slate-100
-                           transition-all duration-500
-                           hover:-translate-y-2">
+                <!-- Icono teléfono -->
+                <div class="flex items-center justify-center
+                            w-12 h-12 rounded-full
+                            bg-[#F28C28]/10
+                            text-[#F28C28]
+                            group-hover:bg-[#F28C28]
+                            group-hover:text-white
+                            transition-all duration-300">
 
-                    <!-- Imagen -->
-                    <div class="relative overflow-hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2">
 
-                        <img alt="Imán de refrigerador" [src]="item.imagen" class="h-72 w-full object-cover
-                                   transition duration-700
-                                   group-hover:scale-110">
+                        <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A2 2 0 0121 15.72V19a2 2 0 01-2 2h-1C9.611 21 3 14.389 3 6V5z" />
 
-                        <!-- Etiqueta -->
-                        <div class="absolute top-4 left-4 px-4 py-2
-                                   rounded-full bg-[#F28C28]
-                                   text-white text-sm font-semibold">
-                            Souvenir Oficial
-                        </div>
+                    </svg>
 
-                    </div>
+                </div>
 
-                    <!-- Contenido -->
-                    <div class="p-6">
 
-                        <div class="flex items-start justify-between">
-                            <h3 class="font-bold text-xl text-slate-800">
-                                {{item.titulo}}
-                            </h3>
-                        </div>
+                <!-- Texto de contacto -->
+                <div>
 
-                        <p class="mt-3 text-slate-600 leading-relaxed">
-                            {{item.descripcion}}
-                        </p>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                        ¿Quieres adquirir uno?
+                    </p>
 
-                        <!-- Tags -->
-                        <div class="flex flex-wrap gap-2 mt-5">
+                    <p class="mt-1 text-sm text-slate-500">
+                        Contáctanos
+                    </p>
 
-                            <span class="px-3 py-1 rounded-full
-                                       bg-[#2F5D34]/10
-                                       text-[#2F5D34]
-                                       text-xs font-medium">
-                                {{item.lugar}}
-                            </span>
+                    <a href="tel:+51928586257"
+                        class="text-lg font-bold text-slate-800 hover:text-[#F28C28] transition-colors">
+                        +51 928 586 257
+                    </a>
 
-                            <span class="px-3 py-1 rounded-full
-                                       bg-[#F28C28]/10
-                                       text-[#F28C28]
-                                       text-xs font-medium">
-                                {{item.turistico}}
-                            </span>
-
-                            <span class="px-3 py-1 rounded-full
-                                       bg-slate-100
-                                       text-slate-600
-                                       text-xs font-medium">
-                                {{item.tipo}}
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-                }
+                </div>
 
             </div>
 
         </div>
-    </section>
+
+
+        <!-- Grid de souvenirs -->
+        <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mt-16">
+
+            @for (item of souvenirs; track $index) {
+
+<article class="group bg-white rounded-4xl overflow-hidden
+                shadow-sm hover:shadow-2xl
+                border border-slate-100
+                transition-all duration-500
+                hover:-translate-y-2
+                flex flex-col">
+
+    <!-- Imagen -->
+    <div class="relative overflow-hidden">
+
+        <img
+            [src]="item.imagen"
+            [alt]="item.titulo"
+            class="h-72 w-full object-cover
+                   transition duration-700
+                   group-hover:scale-110
+                   saturate-75">
+
+        <!-- Capa suave -->
+        <div class="absolute inset-0 bg-slate-900/10
+                    group-hover:bg-transparent
+                    transition-all duration-500">
+        </div>
+
+        <!-- Etiqueta Próximamente -->
+        <div class="absolute top-4 left-4
+                    px-4 py-2
+                    rounded-full
+                    bg-white/95
+                    backdrop-blur-sm
+                    text-[#F28C28]
+                    text-sm font-bold
+                    shadow-sm
+                    flex items-center gap-2">
+
+            <span class="w-2 h-2 rounded-full
+                         bg-[#F28C28]
+                         animate-pulse">
+            </span>
+
+            Próximamente
+
+        </div>
+
+    </div>
+
+
+    <!-- Contenido -->
+    <div class="p-6 flex-1">
+
+        <!-- Título -->
+        <div class="flex items-start justify-between">
+
+            <h3 class="font-bold text-xl text-slate-800">
+                {{item.titulo}}
+            </h3>
+
+        </div>
+
+
+        <!-- Descripción -->
+        <p class="mt-3 text-slate-600 leading-relaxed">
+            {{item.descripcion}}
+        </p>
+
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2 mt-5">
+
+            <!-- Lugar -->
+            <span class="px-3 py-1 rounded-full
+                         bg-[#2F5D34]/10
+                         text-[#2F5D34]
+                         text-xs font-medium">
+
+                {{item.lugar}}
+
+            </span>
+
+
+            <!-- Atractivo turístico -->
+            <span class="px-3 py-1 rounded-full
+                         bg-[#F28C28]/10
+                         text-[#F28C28]
+                         text-xs font-medium">
+
+                {{item.turistico}}
+
+            </span>
+
+
+            <!-- Tipo -->
+            <span class="px-3 py-1 rounded-full
+                         bg-slate-100
+                         text-slate-600
+                         text-xs font-medium">
+
+                {{item.tipo}}
+
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- Estado del producto -->
+    <div class="mt-auto px-6 py-4
+                bg-slate-50
+                border-t border-slate-100
+                flex items-center gap-3">
+
+        <!-- Icono reloj -->
+        <div class="flex items-center justify-center
+                    w-9 h-9 rounded-full
+                    bg-[#F28C28]/10
+                    text-[#F28C28]
+                    flex-shrink-0">
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+
+            </svg>
+
+        </div>
+
+
+        <!-- Texto -->
+        <div>
+
+            <p class="text-xs font-semibold text-slate-700">
+                Disponible próximamente
+            </p>
+
+            <p class="text-xs text-slate-400 mt-0.5">
+                Estamos preparando este recuerdo para ti
+            </p>
+
+        </div>
+
+    </div>
+
+</article>
+
+}
+
+        </div>
+
+    </div>
+</section>
 
     }
 
