@@ -275,15 +275,15 @@ export class ChillinPage {
 
   // GENERACIÓN PDF
   // =========================================================
-private pdfService = inject(PdfExportService);
+  private pdfService = inject(PdfExportService);
 
-descargarPdf(): void {
-  // Párrafos de la historia con espaciado óptimo
-  const párrafosHistoria = this.historia.historia
-    .map(item => `<p class="m-0 mb-1.5 text-justify">${item.p}</p>`)
-    .join('');
+  descargarPdf(): void {
+    // Párrafos de la historia con espaciado óptimo
+    const párrafosHistoria = this.historia.historia
+      .map(item => `<p class="m-0 mb-1.5 text-justify">${item.p}</p>`)
+      .join('');
 
-  const tarjetasSouvenirs = this.souvenirs.map(s => `
+    const tarjetasSouvenirs = this.souvenirs.map(s => `
     <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 flex flex-col justify-between">
       <img src="${s.imagen}" class="w-full h-[32mm] object-cover rounded-md mb-1.5 border border-slate-200" />
       <div>
@@ -294,11 +294,15 @@ descargarPdf(): void {
     </div>
   `).join('');
 
-  const fotosGaleria = this.galeria.slice(0, 4).map(g => `
-    <img src="${g.foto}" class="w-full h-[20mm] object-cover rounded-md border border-slate-700" />
-  `).join('');
+    // Mezcla aleatoria de la galería (selecciona 4 fotos al azar)
+    const fotosGaleria = [...this.galeria]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 4)
+      .map(g => `
+      <img src="${g.foto}" class="w-full h-[20mm] object-cover rounded-md border border-slate-700" />
+    `).join('');
 
-  const htmlPdf = `
+    const htmlPdf = `
     <!-- HOJA 1 -->
     <div class="page-a4">
 
@@ -477,7 +481,7 @@ descargarPdf(): void {
     </div>
   `;
 
-  this.pdfService.imprimirHtmlAislado(htmlPdf);
-}
+    this.pdfService.imprimirHtmlAislado(htmlPdf);
+  }
 
 }
