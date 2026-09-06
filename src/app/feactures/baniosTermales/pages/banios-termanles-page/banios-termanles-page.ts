@@ -4,6 +4,7 @@ import { GalleriaModule } from 'primeng/galleria';
 import { PdfExportService } from '../../../../shared/services/pdf/pdf-export-service';
 import { LugarTuristicoHistoria } from "../../../../shared/components/llugares-turisticos/lugar-turistico-historia/lugar-turistico-historia";
 import { LugarTuristicoGaleria } from "../../../../shared/components/llugares-turisticos/lugar-turistico-galeria/lugar-turistico-galeria";
+import { Location } from '@angular/common';
 
 export type TabLugar =
   | 'galeria'
@@ -421,6 +422,12 @@ export class BaniosTermanlesPage {
   `;
 
     this.pdfService.imprimirHtmlAislado(htmlPdf);
+  }
+
+  private location = inject(Location) 
+
+  volverInicio() {
+    this.location.back();
   }
 
 }
