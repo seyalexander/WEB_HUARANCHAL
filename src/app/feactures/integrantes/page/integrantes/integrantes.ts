@@ -58,7 +58,7 @@ export class Integrantes {
       role: 'Estudiante',
       description: '4° Grado - Sección "A"',
       image: 'assets/INTEGRANTES/Marco_01.jpg',
-      imageHover: 'https://i.pravatar.cc/150?img=4',
+      imageHover:  'assets/INTEGRANTES/Marco_hover.png',
       telefono: '928 286 257'
     },
     {
@@ -68,7 +68,7 @@ export class Integrantes {
       role: 'Estudiante',
       description: '4° Grado - Sección "A"',
       image: 'assets/INTEGRANTES/Andres_01.jpeg',
-      imageHover: 'https://i.pravatar.cc/150?img=4',
+      imageHover: 'assets/INTEGRANTES/Andres_hover.png',
       telefono: '928 286 257'
     },
   ];
