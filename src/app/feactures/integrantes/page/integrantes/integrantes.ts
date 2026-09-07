@@ -57,7 +57,7 @@ export class Integrantes {
       apellido: 'López Mercedes',
       role: 'Estudiante',
       description: '4° Grado - Sección "A"',
-      image: 'https://i.pravatar.cc/150?img=4',
+      image: 'assets/INTEGRANTES/Marco_01.jpg',
       imageHover: 'https://i.pravatar.cc/150?img=4',
       telefono: '928 286 257'
     },
@@ -67,7 +67,7 @@ export class Integrantes {
       apellido: 'Yupanqui Vidal ',
       role: 'Estudiante',
       description: '4° Grado - Sección "A"',
-      image: 'https://i.pravatar.cc/150?img=4',
+      image: 'assets/INTEGRANTES/Andres_01.jpeg',
       imageHover: 'https://i.pravatar.cc/150?img=4',
       telefono: '928 286 257'
     },
