@@ -1,18 +1,51 @@
-<section class="relative py-24 md:py-32 overflow-hidden bg-[#FAFAF7]">
+<section class="relative py-24 md:py-32 overflow-hidden bg-[#FAFAF7] experiencias-section">
+
+    <!-- FONDO TOPOGRÁFICO -->
+
+    <div class="absolute inset-0 pointer-events-none opacity-[0.035]">
+
+        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+
+            <defs>
+                <pattern id="topografia" width="420" height="420" patternUnits="userSpaceOnUse">
+
+                    <path d="M40 210 C90 120, 170 100, 230 150 S350 260, 390 180" fill="none" stroke="#2F5D34"
+                        stroke-width="2">
+                    </path>
+
+                    <path d="M20 250 C100 150, 180 140, 250 190 S360 300, 410 210" fill="none" stroke="#2F5D34"
+                        stroke-width="2">
+                    </path>
+
+                    <path d="M80 300 C130 220, 220 210, 290 250 S370 330, 430 270" fill="none" stroke="#2F5D34"
+                        stroke-width="2">
+                    </path>
+
+                </pattern>
+            </defs>
+
+            <rect width="100%" height="100%" fill="url(#topografia)"></rect>
+
+        </svg>
+
+    </div>
 
     <!-- DECORACIONES -->
 
-    <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#A4C639]/10 rounded-full blur-3xl pointer-events-none">
+    <div
+        class="experience-glow experience-glow-green absolute -top-32 -left-32 w-96 h-96 bg-[#A4C639]/10 rounded-full blur-3xl pointer-events-none">
     </div>
 
-    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-[#F28C28]/10 rounded-full blur-3xl pointer-events-none">
+    <div
+        class="experience-glow experience-glow-orange absolute -bottom-32 -right-32 w-96 h-96 bg-[#F28C28]/10 rounded-full blur-3xl pointer-events-none">
     </div>
 
     <!-- RUTA DECORATIVA -->
 
     <svg class="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
 
-        <path d="M-100 380 C200 180, 450 500, 750 320 S1200 180, 1600 380" fill="none" stroke="#2F5D34" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 18">
+        <path d="M-100 380 C200 180, 450 500, 750 320 S1200 180, 1600 380" fill="none" stroke="#2F5D34"
+            stroke-width="5" stroke-linecap="round" stroke-dasharray="10 18">
         </path>
 
     </svg>
@@ -25,13 +58,19 @@
 
         <div class="max-w-3xl mx-auto text-center">
 
-            <span class="inline-flex items-center px-5 py-2 rounded-full bg-[#2F5D34]/10 border border-[#2F5D34]/10 text-[#2F5D34] text-sm md:text-base font-semibold">
-                Experiencias Únicas
+            <span
+                class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#2F5D34]/10 border border-[#2F5D34]/10 text-[#2F5D34] text-sm md:text-base font-semibold">
+
+                <span class="w-2 h-2 rounded-full bg-[#F28C28]"></span>
+
+                Experiencias únicas
+
             </span>
 
             <h2 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-800">
 
                 ¿Qué encontrarás en
+
                 <span class="text-[#2F5D34]">
                     Huaranchal?
                 </span>
@@ -51,96 +90,94 @@
 
         <div class="relative mt-16 md:mt-24">
 
-            <!-- LÍNEA DEL RECORRIDO - DESKTOP -->
+            <!-- LÍNEA DEL RECORRIDO -->
 
-            <div class="hidden lg:block absolute top-[150px] left-[12%] right-[12%] h-1 bg-linear-to-r from-[#4F8A3F] via-[#F28C28] to-[#A4C639] opacity-30">
+            <div class="hidden lg:block absolute top-37.5 left-[12%] right-[12%] h-px overflow-hidden opacity-30">
+
+                <div
+                    class="experience-route w-full h-full bg-linear-to-r from-[#4F8A3F] via-[#F28C28] to-[#A4C639]">
+                </div>
+
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-8">
 
                 @for (experiencia of experiencias; track experiencia.nombre; let i = $index) {
 
-                    <article
-                        pAnimateOnScroll
-                        [enterClass]="'animate-enter fade-in-10 ' + experiencia.animacion + ' animate-duration-1000'"
-                        leaveClass="animate-leave fade-out-0"
-                        class="group relative text-center">
+                <article pAnimateOnScroll
+                    [enterClass]="'animate-enter fade-in-10 ' + experiencia.animacion + ' animate-duration-1000'"
+                    leaveClass="animate-leave fade-out-0" class="group relative text-center">
 
-                        <!-- IMAGEN -->
+                    <!-- IMAGEN -->
 
-                        <div class="relative mx-auto w-44 h-44 md:w-48 md:h-48">
+                    <div class="relative mx-auto w-44 h-44 md:w-48 md:h-48">
 
-                            <!-- ANILLO EXTERIOR -->
+                        <!-- ANILLO EXTERIOR -->
 
-                            <div class="absolute -inset-3 rounded-full border border-[#2F5D34]/15 transition-all duration-700 group-hover:scale-110 group-hover:border-[#F28C28]/30">
-                            </div>
+                        <div
+                            class="experience-ring absolute -inset-3 rounded-full border border-[#2F5D34]/15 transition-all duration-700 group-hover:scale-110 group-hover:border-[#F28C28]/30">
+                        </div>
 
-                            <!-- ANILLO PUNTEADO -->
+                        <!-- ANILLO PUNTEADO -->
 
-                            <div class="absolute -inset-5 rounded-full border border-dashed border-[#F28C28]/20 transition-transform duration-1000 group-hover:rotate-180">
-                            </div>
+                        <div
+                            class="absolute -inset-5 rounded-full border border-dashed border-[#F28C28]/20 transition-transform duration-1000 group-hover:rotate-180">
+                        </div>
 
-                            <!-- FOTO -->
+                        <!-- FOTO -->
 
-                            <div class="relative w-full h-full rounded-full overflow-hidden border-[7px] border-white shadow-xl">
+                        <div
+                            class="relative w-full h-full rounded-full overflow-hidden border-[7px] border-white shadow-xl">
 
-                                <img
-                                    [src]="experiencia.imagen"
-                                    [alt]="experiencia.nombre + ' de Huaranchal'"
-                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <img [src]="experiencia.imagen" [alt]="experiencia.nombre + ' de Huaranchal'"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 
-                                <!-- OVERLAY -->
+                            <!-- OVERLAY -->
 
-                                <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-500">
-                                </div>
-
-                            </div>
-
-                            <!-- NÚMERO -->
-
-                            <div class="absolute -bottom-2 -right-2 w-11 h-11 md:w-12 md:h-12 rounded-full bg-[#2F5D34] border-4 border-[#FAFAF7] shadow-lg flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-
-                                <span class="text-white text-xs md:text-sm font-black">
-                                    {{ (i + 1).toString().padStart(2, '0') }}
-                                </span>
-
+                            <div
+                                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-500">
                             </div>
 
                         </div>
 
-                        <!-- TEXTO -->
 
-                        <div class="mt-8 px-3">
+                    </div>
 
-                            <h3 class="text-2xl md:text-3xl font-black text-slate-800 group-hover:text-[#2F5D34] transition-colors duration-300">
+                    <!-- TEXTO -->
 
-                                {{ experiencia.nombre }}
+                    <div class="mt-8 px-3">
 
-                            </h3>
+                        <h3
+                            class="text-2xl md:text-3xl font-black text-slate-800 group-hover:text-[#2F5D34] transition-colors duration-300">
 
-                            <p class="mt-3 text-sm md:text-base leading-7 text-slate-600">
+                            {{ experiencia.nombre }}
 
-                                {{ experiencia.descripcion }}
+                        </h3>
 
-                            </p>
+                        <p class="mt-3 text-sm md:text-base leading-7 text-slate-600">
 
-                            <!-- INDICADOR -->
+                            {{ experiencia.descripcion }}
 
-                            <div class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#F28C28] opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                        </p>
 
-                                <span>
-                                    Descubrir
-                                </span>
+                        <!-- INDICADOR -->
 
-                                <span class="transition-transform duration-300 group-hover:translate-x-2">
-                                    →
-                                </span>
+                        <div
+                            class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#F28C28] opacity-70 group-hover:opacity-100 transition-all duration-300">
 
-                            </div>
+                            <span>
+                                Explorar experiencia
+                            </span>
+
+                            <span class="transition-transform duration-300 group-hover:translate-x-2">
+                                →
+                            </span>
 
                         </div>
 
-                    </article>
+                    </div>
+
+                </article>
 
                 }
 

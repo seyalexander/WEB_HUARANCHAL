@@ -1,0 +1,54 @@
+.experience-glow {
+  animation: experienceGlow 8s ease-in-out infinite;
+}
+
+.experience-glow-green {
+  animation-delay: 0s;
+}
+
+.experience-glow-orange {
+  animation-delay: 2s;
+}
+
+@keyframes experienceGlow {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.12) translate(15px, -10px);
+    opacity: 1;
+  }
+}
+
+.experience-route {
+  background-size: 200% 100%;
+  animation: routeMove 6s linear infinite;
+}
+
+@keyframes routeMove {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+.experience-ring {
+  animation: experienceRing 5s ease-in-out infinite;
+}
+
+@keyframes experienceRing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.025);
+    opacity: 1;
+  }
+}
