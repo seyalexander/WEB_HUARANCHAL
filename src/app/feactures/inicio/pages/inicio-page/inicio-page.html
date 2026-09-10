@@ -12,10 +12,16 @@
   <app-hero-inicio />
 
   @if(mostrarBrillo){
-  <div class="mouse-light" [style.left.px]="cursorX" [style.top.px]="cursorY">
-  </div>
-  }
+  <div class="mouse-light" [style.left.px]="cursorX" [style.top.px]="cursorY"></div>
 
+  <img
+    class="custom-cursor"
+    [style.left.px]="cursorX"
+    [style.top.px]="cursorY"
+    src="/assets/CURSORES/cursor_1.png"
+    alt=""
+  />
+}
   <!-- Gradiente inferior -->
   <div class="absolute bottom-0 left-0 right-0 h-40 bg-linear-to-t from-slate-950 to-transparent">
   </div>

@@ -33,44 +33,21 @@ export class InicioPage implements OnDestroy {
 
   @HostListener('window:scroll', [])
   onScroll() {
-
-    this.showScrollTop =
-      window.scrollY > 300;
-
+    this.showScrollTop = window.scrollY > 300;
   }
-
 
   scrollToTop() {
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-
+    window.scrollTo({ top: 0, behavior: 'smooth', });
   }
-
 
   scrollToAnimes() {
-
-    const section =
-      document.getElementById('animes');
-
-    section?.scrollIntoView({
-      behavior: 'smooth'
-    });
-
+    const section = document.getElementById('animes');
+    section?.scrollIntoView({ behavior: 'smooth' });
   }
 
-
   crollToDescripcion() {
-
-    const section =
-      document.getElementById('descripcionAnime');
-
-    section?.scrollIntoView({
-      behavior: 'smooth'
-    });
-
+    const section = document.getElementById('descripcionAnime');
+    section?.scrollIntoView({ behavior: 'smooth' });
   }
 
 
@@ -86,74 +63,56 @@ export class InicioPage implements OnDestroy {
 
   mostrarBrillo = false;
 
-
   onMouseMove(event: MouseEvent): void {
-
     // Cursor real
-    this.cursorX =
-      event.clientX;
-
-    this.cursorY =
-      event.clientY;
-
+    this.cursorX = event.clientX;
+    this.cursorY = event.clientY;
 
     // Parallax
-    this.mouseX =
-      (event.clientX / window.innerWidth - 0.5) * 15;
-
-    this.mouseY =
-      (event.clientY / window.innerHeight - 0.5) * 15;
-
+    this.mouseX = (event.clientX / window.innerWidth - 0.5) * 15;
+    this.mouseY = (event.clientY / window.innerHeight - 0.5) * 15;
     this.mostrarBrillo = true;
-
   }
 
 
   onMouseLeave(): void {
-
     this.mostrarBrillo = false;
-
   }
 
 
+  // ======================================================
+  // MÚSICA
+  // ======================================================
 
-// ======================================================
-// MÚSICA
-// ======================================================
+  mostrarReproductor = false;
+  musicaReproduciendo = false;
 
-mostrarReproductor = false;
-musicaReproduciendo = false;
+  private musicaSubscription?: Subscription;
 
-private musicaSubscription?: Subscription;
+  constructor(
+    private musicaService: MusicaService
+  ) {
+    this.musicaSubscription =
+      this.musicaService.reproduciendo$
+        .subscribe(reproduciendo => {
+          this.musicaReproduciendo = reproduciendo;
+        });
+  }
 
-constructor(
-  private musicaService: MusicaService
-) {
+  abrirReproductor(): void {
+    this.mostrarReproductor = true;
+  }
 
-  this.musicaSubscription =
-    this.musicaService.reproduciendo$
-      .subscribe(reproduciendo => {
+  cerrarReproductor(): void {
+    this.mostrarReproductor = false;
+  }
 
-        this.musicaReproduciendo =
-          reproduciendo;
+  alternarMusica(): void {
+    this.musicaService.alternar();
+  }
 
-      });
-}
-
-abrirReproductor(): void {
-  this.mostrarReproductor = true;
-}
-
-cerrarReproductor(): void {
-  this.mostrarReproductor = false;
-}
-
-alternarMusica(): void {
-  this.musicaService.alternar();
-}
-
-ngOnDestroy(): void {
-  this.musicaSubscription?.unsubscribe();
-}
+  ngOnDestroy(): void {
+    this.musicaSubscription?.unsubscribe();
+  }
 
 }

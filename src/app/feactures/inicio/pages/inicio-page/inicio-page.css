@@ -1,19 +1,36 @@
+.custom-hero,
+.custom-hero *,
+.custom-hero button,
+.custom-hero a,
+.custom-hero:hover,
+.custom-hero a:focus,
+.custom-hero a:active,
+.custom-hero button:hover,
+.custom-hero button:focus,
+.custom-hero button:active {
+  cursor: none !important;
+}
+
 .mouse-light {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 9999px;
+  background: rgba(246, 196, 69, 0.473);
+  filter: blur(100px);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+}
 
-    position: fixed;
-
-    width: 300px;
-    height: 300px;
-
-    border-radius: 9999px;
-
-    background: rgba(246, 196, 69, 0.473);
-
-    filter: blur(100px);
-
-    pointer-events: none;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 9999;
+.custom-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
 }
