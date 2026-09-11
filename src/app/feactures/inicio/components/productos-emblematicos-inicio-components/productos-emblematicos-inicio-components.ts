@@ -33,6 +33,8 @@ export class ProductosEmblematicosInicioComponents {
     particulasFruta: ParticulaFruta[] = [];
     productoActivo: Producto | null = null;
 
+    rutaImagenesProductos: string = "assets/INICIO/PRODUCTOS" 
+
     productos: Producto[] = [
 
         {
@@ -40,7 +42,7 @@ export class ProductosEmblematicosInicioComponents {
             descripcion: 'Uno de los productos más representativos del distrito.',
             imagen: 'assets/CAFE-IMG.jpg',
             personaje: 'assets/INICIO/PRODUCTOS/personaje-cafe.png',
-            fruta: 'assets/INICIO/PRODUCTOS/CAFE/producto_cafe_01.png',
+            fruta:  `${this.rutaImagenesProductos}/CAFE/producto_cafe_01.png`,
             animacion: 'slide-in-from-l-20'
         },
 
@@ -49,7 +51,7 @@ export class ProductosEmblematicosInicioComponents {
             descripcion: 'Fruta emblemática del distrito, apreciada por su dulzura y frescura.',
             imagen: 'assets/NARANJA-IMG.jpg',
             personaje: 'assets/INICIO/PRODUCTOS/personaje-naranja.png',
-            fruta: 'assets/INICIO/PRODUCTOS/NARANJA/producto_naranja_01.png',
+            fruta: `${this.rutaImagenesProductos}/NARANJA/producto_naranja_01.png`,
             animacion: 'slide-in-from-l-20'
         },
 
@@ -58,7 +60,7 @@ export class ProductosEmblematicosInicioComponents {
             descripcion: 'Conocida por su sabor delicado y propiedades nutritivas.',
             imagen: 'assets/GRANADILLAS-IMG.avif',
             personaje: 'assets/INICIO/PRODUCTOS/personaje-granadilla.png',
-            fruta: 'assets/INICIO/PRODUCTOS/GRANADILLA/producto_granadilla_01.png',
+            fruta: `${this.rutaImagenesProductos}/GRANADILLA/producto_granadilla_01.png`,
             animacion: 'slide-in-from-r-20'
         },
 
@@ -67,7 +69,7 @@ export class ProductosEmblematicosInicioComponents {
             descripcion: 'Producto tradicional utilizado en la gastronomía regional.',
             imagen: 'assets/LIMAS-IMG.jpg',
             personaje: 'assets/INICIO/PRODUCTOS/personaje-lima.png',
-            fruta: 'assets/INICIO/PRODUCTOS/LIMA/producto_lima_01.png',
+            fruta: `${this.rutaImagenesProductos}/LIMA/producto_lima_01.png`,
             animacion: 'slide-in-from-r-20'
         }
 
