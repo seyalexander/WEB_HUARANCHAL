@@ -209,10 +209,10 @@ export const LUGARES_TURISTICOS: lugarTuristico[] = [
                 titulo_1: 'Mirador',
                 titulo_2: 'el Chillin',
                 descripcion: `
-      Uno de los paisajes naturales más impresionantes
-      de Huaranchal, rodeado de vegetación,
-      senderos ecológicos y vistas espectaculares.
-    `
+                    Uno de los paisajes naturales más impresionantes
+                    de Huaranchal, rodeado de vegetación,
+                    senderos ecológicos y vistas espectaculares.
+                    `
             },
             galeria: [
                 { foto: 'assets/LUGARES/CHILLIN/chillin-03.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },

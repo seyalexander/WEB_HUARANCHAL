@@ -110,7 +110,7 @@
               [class.opacity-100]="card.position === 0" [class.z-20]="card.position !== 0"
               [class.z-30]="card.position === 0">
 
-              <div class="relative w-[320px] h-[210px] overflow-hidden rounded-3xl shadow-2xl">
+              <div class="relative w-[320px] h-52.5 overflow-hidden rounded-3xl shadow-2xl">
 
                 <img alt="imagen" [src]="card.item.imagen"
                   class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
@@ -183,9 +183,9 @@
   <div class="relative">
 
     <!-- TARJETA -->
-    <div class="relative overflow-hidden rounded-[2rem] shadow-[0_25px_60px_rgba(0,0,0,.18)] bg-black">
+    <div class="relative overflow-hidden rounded-4xl shadow-[0_25px_60px_rgba(0,0,0,.18)] bg-black">
 
-      <img alt="Imagen de {{activeItem.titleH1}}" [src]="activeItem.imagen" class="w-full h-[430px] object-cover transition-all duration-700" />
+      <img alt="Imagen de {{activeItem.titleH1}}" [src]="activeItem.imagen" class="w-full h-107.5 object-cover transition-all duration-700" />
 
       <!-- OVERLAY -->
       <div class="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent"></div>
