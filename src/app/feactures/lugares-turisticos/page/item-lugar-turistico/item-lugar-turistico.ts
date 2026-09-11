@@ -185,7 +185,7 @@ export class ItemLugarTuristico {
       </div>
 
       <!-- Imagen Hero reducida a 58mm y desplazada más arriba (-mt-[20mm]) -->
-      <div class="px-[15mm] -mt-[20mm] relative z-20">
+      <div class="px-[15mm] mt-[-20mm] relative z-20">
         <img src="${this.hero.imagen}"
              class="w-full h-[80mm] object-cover rounded-xl shadow-md border-2 border-white" />
       </div>
