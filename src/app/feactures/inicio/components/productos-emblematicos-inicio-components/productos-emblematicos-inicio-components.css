@@ -67,3 +67,52 @@
     transparent 100%
   );
 }
+
+
+.fruit-particle {
+  position: absolute;
+  z-index: 50;
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0)
+    rotate(0deg);
+
+  opacity: 0;
+
+  animation:
+    fruitBurst var(--fruit-duration) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fruitBurst {
+  0% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      scale(0)
+      rotate(0deg);
+  }
+
+  15% {
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      scale(var(--fruit-scale))
+      rotate(var(--fruit-rotation));
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(
+        calc(-50% + var(--fruit-x, 0px)),
+        calc(-50% - 180px)
+      )
+      scale(calc(var(--fruit-scale) * 0.75))
+      rotate(calc(var(--fruit-rotation) + 180deg));
+  }
+}
