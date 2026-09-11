@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, input, Output } from '@angular/core';
-import { lugarTuristico } from '../../page/lugares-turisticos-pages/lugares-turisticos-pages';
+
 import { RouterLink } from "@angular/router";
+import { lugarTuristico } from '../../../../shared/data/lugaresTuristicos/LugarTuristico.interface';
 
 @Component({
   selector: 'app-tarjeta-lugar-turistico',

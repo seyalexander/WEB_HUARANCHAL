@@ -1,16 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { LUGARES_TURISTICOS } from '../../../../shared/data/lugaresTuristicos/LugarTuristico.data';
+import { lugarTuristico } from '../../../../shared/data/lugaresTuristicos/LugarTuristico.interface';
 
-export interface lugarTuristico {
-  imagen: string,
-  titleH3: string,
-  titleH1: string,
-  descripcion: string,
-  routerLink: string,
-  fraseTurista?: string,
-  estadoTurista?: string
-}
 
 @Component({
   selector: 'app-lugares-turisticos-pages',
@@ -72,5 +64,6 @@ export class LugaresTuristicosPages implements OnInit {
 
     return result;
   }
+  
 
 }

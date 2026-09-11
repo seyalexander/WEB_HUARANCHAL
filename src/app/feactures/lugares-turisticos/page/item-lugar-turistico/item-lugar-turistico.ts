@@ -1,9 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { FooterLugaresTuristicos } from "../../../../shared/components/footer-lugares-turisticos/footer-lugares-turisticos";
+import { ActivatedRoute } from '@angular/router';
+
+import { LUGARES_TURISTICOS } from '../../../../shared/data/lugaresTuristicos/LugarTuristico.data';
+import { galeriaLugarTuristico, historiaLugarTuristico, lugarTuristico, souvenirLugarTuristico } from '../../../../shared/data/lugaresTuristicos/LugarTuristico.interface';
+import { LugarTuristicoGaleria } from '../../../../shared/components/llugares-turisticos/lugar-turistico-galeria/lugar-turistico-galeria';
+import { FooterLugaresTuristicos } from '../../../../shared/components/footer-lugares-turisticos/footer-lugares-turisticos';
 import { GalleriaModule } from 'primeng/galleria';
+import { LugarTuristicoHistoria } from '../../../../shared/components/llugares-turisticos/lugar-turistico-historia/lugar-turistico-historia';
 import { PdfExportService } from '../../../../shared/services/pdf/pdf-export-service';
-import { LugarTuristicoHistoria } from "../../../../shared/components/llugares-turisticos/lugar-turistico-historia/lugar-turistico-historia";
-import { LugarTuristicoGaleria } from "../../../../shared/components/llugares-turisticos/lugar-turistico-galeria/lugar-turistico-galeria";
 import { Location } from '@angular/common';
 
 export type TabLugar =
@@ -12,36 +16,45 @@ export type TabLugar =
   | 'souvenirs'
   | 'ubicacion';
 
-interface FotoGaleria {
-  foto: string;
-  titulo?: string;
-  categoria?: string;
-  favorita?: boolean;
-  ubicacion?: string;
-}
-
 @Component({
-  selector: 'app-banios-termanles-page',
-  imports: [
-    FooterLugaresTuristicos,
+  selector: 'app-item-lugar-turistico',
+  imports: [FooterLugaresTuristicos,
     GalleriaModule,
     LugarTuristicoHistoria,
-    LugarTuristicoGaleria
-],
-  templateUrl: './banios-termanles-page.html',
-  styleUrl: './banios-termanles-page.css',
+    LugarTuristicoGaleria],
+  templateUrl: './item-lugar-turistico.html',
+  styleUrl: './item-lugar-turistico.css',
 })
-export class BaniosTermanlesPage {
+export class ItemLugarTuristico {
+  private readonly route = inject(ActivatedRoute);
+
+  lugar?: lugarTuristico;
+  hero: any;
+  galeria: galeriaLugarTuristico[] = [];
+  historia: historiaLugarTuristico = {} as historiaLugarTuristico;
+  souvenirs: souvenirLugarTuristico[] = []
+
+   private pdfService = inject(PdfExportService);
+
+  ngOnInit(): void {
+
+    const slug = this.route.snapshot.paramMap.get('routerLink');
+
+    this.lugar = LUGARES_TURISTICOS.find(
+      lugar => lugar.routerLink === `/lugares/${slug}`
+    );
+
+
+    if (this.lugar) {
+      this.hero = this.lugar.lugar.hero;
+      this.galeria = this.lugar.lugar.galeria
+      this.historia = this.lugar.lugar.historia
+      this.souvenirs = this.lugar.lugar.souvenirs
+    }
+  }
 
   tabSeleccionado: TabLugar = 'galeria';
-
-  // Controla si se muestran las imágenes después de las primeras 10
   mostrarTodas = false;
-
-  mostrarGalleria = false;
-
-  imagenSeleccionada = 0;
-
 
   tabs = [
     {
@@ -66,33 +79,7 @@ export class BaniosTermanlesPage {
     }
   ];
 
-
-  hero = {
-    imagen: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg',
-    titulo_1: 'Baños',
-    titulo_2: 'Termales',
-    descripcion: `
-      Uno de los paisajes naturales más impresionantes
-      de Huaranchal, rodeado de vegetación,
-      senderos ecológicos y vistas espectaculares.
-    `
-  };
-
-
-  // Propiedades adicionales en tu componente
   categoriaSeleccionada: string = 'todas';
-
-  galeria: FotoGaleria[] = [
-    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_05.jpeg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
-    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_07.jpeg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
-    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_06.jpeg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
-    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_09.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
-    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_12.jpeg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
-    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_08.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
-    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_10.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
-    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_11.jpeg', titulo: 'Área Común', categoria: 'interiores', favorita: false },
-    { foto: 'assets/LUGARES/BANIOS_TERMALES/termales_13.jpeg', titulo: 'Piscina', categoria: 'exteriores', favorita: false },
-  ];
 
   // Getter para obtener solo las favoritas
   get fotosFavoritas() {
@@ -109,93 +96,24 @@ export class BaniosTermanlesPage {
     this.categoriaSeleccionada = categoria;
   }
 
-
-  historia = {
-    imagen: 'assets/LUGARES/BANIOS_TERMALES/termales_02.jpeg',
-    lugar: 'Baños Termales',
-    descripcion: 'Uno de los paisajes más impresionantes de Huaranchal, rodeado de vegetación, senderos naturales y vistas únicas del Valle Alto Chicama.',
-    titulo: 'Un símbolo natural de Huaranchal',
-
-    historia: [
-      {
-        p: `
-      Ubicado a 1900 msnm, entre imponentes cerros y a un costado del río Huaranchalino, 
-      este espacio se encuentra rodeado de abundante vegetación y árboles frutales. 
-      Se sitúa en el sector La Tranca Vieja, dentro del distrito de Huaranchal, 
-      provincia de Otuzco, a solo 30 minutos del pueblo.
-    `
-      },
-      {
-        p: `
-      Consiste en una fuente o manantial de aguas termales que emanan a una temperatura de 70 °C. 
-      Sus aguas son ricas en minerales como fierro y azufre, 
-      lo que las convierte en una alternativa altamente saludable para el tratamiento, 
-      alivio y curación de diversas dolencias.
-    `
-      },
-      {
-        p: `
-      Estas aguas termales son aprovechadas por los habitantes locales y 
-      reciben a más de 3000 visitantes durante las Fiestas Patronales del 24 de junio. 
-      Asimismo, en vacaciones de medio año son muy concurridas por estudiantes de Lima y Trujillo, 
-      así como por familias que acuden a disfrutar de su excelente clima.
-    `
-      },
-    ],
-
-    significado: `Pakcha significa cascada o caída de agua en lengua quechua.`,
-
-    ubicacion: `
-      Distrito de Huaranchal,
-      provincia de Otuzco,
-      región La Libertad.
-    `
-  };
-
-
-  souvenirs = [
-    {
-      imagen: 'assets/LUGARES/PAKCHA/souvenir_pakcha_01.png',
-      titulo: 'Imán de Refrigerador',
-      descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
-      lugar: 'Huaranchal',
-      turistico: 'Pakcha',
-      tipo: 'Recuerdo'
-    },
-    {
-      imagen: 'assets/LUGARES/PAKCHA/souvenir_pakcha_01.png',
-      titulo: 'Taza decorativa',
-      descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
-      lugar: 'Huaranchal',
-      turistico: 'Pakcha',
-      tipo: 'Recuerdo'
-    }
-  ];
-
-
-  // =========================================================
-  // GALERÍA
-  // =========================================================
-
   mostrarGaleriaCompleta(): void {
     this.mostrarTodas = true;
   }
-
 
   ocultarGaleria(): void {
     this.mostrarTodas = false;
   }
 
-
   // =========================================================
   // GALLERIA PRIME NG
   // =========================================================
+  mostrarGalleria = false;
+
+  imagenSeleccionada = 0;
 
   abrirImagen(index: number): void {
-
     this.imagenSeleccionada = index;
     this.mostrarGalleria = true;
-
   }
 
 
@@ -212,10 +130,9 @@ export class BaniosTermanlesPage {
 
   }
 
+
   // GENERACIÓN PDF
   // =========================================================
-
-  private pdfService = inject(PdfExportService);
 
   descargarPdf(): void {
     // Párrafos de la historia con espaciado óptimo
@@ -424,114 +341,114 @@ export class BaniosTermanlesPage {
     this.pdfService.imprimirHtmlAislado(htmlPdf);
   }
 
-  private location = inject(Location) 
+  private location = inject(Location)
 
   volverInicio() {
     this.location.back();
   }
 
-   // Lectura historia
+  // Lectura historia
 
-leyendo = false;
-pausado = false;
+  leyendo = false;
+  pausado = false;
 
-private synth = window.speechSynthesis;
-private textoHistoria: string[] = [];
-private indiceParrafo = 0;
+  private synth = window.speechSynthesis;
+  private textoHistoria: string[] = [];
+  private indiceParrafo = 0;
 
-leerHistoria(): void {
+  leerHistoria(): void {
 
-  // Si está pausado, continuar desde donde quedó
-  if (this.pausado) {
-    this.continuarHistoria();
-    return;
-  }
-
-  // Si está leyendo, pausar
-  if (this.leyendo) {
-    this.pausarHistoria();
-    return;
-  }
-
-  // Iniciar lectura desde el principio
-  this.synth.cancel();
-
-  this.textoHistoria = this.historia.historia
-    .map(parrafo => parrafo.p.trim())
-    .filter(parrafo => parrafo.length > 0);
-
-  if (this.textoHistoria.length === 0) {
-    return;
-  }
-
-  this.indiceParrafo = 0;
-  this.leyendo = true;
-  this.pausado = false;
-
-  this.leerParrafo();
-}
-
-private leerParrafo(): void {
-
-  if (!this.leyendo || this.indiceParrafo >= this.textoHistoria.length) {
-    this.detenerHistoria();
-    return;
-  }
-
-  const texto = this.textoHistoria[this.indiceParrafo];
-
-  const voz = new SpeechSynthesisUtterance(texto);
-
-  voz.lang = 'es-PE';
-  voz.rate = 0.9;
-  voz.pitch = 1;
-  voz.volume = 1;
-
-  voz.onend = () => {
-
-    if (!this.leyendo || this.pausado) {
+    // Si está pausado, continuar desde donde quedó
+    if (this.pausado) {
+      this.continuarHistoria();
       return;
     }
 
-    this.indiceParrafo++;
+    // Si está leyendo, pausar
+    if (this.leyendo) {
+      this.pausarHistoria();
+      return;
+    }
+
+    // Iniciar lectura desde el principio
+    this.synth.cancel();
+
+    this.textoHistoria = this.historia.historia
+      .map(parrafo => parrafo.p.trim())
+      .filter(parrafo => parrafo.length > 0);
+
+    if (this.textoHistoria.length === 0) {
+      return;
+    }
+
+    this.indiceParrafo = 0;
+    this.leyendo = true;
+    this.pausado = false;
 
     this.leerParrafo();
-  };
+  }
 
-  voz.onerror = () => {
+  private leerParrafo(): void {
+
+    if (!this.leyendo || this.indiceParrafo >= this.textoHistoria.length) {
+      this.detenerHistoria();
+      return;
+    }
+
+    const texto = this.textoHistoria[this.indiceParrafo];
+
+    const voz = new SpeechSynthesisUtterance(texto);
+
+    voz.lang = 'es-PE';
+    voz.rate = 0.9;
+    voz.pitch = 1;
+    voz.volume = 1;
+
+    voz.onend = () => {
+
+      if (!this.leyendo || this.pausado) {
+        return;
+      }
+
+      this.indiceParrafo++;
+
+      this.leerParrafo();
+    };
+
+    voz.onerror = () => {
+      this.leyendo = false;
+      this.pausado = false;
+    };
+
+    this.synth.speak(voz);
+  }
+
+  pausarHistoria(): void {
+
+    if (this.synth.speaking && !this.synth.paused) {
+      this.synth.pause();
+      this.pausado = true;
+    }
+
+  }
+
+  continuarHistoria(): void {
+
+    if (this.synth.paused) {
+      this.synth.resume();
+      this.pausado = false;
+    }
+
+  }
+
+  detenerHistoria(): void {
+
+    this.synth.cancel();
+
     this.leyendo = false;
     this.pausado = false;
-  };
+    this.indiceParrafo = 0;
 
-  this.synth.speak(voz);
-}
-
-pausarHistoria(): void {
-
-  if (this.synth.speaking && !this.synth.paused) {
-    this.synth.pause();
-    this.pausado = true;
   }
-
-}
-
-continuarHistoria(): void {
-
-  if (this.synth.paused) {
-    this.synth.resume();
-    this.pausado = false;
-  }
-
-}
-
-detenerHistoria(): void {
-
-  this.synth.cancel();
-
-  this.leyendo = false;
-  this.pausado = false;
-  this.indiceParrafo = 0;
-
-}
 
 }
