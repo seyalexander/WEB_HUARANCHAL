@@ -10,7 +10,7 @@ export type TabCultural =
 
 @Component({
   selector: 'app-costumbres-tradiciones-page',
-  imports: [NgClass],
+  imports: [],
   templateUrl: './costumbres-tradiciones-page.html',
   styleUrl: './costumbres-tradiciones-page.css',
 })

@@ -228,7 +228,7 @@
 
       @for(tradicion of tradiciones; track tradicion.id; let i = $index){
 
-      <article (mouseenter)="seleccionarTradicion(tradicion)" class="group relative overflow-hidden rounded-3xl lg:rounded-[2rem] border border-white/10 bg-white/[0.04] cursor-pointer shadow-xl shadow-black/10 hover:-translate-y-2 transition-all duration-500">
+      <article (mouseenter)="seleccionarTradicion(tradicion)" class="group relative overflow-hidden rounded-3xl lg:rounded-4xl border border-white/10 bg-white/4 cursor-pointer shadow-xl shadow-black/10 hover:-translate-y-2 transition-all duration-500">
 
         <!-- IMAGEN -->
 
@@ -312,11 +312,11 @@
 
       <div class="relative group">
 
-        <div class="absolute -inset-3 rounded-[2rem] border border-[#F6C445]/10 rotate-2 group-hover:rotate-1 transition-transform duration-700"></div>
+        <div class="absolute -inset-3 rounded-4xl border border-[#F6C445]/10 rotate-2 group-hover:rotate-1 transition-transform duration-700"></div>
 
-        <div class="relative overflow-hidden rounded-[2rem]">
+        <div class="relative overflow-hidden rounded-4xl">
 
-          <img alt="Tradición destacada de Huaranchal" [src]="tradicionSeleccionada.imagen" class="w-full h-[420px] sm:h-[520px] lg:h-[620px] object-cover transition-transform duration-700 group-hover:scale-105">
+          <img alt="Tradición destacada de Huaranchal" [src]="tradicionSeleccionada.imagen" class="w-full h-[105 sm:h-130 lg:h-155 object-cover transition-transform duration-700 group-hover:scale-105">
 
           <div class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"></div>
 
@@ -354,12 +354,12 @@
 
         <div class="mt-9 grid grid-cols-2 gap-4">
 
-          <div class="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
+          <div class="p-4 rounded-2xl bg-white/4 border border-white/10">
             <span class="block text-[#F6C445] text-xl font-black">01</span>
             <span class="block mt-1 text-xs text-slate-500">Identidad</span>
           </div>
 
-          <div class="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
+          <div class="p-4 rounded-2xl bg-white/4 border border-white/10">
             <span class="block text-[#F6C445] text-xl font-black">02</span>
             <span class="block mt-1 text-xs text-slate-500">Comunidad</span>
           </div>
@@ -436,7 +436,7 @@
 
         <div class="ml-12 sm:ml-0 sm:pl-10">
 
-          <div class="p-5 sm:p-6 rounded-3xl bg-white/[0.04] border border-white/10 hover:border-[#F6C445]/20 transition-all duration-300">
+          <div class="p-5 sm:p-6 rounded-3xl bg-white/4 border border-white/10 hover:border-[#F6C445]/20 transition-all duration-300">
 
             <p class="text-sm text-slate-400 leading-6">
               Espacios de encuentro donde la comunidad comparte, celebra y mantiene vivas sus costumbres.
@@ -469,7 +469,7 @@
 
         <div class="ml-12 sm:ml-0 sm:pl-10 order-1 sm:order-2">
 
-          <div class="p-5 sm:p-6 rounded-3xl bg-white/[0.04] border border-white/10 hover:border-[#F6C445]/20 transition-all duration-300">
+          <div class="p-5 sm:p-6 rounded-3xl bg-white/4 border border-white/10 hover:border-[#F6C445]/20 transition-all duration-300">
 
             <p class="text-sm text-slate-400 leading-6">
               El trabajo de la tierra reúne a familias y comunidades alrededor de prácticas transmitidas por generaciones.
@@ -502,7 +502,7 @@
 
         <div class="ml-12 sm:ml-0 sm:pl-10">
 
-          <div class="p-5 sm:p-6 rounded-3xl bg-white/[0.04] border border-white/10 hover:border-[#F6C445]/20 transition-all duration-300">
+          <div class="p-5 sm:p-6 rounded-3xl bg-white/4 border border-white/10 hover:border-[#F6C445]/20 transition-all duration-300">
 
             <p class="text-sm text-slate-400 leading-6">
               Fe, música, reuniones y tradiciones se unen para celebrar las festividades de la comunidad.
@@ -527,7 +527,7 @@
 
 <section class="relative py-20 sm:py-24 lg:py-32 bg-[#0B0B0F] overflow-hidden">
 
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#2F5D34]/10 rounded-full blur-3xl"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-125 h-75 bg-[#2F5D34]/10 rounded-full blur-3xl"></div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6">
 
@@ -558,7 +558,7 @@
 
       <!-- GRANDE -->
 
-      <article class="lg:col-span-6 relative h-[460px] sm:h-[560px] lg:h-[650px] rounded-[2rem] overflow-hidden group border border-white/10">
+      <article class="lg:col-span-6 relative h-115 sm:h-140 lg:h-162.5 rounded-4xl overflow-hidden group border border-white/10">
 
         <img alt="Jornadas agrícolas de Huaranchal" src="assets/COSTUMBRES/costumbres_10.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
 
@@ -594,7 +594,7 @@
 
         <!-- MUSICA -->
 
-        <article class="relative h-64 sm:h-72 lg:h-[300px] rounded-[2rem] overflow-hidden group border border-white/10">
+        <article class="relative h-64 sm:h-72  lg:h-75 rounded-4xl  overflow-hidden group border border-white/10">
 
           <img alt="Música tradicional de Huaranchal" src="assets/COSTUMBRES/costumbres_08.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
 
@@ -626,7 +626,7 @@
 
           <!-- FE -->
 
-          <article class="relative h-64 sm:h-72 lg:h-[320px] rounded-[2rem] overflow-hidden group border border-white/10">
+          <article class="relative h-64 sm:h-72  lg:h-80 rounded-4xl  overflow-hidden group border border-white/10">
 
             <img alt="Fe y devoción en Huaranchal" src="assets/COSTUMBRES/costumbres_09.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
 
@@ -649,7 +649,7 @@
 
           <!-- TRABAJO -->
 
-          <article class="relative h-64 sm:h-72 lg:h-[320px] rounded-[2rem] overflow-hidden group border border-white/10">
+          <article class="relative h-64 sm:h-72 lg:h-80 rounded-4xl overflow-hidden group border border-white/10">
 
             <img alt="Trabajo comunal en Huaranchal" src="assets/COSTUMBRES/costumbres_11.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
 
