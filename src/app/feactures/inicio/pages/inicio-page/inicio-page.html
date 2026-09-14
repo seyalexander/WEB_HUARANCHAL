@@ -34,6 +34,8 @@
 
 <app-productos-emblematicos-inicio-components />
 
+<app-panoramica360-component />
+
 <app-cta-inicio-components />
 
 <app-footer-inicio-components />
@@ -51,73 +53,30 @@
     <!-- BOTÓN PEQUEÑO -->
     <!-- ================================================== -->
 
-    <button type="button" (click)="abrirReproductor()" aria-label="Abrir reproductor de música" class="group
-                 w-14 h-14
-                 flex items-center justify-center
-                 rounded-full
-                 bg-[#F6C445]
-                 hover:bg-[#d9ad35]
-                 text-white
-                 shadow-2xl
-                 transition-all
-                 duration-300
-                 hover:scale-110
-                 hover:shadow-[0_0_25px_rgba(246,196,69,0.45)]">
-
-      <span class="text-2xl
-                     transition-transform
-                     duration-300
-                     group-hover:scale-110">
-      
+    <button type="button" (click)="abrirReproductor()" aria-label="Abrir reproductor de música" class="group w-14 h-14 flex items-center justify-center rounded-full bg-[#F6C445] hover:bg-[#d9ad35] text-white shadow-2xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(246,196,69,0.45)]">
+      <span class="text-2xl transition-transform duration-300 group-hover:scale-110">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffffff"
           stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
           <path d="M9 17v-13h10v7" />
           <path d="M9 8h10" />
-          <path
-            d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+          <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
         </svg>
-      
       </span>
-
     </button>
 
   } @else {
 
-    <!-- ================================================== -->
-    <!-- REPRODUCTOR -->
-    <!-- ================================================== -->
-
     <div class="relative w-70 sm:w-[320px] rounded-2xl bg-[#111113]/95 backdrop-blur-xl border border-white/10 shadow-[0_15px_50px_rgba(0,0,0,0.45)] overflow-hidden">
-
-
-      <!-- ================================================ -->
-      <!-- DETALLE SUPERIOR -->
-      <!-- ================================================ -->
-
       <div class="absolute top-0 left-0 right-0h-1 bg-linear-to-r from-[#F6C445] to-[#E8A82F]">
       </div>
-
-
-      <!-- ================================================ -->
-      <!-- BOTÓN CERRAR -->
-      <!-- ================================================ -->
 
       <button type="button" (click)="cerrarReproductor()" aria-label="Cerrar reproductor"
         class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center bg-white/10  hover:bg-white/20 text-white text-lg transition-all duration-200 hover:rotate-90">
         ×
       </button>
 
-      <!-- ================================================ -->
-      <!-- CONTENIDO -->
-      <!-- ================================================ -->
-
       <div class="p-5 pt-6 pr-12">
-
-        <!-- ============================================== -->
-        <!-- INFORMACIÓN -->
-        <!-- ============================================== -->
-
         <div class="flex items-center gap-3">
           <!-- ÍCONO -->
           <div class="w-12 h-12 shrink-0 rounded-full bg-[#F6C445] flex items-center justify-center shadow-[0_0_20px_rgba(246,196,69,0.25)]">
@@ -133,8 +92,6 @@
             </span>
           </div>
 
-
-          <!-- TEXTO -->
           <div class="min-w-0">
             <p class="font-semibold text-sm truncate">
               Música Huaranchal

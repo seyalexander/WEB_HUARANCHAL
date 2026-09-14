@@ -225,16 +225,16 @@
 
                 @if (productoActivo === producto) {
 
-                @for (particula of particulasFruta; track particula.id) {
+                    @for (particula of particulasFruta; track particula.id) {
 
-                <img [src]="producto.fruta" [alt]="producto.nombre" class="fruit-particle pointer-events-none"
-                    [style.left.%]="particula.x" [style.top.%]="particula.y"
-                    [style.--fruit-x]="particula.destinoX + 'px'" [style.--fruit-y]="particula.destinoY + 'px'"
-                    [style.--fruit-rotation]="particula.rotacion + 'deg'" [style.--fruit-scale]="particula.escala"
-                    [style.--fruit-duration]="particula.duracion + 'ms'"
-                    [style.animation-delay]="particula.retraso + 'ms'">
+                    <img [src]="producto.fruta" [alt]="producto.nombre" class="fruit-particle pointer-events-none"
+                        [style.left.%]="particula.x" [style.top.%]="particula.y"
+                        [style.--fruit-x]="particula.destinoX + 'px'" [style.--fruit-y]="particula.destinoY + 'px'"
+                        [style.--fruit-rotation]="particula.rotacion + 'deg'" [style.--fruit-scale]="particula.escala"
+                        [style.--fruit-duration]="particula.duracion + 'ms'"
+                        [style.animation-delay]="particula.retraso + 'ms'">
 
-                }
+                    }
 
                 }
 

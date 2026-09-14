@@ -362,5 +362,6 @@ export const LUGARES_TURISTICOS: lugarTuristico[] = [
                 }
             ]
         }
-    }
+    },
+   
 ]
