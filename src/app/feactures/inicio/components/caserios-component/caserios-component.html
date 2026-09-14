@@ -1,0 +1,152 @@
+<section class="py-24 bg-slate-50 text-slate-800 relative overflow-hidden isolate border-t border-slate-200">
+  
+  <!-- FORMAS ABSTRACTAS DE FONDO (FONDO CLARO) -->
+  <div class="absolute -top-24 -left-24 w-96 h-96 bg-emerald-100/60 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="absolute top-1/2 -right-20 w-[500px] h-[500px] bg-amber-100/80 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  
+  <!-- Patrón de puntos geométrico abstracto -->
+  <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    
+    <!-- CABECERA -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-slate-200 pb-8">
+      <div>
+        <span class="text-[#2F5D34] text-xs font-mono uppercase tracking-widest font-bold">
+          [ Territorial Map // 21 Sectores ]
+        </span>
+        <h2 class="mt-2 text-4xl sm:text-5xl font-black tracking-tight text-slate-900 uppercase">
+          Caseríos de <span class="text-[#2F5D34]">Huaranchal</span>
+        </h2>
+        <p class="mt-2 text-slate-600 text-sm max-w-lg">
+          Conoce la distribución geográfica de los 21 poblados y caseríos del distrito.
+        </p>
+      </div>
+
+      <!-- BUSCADOR CON ESTILO CLARO -->
+      <div class="relative w-full md:w-80">
+        <input 
+          type="text" 
+          [(ngModel)]="busqueda"
+          placeholder="Buscar caserío..."
+          class="w-full bg-white border border-slate-300 rounded-2xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#2F5D34] focus:ring-2 focus:ring-[#2F5D34]/20 shadow-sm transition-all" />
+        <span class="absolute right-4 top-3.5 text-slate-400 text-xs font-mono font-bold">
+          {{ caseriosFiltrados.length }}/21
+        </span>
+      </div>
+    </div>
+
+    <!-- ESTRUCTURA PRINCIPAL (LISTA MÁS VISOR DETALLADO) -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- MATRIZ NAVEGABLE (TARJETAS EN FONDO BLANCO) -->
+      <div class="lg:col-span-7 bg-white/70 border border-slate-200 rounded-3xl p-4 sm:p-6 backdrop-blur-md shadow-sm">
+        <div class="max-h-[520px] overflow-y-auto pr-2 space-y-2 custom-scrollbar">
+          @for (c of caseriosFiltrados; track c.id) {
+            <div 
+              (click)="seleccionar(c)"
+              class="group flex items-center justify-between p-4 rounded-2xl border transition-all duration-300 cursor-pointer"
+              [class.bg-[#2F5D34]]="caserioSeleccionado.id === c.id"
+              [class.border-[#2F5D34]]="caserioSeleccionado.id === c.id"
+              [class.text-white]="caserioSeleccionado.id === c.id"
+              [class.shadow-md]="caserioSeleccionado.id === c.id"
+              [class.bg-white]="caserioSeleccionado.id !== c.id"
+              [class.border-slate-200]="caserioSeleccionado.id !== c.id"
+              [class.hover:border-[#2F5D34]/40]="caserioSeleccionado.id !== c.id"
+              [class.hover:bg-slate-50]="caserioSeleccionado.id !== c.id">
+              
+              <div class="flex items-center gap-4">
+                <!-- Número de caserío -->
+                <span 
+                  class="w-9 h-9 rounded-xl flex items-center justify-center font-mono font-bold text-xs"
+                  [class.bg-white]="caserioSeleccionado.id === c.id"
+                  [class.text-[#2F5D34]]="caserioSeleccionado.id === c.id"
+                  [class.bg-slate-100]="caserioSeleccionado.id !== c.id"
+                  [class.text-slate-600]="caserioSeleccionado.id !== c.id">
+                  {{ c.id < 10 ? '0' + c.id : c.id }}
+                </span>
+
+                <h4 class="font-bold text-base tracking-tight">
+                  {{ c.nombre }}
+                </h4>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <span 
+                  class="text-xs font-mono font-semibold"
+                  [class.text-emerald-100]="caserioSeleccionado.id === c.id"
+                  [class.text-slate-500]="caserioSeleccionado.id !== c.id">
+                  {{ c.altitud }}
+                </span>
+                
+                <span 
+                  class="w-2.5 h-2.5 rounded-full transition-transform duration-300 group-hover:scale-150"
+                  [class.bg-[#F6C445]]="caserioSeleccionado.id === c.id"
+                  [class.bg-[#2F5D34]]="caserioSeleccionado.id !== c.id">
+                </span>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- VISOR LATERAL DE INFORMACIÓN EN DETALLE -->
+      <div class="lg:col-span-5 sticky top-8">
+        <div class="bg-white border border-slate-200 rounded-3xl p-8 backdrop-blur-xl relative overflow-hidden shadow-xl">
+          
+          <!-- Marca de Agua Numérica en Gris Suave -->
+          <div class="absolute -right-4 -bottom-10 text-[160px] font-black text-slate-100 select-none font-mono pointer-events-none">
+            {{ caserioSeleccionado.id < 10 ? '0' + caserioSeleccionado.id : caserioSeleccionado.id }}
+          </div>
+
+          <div class="flex items-center justify-between mb-6">
+            <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[#2F5D34] text-xs font-mono font-bold tracking-wider">
+              CASERÍO #{{ caserioSeleccionado.id < 10 ? '0' + caserioSeleccionado.id : caserioSeleccionado.id }}
+            </span>
+            <span class="text-xs font-mono text-slate-500 font-semibold">
+              Altitud: <strong class="text-slate-800">{{ caserioSeleccionado.altitud }}</strong>
+            </span>
+          </div>
+
+          <h3 class="text-3xl font-black text-slate-900 tracking-tight mb-6">
+            {{ caserioSeleccionado.nombre }}
+          </h3>
+
+          <div class="space-y-4 relative z-10">
+            <!-- Atractivo Principal -->
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+              <span class="text-[11px] text-slate-400 font-mono uppercase tracking-wider block mb-1 font-bold">
+                Aspecto Destacado
+              </span>
+              <p class="text-sm font-semibold text-slate-700 leading-relaxed">
+                {{ caserioSeleccionado.destacado }}
+              </p>
+            </div>
+
+            <!-- Distancia -->
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400 font-mono uppercase tracking-wider font-bold">
+                Distancia al Centro
+              </span>
+              <span class="text-sm font-bold font-mono text-[#2F5D34]">
+                {{ caserioSeleccionado.distanciaCentro }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Botón a Google Maps -->
+          <a 
+            [href]="'https://www.google.com/maps/search/' + caserioSeleccionado.nombre + '+Huaranchal'"
+            target="_blank"
+            class="mt-8 w-full py-3.5 px-4 rounded-2xl bg-[#2F5D34] hover:bg-[#244928] text-white font-extrabold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#2F5D34]/20 relative z-10">
+            <span>Ubicación en Google Maps</span>
+            <span>→</span>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

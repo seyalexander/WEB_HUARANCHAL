@@ -8,6 +8,7 @@ import { VESTIMENTAS_TIPICAS_ROUTES } from './feactures/vestimentasTipicas/vesti
 import { AGRICULTURA_ROUTES } from './feactures/agricultura/agricultura.routes';
 import { GASTRONOMIA_ROUTES } from './feactures/gastronomia/gastronomia.routes';
 import { INTEGRANTES_ROUTES } from './feactures/integrantes/integrantes.routes';
+import { PRODUCTOS_TURISTICOS_ROUTES } from './feactures/productos/productos.routes';
 
 
 export const routes: Routes = [
@@ -17,7 +18,7 @@ export const routes: Routes = [
     },
     ...INICIO_ROUTES,
     ...LUGARES_TURISTICOS_ROUTES,
-
+    ...PRODUCTOS_TURISTICOS_ROUTES,
     ...COSTUMBRES_TRADICIONES_ROUTES,
     ...VESTIMENTAS_TIPICAS_ROUTES,
     ...AGRICULTURA_ROUTES,

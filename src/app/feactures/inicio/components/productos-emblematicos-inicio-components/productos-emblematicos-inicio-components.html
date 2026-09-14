@@ -202,8 +202,9 @@
 
                         <!-- INDICADOR -->
 
-                        <div
-                            class="mt-5 flex items-center gap-2 text-[#F6C445] text-sm font-semibold opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                        <!-- INDICADOR CON NAVEGACIÓN INDEPENDIENTE -->
+                        <button (click)="$event.stopPropagation()"
+                            class="mt-5 inline-flex items-center gap-2 text-[#F6C445] text-sm font-semibold opacity-90 hover:opacity-100 transition-all duration-300 pointer-events-auto relative z-50 cursor-pointer hover:underline">
 
                             <span>
                                 Producto local
@@ -213,7 +214,7 @@
                                 →
                             </span>
 
-                        </div>
+                        </button>
 
                     </div>
 
@@ -225,16 +226,16 @@
 
                 @if (productoActivo === producto) {
 
-                    @for (particula of particulasFruta; track particula.id) {
+                @for (particula of particulasFruta; track particula.id) {
 
-                    <img [src]="producto.fruta" [alt]="producto.nombre" class="fruit-particle pointer-events-none"
-                        [style.left.%]="particula.x" [style.top.%]="particula.y"
-                        [style.--fruit-x]="particula.destinoX + 'px'" [style.--fruit-y]="particula.destinoY + 'px'"
-                        [style.--fruit-rotation]="particula.rotacion + 'deg'" [style.--fruit-scale]="particula.escala"
-                        [style.--fruit-duration]="particula.duracion + 'ms'"
-                        [style.animation-delay]="particula.retraso + 'ms'">
+                <img [src]="producto.fruta" [alt]="producto.nombre" class="fruit-particle pointer-events-none"
+                    [style.left.%]="particula.x" [style.top.%]="particula.y"
+                    [style.--fruit-x]="particula.destinoX + 'px'" [style.--fruit-y]="particula.destinoY + 'px'"
+                    [style.--fruit-rotation]="particula.rotacion + 'deg'" [style.--fruit-scale]="particula.escala"
+                    [style.--fruit-duration]="particula.duracion + 'ms'"
+                    [style.animation-delay]="particula.retraso + 'ms'">
 
-                    }
+                }
 
                 }
 

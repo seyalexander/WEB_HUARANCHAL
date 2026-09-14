@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
+import { RouterLink } from '@angular/router';
 
 interface Producto {
     nombre: string;
@@ -24,7 +25,7 @@ interface ParticulaFruta {
 
 @Component({
     selector: 'app-productos-emblematicos-inicio-components',
-    imports: [AnimateOnScrollModule],
+    imports: [AnimateOnScrollModule, RouterLink],
     templateUrl: './productos-emblematicos-inicio-components.html',
     styleUrl: './productos-emblematicos-inicio-components.css',
 })

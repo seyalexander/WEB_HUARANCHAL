@@ -1,0 +1,120 @@
+<section class="py-20 bg-[#07090e] text-white relative overflow-hidden isolate min-h-[750px] flex items-center">
+  
+  <!-- CAPAS DE FONDO EN PARALLAX DE ESPACIO Y LUZ -->
+  <div 
+    class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] transition-transform duration-100 ease-out pointer-events-none"
+    [style.transform]="'translate(' + (mouseX * -0.5) + 'px, ' + (mouseY * -0.5) + 'px)'">
+  </div>
+
+  <!-- Esfera de luz reactiva detrás de la fruta activa -->
+  <div 
+    class="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[150px] opacity-25 transition-all duration-700 pointer-events-none -z-10"
+    [style.backgroundColor]="frutaActiva.colorGlow"
+    [style.transform]="'translate(' + (mouseX * 1.2) + 'px, ' + (mouseY * 1.2) + 'px)'">
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- COLUMNA IZQUIERDA: RUEDA CINETICA 3D DE FRUTAS (PARALLAX) -->
+      <div class="lg:col-span-6 flex flex-col items-center justify-center relative min-h-[480px]">
+        
+        <!-- Anillo orbital decorativo -->
+        <div 
+          class="absolute w-[320px] sm:w-[380px] h-[320px] sm:h-[380px] border border-white/10 rounded-full border-dashed animate-[spin_60s_linear_infinite] pointer-events-none"
+          [style.transform]="'translate(' + (mouseX * 0.3) + 'px, ' + (mouseY * 0.3) + 'px)'">
+        </div>
+
+        <!-- RUEDA DE SELECCIÓN -->
+        <div class="relative w-[300px] h-[300px] flex items-center justify-center">
+          @for (fruta of frutas; track fruta.id; let i = $index) {
+            <div 
+              (click)="seleccionarFruta(i)"
+              class="absolute cursor-pointer transition-all duration-700 ease-out drop-shadow-[0_20px_30px_rgba(0,0,0,0.7)] hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+              [ngStyle]="getTransformEstilo(i)">
+              
+              <img 
+                [src]="fruta.imagen" 
+                [alt]="fruta.nombre"
+                class="w-44 h-44 object-contain pointer-events-none select-none transition-transform duration-300" 
+                [style.transform]="'translate(' + (mouseX * 0.8) + 'px, ' + (mouseY * 0.8) + 'px)'" />
+            </div>
+          }
+        </div>
+
+        <!-- Controles de navegación manual en rueda -->
+        <div class="flex items-center gap-6 mt-8 z-20">
+          <button 
+            (click)="anterior()" 
+            class="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white transition-all active:scale-90"
+            title="Fruta Anterior">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          
+          <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold">
+            0{{ indiceSeleccionado + 1 }} / 0{{ frutas.length }}
+          </span>
+
+          <button 
+            (click)="siguiente()" 
+            class="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white transition-all active:scale-90"
+            title="Siguiente Fruta">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- COLUMNA DERECHA: FICHA INFORMATIVA DINÁMICA -->
+      <div class="lg:col-span-6 flex flex-col justify-center text-left space-y-6">
+        
+        <div>
+          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#F6C445] text-xs font-semibold tracking-wider uppercase backdrop-blur-md mb-3">
+            <span class="w-2 h-2 rounded-full bg-[#F6C445] animate-pulse"></span>
+            {{ frutaActiva.temporada }}
+          </span>
+          
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tight text-white mb-1">
+            {{ frutaActiva.nombre }}
+          </h2>
+          <p class="text-sm italic text-slate-400 font-serif">
+            {{ frutaActiva.nombreCientifico }}
+          </p>
+        </div>
+
+        <p class="text-slate-300 text-base leading-relaxed max-w-xl">
+          {{ frutaActiva.descripcion }}
+        </p>
+
+        <!-- Etiqueta de Beneficios Clave -->
+        <div class="pt-2">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Propiedades Destacadas</h4>
+          <div class="flex flex-wrap gap-2">
+            @for (item of frutaActiva.beneficios; track item) {
+              <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-medium text-slate-200 backdrop-blur-sm">
+                ✓ {{ item }}
+              </span>
+            }
+          </div>
+        </div>
+
+        <!-- Indicador interactivo para cambiar de elemento -->
+        <div class="pt-4 border-t border-white/10 flex items-center gap-3">
+          @for (fruta of frutas; track fruta.id; let idx = $index) {
+            <button 
+              (click)="seleccionarFruta(idx)"
+              class="h-2 rounded-full transition-all duration-300"
+              [class.w-8]="idx === indiceSeleccionado"
+              [class.bg-[#F6C445]]="idx === indiceSeleccionado"
+              [class.w-2]="idx !== indiceSeleccionado"
+              [class.bg-white/20]="idx !== indiceSeleccionado">
+            </button>
+          }
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>

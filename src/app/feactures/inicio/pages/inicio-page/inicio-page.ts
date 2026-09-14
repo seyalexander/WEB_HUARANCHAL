@@ -9,6 +9,7 @@ import { HeroInicio } from "../../components/hero-inicio/hero-inicio";
 import { Subscription } from 'rxjs';
 import { MusicaService } from '../../../../shared/services/musica-service';
 import { Panoramica360Component } from '../../components/panoramica360-component/panoramica360-component';
+import { CaseriosComponent } from '../../components/caserios-component/caserios-component';
 
 @Component({
   selector: 'app-inicio-page',
@@ -20,7 +21,8 @@ import { Panoramica360Component } from '../../components/panoramica360-component
     RouterLink,
     PanoramicaComponents,
     HeroInicio,
-    Panoramica360Component
+    Panoramica360Component,
+    CaseriosComponent
 ],
   templateUrl: './inicio-page.html',
   styleUrl: './inicio-page.css',
