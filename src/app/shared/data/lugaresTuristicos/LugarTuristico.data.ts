@@ -349,17 +349,7 @@ export const LUGARES_TURISTICOS: lugarTuristico[] = [
                     provincia de Otuzco,
                     región La Libertad.`
             },
-            souvenirs: [
-                {
-                    imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_1.png',
-                    titulo: 'Imán de Refrigerador',
-                    descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
-
-                    lugar: 'Huaranchal',
-                    turistico: 'Pakcha',
-                    tipo: 'Recuerdo',
-                    existente: false
-                },
+            souvenirs: [ 
                 {
                     imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_8.png',
                     titulo: 'Alforja para cosecha de frutas',
@@ -384,6 +374,16 @@ export const LUGARES_TURISTICOS: lugarTuristico[] = [
                     imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_6.png',
                     titulo: 'Llavero de sombrero huaranchalino',
                     descripcion: 'Lleva contigo un pequeño símbolo de Huaranchal con este llavero inspirado en el tradicional sombrero de nuestra tierra, un recuerdo que representa la identidad, costumbres y tradición de nuestro pueblo.',
+                    lugar: 'Huaranchal',
+                    turistico: 'Chillin',
+                    tipo: 'Recuerdo',
+                    existente: true
+                },
+                {
+                    imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_9.png',
+                    titulo: 'Bolsita de Café',
+                    descripcion: 'Lleva contigo el aroma y sabor de Huaranchal con esta bolsita de café, un pequeño recuerdo que representa la tradición cafetalera de nuestra tierra y el trabajo de los agricultores que cultivan sus productos en armonía con la naturaleza.',
+
                     lugar: 'Huaranchal',
                     turistico: 'Chillin',
                     tipo: 'Recuerdo',

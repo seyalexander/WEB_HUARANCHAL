@@ -14,19 +14,6 @@ interface Hotspot {
   titulo: string;
   descripcion: string;
 }
-interface Ambiente {
-  id: string;
-  nombre: string;
-  imagenFondo: string;
-  estiloText: string;
-}
-
-interface Hotspot {
-  x: number; // porcentaje horizontal
-  y: number; // porcentaje vertical
-  titulo: string;
-  descripcion: string;
-}
 
 @Component({
   selector: 'app-artesania-viewer',
@@ -39,6 +26,9 @@ export class ArtesaniaViewer {
   ambienteSeleccionado: string = 'living';
   hotspotActivo: Hotspot | null = null;
   vistaDetalle: boolean = false;
+  
+  // NUEVO: Estado para ocultar/mostrar los puntos interactivas
+  ocultarHotspots: boolean = false;
 
   // Ambientes de prueba para decoración de interiores
   ambientes: Ambiente[] = [
@@ -70,63 +60,54 @@ export class ArtesaniaViewer {
       titulo: 'Marco en Madera Tallada',
       descripcion: 'Elemento decorativo elaborado en madera y trabajado con tallado artesanal. Se utiliza para representar y conservar motivos, nombres o símbolos relacionados con la identidad y tradición de Huaranchal.'
     },
-
     {
       x: 35,
       y: 42,
       titulo: 'Llanques',
       descripcion: 'Calzado tradicional elaborado artesanalmente, utilizado para caminar y trabajar en el campo. Su diseño sencillo y resistente forma parte de las costumbres y la vestimenta tradicional de Huaranchal.'
     },
-
     {
       x: 35,
       y: 60,
       titulo: 'Rueca y Hilado Artesanal',
       descripcion: 'Herramientas utilizadas para transformar la fibra en hilo mediante el hilado manual. Esta práctica artesanal permite preparar materiales que posteriormente pueden emplearse en tejidos y otras labores tradicionales.'
     },
-
     {
       x: 50,
       y: 48,
       titulo: 'Checo',
-      descripcion: 'Recipiente tradicional elaborado a partir del fruto seco del checo. Se utiliza como utensilio para transportar, guardar o servir productos y forma parte de los objetos empleados tradicionalmente en las labores cotidianas.'
+      descripcion: 'Recipiente tradicional elaborado a partir del fruto seco del checo. Se utiliza como utensils para transportar, guardar o servir productos y forma parte de los objetos empleados tradicionalmente en las labores cotidianas.'
     },
-
     {
       x: 50,
       y: 88,
       titulo: 'Alforja',
       descripcion: 'Bolsa tradicional utilizada para transportar productos y alimentos durante las labores del campo. Se coloca sobre el cuerpo o sobre animales de carga y resulta especialmente útil para recolectar y trasladar frutas de la zona.'
     },
-
     {
       x: 25,
       y: 88,
       titulo: 'Palana',
       descripcion: 'Herramienta agrícola utilizada para remover y trabajar la tierra durante las labores del campo. Su uso está relacionado con la preparación del terreno, la siembra y otras actividades agrícolas de Huaranchal.'
     },
-
     {
       x: 56,
       y: 80,
       titulo: 'Lampilla',
       descripcion: 'Herramienta manual utilizada principalmente en las labores agrícolas para trabajar y remover la tierra. Su tamaño permite realizar trabajos más precisos en cultivos y terrenos donde se requiere mayor cuidado.'
     },
-
     {
       x: 70,
       y: 78,
       titulo: 'Gancho para fruta',
       descripcion: 'Herramienta utilizada para alcanzar y recolectar frutas que se encuentran en las partes altas de los árboles. Su uso facilita la cosecha sin necesidad de subir al árbol y forma parte de las prácticas tradicionales de recolección.'
     },
-
     {
       x: 68,
       y: 45,
       titulo: 'Sombrero',
       descripcion: 'Accesorio tradicional utilizado para protegerse del sol durante las labores del campo y las actividades cotidianas. El sombrero forma parte de la vestimenta característica de Huaranchal y representa una expresión de su identidad cultural.'
     },
-
     {
       x: 35,
       y: 73,
@@ -147,5 +128,13 @@ export class ArtesaniaViewer {
 
   toggleHotspot(hotspot: Hotspot) {
     this.hotspotActivo = this.hotspotActivo === hotspot ? null : hotspot;
+  }
+
+  // NUEVO: Alterna la visibilidad global de los botones '+'
+  toggleVisibilidadHotspots() {
+    this.ocultarHotspots = !this.ocultarHotspots;
+    if (this.ocultarHotspots) {
+      this.hotspotActivo = null;
+    }
   }
 }
