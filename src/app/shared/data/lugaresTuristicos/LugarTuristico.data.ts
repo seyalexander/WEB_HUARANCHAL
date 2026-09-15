@@ -392,5 +392,100 @@ export const LUGARES_TURISTICOS: lugarTuristico[] = [
             ]
         }
     },
+    {
+        id: 4,
+        imagen: 'assets/LUGARES/EL_HIGUERON/ELHIGUERON_01.jpg',
+        titleH3: "EL",
+        titleH1: "HIGUERÓN",
+        descripcion: "Espacios ideales para relajarse y disfrutar de aguas naturales.",
+        routerLink: "/lugares/ElHigueron",
+        fraseTurista: "Esto sí es vida... relax total 😌",
+        estadoTurista: 'relajado',
+        lugar: {
+            hero: {
+                imagen: 'assets/LUGARES/EL_HIGUERON/ELHIGUERON_01.jpg',
+                titulo_1: 'El',
+                titulo_2: 'Higuerón',
+                descripcion: `
+                    Uno de los paisajes naturales más impresionantes
+                    de Huaranchal, rodeado de vegetación,
+                    senderos ecológicos y vistas espectaculares.
+                    `
+            },
+            galeria: [
+                { foto: 'assets/LUGARES/EL_HIGUERON/el_Higueron_01.jpg', titulo: 'Vista Principal', categoria: 'exteriores', favorita: true, ubicacion: 'Chillín, Perú' },
+                { foto: 'assets/LUGARES/EL_HIGUERON/el_Higueron_02.jpg', titulo: 'Atardecer', categoria: 'paisajes', favorita: true, ubicacion: 'Mirador' },
+                { foto: 'assets/LUGARES/EL_HIGUERON/el_Higueron_03.jpg', titulo: 'Zona Lounge', categoria: 'interiores', favorita: false },
+                { foto: 'assets/LUGARES/EL_HIGUERON/el_Higueron_05.jpg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
+                { foto: 'assets/LUGARES/EL_HIGUERON/el_Higueron_06.jpg', titulo: 'Jardín Central', categoria: 'exteriores', favorita: true },
+            ],
+            historia: {
+                imagen: 'assets/LUGARES/EL_HIGUERON/el_Higueron_06.jpg',
+                lugar: 'Baños Termales',
+                descripcion: 'Uno de los paisajes más impresionantes de Huaranchal, rodeado de vegetación, senderos naturales y vistas únicas del Valle Alto Chicama.',
+                titulo: 'Un símbolo natural de Huaranchal',
+
+                historia: [
+                    {
+                        p: `
+                            Es un lugar turístico de Huaranchal que se encuentra en la zona urbana en el barrio el higuerón.
+                            `
+                    },
+                    {
+                        p: `
+                            Según data la historia que en dicho manantial que emane aguas cristalinas, sobre él había una planta de higuerón, que aproximadamente
+                            tenía la edad de unos 500 años, era una planta muy forndosa, que sirvió de sombre para los ciudadanos y juegos de los niños de Huaranchal.
+                            `
+                    },
+                    {
+                        p: `
+                            Pues se da el mito que si tomas agua del higuerón te quedarías en Huaranchal o bien te casarías con una huaranchalina, pero en el año 2000 este mítico
+                            árbol cayó, pues era semana santa, quedando una profunda tristeza a los lugareños huaranchalinos.
+                            `
+                    },
+                ],
+
+                significado: `Árbol de higuerón.`,
+
+                ubicacion: `
+                    Distrito de Huaranchal,
+                    provincia de Otuzco,
+                    región La Libertad.
+                    `
+            },
+            souvenirs: [
+                {
+                    imagen: 'assets/LUGARES/EL_HIGUERON/SOUVENIRS/SOUVENIR_HIGUERON_8.png',
+                    titulo: 'Alforja para cosecha de frutas',
+                    descripcion: 'Conoce un elemento tradicional de las labores del campo de Huaranchal, utilizado para recolectar las frutas de la zona y que representa la conexión entre la vida agrícola, la naturaleza y las costumbres de nuestra tierra.',
+
+                    lugar: 'Huaranchal',
+                    turistico: 'Baños Termales',
+                    tipo: 'Tradición',
+                    existente: true
+                },
+                {
+                    imagen: 'assets/LUGARES/EL_HIGUERON/SOUVENIRS/SOUVENIR_HIGUERON_7.png',
+                    titulo: 'Llavero decorativo de madera',
+                    descripcion: 'Lleva contigo un pequeño recuerdo de los Baños Termales con esta aplanita de madera en forma de llavero, un detalle inspirado en la naturaleza y en la experiencia de relajación que ofrece este hermoso destino de Huaranchal.',
+
+                    lugar: 'Huaranchal',
+                    turistico: 'Baños Termales',
+                    tipo: 'Recuerdo',
+                    existente: false
+                },
+                {
+                    imagen: 'assets/LUGARES/EL_HIGUERON/SOUVENIRS/SOUVENIR_HIGUERON_6.png',
+                    titulo: 'Llavero de sombrero huaranchalino',
+                    descripcion: 'Lleva contigo un pequeño símbolo de Huaranchal con este llavero inspirado en el tradicional sombrero de nuestra tierra, un recuerdo que representa nuestras costumbres y la grata experiencia de disfrutar de los Baños Termales.',
+
+                    lugar: 'Huaranchal',
+                    turistico: 'Baños Termales',
+                    tipo: 'Recuerdo',
+                    existente: true
+                }
+            ]
+        }
+    },
 
 ]
