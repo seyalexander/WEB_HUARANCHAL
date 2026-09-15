@@ -81,22 +81,34 @@ export const LUGARES_TURISTICOS: lugarTuristico[] = [
             },
             souvenirs: [
                 {
-                    imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_1.png',
-                    titulo: 'Imán de Refrigerador',
-                    descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
+                    imagen: 'assets/LUGARES/PAKCHA/SOUVENIRS/SOUVENIR_ALAPACCHA_8.png',
+                    titulo: 'Alforja para cosecha de frutas',
+                    descripcion: 'Conoce un elemento tradicional de las labores del campo de Huaranchal, utilizado para recolectar las frutas de la zona y que representa la conexión entre la vida agrícola, la naturaleza y las costumbres de nuestra tierra.',
 
                     lugar: 'Huaranchal',
-                    turistico: 'Pakcha',
-                    tipo: 'Recuerdo'
+                    turistico: 'Ala Paccha',
+                    tipo: 'Tradición',
+                    existente: false
                 },
                 {
-                    imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_3.png',
-                    titulo: 'Taza decorativa',
-                    descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
+                    imagen: 'assets/LUGARES/PAKCHA/SOUVENIRS/SOUVENIR_ALAPACCHA_7.png',
+                    titulo: 'Llavero decorativo de madera',
+                    descripcion: 'Lleva contigo un pequeño recuerdo de la Catarata Ala Paccha con esta aplanita de madera en forma de llavero, un detalle inspirado en la belleza natural de sus aguas y los paisajes que hacen especial este destino de Huaranchal.',
 
                     lugar: 'Huaranchal',
-                    turistico: 'Pakcha',
-                    tipo: 'Recuerdo'
+                    turistico: 'Ala Paccha',
+                    tipo: 'Recuerdo',
+                    existente: true
+                },
+                {
+                    imagen: 'assets/LUGARES/PAKCHA/SOUVENIRS/SOUVENIR_ALAPACCHA_6.png',
+                    titulo: 'Llavero de sombrero huaranchalino',
+                    descripcion: 'Lleva contigo un pequeño símbolo de Huaranchal con este llavero inspirado en el tradicional sombrero de nuestra tierra, un recuerdo que une la identidad y las costumbres de nuestro pueblo con la experiencia de conocer la hermosa Catarata Ala Paccha.',
+
+                    lugar: 'Huaranchal',
+                    turistico: 'Ala Paccha',
+                    tipo: 'Recuerdo',
+                    existente: true
                 }
             ]
 
@@ -176,20 +188,34 @@ export const LUGARES_TURISTICOS: lugarTuristico[] = [
             },
             souvenirs: [
                 {
-                    imagen: 'assets/LUGARES/PAKCHA/souvenir_pakcha_01.png',
-                    titulo: 'Imán de Refrigerador',
-                    descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
+                    imagen: 'assets/LUGARES/BANIOS_TERMALES/SOUVENIRS/SOUVENIR_BANIOSTERMALES_8.png',
+                    titulo: 'Alforja para cosecha de frutas',
+                    descripcion: 'Conoce un elemento tradicional de las labores del campo de Huaranchal, utilizado para recolectar las frutas de la zona y que representa la conexión entre la vida agrícola, la naturaleza y las costumbres de nuestra tierra.',
+
                     lugar: 'Huaranchal',
-                    turistico: 'Pakcha',
-                    tipo: 'Recuerdo'
+                    turistico: 'Baños Termales',
+                    tipo: 'Tradición',
+                    existente: true
                 },
                 {
-                    imagen: 'assets/LUGARES/PAKCHA/souvenir_pakcha_01.png',
-                    titulo: 'Taza decorativa',
-                    descripcion: 'Lleva contigo un recuerdo de la Catarata Pakcha y de los paisajes naturales de Huaranchal.',
+                    imagen: 'assets/LUGARES/BANIOS_TERMALES/SOUVENIRS/SOUVENIR_BANIOSTERMALES_7.png',
+                    titulo: 'Llavero decorativo de madera',
+                    descripcion: 'Lleva contigo un pequeño recuerdo de los Baños Termales con esta aplanita de madera en forma de llavero, un detalle inspirado en la naturaleza y en la experiencia de relajación que ofrece este hermoso destino de Huaranchal.',
+
                     lugar: 'Huaranchal',
-                    turistico: 'Pakcha',
-                    tipo: 'Recuerdo'
+                    turistico: 'Baños Termales',
+                    tipo: 'Recuerdo',
+                    existente: false
+                },
+                {
+                    imagen: 'assets/LUGARES/BANIOS_TERMALES/SOUVENIRS/SOUVENIR_BANIOSTERMALES_6.png',
+                    titulo: 'Llavero de sombrero huaranchalino',
+                    descripcion: 'Lleva contigo un pequeño símbolo de Huaranchal con este llavero inspirado en el tradicional sombrero de nuestra tierra, un recuerdo que representa nuestras costumbres y la grata experiencia de disfrutar de los Baños Termales.',
+
+                    lugar: 'Huaranchal',
+                    turistico: 'Baños Termales',
+                    tipo: 'Recuerdo',
+                    existente: true
                 }
             ]
         }
@@ -331,37 +357,40 @@ export const LUGARES_TURISTICOS: lugarTuristico[] = [
 
                     lugar: 'Huaranchal',
                     turistico: 'Pakcha',
-                    tipo: 'Recuerdo'
+                    tipo: 'Recuerdo',
+                    existente: false
                 },
                 {
-                    imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_3.png',
-                    titulo: 'Llavero Cruz del Chillin',
-                    descripcion: 'Lleva contigo un recuerdo de la Cruz del Chillin, uno de los lugares representativos de Huaranchal, como símbolo de fe, tradición y conexión con este hermoso destino.',
+                    imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_8.png',
+                    titulo: 'Alforja para cosecha de frutas',
+                    descripcion: 'Conoce un elemento tradicional utilizado en las labores del campo para recolectar las frutas de Huaranchal, reflejo de la vida agrícola, las costumbres y el trabajo de nuestros agricultores.',
 
                     lugar: 'Huaranchal',
                     turistico: 'Chillin',
-                    tipo: 'Recuerdo'
+                    tipo: 'Tradición',
+                    existente: true
                 },
                 {
-                    imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_4.png',
-                    titulo: 'Adorno decorativo de madera',
-                    descripcion: 'Lleva a casa un recuerdo del Chillin con este adorno de madera, inspirado en sus hermosos paisajes y pensado para decorar cualquier espacio con un toque especial de Huaranchal.',
+                    imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_7.png',
+                    titulo: 'Llavero decorativo de madera',
+                    descripcion: 'Lleva contigo un pequeño recuerdo del Chillin con esta aplanita de madera en forma de llavero, un detalle inspirado en la identidad y encanto de Huaranchal que podrás conservar y llevar siempre contigo.',
 
                     lugar: 'Huaranchal',
                     turistico: 'Chillin',
-                    tipo: 'Recuerdo'
+                    tipo: 'Recuerdo',
+                    existente: true
                 },
                 {
-                    imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_5.png',
-                    titulo: 'Señal decorativa de madera',
-                    descripcion: 'Lleva contigo un recuerdo del Chillin con esta decoración de madera, formada por pequeñas señalizaciones con frases representativas que evocan sus paisajes, tradición y encanto natural.',
-
+                    imagen: 'assets/LUGARES/CHILLIN/SOUVENIRS/SOUVENIR_CHILLIN_6.png',
+                    titulo: 'Llavero de sombrero huaranchalino',
+                    descripcion: 'Lleva contigo un pequeño símbolo de Huaranchal con este llavero inspirado en el tradicional sombrero de nuestra tierra, un recuerdo que representa la identidad, costumbres y tradición de nuestro pueblo.',
                     lugar: 'Huaranchal',
                     turistico: 'Chillin',
-                    tipo: 'Recuerdo'
+                    tipo: 'Recuerdo',
+                    existente: true
                 }
             ]
         }
     },
-   
+
 ]

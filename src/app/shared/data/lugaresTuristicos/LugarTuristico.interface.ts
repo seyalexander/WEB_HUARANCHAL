@@ -38,7 +38,8 @@ export interface souvenirLugarTuristico {
     descripcion: string,
     lugar: string,
     turistico: string,
-    tipo: string
+    tipo: string,
+    existente: boolean
 }
 
 
