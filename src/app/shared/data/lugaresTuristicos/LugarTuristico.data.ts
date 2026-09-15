@@ -460,7 +460,7 @@ export const LUGARES_TURISTICOS: lugarTuristico[] = [
                     descripcion: 'Conoce un elemento tradicional de las labores del campo de Huaranchal, utilizado para recolectar las frutas de la zona y que representa la conexión entre la vida agrícola, la naturaleza y las costumbres de nuestra tierra.',
 
                     lugar: 'Huaranchal',
-                    turistico: 'Baños Termales',
+                    turistico: 'El Higuerón',
                     tipo: 'Tradición',
                     existente: true
                 },
@@ -470,7 +470,7 @@ export const LUGARES_TURISTICOS: lugarTuristico[] = [
                     descripcion: 'Lleva contigo un pequeño recuerdo de los Baños Termales con esta aplanita de madera en forma de llavero, un detalle inspirado en la naturaleza y en la experiencia de relajación que ofrece este hermoso destino de Huaranchal.',
 
                     lugar: 'Huaranchal',
-                    turistico: 'Baños Termales',
+                    turistico: 'El Higuerón',
                     tipo: 'Recuerdo',
                     existente: false
                 },
@@ -480,7 +480,7 @@ export const LUGARES_TURISTICOS: lugarTuristico[] = [
                     descripcion: 'Lleva contigo un pequeño símbolo de Huaranchal con este llavero inspirado en el tradicional sombrero de nuestra tierra, un recuerdo que representa nuestras costumbres y la grata experiencia de disfrutar de los Baños Termales.',
 
                     lugar: 'Huaranchal',
-                    turistico: 'Baños Termales',
+                    turistico: 'El Higuerón',
                     tipo: 'Recuerdo',
                     existente: true
                 }
