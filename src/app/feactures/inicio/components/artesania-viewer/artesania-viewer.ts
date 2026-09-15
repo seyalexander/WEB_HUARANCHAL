@@ -107,8 +107,8 @@ export class ArtesaniaViewer {
     },
 
     {
-      x: 54,
-      y: 78,
+      x: 56,
+      y: 80,
       titulo: 'Lampilla',
       descripcion: 'Herramienta manual utilizada principalmente en las labores agrícolas para trabajar y remover la tierra. Su tamaño permite realizar trabajos más precisos en cultivos y terrenos donde se requiere mayor cuidado.'
     },
@@ -129,7 +129,7 @@ export class ArtesaniaViewer {
 
     {
       x: 35,
-      y: 70,
+      y: 73,
       titulo: 'Arado',
       descripcion: 'Herramienta utilizada para preparar y remover la tierra antes de la siembra. Tradicionalmente se emplea en las labores agrícolas para abrir surcos y acondicionar el terreno para los cultivos.'
     }
