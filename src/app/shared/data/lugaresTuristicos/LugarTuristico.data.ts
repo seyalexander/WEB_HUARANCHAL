@@ -5,7 +5,7 @@ export const LUGARES_TURISTICOS: lugarTuristico[] = [
         id: 1,
         imagen: `assets/LUGARES/PAKCHA/catarata_pakcha-paul.jpeg`,
         titleH3: "Catarata",
-        titleH1: "Pakcha",
+        titleH1: "Paccha",
         descripcion: "Una impresionante caída de agua rodeada de vegetación y senderos naturales.",
         routerLink: "/lugares/CatarataPaccha",
         fraseTurista: "¡Wow! Este lugar sí que me deja sin palabras...",
