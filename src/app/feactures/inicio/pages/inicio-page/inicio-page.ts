@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 import { MusicaService } from '../../../../shared/services/musica-service';
 import { Panoramica360Component } from '../../components/panoramica360-component/panoramica360-component';
 import { CaseriosComponent } from '../../components/caserios-component/caserios-component';
+import { ArtesaniaViewer } from '../../components/artesania-viewer/artesania-viewer';
 
 @Component({
   selector: 'app-inicio-page',
@@ -22,7 +23,8 @@ import { CaseriosComponent } from '../../components/caserios-component/caserios-
     PanoramicaComponents,
     HeroInicio,
     Panoramica360Component,
-    CaseriosComponent
+    CaseriosComponent,
+    ArtesaniaViewer
 ],
   templateUrl: './inicio-page.html',
   styleUrl: './inicio-page.css',
