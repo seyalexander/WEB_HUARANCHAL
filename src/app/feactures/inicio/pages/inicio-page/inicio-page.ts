@@ -11,6 +11,7 @@ import { MusicaService } from '../../../../shared/services/musica-service';
 import { Panoramica360Component } from '../../components/panoramica360-component/panoramica360-component';
 import { CaseriosComponent } from '../../components/caserios-component/caserios-component';
 import { ArtesaniaViewer } from '../../components/artesania-viewer/artesania-viewer';
+import { HistoriaHuaranchalInicio } from '../../components/historia-huaranchal-inicio/historia-huaranchal-inicio';
 
 @Component({
   selector: 'app-inicio-page',
@@ -24,7 +25,8 @@ import { ArtesaniaViewer } from '../../components/artesania-viewer/artesania-vie
     HeroInicio,
     Panoramica360Component,
     CaseriosComponent,
-    ArtesaniaViewer
+    ArtesaniaViewer,
+    HistoriaHuaranchalInicio
 ],
   templateUrl: './inicio-page.html',
   styleUrl: './inicio-page.css',
