@@ -6,6 +6,7 @@ import { InicioQueConoceras } from '../../../../../data/Inicio/Inicio-QueConocer
 import { experienciasInicio } from '../../../../../data/Inicio/Inicio-QueConoceras.data';
 import { InicioArtesania, InicioHotspotArtesania } from '../../../../../data/Inicio/Inicio-Artesanias.interface';
 import { ambientesArtesania, hotspotsArtesania } from '../../../../../data/Inicio/Inicio-Artesania.data';
+import { InicioHistoriaHuaranchal } from '../../../../../data/Inicio/Inicio-Historia.data';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class ButtonPdfHuaranchalComponent {
 
   HotspotsArtesania: InicioHotspotArtesania[] = hotspotsArtesania;
 
+  DataHistoria = InicioHistoriaHuaranchal;
 
   descargarPdf(): void {
 
@@ -36,6 +38,8 @@ export class ButtonPdfHuaranchalComponent {
       ${this.generarQueConoceras()}
 
       ${this.generarArtesania()}
+
+      ${this.generarHistoria()}
 
     `;
 
@@ -409,53 +413,39 @@ export class ButtonPdfHuaranchalComponent {
   }
 
 
-private generarArtesania(): string {
+  private generarArtesania(): string {
 
-  const imagenArtesania =
-    'assets/INICIO/PRODUCTOS/ARTESANIAS/ARTESANIAS_01.png';
+    const imagenArtesania =
+      'assets/INICIO/PRODUCTOS/ARTESANIAS/ARTESANIAS_01.png';
 
-
-  /*
-   * ==========================================================
-   * CONFIGURACIÓN DEL CATÁLOGO
-   * ==========================================================
-   *
-   * Cantidad máxima de elementos por página.
-   *
-   * Si posteriormente agregas más elementos al array
-   * HotspotsArtesania, automáticamente se crearán
-   * nuevas páginas.
-   *
-   */
-
-  const elementosPorPagina = 6;
+    const elementosPorPagina = 6;
 
 
-  /*
-   * ==========================================================
-   * GENERAR PÁGINAS DEL CATÁLOGO
-   * ==========================================================
-   */
+    /*
+     * ==========================================================
+     * GENERAR PÁGINAS DEL CATÁLOGO
+     * ==========================================================
+     */
 
-  const paginasArtesania: string[] = [];
+    const paginasArtesania: string[] = [];
 
-  for (
-    let inicio = 0;
-    inicio < this.HotspotsArtesania.length;
-    inicio += elementosPorPagina
-  ) {
+    for (
+      let inicio = 0;
+      inicio < this.HotspotsArtesania.length;
+      inicio += elementosPorPagina
+    ) {
 
-    const elementosPagina =
-      this.HotspotsArtesania.slice(
-        inicio,
-        inicio + elementosPorPagina
-      );
+      const elementosPagina =
+        this.HotspotsArtesania.slice(
+          inicio,
+          inicio + elementosPorPagina
+        );
 
-    const numeroPagina =
-      Math.floor(inicio / elementosPorPagina) + 1;
+      const numeroPagina =
+        Math.floor(inicio / elementosPorPagina) + 1;
 
 
-    paginasArtesania.push(`
+      paginasArtesania.push(`
 
       <!-- ================================================== -->
       <!-- PÁGINA ${numeroPagina} - CATÁLOGO ARTESANAL -->
@@ -510,8 +500,8 @@ private generarArtesania(): string {
 
               <p class="text-[28px] font-black leading-none text-[#2F5D34]/15">
                 ${String(
-                  inicio + elementosPagina.length
-                ).padStart(2, '0')}
+        inicio + elementosPagina.length
+      ).padStart(2, '0')}
               </p>
 
               <p class="mt-1 text-[7px] font-bold uppercase tracking-[2px] text-[#687068]">
@@ -554,10 +544,10 @@ private generarArtesania(): string {
 
             ${elementosPagina.map((hotspot, indexPagina) => {
 
-              const indexGlobal =
-                inicio + indexPagina;
+        const indexGlobal =
+          inicio + indexPagina;
 
-              return `
+        return `
 
                 <!-- ========================================== -->
                 <!-- ELEMENTO ${indexGlobal + 1} -->
@@ -640,7 +630,7 @@ private generarArtesania(): string {
 
               `;
 
-            }).join('')}
+      }).join('')}
 
 
           </div>
@@ -651,7 +641,7 @@ private generarArtesania(): string {
           <!-- ================================================== -->
 
           ${inicio + elementosPagina.length < this.HotspotsArtesania.length
-            ? `
+          ? `
 
               <div class="mt-[8mm] flex items-center justify-between border-t border-[#d5d6ce] pt-3">
 
@@ -666,7 +656,7 @@ private generarArtesania(): string {
               </div>
 
             `
-            : `
+          : `
 
               <div class="mt-[8mm] rounded-[4mm] border border-[#d7d7cc] bg-[#E8E6DC] px-5 py-4">
 
@@ -695,7 +685,7 @@ private generarArtesania(): string {
               </div>
 
             `
-          }
+        }
 
 
         </div>
@@ -727,16 +717,16 @@ private generarArtesania(): string {
 
     `);
 
-  }
+    }
 
 
-  /*
-   * ==========================================================
-   * PÁGINA 1 - PRESENTACIÓN DE ARTESANÍA
-   * ==========================================================
-   */
+    /*
+     * ==========================================================
+     * PÁGINA 1 - PRESENTACIÓN DE ARTESANÍA
+     * ==========================================================
+     */
 
-  const paginaPresentacion = `
+    const paginaPresentacion = `
 
     <!-- ====================================================== -->
     <!-- PÁGINA 1 - ARTESANÍA -->
@@ -1067,21 +1057,650 @@ private generarArtesania(): string {
   `;
 
 
-  /*
-   * ==========================================================
-   * ORDEN FINAL
-   * ==========================================================
-   *
-   * Primero la presentación.
-   * Después todas las páginas necesarias del catálogo.
-   *
-   */
+    /*
+     * ==========================================================
+     * ORDEN FINAL
+     * ==========================================================
+     *
+     * Primero la presentación.
+     * Después todas las páginas necesarias del catálogo.
+     *
+     */
 
-  return `
+    return `
     ${paginaPresentacion}
     ${paginasArtesania.join('')}
   `;
-}
+  }
+
+  private generarHistoria(): string {
+
+    const historia = this.DataHistoria;
+
+    const acontecimientos = historia.acontecimientos ?? [];
+    const datosDestacados = historia.datosDestacados ?? [];
+
+    /*
+     * Cantidad de acontecimientos por página.
+     *
+     * Lo dejamos en 3 porque cada acontecimiento puede tener
+     * bastante texto y queremos evitar que el contenido se corte.
+     */
+    const acontecimientosPorPagina = 3;
+
+    const paginas: string[] = [];
+
+    /*
+     * Genera una tarjeta de acontecimiento.
+     */
+    const generarAcontecimiento = (
+      acontecimiento: typeof acontecimientos[number],
+      indexGlobal: number,
+      esUltimo: boolean
+    ): string => {
+
+      const esDestacado = acontecimiento.destacado === true;
+
+      return `
+      <article
+        class="relative grid grid-cols-[12mm_1fr] gap-[5mm] ${esUltimo ? '' : 'mb-[6mm]'
+        }"
+      >
+
+        <!-- PUNTO Y LÍNEA -->
+
+        <div class="relative flex justify-center">
+
+          ${!esUltimo
+          ? `
+                <div
+                  class="absolute top-[7mm] bottom-[-6mm] w-[0.4mm] bg-[#D5D7CC]"
+                ></div>
+              `
+          : ''
+        }
+
+          <div
+            class="relative z-10 flex h-[8mm] w-[8mm] items-center justify-center rounded-full border-[1.5mm] border-[#F3F1E9] ${esDestacado
+          ? 'bg-[#F6C445] shadow-[0_0_0_0.4mm_#F6C445]'
+          : 'bg-[#2F5D34] shadow-[0_0_0_0.4mm_#2F5D34]'
+        }"
+          >
+          </div>
+
+        </div>
+
+
+        <!-- CONTENIDO -->
+
+        <div
+          class="rounded-[3mm] border ${esDestacado
+          ? 'border-[#E4C34C] bg-[#FFF9E7]'
+          : 'border-[#DCDDD5] bg-[#FAFAF7]'
+        } px-[5mm] py-[4mm]"
+        >
+
+          <div
+            class="flex items-start justify-between gap-[4mm]"
+          >
+
+            <div>
+
+              <div
+                class="text-[6px] font-black uppercase tracking-[1.5px] text-[#2F5D34]"
+              >
+                ${acontecimiento.periodo}
+              </div>
+
+              <h3
+                class="mt-[1.5mm] text-[10px] font-black leading-tight text-[#182019]"
+              >
+                ${acontecimiento.titulo}
+              </h3>
+
+            </div>
+
+
+            ${esDestacado
+          ? `
+                  <span
+                    class="shrink-0 rounded-full bg-[#F6C445]/25 px-[2.5mm] py-[1mm] text-[5.5px] font-black uppercase tracking-[1px] text-[#725700]"
+                  >
+                    Momento clave
+                  </span>
+                `
+          : ''
+        }
+
+          </div>
+
+
+          <p
+            class="mt-[2.5mm] text-[7px] leading-[1.55] text-[#626962]"
+          >
+            ${acontecimiento.descripcion}
+          </p>
+
+        </div>
+
+      </article>
+    `;
+    };
+
+
+    /*
+     * Genera los datos destacados.
+     */
+    const generarDatosDestacados = (): string => {
+
+      return datosDestacados
+        .map((dato) => {
+
+          return `
+          <div
+            class="rounded-[3mm] border border-[#DCDDD5] bg-[#FAFAF7] px-[4mm] py-[4mm]"
+          >
+
+            <div
+              class="text-[5.5px] font-black uppercase tracking-[1.3px] text-[#A4C639]"
+            >
+              ${dato.etiqueta}
+            </div>
+
+            <div
+              class="mt-[2mm] h-[0.4mm] w-[8mm] bg-[#F6C445]"
+            ></div>
+
+            <div
+              class="mt-[2.5mm] text-[7px] font-bold leading-[1.45] text-[#303830]"
+            >
+              ${dato.valor}
+            </div>
+
+          </div>
+        `;
+
+        })
+        .join('');
+    };
+
+
+    /*
+     * Dividimos todos los acontecimientos en páginas.
+     */
+    for (
+      let inicio = 0;
+      inicio < acontecimientos.length;
+      inicio += acontecimientosPorPagina
+    ) {
+
+      const acontecimientosPagina = acontecimientos.slice(
+        inicio,
+        inicio + acontecimientosPorPagina
+      );
+
+      const numeroPagina =
+        Math.floor(inicio / acontecimientosPorPagina) + 1;
+
+      const esPrimeraPagina = inicio === 0;
+
+      const esUltimaPagina =
+        inicio + acontecimientosPorPagina >= acontecimientos.length;
+
+
+      /*
+       * Acontecimientos de esta página.
+       */
+      const contenidoAcontecimientos =
+        acontecimientosPagina
+          .map((acontecimiento, indexPagina) => {
+
+            const indexGlobal = inicio + indexPagina;
+
+            return generarAcontecimiento(
+              acontecimiento,
+              indexGlobal,
+              indexPagina === acontecimientosPagina.length - 1
+            );
+
+          })
+          .join('');
+
+
+      /*
+       * ==========================
+       * PRIMERA PÁGINA
+       * ==========================
+       */
+      if (esPrimeraPagina) {
+
+        paginas.push(`
+
+        <section
+          class="page-a4 bg-[#F3F1E9] text-[#182019]"
+        >
+
+          <!-- CABECERA -->
+
+          <div
+            class="relative overflow-hidden bg-[#2F5D34] px-[16mm] pb-[14mm] pt-[13mm] text-white"
+          >
+
+            <div
+              class="absolute -right-[20mm] -top-[25mm] h-[80mm] w-[80mm] rounded-full border-[12mm] border-white/5"
+            ></div>
+
+            <div
+              class="absolute -bottom-[20mm] left-[45%] h-[50mm] w-[50mm] rounded-full bg-[#F6C445]/10 blur-2xl"
+            ></div>
+
+
+            <div class="relative z-10">
+
+              <div class="flex items-center gap-[4mm]">
+
+                <div
+                  class="h-[0.5mm] w-[10mm] bg-[#F6C445]"
+                ></div>
+
+                <span
+                  class="text-[6px] font-black uppercase tracking-[2px] text-[#F6C445]"
+                >
+                  ${historia.subtitulo}
+                </span>
+
+              </div>
+
+
+              <h2
+                class="mt-[4mm] max-w-[130mm] text-[25px] font-black leading-[0.95] tracking-[-0.5px]"
+              >
+                ${historia.titulo}
+              </h2>
+
+
+              <p
+                class="mt-[4mm] max-w-[125mm] text-[8px] leading-[1.6] text-white/70"
+              >
+                ${historia.descripcion}
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- INTRODUCCIÓN + 1866 -->
+
+          <div
+            class="grid grid-cols-[55mm_1fr] gap-[9mm] px-[16mm] pt-[11mm]"
+          >
+
+            <!-- AÑO -->
+
+            <div
+              class="relative overflow-hidden rounded-[4mm] bg-[#182019] px-[6mm] py-[7mm] text-white"
+            >
+
+              <div
+                class="absolute -right-[12mm] -top-[12mm] h-[35mm] w-[35mm] rounded-full border-[5mm] border-white/5"
+              ></div>
+
+              <div class="relative z-10">
+
+                <div
+                  class="text-[5.5px] font-black uppercase tracking-[1.5px] text-[#F6C445]"
+                >
+                  Un momento fundamental
+                </div>
+
+                <div
+                  class="mt-[6mm] text-[31px] font-black leading-none tracking-[-1px]"
+                >
+                  1866
+                </div>
+
+                <div
+                  class="mt-[4mm] h-[0.5mm] w-[9mm] bg-[#F6C445]"
+                ></div>
+
+                <p
+                  class="mt-[3mm] text-[6.5px] leading-[1.55] text-white/65"
+                >
+                  Año fundamental en la consolidación histórica de Huaranchal como distrito.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- INTRODUCCIÓN -->
+
+            <div class="self-center">
+
+              <div
+                class="text-[6px] font-black uppercase tracking-[1.5px] text-[#A4C639]"
+              >
+                Nuestra memoria
+              </div>
+
+              <p
+                class="mt-[3mm] text-[10px] font-medium leading-[1.65] text-[#303830]"
+              >
+                ${historia.introduccion}
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- RECORRIDO -->
+
+          <div class="px-[16mm] pt-[10mm]">
+
+            <div
+              class="mb-[5mm] flex items-center justify-between"
+            >
+
+              <div class="flex items-center gap-[4mm]">
+
+                <div
+                  class="h-[0.5mm] w-[9mm] bg-[#F6C445]"
+                ></div>
+
+                <span
+                  class="text-[6px] font-black uppercase tracking-[1.5px] text-[#2F5D34]"
+                >
+                  Recorrido histórico
+                </span>
+
+              </div>
+
+              <span
+                class="text-[5.5px] font-bold uppercase tracking-[1px] text-[#8A9089]"
+              >
+                ${inicio + 1}–${inicio + acontecimientosPagina.length}
+              </span>
+
+            </div>
+
+
+            ${contenidoAcontecimientos}
+
+          </div>
+
+
+          ${esUltimaPagina
+            ? `
+                <!-- DATOS -->
+
+                <div
+                  class="mx-[16mm] mt-[8mm] border-t border-[#D6D5CB] pt-[7mm]"
+                >
+
+                  <div
+                    class="mb-[4mm] text-[6px] font-black uppercase tracking-[1.5px] text-[#2F5D34]"
+                  >
+                    Huaranchal en el tiempo
+                  </div>
+
+                  <div class="grid grid-cols-3 gap-[4mm]">
+
+                    ${generarDatosDestacados()}
+
+                  </div>
+
+                </div>
+              `
+            : ''
+          }
+
+
+          <!-- PIE -->
+
+          <div
+            class="absolute bottom-[9mm] left-[16mm] right-[16mm] border-t border-[#D6D5CB] pt-[4mm]"
+          >
+
+            <div
+              class="flex items-center justify-between gap-[10mm]"
+            >
+
+              <p
+                class="max-w-[130mm] text-[6px] italic leading-[1.5] text-[#626962]"
+              >
+                La historia de Huaranchal permanece en sus caminos,
+                sus costumbres y en la memoria de quienes mantienen
+                vivas sus raíces.
+              </p>
+
+              <span
+                class="shrink-0 text-[5px] font-black uppercase tracking-[1.5px] text-[#A4C639]"
+              >
+                Raíces de Huaranchal
+              </span>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      `);
+
+      }
+
+      /*
+       * ==========================
+       * PÁGINAS SIGUIENTES
+       * ==========================
+       */
+      else {
+
+        paginas.push(`
+
+        <section
+          class="page-a4 bg-[#F3F1E9] text-[#182019]"
+        >
+
+          <!-- ENCABEZADO DE CONTINUACIÓN -->
+
+          <div
+            class="bg-[#2F5D34] px-[16mm] py-[9mm] text-white"
+          >
+
+            <div class="flex items-center justify-between">
+
+              <div>
+
+                <div
+                  class="flex items-center gap-[4mm]"
+                >
+
+                  <div
+                    class="h-[0.5mm] w-[9mm] bg-[#F6C445]"
+                  ></div>
+
+                  <span
+                    class="text-[6px] font-black uppercase tracking-[2px] text-[#F6C445]"
+                  >
+                    ${historia.subtitulo}
+                  </span>
+
+                </div>
+
+                <h2
+                  class="mt-[3mm] text-[16px] font-black leading-none"
+                >
+                  ${historia.titulo}
+                </h2>
+
+              </div>
+
+
+              <div class="text-right">
+
+                <div
+                  class="text-[5px] font-bold uppercase tracking-[1.5px] text-white/50"
+                >
+                  Continuación
+                </div>
+
+                <div
+                  class="mt-[1mm] text-[9px] font-black text-[#F6C445]"
+                >
+                  ${inicio + 1}–${inicio + acontecimientosPagina.length}
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- CONTENIDO -->
+
+          <div class="px-[16mm] pt-[12mm]">
+
+            <div
+              class="mb-[7mm] flex items-center gap-[4mm]"
+            >
+
+              <div
+                class="h-[0.5mm] w-[9mm] bg-[#F6C445]"
+              ></div>
+
+              <span
+                class="text-[6px] font-black uppercase tracking-[1.5px] text-[#2F5D34]"
+              >
+                Recorrido histórico
+              </span>
+
+            </div>
+
+
+            ${contenidoAcontecimientos}
+
+
+            ${esUltimaPagina
+            ? `
+                  <!-- DATOS DESTACADOS -->
+
+                  <div
+                    class="mt-[10mm] border-t border-[#D6D5CB] pt-[7mm]"
+                  >
+
+                    <div
+                      class="mb-[4mm] text-[6px] font-black uppercase tracking-[1.5px] text-[#2F5D34]"
+                    >
+                      Huaranchal en el tiempo
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-[4mm]">
+
+                      ${generarDatosDestacados()}
+
+                    </div>
+
+                  </div>
+                `
+            : ''
+          }
+
+          </div>
+
+
+          <!-- PIE -->
+
+          <div
+            class="absolute bottom-[9mm] left-[16mm] right-[16mm] border-t border-[#D6D5CB] pt-[4mm]"
+          >
+
+            <div
+              class="flex items-center justify-between gap-[10mm]"
+            >
+
+              <p
+                class="max-w-[130mm] text-[6px] italic leading-[1.5] text-[#626962]"
+              >
+                La historia de Huaranchal permanece en sus caminos,
+                sus costumbres y en la memoria de quienes mantienen
+                vivas sus raíces.
+              </p>
+
+              <span
+                class="shrink-0 text-[5px] font-black uppercase tracking-[1.5px] text-[#A4C639]"
+              >
+                Raíces de Huaranchal
+              </span>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      `);
+
+      }
+
+    }
+
+
+    /*
+     * Si por alguna razón no existen acontecimientos,
+     * generamos igualmente una página con la información básica.
+     */
+    if (acontecimientos.length === 0) {
+
+      paginas.push(`
+
+      <section
+        class="page-a4 bg-[#F3F1E9] text-[#182019]"
+      >
+
+        <div
+          class="bg-[#2F5D34] px-[16mm] py-[14mm] text-white"
+        >
+
+          <div
+            class="text-[6px] font-black uppercase tracking-[2px] text-[#F6C445]"
+          >
+            ${historia.subtitulo}
+          </div>
+
+          <h2
+            class="mt-[4mm] text-[25px] font-black"
+          >
+            ${historia.titulo}
+          </h2>
+
+        </div>
+
+
+        <div class="px-[16mm] pt-[12mm]">
+
+          <p
+            class="text-[9px] leading-[1.7] text-[#626962]"
+          >
+            ${historia.introduccion}
+          </p>
+
+        </div>
+
+      </section>
+
+    `);
+
+    }
+
+
+    return paginas.join('');
+
+  }
 
 
 }
