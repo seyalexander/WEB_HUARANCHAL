@@ -12,4 +12,6 @@ export interface InicioHotspotArtesania {
     titulo: string;
     descripcion: string;
     categoria: string;
+    imagen: string; 
+    descripcionCorta: string;
 }

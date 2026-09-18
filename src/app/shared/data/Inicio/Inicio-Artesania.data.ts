@@ -21,6 +21,7 @@ export const ambientesArtesania: InicioArtesania[] = [
     }
 ];
 
+
 export const hotspotsArtesania: InicioHotspotArtesania[] = [
 
     {
@@ -29,6 +30,9 @@ export const hotspotsArtesania: InicioHotspotArtesania[] = [
         y: 10,
         titulo: 'Marco en Madera Tallada',
         categoria: 'Tallado artesanal',
+        imagen: 'assets/INICIO/PRODUCTOS/ARTESANIAS/ARTICULOS/Marco.png',
+        descripcionCorta:
+            'Pieza decorativa trabajada manualmente en madera, donde el tallado conserva motivos y símbolos vinculados con la identidad local.',
         descripcion:
             'Elemento decorativo elaborado en madera y trabajado mediante tallado artesanal. Puede representar nombres, símbolos y motivos vinculados con la identidad cultural de Huaranchal.'
     },
@@ -39,6 +43,9 @@ export const hotspotsArtesania: InicioHotspotArtesania[] = [
         y: 42,
         titulo: 'Llanques',
         categoria: 'Vestimenta tradicional',
+        imagen: 'assets/INICIO/PRODUCTOS/ARTESANIAS/ARTICULOS/Llanques.png',
+        descripcionCorta:
+            'Calzado tradicional de uso cotidiano y rural, elaborado artesanalmente por su resistencia y practicidad.',
         descripcion:
             'Calzado tradicional elaborado artesanalmente y utilizado para caminar y realizar labores en el campo. Su diseño sencillo y resistente forma parte de las costumbres locales.'
     },
@@ -49,6 +56,9 @@ export const hotspotsArtesania: InicioHotspotArtesania[] = [
         y: 60,
         titulo: 'Rueca y Hilado',
         categoria: 'Trabajo textil',
+        imagen: 'assets/INICIO/PRODUCTOS/ARTESANIAS/ARTICULOS/RUECA_HILADO.jpg',
+        descripcionCorta:
+            'Herramientas relacionadas con el hilado manual de fibras, una práctica que permite preparar materiales para la elaboración de tejidos.',
         descripcion:
             'Herramientas utilizadas para transformar la fibra en hilo mediante el hilado manual, una práctica vinculada con la elaboración tradicional de tejidos.'
     },
@@ -59,6 +69,9 @@ export const hotspotsArtesania: InicioHotspotArtesania[] = [
         y: 48,
         titulo: 'Checo',
         categoria: 'Objeto tradicional',
+        imagen: 'assets/INICIO/PRODUCTOS/ARTESANIAS/ARTICULOS/Checo.png',
+        descripcionCorta:
+            'Recipiente tradicional elaborado a partir del fruto seco del checo y utilizado en distintas actividades de la vida cotidiana.',
         descripcion:
             'Recipiente elaborado a partir del fruto seco del checo. Tradicionalmente puede utilizarse para guardar, transportar o servir productos.'
     },
@@ -69,6 +82,9 @@ export const hotspotsArtesania: InicioHotspotArtesania[] = [
         y: 88,
         titulo: 'Alforja',
         categoria: 'Vida rural',
+        imagen: 'assets/INICIO/PRODUCTOS/ARTESANIAS/ARTICULOS/Alforja.png',
+        descripcionCorta:
+            'Bolsa utilizada para transportar productos y alimentos durante las labores del campo y las jornadas de recolección.',
         descripcion:
             'Bolsa tradicional utilizada para transportar productos y alimentos durante las labores del campo, especialmente durante la recolección y traslado de frutas.'
     },
@@ -79,6 +95,9 @@ export const hotspotsArtesania: InicioHotspotArtesania[] = [
         y: 88,
         titulo: 'Palana',
         categoria: 'Herramienta agrícola',
+        imagen: 'assets/INICIO/PRODUCTOS/ARTESANIAS/ARTICULOS/Palana.png',
+        descripcionCorta:
+            'Herramienta agrícola utilizada para remover y trabajar la tierra durante la preparación de los terrenos y la siembra.',
         descripcion:
             'Herramienta utilizada para remover y trabajar la tierra durante distintas labores agrícolas, como la preparación del terreno y la siembra.'
     },
@@ -89,6 +108,9 @@ export const hotspotsArtesania: InicioHotspotArtesania[] = [
         y: 80,
         titulo: 'Lampilla',
         categoria: 'Herramienta agrícola',
+        imagen: 'assets/INICIO/PRODUCTOS/ARTESANIAS/DETALLES/LAMPILLA.jpg',
+        descripcionCorta:
+            'Herramienta manual empleada para trabajar la tierra con mayor precisión en determinadas labores agrícolas.',
         descripcion:
             'Herramienta manual empleada principalmente para trabajar y remover la tierra en espacios donde se requiere mayor precisión durante las labores agrícolas.'
     },
@@ -99,6 +121,9 @@ export const hotspotsArtesania: InicioHotspotArtesania[] = [
         y: 78,
         titulo: 'Gancho para fruta',
         categoria: 'Cosecha tradicional',
+        imagen: 'assets/INICIO/PRODUCTOS/ARTESANIAS/ARTICULOS/GanchoFruta.png',
+        descripcionCorta:
+            'Herramienta utilizada para alcanzar y recolectar frutas ubicadas en las partes altas de los árboles durante la cosecha.',
         descripcion:
             'Herramienta utilizada para alcanzar y recolectar frutas ubicadas en las partes altas de los árboles, facilitando la cosecha sin necesidad de subir al árbol.'
     },
@@ -109,6 +134,9 @@ export const hotspotsArtesania: InicioHotspotArtesania[] = [
         y: 45,
         titulo: 'Sombrero',
         categoria: 'Vestimenta tradicional',
+        imagen: 'assets/INICIO/PRODUCTOS/ARTESANIAS/ARTICULOS/SOMBRERO.jpg',
+        descripcionCorta:
+            'Accesorio tradicional utilizado como protección frente al sol y como parte de la vestimenta cotidiana del campo.',
         descripcion:
             'Accesorio utilizado para protegerse del sol durante las labores del campo y las actividades cotidianas. Forma parte de la vestimenta tradicional de Huaranchal.'
     },
@@ -119,8 +147,12 @@ export const hotspotsArtesania: InicioHotspotArtesania[] = [
         y: 73,
         titulo: 'Arado',
         categoria: 'Herramienta agrícola',
+        imagen: 'assets/INICIO/PRODUCTOS/ARTESANIAS/ARTICULOS/Arado.png',
+        descripcionCorta:
+            'Herramienta tradicional utilizada para preparar la tierra, abrir surcos y acondicionar el terreno antes de la siembra.',
         descripcion:
             'Herramienta utilizada tradicionalmente para preparar y remover la tierra antes de la siembra, permitiendo abrir surcos y acondicionar el terreno.'
     }
 
 ];
+
