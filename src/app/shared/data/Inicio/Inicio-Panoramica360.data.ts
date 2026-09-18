@@ -23,7 +23,7 @@ export const InicioPanoramica360Huaranchal: InicioPanoramica360 = {
         {
             id: 1,
             imagen:
-                'assets/INICIO/PANORAMICA_360/foto1.jpg',
+                'assets/INICIO/PANORAMICA_360/foto1.webp',
             sector:
                 'arriba-izquierda',
             titulo:
@@ -35,7 +35,7 @@ export const InicioPanoramica360Huaranchal: InicioPanoramica360 = {
         {
             id: 2,
             imagen:
-                'assets/INICIO/PANORAMICA_360/foto2.jpg',
+                'assets/INICIO/PANORAMICA_360/foto2.webp',
             sector:
                 'abajo',
             titulo:
@@ -47,7 +47,7 @@ export const InicioPanoramica360Huaranchal: InicioPanoramica360 = {
         {
             id: 3,
             imagen:
-                'assets/INICIO/PANORAMICA_360/foto3.jpg',
+                'assets/INICIO/PANORAMICA_360/foto3.webp',
             sector:
                 'abajo-izquierda',
             titulo:
@@ -59,7 +59,7 @@ export const InicioPanoramica360Huaranchal: InicioPanoramica360 = {
         {
             id: 4,
             imagen:
-                'assets/INICIO/PANORAMICA_360/foto4.jpg',
+                'assets/INICIO/PANORAMICA_360/foto4.webp',
             sector:
                 'izquierda',
             titulo:
@@ -71,7 +71,7 @@ export const InicioPanoramica360Huaranchal: InicioPanoramica360 = {
         {
             id: 5,
             imagen:
-                'assets/INICIO/PANORAMICA_360/foto5.jpg',
+                'assets/INICIO/PANORAMICA_360/foto5.webp',
             sector:
                 'centro',
             titulo:
@@ -83,7 +83,7 @@ export const InicioPanoramica360Huaranchal: InicioPanoramica360 = {
         {
             id: 6,
             imagen:
-                'assets/INICIO/PANORAMICA_360/foto6.jpg',
+                'assets/INICIO/PANORAMICA_360/foto6.webp',
             sector:
                 'derecha',
             titulo:
@@ -95,7 +95,7 @@ export const InicioPanoramica360Huaranchal: InicioPanoramica360 = {
         {
             id: 7,
             imagen:
-                'assets/INICIO/PANORAMICA_360/foto7.jpg',
+                'assets/INICIO/PANORAMICA_360/foto7.webp',
             sector:
                 'arriba-derecha',
             titulo:
@@ -107,7 +107,7 @@ export const InicioPanoramica360Huaranchal: InicioPanoramica360 = {
         {
             id: 8,
             imagen:
-                'assets/INICIO/PANORAMICA_360/foto8.jpg',
+                'assets/INICIO/PANORAMICA_360/foto8.webp',
             sector:
                 'abajo-derecha',
             titulo:
@@ -119,7 +119,7 @@ export const InicioPanoramica360Huaranchal: InicioPanoramica360 = {
         {
             id: 9,
             imagen:
-                'assets/INICIO/PANORAMICA_360/foto1.jpg',
+                'assets/INICIO/PANORAMICA_360/foto1.webp',
             sector:
                 'arriba',
             titulo:
