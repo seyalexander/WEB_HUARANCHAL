@@ -1,170 +1,338 @@
-<div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-18 md:mt-12 pb-6 hero-content">
-  
-  <!-- SECCIÓN SUPERIOR: TÍTULO Y BOTONES -->
-  <div class="max-w-3xl">
-    <h1 class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight text-white">
-      Descubre la magia de
-      <span class="block text-[#F6C445] drop-shadow-md">
-        Huaranchal
-      </span>
-    </h1>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-24 md:pt-28 pb-8">
 
-    <p class="mt-6 text-lg md:text-xl text-slate-200 leading-relaxed">
-      Explora cataratas escondidas, aguas termales naturales y paisajes únicos en el corazón del Alto Chicama.
-    </p>
+  <div class="grid lg:grid-cols-12 gap-10 items-end">
 
-    <div class="mt-8 flex flex-wrap gap-4">
-      <button [routerLink]="'/Lugares'" class="px-8 py-4 rounded-xl w-full sm:w-auto bg-[#F28C28] hover:bg-[#E67E22] text-white font-semibold shadow-2xl hover:scale-105 transition-all cursor-none!">
-        Explorar destinos
-      </button>
-      <button class="px-8 py-4 rounded-xl border border-white/20 bg-white/10 w-full sm:w-auto backdrop-blur-md text-white hover:bg-white/20 transition-all cursor-none!">
-        Cómo llegar
-      </button>
-    </div>
-  </div>
+    <!-- ============================================== -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ============================================== -->
 
-  <!-- BARRA INFERIOR: WIDGET HORIZONTAL DEL CLIMA Y STATS -->
-  <div class="mt-14 pt-8 border-t border-white/15 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-    
-    <!-- STATS (5 Columnas) -->
-    <div class="lg:col-span-5 flex items-center justify-between sm:justify-start sm:gap-10">
-      <div>
-        <h3 class="text-3xl lg:text-4xl font-black text-[#F6C445]">4+</h3>
-        <p class="text-xs sm:text-sm text-slate-300 font-medium mt-0.5">Destinos</p>
+    <div class="lg:col-span-7 xl:col-span-6">
+
+      <!-- IDENTIDAD DEL DESTINO -->
+      <div class="flex items-center gap-3 mb-7">
+
+        <div class="w-10 h-px bg-[#F6C445]"></div>
+
+        <span class="text-xs md:text-sm font-semibold tracking-[0.18em] uppercase text-white/75">
+          Alto Chicama · La Libertad
+        </span>
+
       </div>
-      <div class="h-10 w-px bg-white/15"></div>
-      <div>
-        <h3 class="text-3xl lg:text-4xl font-black text-[#F6C445]">2500m</h3>
-        <p class="text-xs sm:text-sm text-slate-300 font-medium mt-0.5">Altitud</p>
-      </div>
-      <div class="h-10 w-px bg-white/15"></div>
-      <div>
-        <h3 class="text-3xl lg:text-4xl font-black text-[#F6C445]">365</h3>
-        <p class="text-xs sm:text-sm text-slate-300 font-medium mt-0.5">Días al año</p>
-      </div>
-    </div>
 
-    <!-- WIDGET DEL CLIMA HORIZONTAL AMPLIADO (7 Columnas) -->
-<div class="lg:col-span-7">
-  <div class="w-full p-4 sm:p-5 rounded-2xl bg-slate-900/50 backdrop-blur-md border border-white/15 shadow-2xl text-white relative overflow-hidden group hover:border-white/30 transition-all">
-    
-    <!-- Luz de fondo sutil -->
-    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-[#F6C445]/10 rounded-full blur-3xl pointer-events-none"></div>
 
-    @if (cargandoClima) {
-      <div class="animate-pulse flex items-center justify-between gap-4 py-2">
-        <div class="h-10 bg-white/20 rounded w-1/3"></div>
-        <div class="h-10 bg-white/20 rounded w-1/4"></div>
-        <div class="h-10 bg-white/20 rounded w-1/4"></div>
-      </div>
-    } @else if (clima) {
-      
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        
-        <!-- BLOQUE 1: UBICACIÓN E ICONO DINÁMICO PRINCIPAL -->
-        <div class="flex items-center gap-3 w-full md:w-auto">
-          
-          <!-- ICONO SVG SEGÚN EL TIEMPO -->
-          <div class="p-2.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shrink-0 text-[#F6C445]">
-            
-            <!-- Soleado / Despejado -->
-            @if (clima.weather[0].main.toLowerCase().includes('clear')) {
-              <svg class="w-8 h-8 animate-[spin_12s_linear_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            } 
-            <!-- Nublado -->
-            @else if (clima.weather[0].main.toLowerCase().includes('clouds')) {
-              <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 00-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z" />
-              </svg>
-            } 
-            <!-- Lluvia -->
-            @else if (clima.weather[0].main.toLowerCase().includes('rain')) {
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7z" />
-              </svg>
-            } 
-            <!-- Por defecto / Viento / Nebrina -->
-            @else {
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            }
+      <!-- TÍTULO -->
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-black leading-[0.9] tracking-[-0.04em] text-white">
 
-          </div>
+        Descubre
 
-          <div>
-            <div class="flex items-center gap-2">
-              <h4 class="text-base font-bold text-white">Huaranchal</h4>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-[#F6C445]/20 text-[#F6C445] border border-[#F6C445]/30">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#F6C445] animate-ping"></span>
-                EN VIVO
-              </span>
-            </div>
-            <p class="text-xs text-slate-300 capitalize mt-0.5">
-              {{ capitalizar(clima.weather[0].description) }}
-            </p>
-          </div>
-        </div>
+        <span class="block mt-2 text-[#F6C445]">
+          Huaranchal
+        </span>
 
-        <!-- BLOQUE 2: TEMPERATURA ACTUAL -->
-        <div class="flex items-center gap-1 px-3 py-1 bg-white/5 rounded-xl border border-white/10 shrink-0">
-          <span class="text-3xl font-black text-[#F6C445]">
-            {{ clima.main.temp | number:'1.0-0' }}°C
+      </h1>
+
+
+      <!-- DESCRIPCIÓN -->
+      <p class="mt-8 max-w-xl text-base md:text-lg text-white/75 leading-relaxed">
+
+        Un destino entre montañas, cataratas y aguas termales,
+        donde la naturaleza y las raíces de nuestra tierra
+        forman parte de cada experiencia.
+
+      </p>
+
+
+      <!-- ACCIONES -->
+      <div class="mt-9 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+
+        <a
+          routerLink="/Lugares"
+          class="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl bg-[#F28C28] text-white font-bold shadow-[0_12px_30px_rgba(0,0,0,0.25)] hover:bg-[#E67E22] hover:-translate-y-0.5 transition-all duration-300 cursor-none!">
+
+          <span>
+            Explorar destinos
           </span>
+
+          <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14" />
+            <path d="m13 6 6 6-6 6" />
+          </svg>
+
+        </a>
+
+
+        <button
+          type="button"
+          class="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl text-white/90 font-semibold hover:text-white transition-all duration-300 cursor-none!">
+
+          <span class="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center group-hover:border-[#F6C445] group-hover:text-[#F6C445] transition-all">
+
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21s7-4.35 7-10a7 7 0 1 0-14 0c0 5.65 7 10 7 10z" />
+              <circle cx="12" cy="11" r="2" />
+            </svg>
+
+          </span>
+
+          Cómo llegar
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- INFORMACIÓN LATERAL -->
+    <!-- ============================================== -->
+
+    <div class="lg:col-span-5 xl:col-span-6 lg:pb-1">
+
+      <div class="lg:ml-auto lg:max-w-xl">
+
+        <!-- FRASE -->
+        <div class="hidden md:block mb-7 max-w-sm ml-auto text-right">
+
+          <p class="text-sm leading-relaxed text-white/55">
+            Conoce nuestros paisajes,
+            descubre nuestras raíces y
+            vive Huaranchal.
+          </p>
+
         </div>
 
-        <!-- BLOQUE 3: METRICAS ADICIONALES CON SVG -->
-        <div class="grid grid-cols-3 gap-3 w-full md:w-auto border-t md:border-t-0 md:border-l border-white/15 pt-3 md:pt-0 md:pl-4 text-xs">
-          
-          <!-- Sensación Térmica -->
-          <div class="flex flex-col items-center md:items-start">
-            <div class="flex items-center gap-1 text-slate-400">
-              <svg class="w-3.5 h-3.5 text-[#F6C445]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              <span>Sensación</span>
+
+        <!-- CLIMA -->
+        <div class="rounded-2xl border border-white/10 bg-[#111713]/45 backdrop-blur-md shadow-2xl">
+
+          @if (cargandoClima) {
+
+            <div class="p-5 animate-pulse">
+
+              <div class="flex items-center justify-between">
+
+                <div class="space-y-2">
+                  <div class="h-3 w-24 bg-white/10 rounded"></div>
+                  <div class="h-2.5 w-32 bg-white/10 rounded"></div>
+                </div>
+
+                <div class="h-9 w-16 bg-white/10 rounded"></div>
+
+              </div>
+
             </div>
-            <span class="font-bold text-sm text-white mt-0.5">{{ clima.main.feels_like | number:'1.0-0' }}°C</span>
+
+          } @else if (clima) {
+
+            <div class="p-5">
+
+              <div class="flex items-center justify-between gap-5">
+
+                <!-- UBICACIÓN -->
+                <div class="flex items-center gap-3 min-w-0">
+
+                  <div class="w-11 h-11 shrink-0 rounded-xl bg-[#F6C445]/10 border border-[#F6C445]/20 flex items-center justify-center text-[#F6C445]">
+
+                    @if (clima.weather[0].main.toLowerCase().includes('clear')) {
+
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                      </svg>
+
+                    } @else if (clima.weather[0].main.toLowerCase().includes('clouds')) {
+
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 00-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z" />
+                      </svg>
+
+                    } @else if (clima.weather[0].main.toLowerCase().includes('rain')) {
+
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7z" />
+                      </svg>
+
+                    } @else {
+
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                      </svg>
+
+                    }
+
+                  </div>
+
+
+                  <div class="min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                      <p class="text-sm font-bold text-white">
+                        Huaranchal
+                      </p>
+
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#F6C445]"></span>
+
+                      <span class="text-[9px] uppercase tracking-wider font-bold text-white/40">
+                        Actual
+                      </span>
+
+                    </div>
+
+                    <p class="mt-1 text-xs text-white/50 capitalize truncate">
+                      {{ capitalizar(clima.weather[0].description) }}
+                    </p>
+
+                  </div>
+
+                </div>
+
+
+                <!-- TEMPERATURA -->
+                <div class="shrink-0 text-right">
+
+                  <div class="flex items-start">
+
+                    <span class="text-4xl font-black leading-none text-white">
+                      {{ clima.main.temp | number:'1.0-0' }}
+                    </span>
+
+                    <span class="text-lg font-bold text-[#F6C445]">
+                      °C
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <!-- MÉTRICAS -->
+              <div class="mt-5 pt-4 border-t border-white/10 grid grid-cols-3 gap-4">
+
+                <div>
+
+                  <p class="text-[10px] uppercase tracking-wider text-white/35">
+                    Sensación
+                  </p>
+
+                  <p class="mt-1 text-sm font-semibold text-white">
+                    {{ clima.main.feels_like | number:'1.0-0' }}°C
+                  </p>
+
+                </div>
+
+                <div>
+
+                  <p class="text-[10px] uppercase tracking-wider text-white/35">
+                    Viento
+                  </p>
+
+                  <p class="mt-1 text-sm font-semibold text-white">
+                    {{ clima.wind.speed }} km/h
+                  </p>
+
+                </div>
+
+                <div>
+
+                  <p class="text-[10px] uppercase tracking-wider text-white/35">
+                    Humedad
+                  </p>
+
+                  <p class="mt-1 text-sm font-semibold text-white">
+                    {{ clima.main.humidity }}%
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          } @else {
+
+            <div class="p-5 flex items-center justify-between">
+
+              <span class="text-sm text-white/50">
+                Clima de Huaranchal
+              </span>
+
+              <span class="font-bold text-white">
+                20°C
+              </span>
+
+            </div>
+
+          }
+
+        </div>
+
+
+        <!-- DATOS DESTACADOS -->
+        <div class="mt-5 grid grid-cols-3 divide-x divide-white/10 border-y border-white/10 py-5">
+
+          <div class="px-3 first:pl-0">
+
+            <p class="text-xl md:text-2xl font-black text-[#F6C445]">
+              4+
+            </p>
+
+            <p class="mt-1 text-[10px] md:text-xs uppercase tracking-wider text-white/40">
+              Destinos
+            </p>
+
           </div>
 
-          <!-- Viento -->
-          <div class="flex flex-col items-center md:items-start">
-            <div class="flex items-center gap-1 text-slate-400">
-              <svg class="w-3.5 h-3.5 text-[#F6C445]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>Viento</span>
-            </div>
-            <span class="font-bold text-sm text-white mt-0.5">{{ clima.wind.speed }} km/h</span>
+          <div class="px-3">
+
+            <p class="text-xl md:text-2xl font-black text-white">
+              2,500
+            </p>
+
+            <p class="mt-1 text-[10px] md:text-xs uppercase tracking-wider text-white/40">
+              m.s.n.m.
+            </p>
+
           </div>
 
-          <!-- Humedad -->
-          <div class="flex flex-col items-center md:items-start">
-            <div class="flex items-center gap-1 text-slate-400">
-              <svg class="w-3.5 h-3.5 text-[#F6C445]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-              <span>Humedad</span>
-            </div>
-            <span class="font-bold text-sm text-white mt-0.5">{{ clima.main.humidity }}%</span>
+          <div class="px-3">
+
+            <p class="text-xl md:text-2xl font-black text-white">
+              365
+            </p>
+
+            <p class="mt-1 text-[10px] md:text-xs uppercase tracking-wider text-white/40">
+              Días al año
+            </p>
+
           </div>
 
         </div>
 
       </div>
 
-    } @else {
-      <!-- Estado Alternativo si falla la petición -->
-      <div class="flex items-center justify-between text-xs sm:text-sm">
-        <span class="text-slate-300 font-medium">Clima promedio en Huaranchal</span>
-        <span class="font-bold text-[#F6C445] text-base">20°C (Templado)</span>
-      </div>
-    }
+    </div>
 
   </div>
-</div>
+
+
+  <!-- ============================================== -->
+  <!-- INDICADOR DE SCROLL -->
+  <!-- ============================================== -->
+
+  <div class="hidden md:flex items-center gap-3 mt-12 text-white/40">
+
+    <div class="w-8 h-12 rounded-full border border-white/20 flex justify-center pt-2">
+
+      <span class="w-1 h-2 rounded-full bg-[#F6C445] animate-bounce"></span>
+
+    </div>
+
+    <span class="text-xs uppercase tracking-[0.2em]">
+      Explora Huaranchal
+    </span>
 
   </div>
 
