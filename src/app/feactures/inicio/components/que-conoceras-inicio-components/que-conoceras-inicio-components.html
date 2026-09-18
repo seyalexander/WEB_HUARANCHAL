@@ -1,187 +1,331 @@
-<section class="relative py-24 md:py-32 overflow-hidden bg-[#FAFAF7] experiencias-section">
+<section class="relative overflow-hidden bg-[#FAFAF7] py-24 md:py-32">
 
-    <!-- FONDO TOPOGRÁFICO -->
+    <!-- =====================================================
+         FONDO TOPOGRÁFICO
+    ====================================================== -->
 
     <div class="absolute inset-0 pointer-events-none opacity-[0.035]">
 
-        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <svg class="h-full w-full" xmlns="http://www.w3.org/2000/svg">
 
             <defs>
-                <pattern id="topografia" width="420" height="420" patternUnits="userSpaceOnUse">
 
-                    <path d="M40 210 C90 120, 170 100, 230 150 S350 260, 390 180" fill="none" stroke="#2F5D34"
+                <pattern
+                    id="topografia-experiencias"
+                    width="420"
+                    height="420"
+                    patternUnits="userSpaceOnUse">
+
+                    <path
+                        d="M40 210 C90 120, 170 100, 230 150 S350 260, 390 180"
+                        fill="none"
+                        stroke="#2F5D34"
                         stroke-width="2">
                     </path>
 
-                    <path d="M20 250 C100 150, 180 140, 250 190 S360 300, 410 210" fill="none" stroke="#2F5D34"
+                    <path
+                        d="M20 250 C100 150, 180 140, 250 190 S360 300, 410 210"
+                        fill="none"
+                        stroke="#2F5D34"
                         stroke-width="2">
                     </path>
 
-                    <path d="M80 300 C130 220, 220 210, 290 250 S370 330, 430 270" fill="none" stroke="#2F5D34"
+                    <path
+                        d="M80 300 C130 220, 220 210, 290 250 S370 330, 430 270"
+                        fill="none"
+                        stroke="#2F5D34"
                         stroke-width="2">
                     </path>
 
                 </pattern>
+
             </defs>
 
-            <rect width="100%" height="100%" fill="url(#topografia)"></rect>
+            <rect
+                width="100%"
+                height="100%"
+                fill="url(#topografia-experiencias)">
+            </rect>
 
         </svg>
 
     </div>
 
-    <!-- DECORACIONES -->
+
+    <!-- =====================================================
+         DESTELLOS
+    ====================================================== -->
 
     <div
-        class="experience-glow experience-glow-green absolute -top-32 -left-32 w-96 h-96 bg-[#A4C639]/10 rounded-full blur-3xl pointer-events-none">
+        class="absolute -left-40 -top-40 h-96 w-96 rounded-full bg-[#A4C639]/10 blur-3xl pointer-events-none">
     </div>
 
     <div
-        class="experience-glow experience-glow-orange absolute -bottom-32 -right-32 w-96 h-96 bg-[#F28C28]/10 rounded-full blur-3xl pointer-events-none">
+        class="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-[#F28C28]/10 blur-3xl pointer-events-none">
     </div>
 
-    <!-- RUTA DECORATIVA -->
 
-    <svg class="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+    <!-- =====================================================
+         CONTENEDOR
+    ====================================================== -->
 
-        <path d="M-100 380 C200 180, 450 500, 750 320 S1200 180, 1600 380" fill="none" stroke="#2F5D34"
-            stroke-width="5" stroke-linecap="round" stroke-dasharray="10 18">
-        </path>
+    <div class="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
 
-    </svg>
 
-    <!-- CONTENIDO -->
+        <!-- =================================================
+             CABECERA
+        ================================================== -->
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
+        <header class="mx-auto max-w-4xl text-center">
 
-        <!-- CABECERA -->
+            <!-- ETIQUETA -->
 
-        <div class="max-w-3xl mx-auto text-center">
+            <div class="inline-flex items-center gap-3">
 
-            <span
-                class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#2F5D34]/10 border border-[#2F5D34]/10 text-[#2F5D34] text-sm md:text-base font-semibold">
+                <span class="h-px w-10 bg-[#F28C28]"></span>
 
-                <span class="w-2 h-2 rounded-full bg-[#F28C28]"></span>
+                <span
+                    class="text-xs md:text-sm font-bold tracking-[4px] uppercase text-[#2F5D34]">
 
-                Experiencias únicas
+                    Experiencias únicas
 
-            </span>
+                </span>
 
-            <h2 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-800">
+                <span class="h-px w-10 bg-[#F28C28]"></span>
 
-                ¿Qué encontrarás en
+            </div>
+
+
+            <!-- TÍTULO -->
+
+            <h2
+                class="mt-6 text-4xl font-black tracking-tight text-slate-800 sm:text-5xl md:text-6xl">
+
+                Un territorio que
 
                 <span class="text-[#2F5D34]">
-                    Huaranchal?
+                    se vive
                 </span>
 
             </h2>
 
-            <p class="mt-5 text-base md:text-lg leading-8 text-slate-600 max-w-2xl mx-auto">
 
-                Naturaleza, aventura, relajación y gastronomía se encuentran
-                en un destino lleno de paisajes y experiencias por descubrir.
+            <!-- DESCRIPCIÓN -->
+
+            <p
+                class="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
+
+                Naturaleza, agua, descanso y sabores se encuentran
+                en Huaranchal. Descubre algunas de las experiencias
+                que hacen especial este rincón del Alto Chicama.
 
             </p>
 
-        </div>
+        </header>
 
-        <!-- EXPERIENCIAS -->
 
-        <div class="relative mt-16 md:mt-24">
+        <!-- =================================================
+             RUTA DE EXPERIENCIAS
+        ================================================== -->
 
-            <!-- LÍNEA DEL RECORRIDO -->
+        <div class="relative mt-20 md:mt-28">
 
-            <div class="hidden lg:block absolute top-37.5 left-[12%] right-[12%] h-px overflow-hidden opacity-30">
+
+            <!-- LÍNEA CENTRAL DESKTOP -->
+
+            <div
+                class="absolute left-[10%] right-[10%] top-[108px] hidden h-px lg:block">
 
                 <div
-                    class="experience-route w-full h-full bg-linear-to-r from-[#4F8A3F] via-[#F28C28] to-[#A4C639]">
+                    class="h-full w-full bg-linear-to-r from-[#4F8A3F]/20 via-[#F28C28]/60 to-[#A4C639]/30">
                 </div>
 
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-8">
 
-                @for (experiencia of experiencias; track experiencia.nombre; let i = $index) {
+            <!-- EXPERIENCIAS -->
 
-                <article pAnimateOnScroll
-                    [enterClass]="'animate-enter fade-in-10 ' + experiencia.animacion + ' animate-duration-1000'"
-                    leaveClass="animate-leave fade-out-0" class="group relative text-center">
+            <div class="grid grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
 
-                    <!-- IMAGEN -->
+                @for (
+                    experiencia of experiencias;
+                    track experiencia.id;
+                    let i = $index
+                ) {
 
-                    <div class="relative mx-auto w-44 h-44 md:w-48 md:h-48">
+                    <article
+                        pAnimateOnScroll
+                        [enterClass]="'animate-enter fade-in-10 ' + experiencia.animacion + ' animate-duration-1000'"
+                        leaveClass="animate-leave fade-out-0"
+                        class="group relative text-center">
 
-                        <!-- ANILLO EXTERIOR -->
 
-                        <div
-                            class="experience-ring absolute -inset-3 rounded-full border border-[#2F5D34]/15 transition-all duration-700 group-hover:scale-110 group-hover:border-[#F28C28]/30">
-                        </div>
+                        <!-- =================================================
+                             NÚMERO
+                        ================================================== -->
 
-                        <!-- ANILLO PUNTEADO -->
+                        <div class="relative mx-auto h-14">
 
-                        <div
-                            class="absolute -inset-5 rounded-full border border-dashed border-[#F28C28]/20 transition-transform duration-1000 group-hover:rotate-180">
-                        </div>
+                            <!-- NÚMERO GIGANTE DE FONDO -->
 
-                        <!-- FOTO -->
+                            <span
+                                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl font-black text-[#2F5D34]/[0.06]">
 
-                        <div
-                            class="relative w-full h-full rounded-full overflow-hidden border-[7px] border-white shadow-xl">
+                                {{ experiencia.numero }}
 
-                            <img [src]="experiencia.imagen" [alt]="experiencia.nombre + ' de Huaranchal'"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            </span>
 
-                            <!-- OVERLAY -->
+
+                            <!-- PUNTO DE RUTA -->
 
                             <div
-                                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-500">
+                                class="absolute left-1/2 top-1/2 flex h-5 w-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-[#FAFAF7] bg-[#F28C28] shadow-sm">
+
+                                <span class="h-1.5 w-1.5 rounded-full bg-white"></span>
+
                             </div>
 
                         </div>
 
 
-                    </div>
-
-                    <!-- TEXTO -->
-
-                    <div class="mt-8 px-3">
-
-                        <h3
-                            class="text-2xl md:text-3xl font-black text-slate-800 group-hover:text-[#2F5D34] transition-colors duration-300">
-
-                            {{ experiencia.nombre }}
-
-                        </h3>
-
-                        <p class="mt-3 text-sm md:text-base leading-7 text-slate-600">
-
-                            {{ experiencia.descripcion }}
-
-                        </p>
-
-                        <!-- INDICADOR -->
+                        <!-- =================================================
+                             IMAGEN
+                        ================================================== -->
 
                         <div
-                            class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#F28C28] opacity-70 group-hover:opacity-100 transition-all duration-300">
+                            class="relative mx-auto mt-5 h-56 w-56 md:h-60 md:w-60">
 
-                            <span>
-                                Explorar experiencia
-                            </span>
 
-                            <span class="transition-transform duration-300 group-hover:translate-x-2">
-                                →
-                            </span>
+                            <!-- ANILLO -->
+
+                            <div
+                                class="absolute -inset-3 rounded-full border border-[#2F5D34]/10 transition-all duration-700 group-hover:scale-105 group-hover:border-[#F28C28]/30">
+                            </div>
+
+
+                            <!-- ANILLO PUNTEADO -->
+
+                            <div
+                                class="absolute -inset-6 rounded-full border border-dashed border-[#F28C28]/15 transition-transform duration-1000 group-hover:rotate-180">
+                            </div>
+
+
+                            <!-- IMAGEN -->
+
+                            <div
+                                class="relative h-full w-full overflow-hidden rounded-full border-[8px] border-white shadow-2xl">
+
+                                <img
+                                    [src]="experiencia.imagen"
+                                    [alt]="experiencia.nombre + ' de Huaranchal'"
+                                    class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110">
+
+                                <!-- DEGRADADO -->
+
+                                <div
+                                    class="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-50">
+                                </div>
+
+
+                                <!-- NOMBRE SOBRE FOTO -->
+
+                                <div
+                                    class="absolute inset-x-0 bottom-0 p-6 text-left">
+
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-[2px] text-[#F6C445]">
+
+                                        {{ experiencia.etiqueta }}
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- PUNTO DECORATIVO -->
+
+                            <div
+                                class="absolute -right-2 top-8 h-4 w-4 rounded-full border-4 border-[#FAFAF7] bg-[#F28C28] transition-transform duration-500 group-hover:scale-150">
+                            </div>
 
                         </div>
 
-                    </div>
 
-                </article>
+                        <!-- =================================================
+                             INFORMACIÓN
+                        ================================================== -->
+
+                        <div class="mx-auto mt-8 max-w-xs">
+
+
+                            <!-- TÍTULO -->
+
+                            <h3
+                                class="text-2xl font-black tracking-tight text-slate-800 transition-colors duration-300 group-hover:text-[#2F5D34] md:text-3xl">
+
+                                {{ experiencia.nombre }}
+
+                            </h3>
+
+
+                            <!-- DESCRIPCIÓN -->
+
+                            <p
+                                class="mt-4 text-sm leading-7 text-slate-600 md:text-base">
+
+                                {{ experiencia.descripcion }}
+
+                            </p>
+
+
+                            <!-- ENLACE -->
+
+                            <a
+                                [href]="experiencia.routerLink"
+                                class="mt-6 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[2px] text-[#2F5D34] transition-all duration-300 hover:text-[#F28C28]">
+
+                                <span>
+                                    Descubrir
+                                </span>
+
+                                <span
+                                    class="transition-transform duration-300 group-hover:translate-x-2">
+
+                                    →
+
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
 
                 }
 
             </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CIERRE
+        ================================================== -->
+
+        <div class="mt-20 flex items-center justify-center gap-4 md:mt-24">
+
+            <div class="h-px w-16 bg-[#2F5D34]/20"></div>
+
+            <span
+                class="text-xs font-bold uppercase tracking-[3px] text-slate-400">
+
+                Empieza a descubrir
+
+            </span>
+
+            <div class="h-px w-16 bg-[#2F5D34]/20"></div>
 
         </div>
 

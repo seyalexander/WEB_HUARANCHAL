@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
+import { InicioQueConoceras } from '../../../../shared/data/Inicio/Inicio-QueConoceras.interface';
+import { experienciasInicio } from '../../../../shared/data/Inicio/Inicio-QueConoceras.data';
 
 interface Experiencia {
     nombre: string;
@@ -16,31 +18,6 @@ interface Experiencia {
 })
 export class QueConocerasInicioComponents {
 
-    experiencias: Experiencia[] = [
-        {
-            nombre: 'Naturaleza',
-            descripcion: 'Paisajes verdes, montañas y caminos rodeados de vida.',
-            imagen: 'assets/NATURALEZA-IMG.jpeg',
-            animacion: 'slide-in-from-l-20'
-        },
-        {
-            nombre: 'Cataratas',
-            descripcion: 'Caídas de agua rodeadas por la belleza natural de Huaranchal.',
-            imagen: 'assets/CATARATA-IMG.jpeg',
-            animacion: 'slide-in-from-t-20'
-        },
-        {
-            nombre: 'Baños Termales',
-            descripcion: 'Espacios ideales para relajarse y disfrutar de aguas naturales.',
-            imagen: 'assets/TERMALES-IMG.jpeg',
-            animacion: 'slide-in-from-t-20'
-        },
-        {
-            nombre: 'Gastronomía',
-            descripcion: 'Café, naranjas, limas y granadillas cultivadas en la zona.',
-            imagen: 'assets/PLATOS-IMG.jpg',
-            animacion: 'slide-in-from-r-20'
-        }
-    ];
+    experiencias: InicioQueConoceras[] = experienciasInicio;
 
 }
