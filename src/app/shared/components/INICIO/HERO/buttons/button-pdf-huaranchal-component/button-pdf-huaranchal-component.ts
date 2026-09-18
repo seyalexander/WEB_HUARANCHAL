@@ -9,6 +9,7 @@ import { ambientesArtesania, hotspotsArtesania } from '../../../../../data/Inici
 import { InicioHistoriaHuaranchal } from '../../../../../data/Inicio/Inicio-Historia.data';
 import { InicioPanoramicaHuaranchal } from '../../../../../data/Inicio/Inicio-Panoramica.data';
 import { productosEmblematicosHuaranchal } from '../../../../../data/Inicio/Inicio-ProdicyosEmblematicos.data';
+import { InicioPanoramica360Huaranchal } from '../../../../../data/Inicio/Inicio-Panoramica360.data';
 
 
 @Component({
@@ -35,6 +36,8 @@ export class ButtonPdfHuaranchalComponent {
 
   DataProductos = productosEmblematicosHuaranchal;
 
+  DataPanoramica360 = InicioPanoramica360Huaranchal;
+
   descargarPdf(): void {
 
     const htmlPdf = `
@@ -51,7 +54,7 @@ export class ButtonPdfHuaranchalComponent {
 
       ${this.generarProductos()}
 
-    
+      ${this.generarPanoramica360()}
     `;
 
     this.pdfService.imprimirHtmlAislado(htmlPdf);
@@ -1965,6 +1968,245 @@ export class ButtonPdfHuaranchalComponent {
             </section>
         `);
     }
+
+    return paginas.join('');
+  }
+
+  private generarPanoramica360(): string {
+
+    const imagenes =
+      this.DataPanoramica360.imagenes;
+
+    if (!imagenes.length) {
+      return '';
+    }
+
+    const imagenCentral =
+      imagenes.find(
+        imagen => imagen.sector === 'centro'
+      ) ?? imagenes[0];
+
+    const imagenesSecundarias =
+      imagenes.filter(
+        imagen => imagen.id !== imagenCentral.id
+      );
+
+    const imagenesPorPagina = 4;
+
+    const paginas: string[] = [];
+
+    /*
+     * ============================================================
+     * PÁGINA 1
+     * PRESENTACIÓN DE LA PANORÁMICA
+     * ============================================================
+     */
+
+    paginas.push(`
+        <section class="page-a4 bg-[#F3F1E9]">
+
+            <div class="relative w-full h-[108mm] overflow-hidden">
+
+                <img
+                    src="${imagenCentral.imagen}"
+                    alt="${imagenCentral.titulo}"
+                    class="w-full h-full object-cover"
+                >
+
+                <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/25 to-transparent"></div>
+
+                <div class="absolute bottom-0 left-0 right-0 p-[14mm] text-white">
+
+                    <div class="text-[9pt] uppercase tracking-[0.25em] text-[#F6C445] font-bold mb-[3mm]">
+                        ${this.DataPanoramica360.etiqueta}
+                    </div>
+
+                    <h2 class="text-[31pt] font-black leading-none">
+                        ${this.DataPanoramica360.titulo}
+                    </h2>
+
+                    <p class="mt-[4mm] text-[10pt] text-white/80">
+                        ${imagenCentral.titulo}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="px-[16mm] py-[11mm]">
+
+                <div class="flex items-center gap-[3mm] mb-[5mm]">
+
+                    <div class="w-[12mm] h-[1.2mm] bg-[#F6C445] rounded-full"></div>
+
+                    <span class="text-[8pt] uppercase tracking-[0.2em] text-[#2F5D34] font-bold">
+                        Recorrido visual
+                    </span>
+
+                </div>
+
+
+                <h3 class="text-[18pt] font-black text-[#2F5D34]">
+                    ${imagenCentral.titulo}
+                </h3>
+
+
+                <p class="mt-[4mm] text-[10.5pt] leading-6 text-gray-600">
+                    ${this.DataPanoramica360.descripcion}
+                </p>
+
+
+                <p class="mt-[4mm] text-[9.5pt] leading-5 text-gray-500">
+                    ${this.DataPanoramica360.descripcionViewer}
+                </p>
+
+
+                <div class="mt-[8mm] pt-[5mm] border-t border-[#D8D5C8]">
+
+                    <div class="flex justify-between items-center">
+
+                        <span class="text-[8pt] uppercase tracking-[0.18em] text-gray-500">
+                            Huaranchal · La Libertad
+                        </span>
+
+                        <span class="text-[8pt] text-gray-500">
+                            ${imagenes.length} vistas panorámicas
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    `);
+
+
+    /*
+     * ============================================================
+     * PÁGINAS DE GALERÍA
+     * 4 TARJETAS POR PÁGINA
+     * 2 COLUMNAS × 2 FILAS
+     * ============================================================
+     */
+
+    for (
+      let inicio = 0;
+      inicio < imagenesSecundarias.length;
+      inicio += imagenesPorPagina
+    ) {
+
+      const grupo =
+        imagenesSecundarias.slice(
+          inicio,
+          inicio + imagenesPorPagina
+        );
+
+
+      const tarjetas =
+        grupo.map((imagen, index) => {
+
+          const numero =
+            inicio + index + 2;
+
+
+          return `
+                    <article class="bg-white rounded-[5mm] overflow-hidden border border-[#DDD9CB] h-[108mm]">
+
+                        <div class="relative h-[55mm] bg-[#EDEAE0] overflow-hidden">
+
+                            <img
+                                src="${imagen.imagen}"
+                                alt="${imagen.titulo}"
+                                class="w-full h-full object-cover"
+                            >
+
+                            <div class="absolute top-[3mm] left-[3mm]">
+
+                                <span class="inline-flex px-[3mm] py-[1.5mm] rounded-full bg-black/65 text-white text-[7pt] font-bold">
+                                    ${String(numero).padStart(2, '0')}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="p-[4mm]">
+
+                            <div class="text-[7pt] uppercase tracking-[0.16em] text-[#F28C28] font-bold">
+                                ${imagen.sector}
+                            </div>
+
+
+                            <h3 class="mt-[1.5mm] text-[12pt] font-black text-[#2F5D34] leading-tight">
+                                ${imagen.titulo}
+                            </h3>
+
+
+                            <p class="mt-[2.5mm] text-[8pt] leading-4 text-gray-600">
+                                ${imagen.descripcion}
+                            </p>
+
+                        </div>
+
+                    </article>
+                `;
+
+        }).join('');
+
+
+      paginas.push(`
+            <section class="page-a4 bg-[#F3F1E9]">
+
+                <div class="px-[14mm] pt-[12mm]">
+
+                    <div class="mb-[7mm]">
+
+                        <div class="text-[8pt] uppercase tracking-[0.2em] text-[#F28C28] font-bold">
+                            Recorrido panorámico
+                        </div>
+
+
+                        <h2 class="mt-[2mm] text-[24pt] font-black text-[#2F5D34] leading-none">
+                            Vistas de Huaranchal
+                        </h2>
+
+
+                        <div class="mt-[3mm] w-[14mm] h-[1.2mm] bg-[#F6C445] rounded-full"></div>
+
+                    </div>
+
+
+                    <div class="grid grid-cols-2 gap-[6mm]">
+
+                        ${tarjetas}
+
+                    </div>
+
+
+                    <div class="mt-[7mm] pt-[4mm] border-t border-[#D8D5C8] flex justify-between items-center">
+
+                        <span class="text-[7.5pt] uppercase tracking-[0.15em] text-gray-500">
+                            Raíces de Huaranchal
+                        </span>
+
+
+                        <span class="text-[7.5pt] text-gray-500">
+                            ${inicio + 2}–${inicio + grupo.length + 1}
+                            de ${imagenes.length}
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+        `);
+    }
+
 
     return paginas.join('');
   }
