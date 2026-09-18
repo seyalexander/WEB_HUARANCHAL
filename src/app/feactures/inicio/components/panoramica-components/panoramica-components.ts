@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { InicioPanoramica } from '../../../../shared/data/Inicio/Inicio-Panoramica.interface';
+import { InicioPanoramicaHuaranchal } from '../../../../shared/data/Inicio/Inicio-Panoramica.data';
 
 @Component({
   selector: 'app-panoramica-components',
@@ -7,6 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './panoramica-components.css',
 })
 export class PanoramicaComponents {
+
+  panoramica: InicioPanoramica = InicioPanoramicaHuaranchal;
 
   translateX = 0;
 
@@ -23,24 +27,21 @@ export class PanoramicaComponents {
     this.animate();
   }
 
+
   // ============================================================
   // MOVIMIENTO CON MOUSE - DESKTOP
   // ============================================================
 
   onPanoramaMove(event: MouseEvent): void {
 
-    const container = event.currentTarget as HTMLElement;
+    const container =
+      event.currentTarget as HTMLElement;
 
-    const rect = container.getBoundingClientRect();
+    const rect =
+      container.getBoundingClientRect();
 
     const percent =
       (event.clientX - rect.left) / rect.width;
-
-    /**
-     * La imagen tiene 180% en desktop.
-     * Permitimos aproximadamente 40% de desplazamiento
-     * hacia cada lado.
-     */
 
     const maxOffset =
       rect.width * 0.40;
@@ -49,10 +50,12 @@ export class PanoramicaComponents {
       (0.5 - percent) * maxOffset;
   }
 
+
   onPanoramaLeave(): void {
 
     this.targetX = 0;
   }
+
 
   // ============================================================
   // MOVIMIENTO TÁCTIL - MOBILE
@@ -73,9 +76,13 @@ export class PanoramicaComponents {
       this.targetX;
   }
 
+
   onPanoramaTouchMove(event: TouchEvent): void {
 
-    if (!this.isTouching || event.touches.length !== 1) {
+    if (
+      !this.isTouching ||
+      event.touches.length !== 1
+    ) {
       return;
     }
 
@@ -85,23 +92,11 @@ export class PanoramicaComponents {
     const difference =
       currentTouchX - this.touchStartX;
 
-    /**
-     * Sensibilidad del movimiento táctil.
-     *
-     * 1 = movimiento normal
-     * 1.4 = un poco más sensible
-     */
-
     const sensitivity = 1.4;
 
     let newPosition =
       this.touchStartTranslateX +
       (difference * sensitivity);
-
-    /**
-     * En móvil la imagen tiene 220% de ancho,
-     * por lo que permitimos un recorrido mayor.
-     */
 
     const container =
       event.currentTarget as HTMLElement;
@@ -112,11 +107,6 @@ export class PanoramicaComponents {
     const maxOffset =
       rect.width * 0.65;
 
-    /**
-     * Evitamos que la imagen se salga demasiado
-     * de los límites.
-     */
-
     newPosition =
       Math.max(
         -maxOffset,
@@ -126,20 +116,18 @@ export class PanoramicaComponents {
     this.targetX = newPosition;
   }
 
+
   onPanoramaTouchEnd(): void {
 
     this.isTouching = false;
   }
+
 
   // ============================================================
   // ANIMACIÓN SUAVE
   // ============================================================
 
   animate = (): void => {
-
-    /**
-     * Suavizado tipo cámara.
-     */
 
     this.currentX +=
       (this.targetX - this.currentX) * 0.04;
@@ -150,6 +138,7 @@ export class PanoramicaComponents {
     this.animationFrameId =
       requestAnimationFrame(this.animate);
   };
+
 
   // ============================================================
   // DESTRUIR ANIMACIÓN
@@ -166,5 +155,6 @@ export class PanoramicaComponents {
       this.animationFrameId = null;
     }
   }
+
 
 }

@@ -7,6 +7,7 @@ import { experienciasInicio } from '../../../../../data/Inicio/Inicio-QueConocer
 import { InicioArtesania, InicioHotspotArtesania } from '../../../../../data/Inicio/Inicio-Artesanias.interface';
 import { ambientesArtesania, hotspotsArtesania } from '../../../../../data/Inicio/Inicio-Artesania.data';
 import { InicioHistoriaHuaranchal } from '../../../../../data/Inicio/Inicio-Historia.data';
+import { InicioPanoramicaHuaranchal } from '../../../../../data/Inicio/Inicio-Panoramica.data';
 
 
 @Component({
@@ -29,6 +30,8 @@ export class ButtonPdfHuaranchalComponent {
 
   DataHistoria = InicioHistoriaHuaranchal;
 
+  DataPanoramica = InicioPanoramicaHuaranchal;
+
   descargarPdf(): void {
 
     const htmlPdf = `
@@ -40,6 +43,10 @@ export class ButtonPdfHuaranchalComponent {
       ${this.generarArtesania()}
 
       ${this.generarHistoria()}
+
+      ${this.generarPanoramica()}
+
+      
 
     `;
 
@@ -1700,6 +1707,73 @@ export class ButtonPdfHuaranchalComponent {
 
     return paginas.join('');
 
+  }
+
+  private generarPanoramica(): string {
+
+    return `
+    <section class="page-a4 bg-[#F3F1E9]">
+
+      <div class="relative w-full h-[115mm] overflow-hidden">
+
+        <img
+          src="${this.DataPanoramica.imagen}"
+          alt="${this.DataPanoramica.alt}"
+          class="w-full h-full object-cover"
+        >
+
+        <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
+
+        <div class="absolute bottom-0 left-0 right-0 p-[12mm] text-white">
+
+          <div class="text-[10pt] uppercase tracking-[0.25em] text-[#F6C445] font-semibold mb-3">
+            ${this.DataPanoramica.etiqueta}
+          </div>
+
+          <h2 class="text-[34pt] leading-none font-black tracking-tight">
+            ${this.DataPanoramica.titulo}
+          </h2>
+
+        </div>
+
+      </div>
+
+      <div class="px-[16mm] py-[12mm]">
+
+        <div class="flex items-center gap-3 mb-6">
+
+          <div class="w-10 h-1 bg-[#F6C445]"></div>
+
+          <span class="text-[10pt] uppercase tracking-[0.2em] text-[#2F5D34] font-bold">
+            ${this.DataPanoramica.ubicacion}
+          </span>
+
+        </div>
+
+        <h3 class="text-[18pt] font-bold text-[#2F5D34] mb-4">
+          ${this.DataPanoramica.subtitulo}
+        </h3>
+
+        <p class="text-[12pt] leading-7 text-gray-700 max-w-[175mm]">
+          ${this.DataPanoramica.descripcion}
+        </p>
+
+        <div class="mt-10 border-t border-gray-300 pt-6">
+
+          <p class="text-[9pt] uppercase tracking-[0.18em] text-gray-500">
+            Raíces de Huaranchal
+          </p>
+
+          <p class="mt-2 text-[10pt] text-gray-600">
+            Conoce, valora y comparte nuestras raíces.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+  `;
   }
 
 
