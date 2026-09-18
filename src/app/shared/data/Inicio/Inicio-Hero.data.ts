@@ -1,7 +1,7 @@
 import { InicioHero } from "./Inicio-Hero.interface";
 
 export const inicioHero: InicioHero = {
-    imagen: 'assets/INICIO/HERO/CTA-IMG.jpg',
+    imagen: 'assets/INICIO/HERO/CTA-IMG.webp',
 
     etiqueta: 'Guía Cultural y Turística',
 

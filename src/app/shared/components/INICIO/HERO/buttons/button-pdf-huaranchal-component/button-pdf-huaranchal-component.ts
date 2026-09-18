@@ -3075,7 +3075,7 @@ export class ButtonPdfHuaranchalComponent {
       <!-- IMAGEN DE FONDO -->
 
       <img
-        src="assets/CTA-IMG.jpg"
+        src="assets/CTA-IMG.webp"
         class="absolute inset-0 w-full h-full object-cover"
       />
 

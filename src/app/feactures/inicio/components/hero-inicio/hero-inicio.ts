@@ -3,6 +3,7 @@ import { RouterLink } from "@angular/router";
 import { CommonModule } from '@angular/common';
 import { WeatherData, WeatherService } from '../../../../shared/services/ApiClima/weather-service';
 import { ButtonPdfHuaranchalComponent } from '../../../../shared/components/INICIO/HERO/buttons/button-pdf-huaranchal-component/button-pdf-huaranchal-component';
+import { inicioHero } from '../../../../shared/data/Inicio/Inicio-Hero.data';
 
 
 
@@ -15,6 +16,9 @@ import { ButtonPdfHuaranchalComponent } from '../../../../shared/components/INIC
 })
 export class HeroInicio implements OnInit {
   private weatherService = inject(WeatherService);
+
+  // Expón el objeto a la plantilla HTML
+  readonly heroData = inicioHero;
 
   clima: WeatherData | null = null;
   cargandoClima: boolean = true;
@@ -38,7 +42,6 @@ export class HeroInicio implements OnInit {
     });
   }
 
-  // Helper para formatear la descripción con la primera letra mayúscula
   capitalizar(texto: string): string {
     return texto ? texto.charAt(0).toUpperCase() + texto.slice(1) : '';
   }
