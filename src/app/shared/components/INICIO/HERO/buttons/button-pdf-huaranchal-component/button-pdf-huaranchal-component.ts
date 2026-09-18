@@ -62,6 +62,8 @@ export class ButtonPdfHuaranchalComponent {
       ${this.generarCaserios()}
 
       ${this.generarLugares()}
+
+      ${this.generarCierre()}
       
     `;
 
@@ -3065,4 +3067,125 @@ export class ButtonPdfHuaranchalComponent {
 
     return paginas.join('');
   }
+
+  private generarCierre(): string {
+  return `
+    <div class="page-a4 relative overflow-hidden bg-slate-950 text-white">
+
+      <!-- IMAGEN DE FONDO -->
+
+      <img
+        src="assets/CTA-IMG.jpg"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+
+      <!-- CAPA OSCURA -->
+
+      <div class="absolute inset-0 bg-slate-950/70"></div>
+
+      <!-- DEGRADADO INFERIOR -->
+
+      <div class="absolute inset-x-0 bottom-0 h-[150mm] bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
+
+      <!-- CONTENIDO -->
+
+      <div class="relative z-10 h-full flex flex-col justify-between p-[15mm]">
+
+        <!-- PARTE SUPERIOR -->
+
+        <div class="flex justify-between items-start">
+
+          <span class="text-[8pt] font-bold uppercase tracking-[0.25em] text-emerald-400">
+            Guía turística
+          </span>
+
+          <span class="text-[8pt] text-white/70 uppercase tracking-widest">
+            Raíces de Huaranchal
+          </span>
+
+        </div>
+
+        <!-- PARTE INFERIOR -->
+
+        <div class="max-w-[155mm]">
+
+          <div class="w-[18mm] h-[1mm] bg-emerald-400 mb-5"></div>
+
+          <p class="text-[9pt] font-bold uppercase tracking-[0.25em] text-emerald-400 mb-3">
+            Raíces de Huaranchal
+          </p>
+
+          <h1 class="text-[30pt] font-extrabold uppercase leading-[0.9] tracking-tight text-white m-0">
+            Conoce,
+            <br>
+            valora y comparte
+            <br>
+            nuestras raíces
+          </h1>
+
+          <p class="text-[11pt] text-white/80 leading-relaxed mt-5 max-w-[130mm]">
+            Huaranchal es naturaleza, historia, cultura y tradición.
+            Un territorio que guarda historias, paisajes y costumbres
+            que merecen ser conocidas y compartidas.
+          </p>
+
+          <div class="mt-7 flex gap-3">
+
+            <span class="text-[7.5pt] uppercase tracking-widest text-white/80">
+              Naturaleza
+            </span>
+
+            <span class="text-emerald-400">
+              •
+            </span>
+
+            <span class="text-[7.5pt] uppercase tracking-widest text-white/80">
+              Cultura
+            </span>
+
+            <span class="text-emerald-400">
+              •
+            </span>
+
+            <span class="text-[7.5pt] uppercase tracking-widest text-white/80">
+              Historia
+            </span>
+
+            <span class="text-emerald-400">
+              •
+            </span>
+
+            <span class="text-[7.5pt] uppercase tracking-widest text-white/80">
+              Tradición
+            </span>
+
+          </div>
+
+          <div class="mt-10 pt-4 border-t border-white/20 flex items-end justify-between">
+
+            <div>
+
+              <p class="text-[8pt] font-semibold text-white uppercase tracking-widest m-0">
+                Huaranchal
+              </p>
+
+              <p class="text-[7.5pt] text-white/60 m-0 mt-1">
+                Provincia de Otuzco · La Libertad · Perú
+              </p>
+
+            </div>
+
+            <p class="text-[8pt] text-white/50 m-0">
+              2026
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  `;
+}
 }
