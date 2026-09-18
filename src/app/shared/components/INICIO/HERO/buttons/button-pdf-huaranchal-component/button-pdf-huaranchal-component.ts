@@ -8,6 +8,7 @@ import { InicioArtesania, InicioHotspotArtesania } from '../../../../../data/Ini
 import { ambientesArtesania, hotspotsArtesania } from '../../../../../data/Inicio/Inicio-Artesania.data';
 import { InicioHistoriaHuaranchal } from '../../../../../data/Inicio/Inicio-Historia.data';
 import { InicioPanoramicaHuaranchal } from '../../../../../data/Inicio/Inicio-Panoramica.data';
+import { productosEmblematicosHuaranchal } from '../../../../../data/Inicio/Inicio-ProdicyosEmblematicos.data';
 
 
 @Component({
@@ -32,6 +33,8 @@ export class ButtonPdfHuaranchalComponent {
 
   DataPanoramica = InicioPanoramicaHuaranchal;
 
+  DataProductos = productosEmblematicosHuaranchal;
+
   descargarPdf(): void {
 
     const htmlPdf = `
@@ -46,8 +49,9 @@ export class ButtonPdfHuaranchalComponent {
 
       ${this.generarPanoramica()}
 
-      
+      ${this.generarProductos()}
 
+    
     `;
 
     this.pdfService.imprimirHtmlAislado(htmlPdf);
@@ -184,7 +188,6 @@ export class ButtonPdfHuaranchalComponent {
       </div>
     `;
   }
-
 
   private generarQueConoceras(): string {
 
@@ -418,7 +421,6 @@ export class ButtonPdfHuaranchalComponent {
 
     `;
   }
-
 
   private generarArtesania(): string {
 
@@ -1776,5 +1778,195 @@ export class ButtonPdfHuaranchalComponent {
   `;
   }
 
+  private generarProductos(): string {
+
+    const productosPorPagina = 2;
+
+    const paginas: string[] = [];
+
+    for (
+      let inicio = 0;
+      inicio < this.DataProductos.length;
+      inicio += productosPorPagina
+    ) {
+
+      const productosPagina =
+        this.DataProductos.slice(
+          inicio,
+          inicio + productosPorPagina
+        );
+
+      const tarjetas = productosPagina
+        .map((producto, index) => {
+
+          const numeroProducto =
+            inicio + index + 1;
+
+          return `
+                    <article class="relative bg-white rounded-[6mm] border border-[#DDD9CB] overflow-hidden">
+
+                        <div class="flex h-[92mm]">
+
+                            <!-- IMAGEN DEL PRODUCTO -->
+
+                            <div class="relative w-[55mm] shrink-0 bg-[#F1EFE7] overflow-hidden">
+
+                                <img
+                                    src="${producto.imagen}"
+                                    alt="${producto.nombre}"
+                                    class="absolute inset-0 w-full h-full object-cover"
+                                >
+
+                                <div class="absolute inset-0 bg-linear-to-t from-black/45 via-transparent to-transparent"></div>
+
+                                <div class="absolute bottom-[5mm] left-[5mm]">
+
+                                    <span class="inline-flex px-[3mm] py-[1.5mm] rounded-full bg-[#2F5D34] text-white text-[8pt] font-bold">
+                                        Producto ${String(numeroProducto).padStart(2, '0')}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- INFORMACIÓN -->
+
+                            <div class="flex-1 p-[7mm] flex flex-col">
+
+                                <div>
+
+                                    <div class="text-[8pt] uppercase tracking-[0.2em] text-[#F28C28] font-bold">
+                                        Producto emblemático
+                                    </div>
+
+                                    <h3 class="mt-[2mm] text-[23pt] font-black text-[#2F5D34] leading-none">
+                                        ${producto.nombre}
+                                    </h3>
+
+                                    <div class="mt-[3mm] w-[14mm] h-[1.2mm] bg-[#F6C445] rounded-full"></div>
+
+                                    <p class="mt-[4mm] text-[9.5pt] leading-5 text-gray-600">
+                                        ${producto.descripcionExtendida}
+                                    </p>
+
+                                </div>
+
+
+                                <!-- PERSONAJE -->
+
+                                <div class="mt-auto pt-[4mm] border-t border-[#E5E1D7]">
+
+                                    <div class="flex items-center gap-[4mm]">
+
+                                        <div class="w-[28mm] h-[28mm] shrink-0 bg-[#F7F5EE] rounded-full overflow-hidden flex items-end justify-center">
+
+                                            <img
+                                                src="${producto.personaje}"
+                                                alt="Personaje de ${producto.nombre}"
+                                                class="w-full h-full object-contain"
+                                            >
+
+                                        </div>
+
+                                        <div>
+
+                                            <div class="text-[8pt] uppercase tracking-[0.15em] text-[#2F5D34] font-bold">
+                                                Personaje
+                                            </div>
+
+                                            <p class="mt-[1.5mm] text-[8.5pt] leading-4 text-gray-600">
+                                                ${producto.descripcionPersonaje}
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+                `;
+
+        })
+        .join('');
+
+
+      const esPrimeraPagina = inicio === 0;
+
+      paginas.push(`
+            <section class="page-a4 bg-[#F3F1E9]">
+
+                <div class="px-[16mm] pt-[14mm]">
+
+                    ${esPrimeraPagina
+          ? `
+                            <div class="text-center mb-[9mm]">
+
+                                <div class="inline-block px-[5mm] py-[2mm] rounded-full bg-[#F28C28]/10 border border-[#F28C28]/20 text-[#F28C28] text-[9pt] font-bold uppercase tracking-[0.15em]">
+                                    Productos Emblemáticos
+                                </div>
+
+                                <h2 class="mt-[4mm] text-[30pt] font-black text-[#2F5D34] leading-none">
+                                    Sabores de Huaranchal
+                                </h2>
+
+                                <p class="mt-[3mm] text-[10.5pt] leading-6 text-gray-600 max-w-[165mm] mx-auto">
+                                    Descubre los productos agrícolas que representan
+                                    la identidad, tradición y riqueza natural de Huaranchal.
+                                </p>
+
+                            </div>
+                        `
+          : `
+                            <div class="mb-[8mm]">
+
+                                <div class="text-[8pt] uppercase tracking-[0.2em] text-[#F28C28] font-bold">
+                                    Productos Emblemáticos
+                                </div>
+
+                                <h2 class="mt-[2mm] text-[24pt] font-black text-[#2F5D34] leading-none">
+                                    Sabores de Huaranchal
+                                </h2>
+
+                                <div class="mt-[3mm] w-[14mm] h-[1.2mm] bg-[#F6C445] rounded-full"></div>
+
+                            </div>
+                        `
+        }
+
+
+                    <div class="space-y-[7mm]">
+
+                        ${tarjetas}
+
+                    </div>
+
+
+                    <div class="mt-[8mm] pt-[4mm] border-t border-[#D8D5C8] flex justify-between items-center">
+
+                        <p class="text-[8pt] uppercase tracking-[0.18em] text-gray-500">
+                            Raíces de Huaranchal
+                        </p>
+
+                        <p class="text-[8pt] text-gray-500">
+                            ${inicio + 1}–${inicio + productosPagina.length}
+                            de ${this.DataProductos.length}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+        `);
+    }
+
+    return paginas.join('');
+  }
 
 }
