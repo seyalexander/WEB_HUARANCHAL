@@ -10,6 +10,9 @@ import { InicioHistoriaHuaranchal } from '../../../../../data/Inicio/Inicio-Hist
 import { InicioPanoramicaHuaranchal } from '../../../../../data/Inicio/Inicio-Panoramica.data';
 import { productosEmblematicosHuaranchal } from '../../../../../data/Inicio/Inicio-ProdicyosEmblematicos.data';
 import { InicioPanoramica360Huaranchal } from '../../../../../data/Inicio/Inicio-Panoramica360.data';
+import { caseriosHuaranchal } from '../../../../../data/Inicio/Inicio-Caserios.data';
+import { galeriaLugarTuristico, historiaLugarTuristico, lugarTuristico, parrafoHistoriaLugarTuristico, souvenirLugarTuristico } from '../../../../../data/lugaresTuristicos/LugarTuristico.interface';
+import { LUGARES_TURISTICOS } from '../../../../../data/lugaresTuristicos/LugarTuristico.data';
 
 
 @Component({
@@ -55,6 +58,11 @@ export class ButtonPdfHuaranchalComponent {
       ${this.generarProductos()}
 
       ${this.generarPanoramica360()}
+
+      ${this.generarCaserios()}
+
+      ${this.generarLugares()}
+      
     `;
 
     this.pdfService.imprimirHtmlAislado(htmlPdf);
@@ -2211,4 +2219,850 @@ export class ButtonPdfHuaranchalComponent {
     return paginas.join('');
   }
 
+  private generarCaserios(): string {
+
+    const caserios = caseriosHuaranchal;
+
+    const caseriosPorPagina = 6;
+
+    const paginas: string[] = [];
+
+
+    /*
+     * ============================================================
+     * PÁGINAS DE CASERÍOS
+     * 6 CASERÍOS POR PÁGINA
+     * 2 COLUMNAS × 3 FILAS
+     * ============================================================
+     */
+
+    for (
+      let inicio = 0;
+      inicio < caserios.length;
+      inicio += caseriosPorPagina
+    ) {
+
+      const grupo =
+        caserios.slice(
+          inicio,
+          inicio + caseriosPorPagina
+        );
+
+
+      const esPrimeraPagina =
+        inicio === 0;
+
+
+      const tarjetas =
+        grupo.map(caserio => {
+
+          const numero =
+            String(caserio.id)
+              .padStart(2, '0');
+
+
+          return `
+                    <article class="bg-white rounded-[4mm] border border-[#DDE1DC] overflow-hidden h-[63mm]">
+
+                        <div class="p-[5mm] h-full flex flex-col">
+
+                            <div class="flex items-start justify-between">
+
+                                <div class="w-[11mm] h-[11mm] rounded-[3mm] bg-[#2F5D34] text-white flex items-center justify-center font-mono font-bold text-[8pt]">
+                                    ${numero}
+                                </div>
+
+
+                                <div class="text-right">
+
+                                    <div class="text-[7pt] uppercase tracking-[0.15em] text-gray-400 font-bold">
+                                        Altitud
+                                    </div>
+
+                                    <div class="mt-[1mm] text-[8pt] font-mono font-bold text-[#2F5D34]">
+                                        ${caserio.altitud}
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="mt-[5mm]">
+
+                                <div class="text-[7pt] uppercase tracking-[0.16em] text-[#F28C28] font-bold">
+                                    Caserío
+                                </div>
+
+
+                                <h3 class="mt-[1.5mm] text-[15pt] font-black text-slate-900 leading-tight">
+                                    ${caserio.nombre}
+                                </h3>
+
+                            </div>
+
+
+                            <div class="mt-[4mm] bg-[#F5F7F3] rounded-[3mm] border border-[#E4E8E1] p-[3.5mm]">
+
+                                <div class="text-[6.5pt] uppercase tracking-[0.14em] text-gray-400 font-bold">
+                                    Aspecto destacado
+                                </div>
+
+                                <p class="mt-[1.5mm] text-[8pt] leading-4 text-gray-600">
+                                    ${caserio.destacado}
+                                </p>
+
+                            </div>
+
+
+                            <div class="mt-auto pt-[3.5mm] border-t border-[#E5E7E3] flex items-center justify-between">
+
+                                <span class="text-[6.5pt] uppercase tracking-[0.12em] text-gray-400 font-bold">
+                                    Distancia al centro
+                                </span>
+
+                                <span class="text-[8pt] font-mono font-bold text-[#2F5D34]">
+                                    ${caserio.distanciaCentro ?? 'No disponible'}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+                `;
+
+        }).join('');
+
+
+      paginas.push(`
+            <section class="page-a4 bg-[#F3F1E9]">
+
+                <div class="px-[14mm] pt-[13mm]">
+
+                    ${esPrimeraPagina
+          ? `
+                                <div class="mb-[8mm]">
+
+                                    <div class="text-[8pt] uppercase tracking-[0.22em] text-[#2F5D34] font-bold">
+                                        Territorio · Huaranchal
+                                    </div>
+
+
+                                    <h2 class="mt-[2mm] text-[29pt] font-black text-slate-900 leading-none uppercase">
+                                        Caseríos de
+                                        <span class="text-[#2F5D34]">
+                                            Huaranchal
+                                        </span>
+                                    </h2>
+
+
+                                    <p class="mt-[3mm] max-w-[165mm] text-[10pt] leading-5 text-gray-600">
+                                        Conoce la distribución territorial de los
+                                        poblados y caseríos que forman parte del
+                                        distrito de Huaranchal.
+                                    </p>
+
+
+                                    <div class="mt-[4mm] flex items-center gap-[3mm]">
+
+                                        <div class="w-[14mm] h-[1.2mm] bg-[#F6C445] rounded-full"></div>
+
+                                        <span class="text-[7pt] uppercase tracking-[0.16em] text-gray-500">
+                                            ${caserios.length} sectores registrados
+                                        </span>
+
+                                    </div>
+
+                                </div>
+                            `
+          : `
+                                <div class="mb-[7mm]">
+
+                                    <div class="text-[7pt] uppercase tracking-[0.2em] text-[#F28C28] font-bold">
+                                        Territorio de Huaranchal
+                                    </div>
+
+
+                                    <h2 class="mt-[2mm] text-[23pt] font-black text-[#2F5D34] leading-none">
+                                        Caseríos de Huaranchal
+                                    </h2>
+
+
+                                    <div class="mt-[3mm] w-[13mm] h-[1.1mm] bg-[#F6C445] rounded-full"></div>
+
+                                </div>
+                            `
+        }
+
+
+                    <div class="grid grid-cols-2 gap-[5mm]">
+
+                        ${tarjetas}
+
+                    </div>
+
+
+                    <div class="mt-[6mm] pt-[4mm] border-t border-[#D8D5C8] flex justify-between items-center">
+
+                        <span class="text-[7pt] uppercase tracking-[0.15em] text-gray-500">
+                            Raíces de Huaranchal
+                        </span>
+
+
+                        <span class="text-[7pt] text-gray-500">
+                            ${inicio + 1}–${inicio + grupo.length}
+                            de ${caserios.length}
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+        `);
+
+    }
+
+
+    return paginas.join('');
+  }
+
+  private generarLugares(): string {
+
+    return LUGARES_TURISTICOS
+      .map((lugar: lugarTuristico, indice: number) => {
+
+        return `
+        ${this.generarPortadaLugar(lugar, indice)}
+        ${this.generarGaleriaLugar(lugar, indice)}
+        ${this.generarHistoriaLugar(lugar, indice)}
+        ${this.generarSouvenirsLugar(lugar, indice)}
+      `;
+
+      })
+      .join('');
+  }
+
+  private generarPortadaLugar(
+    lugar: lugarTuristico,
+    indice: number
+  ): string {
+
+    const hero = lugar.lugar.hero;
+    const historia = lugar.lugar.historia;
+
+    return `
+    <div class="page-a4">
+
+      <div class="h-[62mm] bg-slate-900 text-white p-[10mm_15mm_8mm_15mm] relative">
+
+        <div class="absolute top-0 right-0 w-[8mm] h-full bg-emerald-600"></div>
+
+        <span class="text-[8.5pt] font-bold text-emerald-400 uppercase tracking-widest block mb-1">
+          Guía Turística Oficial
+        </span>
+
+        <h1 class="text-[22pt] font-extrabold uppercase tracking-tight leading-none text-white my-0">
+          ${hero.titulo_1} ${hero.titulo_2}
+        </h1>
+
+        <p class="text-[10pt] text-emerald-400 font-semibold uppercase tracking-wider mt-1 mb-0">
+          ${historia.ubicacion}
+        </p>
+
+        <p class="text-[8.5pt] text-slate-300 mt-2 leading-relaxed max-w-[140mm]">
+          ${hero.descripcion}
+        </p>
+
+      </div>
+
+
+      <div class="px-[15mm] mt-[-20mm] relative z-20">
+
+        <img
+          src="${hero.imagen}"
+          class="w-full h-[80mm] object-cover rounded-xl shadow-md border-2 border-white"
+        />
+
+      </div>
+
+
+      <div class="p-[4mm_15mm_15mm_15mm] relative z-10">
+
+        <div class="mb-1.5">
+
+          <span class="text-[7.5pt] font-bold text-emerald-600 uppercase tracking-widest block mb-0.5">
+            HISTORIA Y ORIGEN
+          </span>
+
+          <h2 class="text-[12pt] font-bold text-slate-900 leading-tight m-0">
+            ${historia.titulo}
+          </h2>
+
+        </div>
+
+
+        <div class="columns-2 gap-5 text-[9pt] text-slate-600 leading-snug">
+
+          ${historia.historia
+        .map(item => `
+              <p class="m-0 mb-1.5 text-justify">
+                ${item.p}
+              </p>
+            `)
+        .join('')}
+
+        </div>
+
+      </div>
+
+
+      <div class="absolute bottom-0 left-0 right-0 h-[16mm] bg-slate-900 text-white px-[15mm] flex items-center justify-between text-[8.5pt] z-20">
+
+        <span class="text-slate-300">
+          Descubre Huaranchal • Turismo Sostenible
+        </span>
+
+        <span class="text-emerald-400 font-semibold">
+          Lugar ${indice + 1}
+        </span>
+
+      </div>
+
+    </div>
+  `;
+  }
+
+  private generarGaleriaLugar(
+    lugar: lugarTuristico,
+    indice: number
+  ): string {
+
+    const galeria: galeriaLugarTuristico[] = lugar.lugar.galeria ?? [];
+
+    if (galeria.length === 0) {
+      return '';
+    }
+
+    // Máximo 4 imágenes referenciales.
+    // Primero se toman las favoritas y luego se completan
+    // con las demás imágenes hasta llegar a 4.
+    const fotosSeleccionadas = [
+      ...galeria.filter(foto => foto.favorita),
+      ...galeria.filter(foto => !foto.favorita)
+    ].slice(0, 4);
+
+
+    const tarjetas = fotosSeleccionadas
+      .map((foto: galeriaLugarTuristico) => `
+      <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+
+        <img
+          src="${foto.foto}"
+          class="w-full h-[62mm] object-cover"
+        />
+
+        <div class="p-3">
+
+          <span class="text-[7pt] font-bold text-emerald-600 uppercase tracking-widest block mb-1">
+            ${foto.categoria}
+          </span>
+
+          <h3 class="text-[10pt] font-bold text-slate-900 m-0 leading-tight">
+            ${foto.titulo}
+          </h3>
+
+          ${foto.ubicacion
+          ? `
+                <p class="text-[7.5pt] text-slate-500 mt-1.5 m-0 leading-tight">
+                  ${foto.ubicacion}
+                </p>
+              `
+          : ''
+        }
+
+        </div>
+
+      </div>
+    `)
+      .join('');
+
+
+    return `
+    <div class="page-a4">
+
+      <div class="p-[15mm] h-full">
+
+        <!-- ENCABEZADO -->
+
+        <div class="border-b-2 border-emerald-100 pb-2.5 mb-4">
+
+          <span class="text-[7.5pt] font-bold text-emerald-600 uppercase tracking-widest block mb-0.5">
+            GALERÍA DEL DESTINO
+          </span>
+
+          <h2 class="text-[17pt] font-extrabold text-slate-900 m-0 leading-tight">
+            ${lugar.lugar.hero.titulo_1}
+            ${lugar.lugar.hero.titulo_2}
+          </h2>
+
+          <p class="text-[8pt] text-slate-500 m-0 mt-1">
+            Imágenes referenciales de este lugar turístico de Huaranchal.
+          </p>
+
+        </div>
+
+
+        <!-- GALERÍA -->
+
+        <div class="grid grid-cols-2 gap-4">
+
+          ${tarjetas}
+
+        </div>
+
+      </div>
+
+
+      <!-- FOOTER -->
+
+      <div class="absolute bottom-0 left-0 right-0 h-[16mm] bg-slate-900 text-white px-[15mm] flex items-center justify-between text-[8.5pt]">
+
+        <span class="text-slate-300">
+          Descubre Huaranchal • Turismo Sostenible
+        </span>
+
+        <span class="text-emerald-400 font-semibold">
+          Galería • Lugar ${indice + 1}
+        </span>
+
+      </div>
+
+    </div>
+  `;
+  }
+
+  private generarHistoriaLugar(
+    lugar: lugarTuristico,
+    indice: number
+  ): string {
+
+    const historia: historiaLugarTuristico = lugar.lugar.historia;
+
+    if (!historia) {
+      return '';
+    }
+
+    const parrafos = historia.historia ?? [];
+
+    if (parrafos.length === 0) {
+      return '';
+    }
+
+    const paginas: string[] = [];
+
+    /*
+     * Primera página:
+     * Imagen + información introductoria + primeros párrafos.
+     */
+    const primerBloque = parrafos.slice(0, 3);
+
+    const contenidoPrimeraPagina = primerBloque
+      .map(parrafo => `
+      <p class="m-0 mb-2.5 text-justify">
+        ${parrafo.p}
+      </p>
+    `)
+      .join('');
+
+    paginas.push(`
+    <div class="page-a4">
+
+      <div class="p-[15mm] h-full">
+
+        <!-- ENCABEZADO -->
+
+        <div class="border-b-2 border-emerald-100 pb-2.5 mb-4">
+
+          <span class="text-[7.5pt] font-bold text-emerald-600 uppercase tracking-widest block mb-1">
+            HISTORIA Y ORIGEN
+          </span>
+
+          <h2 class="text-[17pt] font-extrabold text-slate-900 m-0 leading-tight">
+            ${historia.titulo}
+          </h2>
+
+          <p class="text-[8.5pt] text-slate-500 m-0 mt-1.5 leading-relaxed">
+            ${historia.descripcion}
+          </p>
+
+        </div>
+
+
+        <!-- IMAGEN -->
+
+        <div class="mb-4">
+
+          <img
+            src="${historia.imagen}"
+            class="w-full h-[65mm] object-cover rounded-xl border border-slate-200 shadow-sm"
+          />
+
+        </div>
+
+
+        <!-- HISTORIA -->
+
+        <div class="text-[9pt] text-slate-600 leading-relaxed">
+
+          ${contenidoPrimeraPagina}
+
+        </div>
+
+      </div>
+
+
+      <!-- FOOTER -->
+
+      <div class="absolute bottom-0 left-0 right-0 h-[16mm] bg-slate-900 text-white px-[15mm] flex items-center justify-between text-[8.5pt]">
+
+        <span class="text-slate-300">
+          Descubre Huaranchal • Turismo Sostenible
+        </span>
+
+        <span class="text-emerald-400 font-semibold">
+          Historia • Lugar ${indice + 1}
+        </span>
+
+      </div>
+
+    </div>
+  `);
+
+
+    /*
+     * Páginas adicionales de historia.
+     *
+     * Cada página contiene solamente texto,
+     * permitiendo que historias extensas tengan
+     * bastante espacio.
+     */
+    const bloquesRestantes: parrafoHistoriaLugarTuristico[][] = [];
+
+    for (let i = 3; i < parrafos.length; i += 6) {
+      bloquesRestantes.push(parrafos.slice(i, i + 6));
+    }
+
+
+    bloquesRestantes.forEach((bloque, paginaIndex) => {
+
+      const contenido = bloque
+        .map(parrafo => `
+        <p class="m-0 mb-3 text-justify">
+          ${parrafo.p}
+        </p>
+      `)
+        .join('');
+
+
+      paginas.push(`
+      <div class="page-a4">
+
+        <div class="p-[15mm] h-full">
+
+          <!-- ENCABEZADO DE CONTINUACIÓN -->
+
+          <div class="border-b-2 border-emerald-100 pb-2.5 mb-5">
+
+            <span class="text-[7.5pt] font-bold text-emerald-600 uppercase tracking-widest block mb-1">
+              HISTORIA Y ORIGEN
+            </span>
+
+            <h2 class="text-[16pt] font-extrabold text-slate-900 m-0 leading-tight">
+              ${lugar.lugar.hero.titulo_1}
+              ${lugar.lugar.hero.titulo_2}
+            </h2>
+
+            <p class="text-[8pt] text-slate-500 m-0 mt-1">
+              Continuación de la historia del lugar.
+            </p>
+
+          </div>
+
+
+          <!-- TEXTO -->
+
+          <div class="text-[10pt] text-slate-700 leading-relaxed">
+
+            ${contenido}
+
+          </div>
+
+
+          <!-- INFORMACIÓN CLAVE -->
+
+          ${paginaIndex === bloquesRestantes.length - 1
+          ? `
+                <div class="grid grid-cols-2 gap-4 mt-6">
+
+                  <div class="bg-emerald-50 border border-emerald-200 border-l-[5px] border-l-emerald-600 p-3.5 rounded-r-xl">
+
+                    <span class="text-[7.5pt] font-bold text-emerald-700 uppercase tracking-widest block mb-1">
+                      SIGNIFICADO / ETIMOLOGÍA
+                    </span>
+
+                    <p class="text-[9pt] text-slate-700 m-0 leading-relaxed">
+                      ${historia.significado}
+                    </p>
+
+                  </div>
+
+
+                  <div class="bg-orange-50 border border-orange-200 border-l-[5px] border-l-[#F28C28] p-3.5 rounded-r-xl">
+
+                    <span class="text-[7.5pt] font-bold text-orange-700 uppercase tracking-widest block mb-1">
+                      UBICACIÓN
+                    </span>
+
+                    <p class="text-[9pt] text-slate-700 m-0 leading-relaxed">
+                      ${historia.ubicacion}
+                    </p>
+
+                  </div>
+
+                </div>
+              `
+          : ''
+        }
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="absolute bottom-0 left-0 right-0 h-[16mm] bg-slate-900 text-white px-[15mm] flex items-center justify-between text-[8.5pt]">
+
+          <span class="text-slate-300">
+            Descubre Huaranchal • Turismo Sostenible
+          </span>
+
+          <span class="text-emerald-400 font-semibold">
+            Historia • Lugar ${indice + 1}
+          </span>
+
+        </div>
+
+      </div>
+    `);
+
+    });
+
+
+    /*
+     * Si toda la historia entró en la primera página,
+     * agregamos la información clave en una página
+     * adicional pequeña.
+     */
+    if (bloquesRestantes.length === 0) {
+
+      paginas.push(`
+      <div class="page-a4">
+
+        <div class="p-[15mm] h-full">
+
+          <div class="border-b-2 border-emerald-100 pb-2.5 mb-5">
+
+            <span class="text-[7.5pt] font-bold text-emerald-600 uppercase tracking-widest block mb-1">
+              INFORMACIÓN CLAVE
+            </span>
+
+            <h2 class="text-[17pt] font-extrabold text-slate-900 m-0">
+              Detalles del Lugar
+            </h2>
+
+          </div>
+
+
+          <div class="grid grid-cols-2 gap-4">
+
+            <div class="bg-emerald-50 border border-emerald-200 border-l-[5px] border-l-emerald-600 p-4 rounded-r-xl">
+
+              <span class="text-[7.5pt] font-bold text-emerald-700 uppercase tracking-widest block mb-1">
+                SIGNIFICADO / ETIMOLOGÍA
+              </span>
+
+              <p class="text-[9pt] text-slate-700 m-0 leading-relaxed">
+                ${historia.significado}
+              </p>
+
+            </div>
+
+
+            <div class="bg-orange-50 border border-orange-200 border-l-[5px] border-l-[#F28C28] p-4 rounded-r-xl">
+
+              <span class="text-[7.5pt] font-bold text-orange-700 uppercase tracking-widest block mb-1">
+                UBICACIÓN
+              </span>
+
+              <p class="text-[9pt] text-slate-700 m-0 leading-relaxed">
+                ${historia.ubicacion}
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="mt-6 bg-slate-900 text-white rounded-xl p-4">
+
+            <span class="text-[7.5pt] font-bold text-emerald-400 uppercase tracking-widest block mb-1">
+              SOBRE EL DESTINO
+            </span>
+
+            <p class="text-[9pt] text-slate-300 m-0 leading-relaxed">
+              ${lugar.descripcion}
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="absolute bottom-0 left-0 right-0 h-[16mm] bg-slate-900 text-white px-[15mm] flex items-center justify-between text-[8.5pt]">
+
+          <span class="text-slate-300">
+            Descubre Huaranchal • Turismo Sostenible
+          </span>
+
+          <span class="text-emerald-400 font-semibold">
+            Historia • Lugar ${indice + 1}
+          </span>
+
+        </div>
+
+      </div>
+    `);
+    }
+
+
+    return paginas.join('');
+  }
+
+  private generarSouvenirsLugar(
+    lugar: lugarTuristico,
+    indice: number
+  ): string {
+
+    const souvenirs: souvenirLugarTuristico[] =
+      lugar.lugar.souvenirs ?? [];
+
+    if (souvenirs.length === 0) {
+      return '';
+    }
+
+    const paginas: string[] = [];
+
+    for (let i = 0; i < souvenirs.length; i += 4) {
+
+      const souvenirsPagina = souvenirs.slice(i, i + 4);
+
+      const tarjetas = souvenirsPagina
+        .map((souvenir: souvenirLugarTuristico) => `
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-2.5 flex flex-col">
+
+          <img
+            src="${souvenir.imagen}"
+            class="w-full h-[57mm] object-contain rounded-md border border-slate-200 bg-white mb-2"
+          />
+
+          <div>
+
+            <span class="text-[7pt] font-bold text-emerald-600 uppercase tracking-widest block mb-1">
+              ${souvenir.tipo}
+            </span>
+
+            <h3 class="text-[9.5pt] font-bold text-slate-900 m-0 leading-tight">
+              ${souvenir.titulo}
+            </h3>
+
+            <p class="text-[7.5pt] text-slate-600 mt-1.5 m-0 leading-tight">
+              ${souvenir.descripcion}
+            </p>
+
+            <div class="mt-2 flex items-center justify-between gap-2">
+
+              <span class="text-[7pt] text-slate-500">
+                ${souvenir.lugar}
+              </span>
+
+              <span class="text-[7pt] font-bold ${souvenir.existente
+            ? 'text-emerald-600'
+            : 'text-orange-600'
+          }">
+                ${souvenir.existente
+            ? 'Disponible'
+            : 'Próximamente'
+          }
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+      `)
+        .join('');
+
+      paginas.push(`
+      <div class="page-a4">
+
+        <div class="p-[15mm] h-full">
+
+          <div class="border-b-2 border-emerald-100 pb-2 mb-4">
+
+            <span class="text-[7.5pt] font-bold text-[#F28C28] uppercase tracking-widest block mb-0.5">
+              EXPERIENCIA Y RECUERDOS
+            </span>
+
+            <h2 class="text-[17pt] font-extrabold text-slate-900 m-0 leading-tight">
+              Souvenirs y Productos Locales
+            </h2>
+
+            <p class="text-[8pt] text-slate-500 m-0 mt-1">
+              Recuerdos inspirados en la historia, cultura y paisajes de
+              ${lugar.lugar.hero.titulo_1}
+              ${lugar.lugar.hero.titulo_2}.
+            </p>
+
+          </div>
+
+
+          <div class="grid grid-cols-2 gap-4">
+
+            ${tarjetas}
+
+          </div>
+
+        </div>
+
+
+        <div class="absolute bottom-0 left-0 right-0 h-[16mm] bg-slate-900 text-white px-[15mm] flex items-center justify-between text-[8.5pt]">
+
+          <span class="text-slate-300">
+            Descubre Huaranchal • Turismo Sostenible
+          </span>
+
+          <span class="text-emerald-400 font-semibold">
+            Souvenirs • Lugar ${indice + 1}
+          </span>
+
+        </div>
+
+      </div>
+    `);
+    }
+
+    return paginas.join('');
+  }
 }
