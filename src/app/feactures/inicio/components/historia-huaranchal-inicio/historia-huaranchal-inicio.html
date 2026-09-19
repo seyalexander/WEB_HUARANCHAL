@@ -1,71 +1,93 @@
 <section
-  class="relative isolate overflow-hidden bg-[#F3F1E9] py-20 text-[#182019] sm:py-28"
+  class="relative isolate overflow-hidden bg-[#FAFAF7] py-20 text-[#1E293B] sm:py-28 lg:py-32"
 >
 
-  <!-- DECORACIÓN DE FONDO -->
+  <!-- =========================================================
+       DECORACIÓN DE FONDO
+       ========================================================= -->
 
   <div
-    class="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#F6C445]/10 blur-3xl"
+    class="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#A4C639]/10 blur-3xl"
   ></div>
 
   <div
-    class="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-[#2F5D34]/10 blur-3xl"
+    class="pointer-events-none absolute -right-40 top-1/3 h-[28rem] w-[28rem] rounded-full bg-[#F6C445]/10 blur-3xl"
   ></div>
+
+  <div
+    class="pointer-events-none absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-[#2F5D34]/5 blur-3xl"
+  ></div>
+
 
   <div
     class="relative z-10 mx-auto max-w-6xl px-5 sm:px-8 lg:px-10"
   >
 
-    <!-- CABECERA -->
+    <!-- =========================================================
+         CABECERA
+         ========================================================= -->
 
-    <header class="mb-16 max-w-3xl sm:mb-20">
+    <header
+      class="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end"
+    >
 
-      <div class="mb-6 flex items-center gap-4">
+      <!-- TEXTO -->
 
-        <div class="h-px w-12 bg-[#F6C445]"></div>
+      <div>
 
-        <span
-          class="text-[10px] font-black uppercase tracking-[3px] text-[#2F5D34]"
+        <div class="mb-6 flex items-center gap-4">
+
+          <div class="h-px w-12 bg-[#F6C445]"></div>
+
+          <span
+            class="text-[10px] font-black uppercase tracking-[3px] text-[#2F5D34]"
+          >
+            {{ historia.subtitulo }}
+          </span>
+
+        </div>
+
+
+        <h2
+          class="max-w-3xl text-5xl font-black leading-[0.9] tracking-[-0.045em] text-[#1E3A24] sm:text-6xl lg:text-7xl"
         >
-          {{ historia.subtitulo }}
-        </span>
+          {{ historia.titulo }}
+        </h2>
+
+
+        <p
+          class="mt-7 max-w-2xl text-base leading-7 text-[#64748B] sm:text-lg sm:leading-8"
+        >
+          {{ historia.descripcion }}
+        </p>
 
       </div>
 
-      <h2
-        class="max-w-2xl text-4xl font-black leading-[0.95] tracking-[-0.03em] text-[#182019] sm:text-6xl"
-      >
-        {{ historia.titulo }}
-      </h2>
 
-      <p
-        class="mt-6 max-w-2xl text-base leading-7 text-[#626962] sm:text-lg"
-      >
-        {{ historia.descripcion }}
-      </p>
-
-    </header>
-
-
-    <!-- INTRODUCCIÓN -->
-
-    <div
-      class="mb-16 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center"
-    >
-
-      <!-- FECHA / IDENTIDAD -->
+      <!-- IDENTIDAD HISTÓRICA -->
 
       <div
-        class="relative overflow-hidden rounded-[2rem] bg-[#2F5D34] p-8 text-white sm:p-10"
+        class="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#1E3A24] via-[#2F5D34] to-[#4F8A3F] p-8 text-white shadow-[0_8px_24px_rgba(47,93,52,0.18)] sm:p-10"
       >
 
+        <!-- DECORACIÓN -->
+
         <div
-          class="absolute -right-16 -top-16 h-48 w-48 rounded-full border-[20px] border-white/5"
+          class="absolute -right-16 -top-16 h-48 w-48 rounded-full border-[24px] border-white/5"
         ></div>
 
         <div
-          class="absolute -bottom-20 -left-16 h-48 w-48 rounded-full bg-[#F6C445]/10 blur-2xl"
+          class="absolute -bottom-20 -left-20 h-52 w-52 rounded-full bg-[#F6C445]/10 blur-2xl"
         ></div>
+
+        <div
+          class="absolute right-8 top-8 h-2 w-2 rounded-full bg-[#F6C445]"
+        ></div>
+
+        <div
+          class="absolute right-14 top-14 h-1.5 w-1.5 rounded-full bg-[#F6C445]/50"
+        ></div>
+
 
         <div class="relative z-10">
 
@@ -75,37 +97,60 @@
             Una historia que permanece
           </span>
 
+
           <div
-            class="mt-8 text-7xl font-black leading-none tracking-[-0.06em] text-white sm:text-8xl"
+            class="mt-6 text-[clamp(5rem,12vw,8rem)] font-black leading-[0.8] tracking-[-0.08em] text-white"
           >
             1866
           </div>
 
-          <div class="mt-4 h-px w-16 bg-[#F6C445]"></div>
+
+          <div class="mt-7 h-px w-16 bg-[#F6C445]"></div>
+
 
           <p
             class="mt-5 max-w-xs text-sm leading-6 text-white/70"
           >
-            Un año fundamental en la consolidación histórica de Huaranchal como distrito.
+            Un año fundamental en la consolidación histórica de Huaranchal
+            como distrito.
           </p>
 
         </div>
 
       </div>
 
+    </header>
 
-      <!-- INTRODUCCIÓN -->
 
-      <div class="max-w-2xl">
+    <!-- =========================================================
+         INTRODUCCIÓN
+         ========================================================= -->
 
-        <span
-          class="text-xs font-bold uppercase tracking-[2px] text-[#A4C639]"
-        >
-          Nuestra memoria
-        </span>
+    <div
+      class="mt-20 border-y border-[#E2E8F0] py-10 sm:mt-24 sm:py-12"
+    >
+
+      <div
+        class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center"
+      >
+
+        <div>
+
+          <span
+            class="text-[10px] font-black uppercase tracking-[3px] text-[#4F8A3F]"
+          >
+            Nuestra memoria
+          </span>
+
+          <div
+            class="mt-4 h-1 w-10 rounded-full bg-[#F6C445]"
+          ></div>
+
+        </div>
+
 
         <p
-          class="mt-4 text-xl font-medium leading-8 text-[#303830] sm:text-2xl sm:leading-9"
+          class="max-w-4xl text-xl font-medium leading-8 tracking-[-0.015em] text-[#1E293B] sm:text-2xl sm:leading-9"
         >
           {{ historia.introduccion }}
         </p>
@@ -115,112 +160,168 @@
     </div>
 
 
-    <!-- LÍNEA HISTÓRICA -->
+    <!-- =========================================================
+         LÍNEA HISTÓRICA
+         ========================================================= -->
 
-    <div class="relative">
+    <div class="mt-20 sm:mt-28">
 
-      <!-- Línea vertical -->
+      <!-- ENCABEZADO TIMELINE -->
 
       <div
-        class="absolute bottom-0 left-[13px] top-0 w-px bg-[#D6D5CB] sm:left-[17px]"
-      ></div>
+        class="mb-12 flex flex-col gap-4 sm:mb-16 sm:flex-row sm:items-end sm:justify-between"
+      >
+
+        <div>
+
+          <span
+            class="text-[10px] font-black uppercase tracking-[3px] text-[#2F5D34]"
+          >
+            Huaranchal en el tiempo
+          </span>
+
+          <h3
+            class="mt-3 text-3xl font-black tracking-[-0.035em] text-[#1E3A24] sm:text-4xl"
+          >
+            Una historia que sigue viva
+          </h3>
+
+        </div>
 
 
-      @for (
-        acontecimiento of historia.acontecimientos;
-        track acontecimiento.id;
-        let ultimo = $last
-      ) {
+        <div
+          class="hidden h-px w-32 bg-[#CBD5E1] sm:block"
+        ></div>
 
-        <article
-          class="relative grid grid-cols-[28px_1fr] gap-6 pb-12 sm:grid-cols-[36px_1fr] sm:gap-8 sm:pb-16"
-          [class.pb-0]="ultimo"
-        >
-
-          <!-- PUNTO -->
-
-          <div class="relative z-10 flex justify-center">
-
-            <div
-              class="mt-1 h-7 w-7 rounded-full border-4 border-[#F3F1E9] bg-[#2F5D34] shadow-[0_0_0_1px_#2F5D34] sm:h-9 sm:w-9"
-              [class.bg-[#F6C445]]="acontecimiento.destacado"
-              [class.shadow-[0_0_0_1px_#F6C445]]="acontecimiento.destacado"
-            ></div>
-
-          </div>
+      </div>
 
 
-          <!-- CONTENIDO -->
+      <!-- TIMELINE -->
 
-          <div
-            class="rounded-[1.75rem] border border-[#DCDCD2] bg-[#FAFAF7] p-6 shadow-[0_8px_30px_rgba(24,32,25,0.04)] sm:p-8"
-            [class.border-[#F6C445]]="acontecimiento.destacado"
-            [class.bg-[#FFF9E7]]="acontecimiento.destacado"
+      <div class="relative">
+
+        <!-- LÍNEA -->
+
+        <div
+          class="absolute bottom-0 left-[15px] top-0 w-px bg-[#CBD5E1] sm:left-[19px]"
+        ></div>
+
+
+        @for (
+          acontecimiento of historia.acontecimientos;
+          track acontecimiento.id;
+          let ultimo = $last
+        ) {
+
+          <article
+            class="group relative grid grid-cols-[32px_1fr] gap-6 pb-12 sm:grid-cols-[40px_1fr] sm:gap-8 sm:pb-16"
+            [class.pb-0]="ultimo"
           >
 
-            <div
-              class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"
-            >
+            <!-- PUNTO -->
 
-              <div>
+            <div class="relative z-10 flex justify-center">
 
-                <span
-                  class="text-[10px] font-black uppercase tracking-[2px] text-[#2F5D34]"
-                >
-                  {{ acontecimiento.periodo }}
-                </span>
-
-                <h3
-                  class="mt-2 text-xl font-black tracking-tight text-[#182019] sm:text-2xl"
-                >
-                  {{ acontecimiento.titulo }}
-                </h3>
-
-              </div>
-
-              @if (acontecimiento.destacado) {
-
-                <span
-                  class="w-fit rounded-full bg-[#F6C445]/20 px-3 py-1 text-[9px] font-black uppercase tracking-[1.5px] text-[#7A5A00]"
-                >
-                  Momento clave
-                </span>
-
-              }
+              <div
+                class="mt-1.5 h-7 w-7 rounded-full border-[5px] border-[#FAFAF7] bg-[#2F5D34] shadow-[0_0_0_1px_rgba(47,93,52,0.2)] transition-all duration-300 group-hover:scale-110 sm:h-9 sm:w-9"
+                [class.bg-[#F6C445]]="acontecimiento.destacado"
+                [class.shadow-[0_0_0_1px_rgba(246,196,69,0.5)]]="acontecimiento.destacado"
+              ></div>
 
             </div>
 
-            <p
-              class="mt-4 max-w-3xl text-sm leading-7 text-[#626962] sm:text-base"
+
+            <!-- CONTENIDO -->
+
+            <div
+              class="relative overflow-hidden rounded-[20px] border border-[#E2E8F0] bg-white p-6 shadow-[0_4px_20px_rgba(30,41,59,0.06)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_10px_30px_rgba(30,41,59,0.12)] sm:p-8"
+              [class.border-[#F6C445]]="acontecimiento.destacado"
+              [class.bg-[#FFF8DF]]="acontecimiento.destacado"
             >
-              {{ acontecimiento.descripcion }}
-            </p>
 
-          </div>
+              <!-- ACENTO LATERAL -->
 
-        </article>
+              <div
+                class="absolute bottom-0 left-0 top-0 w-1 bg-[#2F5D34] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                [class.opacity-100]="acontecimiento.destacado"
+                [class.bg-[#F6C445]]="acontecimiento.destacado"
+              ></div>
 
-      }
+
+              <div
+                class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"
+              >
+
+                <div>
+
+                  <span
+                    class="text-[10px] font-black uppercase tracking-[2px] text-[#4F8A3F]"
+                  >
+                    {{ acontecimiento.periodo }}
+                  </span>
+
+
+                  <h4
+                    class="mt-2 text-xl font-black tracking-[-0.02em] text-[#1E293B] sm:text-2xl"
+                  >
+                    {{ acontecimiento.titulo }}
+                  </h4>
+
+                </div>
+
+
+                @if (acontecimiento.destacado) {
+
+                  <span
+                    class="w-fit shrink-0 rounded-full bg-[#F6C445]/20 px-3 py-1.5 text-[9px] font-black uppercase tracking-[1.5px] text-[#7A5A00]"
+                  >
+                    Momento clave
+                  </span>
+
+                }
+
+              </div>
+
+
+              <p
+                class="mt-5 max-w-3xl text-sm leading-7 text-[#64748B] sm:text-base"
+              >
+                {{ acontecimiento.descripcion }}
+              </p>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
 
     </div>
 
 
-    <!-- DATOS DESTACADOS -->
+    <!-- =========================================================
+         DATOS DESTACADOS
+         ========================================================= -->
 
-    <div class="mt-20 border-t border-[#D6D5CB] pt-10">
+    <div
+      class="mt-20 border-t border-[#E2E8F0] pt-12 sm:mt-28 sm:pt-16"
+    >
 
-      <div class="mb-8">
+      <div
+        class="mb-8 max-w-2xl sm:mb-10"
+      >
 
         <span
-          class="text-[10px] font-black uppercase tracking-[3px] text-[#2F5D34]"
+          class="text-[10px] font-black uppercase tracking-[3px] text-[#4F8A3F]"
         >
-          Huaranchal en el tiempo
+          Para recordar
         </span>
 
         <h3
-          class="mt-2 text-2xl font-black tracking-tight text-[#182019] sm:text-3xl"
+          class="mt-3 text-3xl font-black tracking-[-0.035em] text-[#1E3A24] sm:text-4xl"
         >
-          Algunos datos para recordar
+          Huaranchal en el tiempo
         </h3>
 
       </div>
@@ -234,24 +335,37 @@
         ) {
 
           <article
-            class="group rounded-[1.5rem] border border-[#DCDCD2] bg-[#FAFAF7] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            class="group relative overflow-hidden rounded-[20px] border border-[#E2E8F0] bg-white p-6 shadow-[0_4px_20px_rgba(30,41,59,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(30,41,59,0.12)] sm:p-7"
           >
 
-            <span
-              class="block text-[9px] font-black uppercase tracking-[2px] text-[#A4C639]"
-            >
-              {{ dato.etiqueta }}
-            </span>
+            <!-- DECORACIÓN -->
 
             <div
-              class="mt-3 h-px w-8 bg-[#F6C445] transition-all duration-300 group-hover:w-14"
+              class="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-[#EEF4EC] transition-transform duration-500 group-hover:scale-150"
             ></div>
 
-            <p
-              class="mt-4 text-sm font-bold leading-6 text-[#303830]"
-            >
-              {{ dato.valor }}
-            </p>
+
+            <div class="relative z-10">
+
+              <span
+                class="block text-[9px] font-black uppercase tracking-[2px] text-[#6F8F45]"
+              >
+                {{ dato.etiqueta }}
+              </span>
+
+
+              <div
+                class="mt-4 h-1 w-8 rounded-full bg-[#F6C445] transition-all duration-300 group-hover:w-14"
+              ></div>
+
+
+              <p
+                class="mt-5 text-sm font-bold leading-6 text-[#1E293B]"
+              >
+                {{ dato.valor }}
+              </p>
+
+            </div>
 
           </article>
 
@@ -262,22 +376,56 @@
     </div>
 
 
-    <!-- CIERRE -->
+    <!-- =========================================================
+         CIERRE / TRANSICIÓN
+         ========================================================= -->
 
-    <div class="mt-20 text-center">
+    <div
+      class="relative mt-20 overflow-hidden rounded-[28px] bg-gradient-to-br from-[#1E3A24] via-[#2F5D34] to-[#4F8A3F] px-7 py-12 text-center shadow-[0_8px_24px_rgba(47,93,52,0.18)] sm:mt-28 sm:px-12 sm:py-16"
+    >
 
-      <div class="mx-auto mb-6 h-px w-16 bg-[#F6C445]"></div>
+      <!-- DECORACIÓN -->
 
-      <p
-        class="mx-auto max-w-2xl text-lg font-medium italic leading-8 text-[#626962] sm:text-xl"
-      >
-        La historia de Huaranchal no solo está en los documentos;
-        también permanece en sus caminos, sus costumbres y en la memoria
-        de quienes mantienen vivas sus raíces.
-      </p>
+      <div
+        class="pointer-events-none absolute -left-20 -top-20 h-48 w-48 rounded-full border-[24px] border-white/5"
+      ></div>
+
+      <div
+        class="pointer-events-none absolute -bottom-24 -right-20 h-56 w-56 rounded-full bg-[#F6C445]/10 blur-2xl"
+      ></div>
+
+
+      <div class="relative z-10">
+
+        <div
+          class="mx-auto mb-6 h-1 w-10 rounded-full bg-[#F6C445]"
+        ></div>
+
+
+        <span
+          class="text-[10px] font-black uppercase tracking-[3px] text-[#F6C445]"
+        >
+          Las raíces permanecen
+        </span>
+
+
+        <p
+          class="mx-auto mt-5 max-w-2xl text-xl font-medium leading-8 text-white sm:text-2xl sm:leading-9"
+        >
+          La historia de Huaranchal vive en sus caminos, sus costumbres
+          y en la memoria de quienes mantienen vivas nuestras raíces.
+        </p>
+
+
+        <div
+          class="mx-auto mt-8 h-px w-16 bg-white/20"
+        ></div>
+
+      </div>
 
     </div>
 
   </div>
 
 </section>
+

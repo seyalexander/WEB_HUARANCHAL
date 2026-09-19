@@ -1,10 +1,10 @@
-<section class="relative overflow-hidden bg-[#FAFAF7] py-24 md:py-32">
+<section class="relative overflow-hidden bg-[var(--color-background)] py-24 md:py-32">
 
     <!-- =====================================================
          FONDO TOPOGRÁFICO
     ====================================================== -->
 
-    <div class="absolute inset-0 pointer-events-none opacity-[0.035]">
+    <div class="pointer-events-none absolute inset-0 opacity-[0.025]">
 
         <svg class="h-full w-full" xmlns="http://www.w3.org/2000/svg">
 
@@ -12,28 +12,28 @@
 
                 <pattern
                     id="topografia-experiencias"
-                    width="420"
-                    height="420"
+                    width="520"
+                    height="520"
                     patternUnits="userSpaceOnUse">
 
                     <path
-                        d="M40 210 C90 120, 170 100, 230 150 S350 260, 390 180"
+                        d="M40 260 C120 140, 220 120, 320 190 S460 360, 520 250"
                         fill="none"
-                        stroke="#2F5D34"
+                        stroke="var(--color-primary)"
                         stroke-width="2">
                     </path>
 
                     <path
-                        d="M20 250 C100 150, 180 140, 250 190 S360 300, 410 210"
+                        d="M0 310 C110 190, 220 180, 330 250 S450 390, 540 300"
                         fill="none"
-                        stroke="#2F5D34"
+                        stroke="var(--color-primary)"
                         stroke-width="2">
                     </path>
 
                     <path
-                        d="M80 300 C130 220, 220 210, 290 250 S370 330, 430 270"
+                        d="M80 380 C160 270, 270 250, 370 320 S470 430, 560 350"
                         fill="none"
-                        stroke="#2F5D34"
+                        stroke="var(--color-primary)"
                         stroke-width="2">
                     </path>
 
@@ -53,15 +53,15 @@
 
 
     <!-- =====================================================
-         DESTELLOS
+         DETALLES DE LUZ
     ====================================================== -->
 
     <div
-        class="absolute -left-40 -top-40 h-96 w-96 rounded-full bg-[#A4C639]/10 blur-3xl pointer-events-none">
+        class="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-[var(--color-accent-lime)]/10 blur-3xl">
     </div>
 
     <div
-        class="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-[#F28C28]/10 blur-3xl pointer-events-none">
+        class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-[var(--color-accent)]/10 blur-3xl">
     </div>
 
 
@@ -76,34 +76,32 @@
              CABECERA
         ================================================== -->
 
-        <header class="mx-auto max-w-4xl text-center">
+        <header class="mx-auto max-w-3xl text-center">
 
             <!-- ETIQUETA -->
 
             <div class="inline-flex items-center gap-3">
 
-                <span class="h-px w-10 bg-[#F28C28]"></span>
+                <span class="h-px w-8 bg-[var(--color-accent-orange)]"></span>
 
-                <span
-                    class="text-xs md:text-sm font-bold tracking-[4px] uppercase text-[#2F5D34]">
+                <span class="text-xs font-bold uppercase tracking-[3px] text-[var(--color-primary)] md:text-sm">
 
-                    Experiencias únicas
+                    Experiencias de Huaranchal
 
                 </span>
 
-                <span class="h-px w-10 bg-[#F28C28]"></span>
+                <span class="h-px w-8 bg-[var(--color-accent-orange)]"></span>
 
             </div>
 
 
             <!-- TÍTULO -->
 
-            <h2
-                class="mt-6 text-4xl font-black tracking-tight text-slate-800 sm:text-5xl md:text-6xl">
+            <h2 class="mt-5 text-4xl font-black tracking-tight text-[var(--color-primary-dark)] sm:text-5xl md:text-6xl">
 
                 Un territorio que
 
-                <span class="text-[#2F5D34]">
+                <span class="text-[var(--color-primary)]">
                     se vive
                 </span>
 
@@ -112,12 +110,11 @@
 
             <!-- DESCRIPCIÓN -->
 
-            <p
-                class="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
+            <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-[var(--color-text-secondary)] md:text-lg">
 
                 Naturaleza, agua, descanso y sabores se encuentran
                 en Huaranchal. Descubre algunas de las experiencias
-                que hacen especial este rincón del Alto Chicama.
+                que forman parte de nuestra identidad.
 
             </p>
 
@@ -125,145 +122,92 @@
 
 
         <!-- =================================================
-             RUTA DE EXPERIENCIAS
+             EXPERIENCIAS
         ================================================== -->
 
-        <div class="relative mt-20 md:mt-28">
+        <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
 
+            @for (
+                experiencia of experiencias;
+                track experiencia.id;
+                let i = $index
+            ) {
 
-            <!-- LÍNEA CENTRAL DESKTOP -->
+                <article
+                    pAnimateOnScroll
+                    [enterClass]="'animate-enter fade-in-10 ' + experiencia.animacion + ' animate-duration-1000'"
+                    leaveClass="animate-leave fade-out-0"
+                    class="group relative">
 
-            <div
-                class="absolute left-[10%] right-[10%] top-[108px] hidden h-px lg:block">
+                    <!-- =================================================
+                         TARJETA
+                    ================================================== -->
 
-                <div
-                    class="h-full w-full bg-linear-to-r from-[#4F8A3F]/20 via-[#F28C28]/60 to-[#A4C639]/30">
-                </div>
-
-            </div>
-
-
-            <!-- EXPERIENCIAS -->
-
-            <div class="grid grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-
-                @for (
-                    experiencia of experiencias;
-                    track experiencia.id;
-                    let i = $index
-                ) {
-
-                    <article
-                        pAnimateOnScroll
-                        [enterClass]="'animate-enter fade-in-10 ' + experiencia.animacion + ' animate-duration-1000'"
-                        leaveClass="animate-leave fade-out-0"
-                        class="group relative text-center">
-
-
-                        <!-- =================================================
-                             NÚMERO
-                        ================================================== -->
-
-                        <div class="relative mx-auto h-14">
-
-                            <!-- NÚMERO GIGANTE DE FONDO -->
-
-                            <span
-                                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl font-black text-[#2F5D34]/[0.06]">
-
-                                {{ experiencia.numero }}
-
-                            </span>
-
-
-                            <!-- PUNTO DE RUTA -->
-
-                            <div
-                                class="absolute left-1/2 top-1/2 flex h-5 w-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-[#FAFAF7] bg-[#F28C28] shadow-sm">
-
-                                <span class="h-1.5 w-1.5 rounded-full bg-white"></span>
-
-                            </div>
-
-                        </div>
+                    <div
+                        class="relative h-full overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)] transition-all duration-500 hover:-translate-y-2 hover:border-[var(--color-border-brand)] hover:shadow-[var(--shadow-card-hover)]">
 
 
                         <!-- =================================================
                              IMAGEN
                         ================================================== -->
 
-                        <div
-                            class="relative mx-auto mt-5 h-56 w-56 md:h-60 md:w-60">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+
+                            <img
+                                [src]="experiencia.imagen"
+                                [alt]="experiencia.nombre + ' de Huaranchal'"
+                                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
 
 
-                            <!-- ANILLO -->
+                            <!-- DEGRADADO -->
 
                             <div
-                                class="absolute -inset-3 rounded-full border border-[#2F5D34]/10 transition-all duration-700 group-hover:scale-105 group-hover:border-[#F28C28]/30">
+                                class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent">
                             </div>
 
+                            <!-- =================================================
+                                 ETIQUETA
+                            ================================================== -->
 
-                            <!-- ANILLO PUNTEADO -->
+                            <div class="absolute bottom-5 left-5 right-5">
 
-                            <div
-                                class="absolute -inset-6 rounded-full border border-dashed border-[#F28C28]/15 transition-transform duration-1000 group-hover:rotate-180">
-                            </div>
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-[2px] text-[var(--color-accent)]">
 
+                                    {{ experiencia.etiqueta }}
 
-                            <!-- IMAGEN -->
+                                </span>
 
-                            <div
-                                class="relative h-full w-full overflow-hidden rounded-full border-[8px] border-white shadow-2xl">
-
-                                <img
-                                    [src]="experiencia.imagen"
-                                    [alt]="experiencia.nombre + ' de Huaranchal'"
-                                    class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110">
-
-                                <!-- DEGRADADO -->
-
-                                <div
-                                    class="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-50">
-                                </div>
-
-
-                                <!-- NOMBRE SOBRE FOTO -->
-
-                                <div
-                                    class="absolute inset-x-0 bottom-0 p-6 text-left">
-
-                                    <span
-                                        class="text-[10px] font-bold uppercase tracking-[2px] text-[#F6C445]">
-
-                                        {{ experiencia.etiqueta }}
-
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- PUNTO DECORATIVO -->
-
-                            <div
-                                class="absolute -right-2 top-8 h-4 w-4 rounded-full border-4 border-[#FAFAF7] bg-[#F28C28] transition-transform duration-500 group-hover:scale-150">
                             </div>
 
                         </div>
 
 
                         <!-- =================================================
-                             INFORMACIÓN
+                             CONTENIDO
                         ================================================== -->
 
-                        <div class="mx-auto mt-8 max-w-xs">
+                        <div class="p-6 md:p-7">
+
+
+                            <!-- ACENTO DE EXPERIENCIA -->
+
+                            <div class="mb-5 flex items-center gap-3">
+
+                                <span
+                                    class="h-1 w-10 rounded-full"
+                                    [style.background]="experiencia.color">
+                                </span>
+
+                                <span class="h-px flex-1 bg-[var(--color-border)]"></span>
+
+                            </div>
 
 
                             <!-- TÍTULO -->
 
                             <h3
-                                class="text-2xl font-black tracking-tight text-slate-800 transition-colors duration-300 group-hover:text-[#2F5D34] md:text-3xl">
+                                class="text-2xl font-black tracking-tight text-[var(--color-primary-dark)] transition-colors duration-300 group-hover:text-[var(--color-primary)]">
 
                                 {{ experiencia.nombre }}
 
@@ -273,7 +217,7 @@
                             <!-- DESCRIPCIÓN -->
 
                             <p
-                                class="mt-4 text-sm leading-7 text-slate-600 md:text-base">
+                                class="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
 
                                 {{ experiencia.descripcion }}
 
@@ -284,14 +228,14 @@
 
                             <a
                                 [href]="experiencia.routerLink"
-                                class="mt-6 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[2px] text-[#2F5D34] transition-all duration-300 hover:text-[#F28C28]">
+                                class="mt-6 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[2px] text-[var(--color-primary)] transition-all duration-300 hover:text-[var(--color-accent-orange)]">
 
                                 <span>
                                     Descubrir
                                 </span>
 
                                 <span
-                                    class="transition-transform duration-300 group-hover:translate-x-2">
+                                    class="transition-transform duration-300 group-hover:translate-x-1">
 
                                     →
 
@@ -301,34 +245,46 @@
 
                         </div>
 
-                    </article>
 
-                }
+                        <!-- =================================================
+                             DETALLE INFERIOR
+                        ================================================== -->
 
-            </div>
+                        <div
+                            class="absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
+                            [style.background]="experiencia.color">
+                        </div>
+
+                    </div>
+
+                </article>
+
+            }
 
         </div>
 
 
         <!-- =================================================
-             CIERRE
+             FRASE DE CIERRE
         ================================================== -->
 
-        <div class="mt-20 flex items-center justify-center gap-4 md:mt-24">
+        <div class="mt-16 flex items-center justify-center gap-4 md:mt-20">
 
-            <div class="h-px w-16 bg-[#2F5D34]/20"></div>
+            <span class="h-px w-12 bg-[var(--color-border-strong)] md:w-20"></span>
 
             <span
-                class="text-xs font-bold uppercase tracking-[3px] text-slate-400">
+                class="text-[10px] font-bold uppercase tracking-[3px] text-[var(--color-text-secondary)] md:text-xs">
 
-                Empieza a descubrir
+                Empieza a descubrir Huaranchal
 
             </span>
 
-            <div class="h-px w-16 bg-[#2F5D34]/20"></div>
+            <span class="h-px w-12 bg-[var(--color-border-strong)] md:w-20"></span>
 
         </div>
+
 
     </div>
 
 </section>
+

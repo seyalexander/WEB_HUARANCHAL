@@ -4,29 +4,144 @@
 @plugin "tailwindcss-primeui";
 
 :root {
-    /* COLORES PRIMARIOS */
-    verde_Cafe: #2F5D34;
-    verde_Naturaleza: #4F8A3F;
-    naranja_Huaranchal:#F28C28;
-    amarillo_Frutal: #F6C445;
 
-    /* COLORES SECUNDARIOS */
-    lima:#A4C639;
-    granadilla: #8E5EA2;
-    tierra: #8B5E3C;
-    agua: #3FA9F5;
+    /* =========================================================
+       COLORES PRINCIPALES
+       ========================================================= */
+    --color-primary: #2F5D34;
+    --color-primary-dark: #1E3A24;
+    --color-secondary: #4F8A3F;
+    --color-secondary-light: #6F8F45;
 
-    /* NEUTROS */
-    fondo_Principal: #FAFAF7;
-    fondo_alternativo:#F5F5F0;
-    texto_principal:#1E293B;
-    texto_secundario:#64748B;
-    bordes: #E2E8F0;
 
-    /* GRADIENTE PRINCIPAL */
-    /*Hero Principal: bg-gradient-to-r from-[#2F5D34] via-[#4F8A3F] to-[#A4C639] */
-    /* Turismo: bg-gradient-to-r from-[#F28C28] to-[#F6C445] */
-    /* Cataratas: bg-gradient-to-r from-[#3FA9F5] to-[#4F8A3F] */
+    /* =========================================================
+       COLORES DE ACENTO
+       ========================================================= */
+    --color-accent: #F6C445;
+    --color-accent-orange: #F28C28;
+    --color-accent-lime: #A4C639;
+
+
+    /* =========================================================
+       COLORES TEMÁTICOS
+       ========================================================= */
+    --color-earth: #8B5E3C;
+    --color-water: #3FA9F5;
+
+
+    /* =========================================================
+       FONDOS
+       ========================================================= */
+    --color-background: #FAFAF7;
+    --color-background-alt: #F5F5F0;
+    --color-surface: #FFFFFF;
+    --color-surface-green: #EEF4EC;
+    --color-surface-yellow: #FFF8DF;
+    --color-surface-orange: #FFF1E5;
+    --color-surface-water: #EAF6FD;
+
+
+    /* =========================================================
+       TEXTOS
+       ========================================================= */
+
+    --color-text: #1E293B;
+    --color-text-secondary: #64748B;
+    --color-text-light: #FFFFFF;
+    --color-text-brand: #2F5D34;
+
+
+    /* =========================================================
+       BORDES
+       ========================================================= */
+
+    --color-border: #E2E8F0;
+    --color-border-strong: #CBD5E1;
+    --color-border-brand: rgba(47, 93, 52, 0.20);
+
+
+    /* =========================================================
+       ESTADOS - HOVER
+       ========================================================= */
+
+    --color-primary-hover: #24502B;
+    --color-secondary-hover: #3E7332;
+    --color-accent-hover: #D9B139;
+    --color-orange-hover: #D9771F;
+
+
+    /* =========================================================
+       ESTADOS - ACTIVE
+       ========================================================= */
+
+    --color-primary-active: #1E3A24;
+    --color-secondary-active: #315D29;
+
+
+    /* =========================================================
+       ESTADOS - FOCUS
+       ========================================================= */
+
+    --color-focus: rgba(47, 93, 52, 0.25);
+
+    /* =========================================================
+       ESTADOS GENERALES
+       ========================================================= */
+
+    --color-success: #4F8A3F;
+    --color-warning: #F6C445;
+    --color-danger: #C94A4A;
+    --color-info: #3FA9F5;
+
+
+    /* =========================================================
+       SOMBRAS
+       ========================================================= */
+
+    --shadow-card: 0 4px 20px rgba(30, 41, 59, 0.08);
+    --shadow-card-hover: 0 10px 30px rgba(30, 41, 59, 0.12);
+    --shadow-soft: 0 2px 10px rgba(30, 41, 59, 0.06);
+    --shadow-green: 0 8px 24px rgba(47, 93, 52, 0.18);
+
+    /* =========================================================
+       RADIOS
+       ========================================================= */
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-full: 9999px;
+
+    /* =========================================================
+       GRADIENTES DE MARCA
+       ========================================================= */
+
+    --gradient-primary: linear-gradient(
+        135deg,
+        #1E3A24 0%,
+        #2F5D34 55%,
+        #4F8A3F 100%
+    );
+
+    --gradient-tourism: linear-gradient(
+        135deg,
+        #D9771F 0%,
+        #F28C28 55%,
+        #F6C445 100%
+    );
+
+    --gradient-nature: linear-gradient(
+        135deg,
+        #3FA9F5 0%,
+        #4F8A3F 100%
+    );
+
+    --gradient-green-soft: linear-gradient(
+        135deg,
+        #EEF4EC 0%,
+        #F5F5F0 100%
+    );
 }
 
 /* Firefox */
