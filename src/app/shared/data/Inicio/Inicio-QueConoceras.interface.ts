@@ -9,4 +9,5 @@ export interface InicioQueConoceras {
     color: string;
     animacion: string;
     posicion: 'izquierda' | 'centro' | 'derecha';
+    svg: string;
 }

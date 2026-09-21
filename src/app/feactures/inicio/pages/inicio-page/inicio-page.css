@@ -1,4 +1,4 @@
-.custom-hero,
+/* .custom-hero,
 .custom-hero *,
 .custom-hero button,
 .custom-hero a,
@@ -21,9 +21,9 @@
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9998;
-}
+} */
 
-.custom-cursor {
+/* .custom-cursor {
   position: fixed;
   left: 0;
   top: 0;
@@ -33,4 +33,4 @@
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
-}
+} */

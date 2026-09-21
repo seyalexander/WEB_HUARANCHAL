@@ -202,6 +202,69 @@ export class ButtonPdfHuaranchalComponent {
     `;
   }
 
+  private obtenerSvgExperiencia(tipo: string, color: string): string {
+    const atributos = `
+        xmlns="http://www.w3.org/2000/svg"
+        width="72"
+        height="72"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="${color}"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    `;
+
+    switch (tipo) {
+
+      case 'naturaleza':
+        return `
+                <svg ${atributos}>
+                    <path d="M3 20h18" />
+                    <path d="m5 20 5-9 4 5 2-3 3 7" />
+                    <path d="M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                </svg>
+            `;
+
+      case 'cataratas':
+        return `
+                <svg ${atributos}>
+                    <path d="M2 9a10 10 0 1 0 20 0" />
+                    <path d="M12 19a10 10 0 0 1 10-10" />
+                    <path d="M2 9a10 10 0 0 1 10 10" />
+                    <path d="M12 4a9.7 9.7 0 0 1 2.99 7.5" />
+                    <path d="M9.01 11.5a9.7 9.7 0 0 1 2.99-7.5" />
+                </svg>
+            `;
+
+      case 'termales':
+        return `
+                <svg ${atributos}>
+                    <path d="M8 3c0 2 2 2 2 4s-2 2-2 4" />
+                    <path d="M14 3c0 2 2 2 2 4s-2 2-2 4" />
+                    <path d="M4 13h16" />
+                    <path d="M5 17h14" />
+                    <path d="M7 21h10" />
+                </svg>
+            `;
+
+      case 'gastronomia':
+        return `
+                <svg ${atributos}>
+                    <path d="M3 2v7a4 4 0 0 0 4 4h1" />
+                    <path d="M7 2v11" />
+                    <path d="M11 2v7a4 4 0 0 1-4 4" />
+                    <path d="M7 13v9" />
+                    <path d="M17 2v20" />
+                    <path d="M17 2c2 0 4 2 4 5v3h-4" />
+                </svg>
+            `;
+
+      default:
+        return '';
+    }
+  }
+
   private generarQueConoceras(): string {
 
     return `
@@ -214,15 +277,15 @@ export class ButtonPdfHuaranchalComponent {
 
 
         <!-- =================================================
-             FONDO
+             DECORACIÓN SUTIL
         ================================================== -->
 
         <div
-          class="absolute -top-[45mm] -right-[45mm] w-[110mm] h-[110mm] rounded-full bg-[#A4C639]/10 blur-3xl">
+          class="absolute -top-[45mm] -right-[45mm] w-[100mm] h-[100mm] rounded-full bg-[#A4C639]/8 blur-3xl">
         </div>
 
         <div
-          class="absolute -bottom-[45mm] -left-[45mm] w-[110mm] h-[110mm] rounded-full bg-[#F28C28]/10 blur-3xl">
+          class="absolute -bottom-[45mm] -left-[45mm] w-[100mm] h-[100mm] rounded-full bg-[#F28C28]/8 blur-3xl">
         </div>
 
 
@@ -230,14 +293,12 @@ export class ButtonPdfHuaranchalComponent {
              CABECERA
         ================================================== -->
 
-        <div
-          class="relative px-[18mm] pt-[18mm]">
+        <div class="relative px-[18mm] pt-[18mm]">
 
-          <div
-            class="flex items-center gap-3">
+          <div class="flex items-center gap-3">
 
             <div
-              class="w-[16mm] h-[1.2mm] bg-[#F28C28]">
+              class="w-[14mm] h-[1mm] bg-[#F28C28]">
             </div>
 
             <span
@@ -251,7 +312,7 @@ export class ButtonPdfHuaranchalComponent {
 
 
           <h2
-            class="m-0 mt-[7mm] text-[29pt] leading-[1] font-black tracking-tight text-slate-800">
+            class="m-0 mt-[6mm] text-[29pt] leading-[1.05] font-black tracking-tight text-slate-800">
 
             ¿Qué encontrarás en
 
@@ -263,11 +324,11 @@ export class ButtonPdfHuaranchalComponent {
 
 
           <p
-            class="m-0 mt-[6mm] w-[150mm] text-[10pt] leading-[1.6] text-slate-600">
+            class="m-0 mt-[5mm] w-[145mm] text-[10pt] leading-[1.6] text-slate-600">
 
-            Naturaleza, aventura, relajación y gastronomía se
-            encuentran en un destino lleno de paisajes y
-            experiencias por descubrir.
+            Naturaleza, aventura, relajación y gastronomía
+            forman parte de las experiencias que podrás
+            descubrir en nuestro territorio.
 
           </p>
 
@@ -278,119 +339,103 @@ export class ButtonPdfHuaranchalComponent {
              EXPERIENCIAS
         ================================================== -->
 
-        <div
-          class="relative mt-[13mm] px-[18mm]">
+        <div class="relative mt-[12mm] px-[18mm]">
 
 
-          <!-- LÍNEA CENTRAL -->
-
-          <div
-            class="absolute left-[35mm] right-[35mm] top-[35mm] h-[0.5mm] bg-linear-to-r from-[#4F8A3F]/20 via-[#F28C28]/70 to-[#A4C639]/30">
-          </div>
+          <div class="grid grid-cols-2 gap-x-[12mm] gap-y-[12mm]">
 
 
-          <div
-            class="grid grid-cols-2 gap-x-[12mm] gap-y-[17mm]">
+            ${this.experiencias.map((experiencia) => {
 
-            ${this.experiencias.map((experiencia, index) => `
+      const svg = this.obtenerSvgExperiencia(
+        experiencia.svg,
+        experiencia.color
+      );
 
-              <article
-                class="relative">
+      return `
 
+                <!-- =================================================
+                     EXPERIENCIA
+                ================================================== -->
 
-                <!-- NÚMERO -->
-
-                <div
-                  class="absolute -left-[2mm] -top-[5mm] text-[28pt] leading-none font-black text-[#2F5D34]/10">
-
-                  ${experiencia.numero}
-
-                </div>
+                <article
+                  class="relative min-h-[72mm] overflow-hidden border border-[#2F5D34]/10 bg-white/50 px-[8mm] py-[7mm]">
 
 
-                <!-- IMAGEN -->
-
-                <div
-                  class="relative mx-auto w-[58mm] h-[58mm]">
-
-
-                  <!-- ANILLO -->
+                  <!-- NÚMERO -->
 
                   <div
-                    class="absolute -inset-[3mm] rounded-full border border-[#2F5D34]/15">
+                    class="absolute right-[6mm] top-[5mm] text-[22pt] leading-none font-black"
+                    style="color: ${experiencia.color}20;">
+
+                    ${experiencia.numero}
+
                   </div>
 
 
-                  <!-- FOTO -->
+                  <!-- SVG -->
 
                   <div
-                    class="relative w-full h-full overflow-hidden rounded-full border-[4px] border-white shadow-xl">
+                    class="flex h-[24mm] w-[24mm] items-center justify-center">
 
-                    <img
-                      src="${experiencia.imagen}"
-                      alt="${experiencia.nombre}"
-                      class="w-full h-full object-cover"
-                    />
+                    ${svg}
+
+                  </div>
 
 
-                    <!-- DEGRADADO -->
+                  <!-- ACENTO -->
+
+                  <div class="mt-[5mm] flex items-center gap-3">
 
                     <div
-                      class="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-transparent">
+                      class="h-[1mm] w-[12mm]"
+                      style="background:${experiencia.color};">
                     </div>
 
-
-                    <!-- ETIQUETA -->
-
                     <div
-                      class="absolute left-0 right-0 bottom-[6mm] px-[5mm]">
-
-                      <span
-                        class="text-[6.5pt] font-bold tracking-[1.5px] uppercase text-[#F6C445]">
-
-                        ${experiencia.etiqueta}
-
-                      </span>
-
+                      class="h-px flex-1 bg-[#2F5D34]/10">
                     </div>
 
                   </div>
 
 
-                  <!-- PUNTO -->
-
-                  <div
-                    class="absolute -right-[2mm] top-[8mm] w-[5mm] h-[5mm] rounded-full border-[1.5mm] border-[#FAFAF7] bg-[#F28C28]">
-                  </div>
-
-                </div>
-
-
-                <!-- TEXTO -->
-
-                <div
-                  class="mt-[7mm] text-center">
+                  <!-- TÍTULO -->
 
                   <h3
-                    class="m-0 text-[16pt] leading-tight font-black text-slate-800">
+                    class="m-0 mt-[4mm] text-[15pt] leading-tight font-black text-slate-800">
 
                     ${experiencia.nombre}
 
                   </h3>
 
 
+                  <!-- ETIQUETA -->
+
                   <p
-                    class="m-0 mt-[3mm] text-[8pt] leading-[1.6] text-slate-600">
+                    class="m-0 mt-[2mm] text-[6.5pt] font-bold uppercase tracking-[1.5px]"
+                    style="color:${experiencia.color};">
+
+                    ${experiencia.etiqueta}
+
+                  </p>
+
+
+                  <!-- DESCRIPCIÓN -->
+
+                  <p
+                    class="m-0 mt-[3mm] text-[8pt] leading-[1.55] text-slate-600">
 
                     ${experiencia.descripcion}
 
                   </p>
 
-                </div>
 
-              </article>
+                </article>
 
-            `).join('')}
+                `;
+
+    }).join('')}
+
 
           </div>
 
@@ -404,9 +449,11 @@ export class ButtonPdfHuaranchalComponent {
         <div
           class="absolute left-[18mm] right-[18mm] bottom-[18mm]">
 
+
           <div
             class="h-px w-full bg-[#2F5D34]/10">
           </div>
+
 
           <div
             class="flex items-center justify-between mt-[5mm]">
@@ -417,6 +464,7 @@ export class ButtonPdfHuaranchalComponent {
               Raíces de Huaranchal
 
             </span>
+
 
             <span
               class="text-[7pt] font-bold tracking-[2px] uppercase text-[#F28C28]">
@@ -3069,7 +3117,7 @@ export class ButtonPdfHuaranchalComponent {
   }
 
   private generarCierre(): string {
-  return `
+    return `
     <div class="page-a4 relative overflow-hidden bg-slate-950 text-white">
 
       <!-- IMAGEN DE FONDO -->
@@ -3187,5 +3235,5 @@ export class ButtonPdfHuaranchalComponent {
 
     </div>
   `;
-}
+  }
 }

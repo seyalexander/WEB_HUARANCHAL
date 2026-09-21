@@ -3,7 +3,6 @@ import { FooterInicioComponents } from "../../components/footer-inicio-component
 import { CTAInicioComponents } from "../../components/cta-inicio-components/cta-inicio-components";
 import { ProductosEmblematicosInicioComponents } from "../../components/productos-emblematicos-inicio-components/productos-emblematicos-inicio-components";
 import { QueConocerasInicioComponents } from "../../components/que-conoceras-inicio-components/que-conoceras-inicio-components";
-import { RouterLink } from "@angular/router";
 import { PanoramicaComponents } from "../../components/panoramica-components/panoramica-components";
 import { HeroInicio } from "../../components/hero-inicio/hero-inicio";
 import { Subscription } from 'rxjs';
@@ -20,7 +19,6 @@ import { HistoriaHuaranchalInicio } from '../../components/historia-huaranchal-i
     CTAInicioComponents,
     ProductosEmblematicosInicioComponents,
     QueConocerasInicioComponents,
-    RouterLink,
     PanoramicaComponents,
     HeroInicio,
     Panoramica360Component,

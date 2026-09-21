@@ -1,6 +1,5 @@
 import { InicioQueConoceras } from "./Inicio-QueConoceras.interface";
 
-
 export const experienciasInicio: InicioQueConoceras[] = [
     {
         id: 1,
@@ -12,7 +11,8 @@ export const experienciasInicio: InicioQueConoceras[] = [
         routerLink: '/Lugares',
         color: '#4F8A3F',
         animacion: 'slide-in-from-l-20',
-        posicion: 'izquierda'
+        posicion: 'izquierda',
+        svg: 'naturaleza'
     },
     {
         id: 2,
@@ -24,7 +24,8 @@ export const experienciasInicio: InicioQueConoceras[] = [
         routerLink: '/Lugares',
         color: '#2F5D34',
         animacion: 'slide-in-from-t-20',
-        posicion: 'centro'
+        posicion: 'centro',
+        svg: 'cataratas'
     },
     {
         id: 3,
@@ -36,7 +37,8 @@ export const experienciasInicio: InicioQueConoceras[] = [
         routerLink: '/Lugares',
         color: '#F28C28',
         animacion: 'slide-in-from-b-20',
-        posicion: 'centro'
+        posicion: 'centro',
+        svg: 'termales'
     },
     {
         id: 4,
@@ -48,6 +50,7 @@ export const experienciasInicio: InicioQueConoceras[] = [
         routerLink: '/Agricultura',
         color: '#A4C639',
         animacion: 'slide-in-from-r-20',
-        posicion: 'derecha'
+        posicion: 'derecha',
+        svg: 'gastronomia'
     }
 ];
