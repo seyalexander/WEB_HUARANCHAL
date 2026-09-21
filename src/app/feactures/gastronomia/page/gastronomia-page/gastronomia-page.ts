@@ -47,7 +47,7 @@ export class GastronomiaPage {
       categoria: 'Sopas',
 
       imagen: 'assets/GASTRONOMIA/shambar_01.png',
-      modelo: 'assets/GASTRONOMIA/Gastronomia_modelo_shambar_01.png',
+      modelo: 'assets/GASTRONOMIA/Gastronomia_modelo_shambar_01.webp',
 
       descripcionCorta:
         'Una sopa tradicional preparada con trigo y menestras.',
@@ -76,7 +76,7 @@ export class GastronomiaPage {
       categoria: 'Tradicionales',
 
       imagen: 'assets/GASTRONOMIA/cuy_01.png',
-      modelo: 'assets/GASTRONOMIA/Gastronomia_modelo_cuy_01.png',
+      modelo: 'assets/GASTRONOMIA/Gastronomia_modelo_cuy_01.webp',
 
       descripcionCorta:
         'Cuy crocante acompañado de papas y productos de la tierra.',
@@ -105,7 +105,7 @@ export class GastronomiaPage {
       categoria: 'Guisos',
 
       imagen: 'assets/GASTRONOMIA/cabrito_01.png',
-      modelo: 'assets/GASTRONOMIA/Gastronomia_modelo_cabrito_01.png',
+      modelo: 'assets/GASTRONOMIA/Gastronomia_modelo_cabrito_01.webp',
 
       descripcionCorta:
         'Cabrito cocinado lentamente con especias y tradición.',
@@ -134,7 +134,7 @@ export class GastronomiaPage {
       categoria: 'Tradicionales',
 
       imagen: 'assets/GASTRONOMIA/humitas_01.png',
-      modelo: 'assets/GASTRONOMIA/Gastronomia_modelo_humitas_01.png',
+      modelo: 'assets/GASTRONOMIA/Gastronomia_modelo_humitas_01.webp',
 
       descripcionCorta:
         'Masa de maíz preparada y cocida dentro de sus propias pancas.',
