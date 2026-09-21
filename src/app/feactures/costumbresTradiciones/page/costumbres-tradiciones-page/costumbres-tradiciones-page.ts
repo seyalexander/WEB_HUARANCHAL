@@ -35,7 +35,7 @@ export class CostumbresTradicionesPage {
   {
     id: 3,
     nombre: 'Festividades Agrícolas',
-    imagen: 'assets/COSTUMBRES/costumbres_07.png',
+    imagen: 'assets/COSTUMBRES/costumbres_07.webp',
     descripcion: 'Tradiciones ligadas a la producción agrícola.',
     descripcionLarga:
       'Diversas actividades acompañan las épocas de siembra y cosecha, manteniendo vivas las costumbres ancestrales.'
