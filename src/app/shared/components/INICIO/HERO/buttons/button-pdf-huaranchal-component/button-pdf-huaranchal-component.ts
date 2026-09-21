@@ -281,11 +281,11 @@ export class ButtonPdfHuaranchalComponent {
         ================================================== -->
 
         <div
-          class="absolute -top-[45mm] -right-[45mm] w-[100mm] h-[100mm] rounded-full bg-[#A4C639]/8 blur-3xl">
+          class="absolute top-[-45mm] right-[-45mm] w-[100mm] h-[100mm] rounded-full bg-[#A4C639]/8 blur-3xl">
         </div>
 
         <div
-          class="absolute -bottom-[45mm] -left-[45mm] w-[100mm] h-[100mm] rounded-full bg-[#F28C28]/8 blur-3xl">
+          class="absolute bottom-[-45mm] left-[-45mm] w-[100mm] h-[100mm] rounded-full bg-[#F28C28]/8 blur-3xl">
         </div>
 
 
@@ -591,7 +591,7 @@ export class ButtonPdfHuaranchalComponent {
           <!-- DESCRIPCIÓN -->
           <!-- ================================================== -->
 
-          <div class="mt-5 flex items-start gap-4 border-l-[2px] border-[#F6C445] pl-4">
+          <div class="mt-5 flex items-start gap-4 border-l-2 border-[#F6C445] pl-4">
 
             <p class="max-w-[145mm] text-[9px] leading-[1.8] text-[#5b635d]">
 
@@ -811,9 +811,9 @@ export class ButtonPdfHuaranchalComponent {
 
       <div class="relative h-[72mm] overflow-hidden bg-[#0b0f0d]">
 
-        <div class="absolute inset-0 bg-gradient-to-r from-[#0b0f0d] via-[#0b0f0d]/90 to-[#2F5D34]/60"></div>
+        <div class="absolute inset-0 bg-linear-to-r from-[#0b0f0d] via-[#0b0f0d]/90 to-[#2F5D34]/60"></div>
 
-        <div class="absolute -right-20 -top-20 h-[260px] w-[260px] rounded-full bg-[#F6C445]/10 blur-[70px]"></div>
+        <div class="absolute -right-20 -top-20 h-65 w-65 rounded-full bg-[#F6C445]/10 blur-[70px]"></div>
 
 
         <div class="relative z-10 px-[18mm] pt-[14mm]">
@@ -853,7 +853,7 @@ export class ButtonPdfHuaranchalComponent {
         </div>
 
 
-        <div class="absolute bottom-0 left-0 h-[3px] w-full bg-[#F6C445]"></div>
+        <div class="absolute bottom-0 left-0 h-0.75 w-full bg-[#F6C445]"></div>
 
       </div>
 
@@ -883,7 +883,7 @@ export class ButtonPdfHuaranchalComponent {
                 class="h-full w-full object-contain">
 
 
-              <div class="absolute inset-x-0 bottom-0 h-[35mm] bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div class="absolute inset-x-0 bottom-0 h-[35mm] bg-linear-to-t from-black/70 to-transparent"></div>
 
 
               <div class="absolute bottom-5 left-5">
@@ -1085,7 +1085,7 @@ export class ButtonPdfHuaranchalComponent {
         <!-- FRASE -->
         <!-- ================================================ -->
 
-        <div class="mt-[12mm] border-l-[2px] border-[#F6C445] pl-5">
+        <div class="mt-[12mm] border-l-2 border-[#F6C445] pl-5">
 
           <p class="text-[11px] italic leading-[1.8] text-[#4f5751]">
 
@@ -1357,11 +1357,11 @@ export class ButtonPdfHuaranchalComponent {
           >
 
             <div
-              class="absolute -right-[20mm] -top-[25mm] h-[80mm] w-[80mm] rounded-full border-[12mm] border-white/5"
+              class="absolute right-[-20mm] top-[-25mm] h-[80mm] w-[80mm] rounded-full border-[12mm] border-white/5"
             ></div>
 
             <div
-              class="absolute -bottom-[20mm] left-[45%] h-[50mm] w-[50mm] rounded-full bg-[#F6C445]/10 blur-2xl"
+              class="absolute bottom-[-20mm] left-[45%] h-[50mm] w-[50mm] rounded-full bg-[#F6C445]/10 blur-2xl"
             ></div>
 
 
@@ -1413,7 +1413,7 @@ export class ButtonPdfHuaranchalComponent {
             >
 
               <div
-                class="absolute -right-[12mm] -top-[12mm] h-[35mm] w-[35mm] rounded-full border-[5mm] border-white/5"
+                class="absolute right-[-12mm] top-[-12mm] h-[35mm] w-[35mm] rounded-full border-[5mm] border-white/5"
               ></div>
 
               <div class="relative z-10">
@@ -1539,7 +1539,7 @@ export class ButtonPdfHuaranchalComponent {
             >
 
               <p
-                class="max-w-[130mm] text-[6px] italic leading-[1.5] text-[#626962]"
+                class="max-w-[130mm] text-[6px] italic leading-normal text-[#626962]"
               >
                 La historia de Huaranchal permanece en sus caminos,
                 sus costumbres y en la memoria de quienes mantienen
@@ -1694,7 +1694,7 @@ export class ButtonPdfHuaranchalComponent {
             >
 
               <p
-                class="max-w-[130mm] text-[6px] italic leading-[1.5] text-[#626962]"
+                class="max-w-[130mm] text-[6px] italic leading-normal text-[#626962]"
               >
                 La historia de Huaranchal permanece en sus caminos,
                 sus costumbres y en la memoria de quienes mantienen
@@ -3133,7 +3133,7 @@ export class ButtonPdfHuaranchalComponent {
 
       <!-- DEGRADADO INFERIOR -->
 
-      <div class="absolute inset-x-0 bottom-0 h-[150mm] bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
+      <div class="absolute inset-x-0 bottom-0 h-[150mm] bg-linear-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
 
       <!-- CONTENIDO -->
 
