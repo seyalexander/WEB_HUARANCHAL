@@ -1,0 +1,134 @@
+/* =========================================================
+   CARRUSEL INFINITO
+   ========================================================= */
+
+.caserios-track {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+}
+
+
+/* FILA SUPERIOR
+   Se desplaza hacia la izquierda
+*/
+
+.caserios-track-left {
+    animation-name: caserios-left;
+    animation-duration: 55s;
+}
+
+
+/* FILA INFERIOR
+   Se desplaza hacia la derecha
+*/
+
+.caserios-track-right {
+    animation-name: caserios-right;
+    animation-duration: 48s;
+}
+
+
+/* =========================================================
+   PAUSA AL PASAR EL CURSOR
+   ========================================================= */
+
+.caserios-track:has(.caserio-card:hover) {
+    animation-play-state: paused;
+}
+
+
+/* =========================================================
+   ANIMACIÓN IZQUIERDA
+   ========================================================= */
+
+@keyframes caserios-left {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - 8px));
+    }
+
+}
+
+
+/* =========================================================
+   ANIMACIÓN DERECHA
+   ========================================================= */
+
+@keyframes caserios-right {
+
+    from {
+        transform: translateX(calc(-50% - 8px));
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =========================================================
+   TOOLTIP
+   ========================================================= */
+
+.caserio-tooltip {
+    animation: caserio-tooltip-in 180ms ease-out;
+}
+
+
+@keyframes caserio-tooltip-in {
+
+    from {
+        opacity: 0;
+        transform: translate(-50%, 8px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   REDUCIR MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .caserios-track {
+        animation: none;
+    }
+
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+    .caserios-track-left {
+        animation-duration: 42s;
+    }
+
+    .caserios-track-right {
+        animation-duration: 38s;
+    }
+
+    .caserio-tooltip {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        width: min(88vw, 320px);
+        transform: translateX(-50%);
+    }
+
+}
