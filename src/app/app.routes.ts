@@ -12,10 +12,10 @@ import { PRODUCTOS_TURISTICOS_ROUTES } from './feactures/productos/productos.rou
 
 
 export const routes: Routes = [
-    {
-        path: '',
-        loadComponent: () => import('../app/shared/components/splash-screen/splash-screen').then(m => m.SplashScreen)
-    },
+    // {
+    //     path: '',
+    //     loadComponent: () => import('../app/shared/components/splash-screen/splash-screen').then(m => m.SplashScreen)
+    // },
     ...INICIO_ROUTES,
     ...LUGARES_TURISTICOS_ROUTES,
     ...PRODUCTOS_TURISTICOS_ROUTES,
