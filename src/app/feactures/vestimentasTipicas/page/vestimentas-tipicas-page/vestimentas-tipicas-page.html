@@ -1,83 +1,87 @@
+
 <section
   id="vestimenta"
-  class="relative min-h-screen overflow-hidden bg-[#0B0B0F]">
+  class="relative isolate overflow-hidden bg-[#FAFAF7] py-24 md:py-32 lg:py-36">
 
-  <!-- FONDO ABSTRACTO -->
+  <!-- =========================================================
+       FONDO
+  ========================================================== -->
+
+  <!-- Textura muy sutil -->
 
   <div
-    class="absolute inset-0 opacity-[0.03]"
+    class="pointer-events-none absolute inset-0 opacity-[0.025]"
     style="
       background-image:
-      linear-gradient(to right, white 1px, transparent 1px),
-      linear-gradient(to bottom, white 1px, transparent 1px);
-      background-size: 80px 80px;">
+        linear-gradient(to right, #2F5D34 1px, transparent 1px),
+        linear-gradient(to bottom, #2F5D34 1px, transparent 1px);
+      background-size: 72px 72px;">
   </div>
 
-  <!-- BLURS -->
+
+  <!-- Mancha verde -->
 
   <div
-    class="absolute -top-40 -left-40
-           w-175 h-175
-           bg-[#F6C445]/10
-           rounded-full
-           blur-[150px]">
+    class="pointer-events-none absolute -left-48 top-10 h-150 w-150 rounded-full bg-[#4F8A3F]/10 blur-[140px]">
   </div>
 
+
+  <!-- Mancha amarilla -->
+
   <div
-    class="absolute -bottom-40 -right-40
-           w-175 h-175
-           bg-[#8B5E3C]/10
-           rounded-full
-           blur-[150px]">
+    class="pointer-events-none absolute -right-48 bottom-0 h-150 w-150 rounded-full bg-[#F6C445]/10 blur-[140px]">
   </div>
 
+
+  <!-- Mancha tierra -->
+
   <div
-    class="absolute top-1/2 left-1/2
-           -translate-x-1/2
-           -translate-y-1/2
-           w-225
-           h-225
-           bg-[#F6C445]/5
-           rounded-full
-           blur-[180px]">
+    class="pointer-events-none absolute left-1/2 top-[45%] h-175 w-175 -translate-x-1/2 rounded-full bg-[#8B5E3C]/5 blur-[150px]">
   </div>
 
+
+  <!-- =========================================================
+       CONTENEDOR
+  ========================================================== -->
+
   <div
-    class="relative z-10
-           max-w-7xl
-           mx-auto
-           px-6
-           py-24">
+    class="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
 
-    <!-- HEADER -->
 
-    <div class="text-center max-w-4xl mx-auto">
+    <!-- =======================================================
+         ENCABEZADO
+    ======================================================== -->
 
-      <span
-        class="inline-flex
-               px-6 py-3
-               rounded-full
-               bg-[#F6C445]/20
-               border border-[#F6C445]/20
-               text-[#F6C445]">
+    <header class="mx-auto max-w-4xl text-center">
 
-        Patrimonio Cultural de Huaranchal
+      <!-- BADGE -->
 
-      </span>
+      <div
+        class="inline-flex items-center gap-3 rounded-full border border-[#2F5D34]/15 bg-[#EEF4EC] px-5 py-2.5">
+
+        <span
+          class="h-2 w-2 rounded-full bg-[#F28C28]">
+        </span>
+
+        <span
+          class="text-xs font-bold uppercase tracking-[0.22em] text-[#2F5D34] md:text-sm">
+
+          Patrimonio Cultural de Huaranchal
+
+        </span>
+
+      </div>
+
+
+      <!-- TÍTULO -->
 
       <h1
-        class="mt-8
-               text-5xl
-               md:text-7xl
-               lg:text-8xl
-               font-black
-               text-white">
+        class="mt-8 text-5xl font-black leading-[0.9] tracking-[-0.04em] text-[#1E293B] sm:text-6xl md:text-7xl lg:text-[6.5rem]">
 
         Vestimenta
 
         <span
-          class="block
-                 text-[#F6C445]">
+          class="mt-2 block text-[#2F5D34]">
 
           Tradicional
 
@@ -85,178 +89,439 @@
 
       </h1>
 
-      <p
-        class="mt-8
-               text-lg
-               md:text-xl
-               leading-9
-               text-slate-400
-               max-w-3xl
-               mx-auto">
 
-        Una manifestación viva de la identidad
-        cultural de Huaranchal. Cada prenda,
-        tejido y accesorio refleja generaciones
-        de historia, trabajo y tradición.
+      <!-- FRASE -->
+
+      <div
+        class="mx-auto mt-8 flex items-center justify-center gap-4">
+
+        <span
+          class="h-px w-10 bg-[#2F5D34]/20 md:w-16">
+        </span>
+
+        <span
+          class="h-2.5 w-2.5 rotate-45 bg-[#F6C445]">
+        </span>
+
+        <span
+          class="h-px w-10 bg-[#2F5D34]/20 md:w-16">
+        </span>
+
+      </div>
+
+
+      <p
+        class="mx-auto mt-7 max-w-2xl text-base leading-8 text-[#64748B] md:text-lg">
+
+        Prendas, tejidos y accesorios que conservan
+        la memoria de nuestros pueblos y expresan
+        una identidad que continúa viva en Huaranchal.
+
+      </p>
+
+    </header>
+
+
+    <!-- =======================================================
+         PERSONAJES
+    ======================================================== -->
+
+    <div
+      class="relative mx-auto mt-16 max-w-6xl md:mt-20 lg:mt-24">
+
+
+      <!-- =====================================================
+           ELEMENTO DECORATIVO CENTRAL
+      ====================================================== -->
+
+      <div
+        class="pointer-events-none absolute left-1/2 top-[48%] hidden h-72 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#2F5D34]/15 to-transparent lg:block">
+      </div>
+
+
+      <!-- =====================================================
+           COMPOSICIÓN
+      ====================================================== -->
+
+      <div
+        class="grid items-end gap-12 lg:grid-cols-2 lg:gap-0">
+
+
+        <!-- ===================================================
+             VARÓN
+        ==================================================== -->
+
+        <article
+          class="group relative flex flex-col items-center lg:pr-12 xl:pr-20">
+
+
+          <!-- Mancha detrás -->
+
+          <div
+            class="pointer-events-none absolute left-1/2 top-1/2 h-105 w-105 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#4F8A3F]/10 blur-[100px]">
+          </div>
+
+
+          <!-- Imagen -->
+
+          <div
+            class="relative flex min-h-105 w-full items-end justify-center md:min-h-125 lg:min-h-145">
+
+            <img
+              src="assets/VESTIMENTAS/vestimenta_hombres.png"
+              alt="Vestimenta tradicional del varón de Huaranchal"
+              class="relative z-10 max-h-155 w-auto max-w-full object-contain drop-shadow-[0_30px_35px_rgba(30,58,36,0.16)] transition duration-700 ease-out group-hover:-translate-y-3 group-hover:scale-[1.025]"
+            />
+
+          </div>
+
+
+          <!-- Información -->
+
+          <div
+            class="relative z-20 mt-2 max-w-md text-center lg:text-right">
+
+            <div
+              class="flex items-center justify-center gap-3 lg:justify-end">
+
+              <span
+                class="text-[11px] font-black uppercase tracking-[0.25em] text-[#4F8A3F]">
+
+                Tradición masculina
+
+              </span>
+
+              <span
+                class="hidden h-px w-8 bg-[#4F8A3F]/30 lg:block">
+              </span>
+
+            </div>
+
+
+            <h2
+              class="mt-3 text-3xl font-black tracking-tight text-[#1E3A24] md:text-4xl">
+
+              Vestimenta del Varón
+
+            </h2>
+
+
+            <p
+              class="mt-4 text-sm leading-7 text-[#64748B] md:text-base">
+
+              Prendas vinculadas al trabajo agrícola,
+              las festividades religiosas y las actividades
+              comunales, como expresión de identidad,
+              esfuerzo y pertenencia.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- ===================================================
+             MUJER
+        ==================================================== -->
+
+        <article
+          class="group relative flex flex-col items-center lg:pl-12 xl:pl-20">
+
+
+          <!-- Mancha detrás -->
+
+          <div
+            class="pointer-events-none absolute left-1/2 top-1/2 h-105 w-105 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#F6C445]/10 blur-[100px]">
+          </div>
+
+
+          <!-- Imagen -->
+
+          <div
+            class="relative flex min-h-105 w-full items-end justify-center md:min-h-125 lg:min-h-145">
+
+            <img
+              src="assets/VESTIMENTAS/vestimenta_mujeres_01.png"
+              alt="Vestimenta tradicional de la mujer de Huaranchal"
+              class="relative z-10 max-h-155 w-auto max-w-full object-contain drop-shadow-[0_30px_35px_rgba(139,94,60,0.15)] transition duration-700 ease-out group-hover:-translate-y-3 group-hover:scale-[1.025]"
+            />
+
+          </div>
+
+
+          <!-- Información -->
+
+          <div
+            class="relative z-20 mt-2 max-w-md text-center lg:text-left">
+
+            <div
+              class="flex items-center justify-center gap-3 lg:justify-start">
+
+              <span
+                class="hidden h-px w-8 bg-[#F28C28]/30 lg:block">
+              </span>
+
+              <span
+                class="text-[11px] font-black uppercase tracking-[0.25em] text-[#F28C28]">
+
+                Tradición femenina
+
+              </span>
+
+            </div>
+
+
+            <h2
+              class="mt-3 text-3xl font-black tracking-tight text-[#1E3A24] md:text-4xl">
+
+              Vestimenta de la Mujer
+
+            </h2>
+
+
+            <p
+              class="mt-4 text-sm leading-7 text-[#64748B] md:text-base">
+
+              Tejidos, colores y accesorios artesanales
+              que reflejan la creatividad y riqueza cultural
+              transmitida de generación en generación.
+
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <!-- =====================================================
+           DETALLE CENTRAL
+      ====================================================== -->
+
+      <div
+        class="absolute left-1/2 top-[48%] z-30 hidden -translate-x-1/2 -translate-y-1/2 lg:flex">
+
+        <div
+          class="flex h-12 w-12 rotate-45 items-center justify-center border border-[#2F5D34]/15 bg-[#FAFAF7] shadow-sm">
+
+          <span
+            class="h-2.5 w-2.5 -rotate-45 bg-[#F6C445]">
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =======================================================
+         CIERRE
+    ======================================================== -->
+
+    <div
+      class="mx-auto mt-20 max-w-3xl md:mt-24">
+
+      <div
+        class="flex items-center gap-4">
+
+        <span
+          class="h-px flex-1 bg-[#2F5D34]/10">
+        </span>
+
+        <span
+          class="text-center text-[10px] font-black uppercase tracking-[0.28em] text-[#8B5E3C] md:text-xs">
+
+          Tejido · Identidad · Memoria
+
+        </span>
+
+        <span
+          class="h-px flex-1 bg-[#2F5D34]/10">
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<section
+  class="relative overflow-hidden bg-[#F5F5F0] py-24 md:py-28">
+
+  <!-- DECORACIÓN -->
+
+  <div
+    class="pointer-events-none absolute -left-32 -top-32 h-100 w-100 rounded-full bg-[#F6C445]/15 blur-[110px]">
+  </div>
+
+  <div
+    class="pointer-events-none absolute -bottom-32 -right-32 h-100 w-100 rounded-full bg-[#4F8A3F]/10 blur-[110px]">
+  </div>
+
+
+  <!-- CONTENIDO -->
+
+  <div
+    class="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
+
+    <div class="mx-auto max-w-4xl text-center">
+
+      <!-- BADGE -->
+
+      <div
+        class="inline-flex items-center gap-3 rounded-full border border-[#2F5D34]/15 bg-[#EEF4EC] px-5 py-2.5">
+
+        <span class="h-2 w-2 rounded-full bg-[#F28C28]"></span>
+
+        <span
+          class="text-xs font-bold uppercase tracking-[0.22em] text-[#2F5D34]">
+
+          Cultura Viva
+
+        </span>
+
+      </div>
+
+
+      <!-- TÍTULO -->
+
+      <h2
+        class="mt-7 text-4xl font-black leading-tight tracking-tight text-[#1E293B] md:text-5xl lg:text-6xl">
+
+        Tradición que se lleva
+
+        <span class="block text-[#2F5D34]">
+          puesta en cada prenda
+        </span>
+
+      </h2>
+
+
+      <!-- DECORACIÓN -->
+
+      <div class="mx-auto mt-7 flex items-center justify-center gap-3">
+
+        <span class="h-px w-12 bg-[#2F5D34]/20"></span>
+
+        <span class="h-2.5 w-2.5 rotate-45 bg-[#F6C445]"></span>
+
+        <span class="h-px w-12 bg-[#2F5D34]/20"></span>
+
+      </div>
+
+
+      <!-- TEXTO -->
+
+      <p
+        class="mx-auto mt-7 max-w-3xl text-base leading-8 text-[#64748B] md:text-lg">
+
+        La vestimenta tradicional representa identidad, historia y cultura viva.
+        Cada prenda conserva conocimientos transmitidos de generación en
+        generación y refleja la relación de nuestra comunidad con su territorio.
 
       </p>
 
     </div>
 
-    <!-- PERSONAJES -->
 
-    <div class="relative mt-24 grid lg:grid-cols-2 gap-20 items-center">
-      <!-- LÍNEA CENTRAL -->
-      <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-[#F6C445]/30 to-transparent">
-      </div>
+    <!-- CARACTERÍSTICAS -->
 
-      <!-- VARÓN -->
+    <div
+      class="mt-14 grid gap-5 md:grid-cols-3">
+
+      <!-- ITEM -->
 
       <div
-        class="relative
-               flex flex-col
-               items-center">
-
-        <!-- HALO -->
+        class="group rounded-[20px] border border-[#2F5D34]/10 bg-white p-7 text-center shadow-[0_4px_20px_rgba(30,41,59,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(30,41,59,0.10)]">
 
         <div
-          class="absolute
-                 top-1/2
-                 -translate-y-1/2
-                 w-100
-                 h-100
-                 rounded-full
-                 bg-[#F6C445]/10
-                 blur-[120px]">
-        </div>
+          class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#EEF4EC]">
 
-        <img
-        alt="Imagen"
-          src="assets/VESTIMENTAS/vestimenta_hombres.png"
-          class="relative z-10
-                 max-h-162.5
-                 w-auto
-                 object-contain
-                 hover:scale-105
-                 transition-all
-                 duration-700">
-
-        <div
-          class="relative z-20
-                 text-center
-                 mt-10">
-
-          <span
-            class="uppercase
-                   tracking-[5px]
-                   text-[#F6C445]
-                   text-sm">
-
-            Tradición Masculina
-
-          </span>
-
-          <h2
-            class="mt-4
-                   text-4xl
-                   lg:text-5xl
-                   font-black
-                   text-white">
-
-            Vestimenta del Varón
-
-          </h2>
-
-          <p
-            class="mt-6
-                   max-w-md
-                   mx-auto
-                   text-slate-400
-                   leading-8">
-
-            Utilizada durante labores agrícolas,
-            festividades religiosas y actividades
-            comunales, simbolizando esfuerzo,
-            identidad y pertenencia cultural.
-
-          </p>
+          <div class="h-3 w-3 rotate-45 bg-[#2F5D34]"></div>
 
         </div>
+
+        <h3
+          class="mt-5 text-lg font-black text-[#1E3A24]">
+
+          Herencia cultural
+
+        </h3>
+
+        <p
+          class="mt-2 text-sm leading-6 text-[#64748B]">
+
+          Conocimientos y costumbres transmitidos
+          entre generaciones.
+
+        </p>
 
       </div>
 
-      <!-- MUJER -->
+
+      <!-- ITEM -->
 
       <div
-        class="relative
-               flex flex-col
-               items-center">
-
-        <!-- HALO -->
+        class="group rounded-[20px] border border-[#2F5D34]/10 bg-white p-7 text-center shadow-[0_4px_20px_rgba(30,41,59,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(30,41,59,0.10)]">
 
         <div
-          class="absolute
-                 top-1/2
-                 -translate-y-1/2
-                 w-100
-                 h-100
-                 rounded-full
-                 bg-[#F6C445]/10
-                 blur-[120px]">
+          class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF8DF]">
+
+          <div class="h-3 w-3 rounded-full bg-[#F6C445]"></div>
+
         </div>
 
-        <img
-        alt="Imagen"
-          src="assets/VESTIMENTAS/vestimenta_mujeres_01.png"
-          class="relative z-10
-                 max-h-162.5
-                 w-auto
-                 object-contain
-                 hover:scale-105
-                 transition-all
-                 duration-700">
+        <h3
+          class="mt-5 text-lg font-black text-[#1E3A24]">
+
+          Hecho a mano
+
+        </h3>
+
+        <p
+          class="mt-2 text-sm leading-6 text-[#64748B]">
+
+          Textiles y accesorios que conservan
+          el valor del trabajo artesanal.
+
+        </p>
+
+      </div>
+
+
+      <!-- ITEM -->
+
+      <div
+        class="group rounded-[20px] border border-[#2F5D34]/10 bg-white p-7 text-center shadow-[0_4px_20px_rgba(30,41,59,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(30,41,59,0.10)]">
 
         <div
-          class="relative z-20
-                 text-center
-                 mt-10">
+          class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF1E5]">
 
-          <span
-            class="uppercase
-                   tracking-[5px]
-                   text-[#F6C445]
-                   text-sm">
-
-            Tradición Femenina
-
-          </span>
-
-          <h2
-            class="mt-4
-                   text-4xl
-                   lg:text-5xl
-                   font-black
-                   text-white">
-
-            Vestimenta de la Mujer
-
-          </h2>
-
-          <p
-            class="mt-6
-                   max-w-md
-                   mx-auto
-                   text-slate-400
-                   leading-8">
-
-            Destaca por sus tejidos, colores y
-            accesorios artesanales que reflejan
-            la riqueza cultural y las costumbres
-            heredadas de generación en generación.
-
-          </p>
+          <div class="h-3 w-3 rounded-full bg-[#F28C28]"></div>
 
         </div>
+
+        <h3
+          class="mt-5 text-lg font-black text-[#1E3A24]">
+
+          Identidad viva
+
+        </h3>
+
+        <p
+          class="mt-2 text-sm leading-6 text-[#64748B]">
+
+          Una expresión de pertenencia y orgullo
+          cultural de Huaranchal.
+
+        </p>
 
       </div>
 
@@ -266,317 +531,394 @@
 
 </section>
 
-<section class="relative py-20 bg-[#F8F6F1] overflow-hidden">
+<section
+  class="relative overflow-hidden bg-[#FAFAF7] py-28 md:py-36">
 
-  <!-- DECORACIÓN SUAVE -->
-  <div class="absolute -top-20 -left-20 w-75 h-75 bg-[#F6C445]/20 rounded-full blur-3xl"></div>
-  <div class="absolute -bottom-20 -right-20 w-75 h-75 bg-black/5 rounded-full blur-3xl"></div>
+  <!-- =========================================================
+       FONDO
+  ========================================================== -->
 
-  <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
-
-    <!-- BADGE -->
-    <span class="inline-block px-4 py-2 rounded-full bg-[#F6C445]/10 border border-[#F6C445] text-[#F6C445] text-sm font-semibold">
-      Cultura Viva
-    </span>
-
-    <!-- TITULO -->
-    <h2 class="mt-6 text-4xl md:text-5xl font-black text-black leading-tight">
-      Tradición que se lleva <span class="text-[#F6C445]">puesta en cada prenda</span> 
-    </h2>
-
-    <!-- TEXTO -->
-    <p class="mt-6 text-gray-700 leading-7 max-w-2xl mx-auto">
-      La vestimenta típica representa identidad, historia y cultura viva.
-      Cada prenda cuenta una historia transmitida de generación en generación,
-      reflejando la esencia de nuestros pueblos andinos.
-    </p>
-
-    <!-- MINI ICONOS / DETALLES -->
-    <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-300">
-        <p class="font-bold text-black">Herencia cultural</p>
-        <p class="text-sm text-gray-600 mt-2">Transmitida por generaciones</p>
-      </div>
-
-      <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-300">
-        <p class="font-bold text-black">Hecho a mano</p>
-        <p class="text-sm text-gray-600 mt-2">Textiles artesanales únicos</p>
-      </div>
-
-      <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-300">
-        <p class="font-bold text-black">Identidad viva</p>
-        <p class="text-sm text-gray-600 mt-2">Símbolo de orgullo cultural</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="relative py-32 bg-[#111111] overflow-hidden">
-
-   <div
-    class="absolute inset-0 opacity-[0.03]"
+  <div
+    class="pointer-events-none absolute inset-0 opacity-[0.025]"
     style="
       background-image:
-      linear-gradient(to right, white 1px, transparent 1px),
-      linear-gradient(to bottom, white 1px, transparent 1px);
+        linear-gradient(to right, #2F5D34 1px, transparent 1px),
+        linear-gradient(to bottom, #2F5D34 1px, transparent 1px);
+      background-size: 70px 70px;">
+  </div>
+
+  <div
+    class="pointer-events-none absolute left-1/2 top-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#4F8A3F]/10 blur-[130px]">
+  </div>
+
+
+  <!-- =========================================================
+       CONTENEDOR
+  ========================================================== -->
+
+  <div
+    class="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+
+
+    <!-- HEADER -->
+
+    <div class="mx-auto max-w-4xl text-center">
+
+      <span
+        class="inline-flex rounded-full border border-[#2F5D34]/15 bg-[#EEF4EC] px-5 py-2 text-xs font-bold uppercase tracking-[0.22em] text-[#2F5D34]">
+
+        Detalles de nuestra tradición
+
+      </span>
+
+      <h2
+        class="mt-6 text-4xl font-black tracking-tight text-[#1E3A24] md:text-5xl lg:text-6xl">
+
+        Conoce cada prenda
+
+      </h2>
+
+      <p
+        class="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#64748B] md:text-lg">
+
+        Descubre las piezas que forman parte de la vestimenta
+        tradicional y conoce el significado que conservan
+        dentro de nuestra cultura.
+
+      </p>
+
+    </div>
+
+
+    <!-- =======================================================
+         SELECTOR DE PERSONA
+    ======================================================== -->
+
+    <div class="mt-12 flex justify-center">
+
+      <div
+        class="inline-flex rounded-full border border-[#2F5D34]/15 bg-white p-1.5 shadow-[0_4px_20px_rgba(30,41,59,0.06)]">
+
+        <button
+          (click)="seleccionarPersona('varon')"
+          class="rounded-full px-7 py-3 text-sm font-bold transition duration-300"
+          [ngClass]="personaSeleccionada === personas.varon
+            ? 'bg-[#2F5D34] text-white shadow-[0_6px_18px_rgba(47,93,52,0.20)]'
+            : 'text-[#64748B] hover:bg-[#EEF4EC] hover:text-[#2F5D34]'">
+
+          Hombre
+
+        </button>
+
+        <button
+          (click)="seleccionarPersona('mujer')"
+          class="rounded-full px-7 py-3 text-sm font-bold transition duration-300"
+          [ngClass]="personaSeleccionada === personas.mujer
+            ? 'bg-[#2F5D34] text-white shadow-[0_6px_18px_rgba(47,93,52,0.20)]'
+            : 'text-[#64748B] hover:bg-[#EEF4EC] hover:text-[#2F5D34]'">
+
+          Mujer
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =======================================================
+         CONTENIDO
+    ======================================================== -->
+
+    <div
+      class="mt-16 grid items-center gap-12 lg:grid-cols-[240px_minmax(0,1fr)_300px] lg:gap-10">
+
+
+      <!-- =====================================================
+           LISTA DE PRENDAS
+      ====================================================== -->
+
+      <div>
+
+        <p
+          class="mb-4 text-xs font-black uppercase tracking-[0.2em] text-[#64748B]">
+
+          Prendas
+
+        </p>
+
+        <div class="space-y-2">
+
+          <button
+            *ngFor="let prenda of (personaSeleccionada === personas.varon ? prendasVaron : prendasMujer)"
+            (click)="seleccionarPrenda(prenda)"
+            class="group flex w-full items-center gap-3 rounded-xl border p-4 text-left transition duration-300"
+            [ngClass]="{
+              'border-[#2F5D34] bg-[#EEF4EC] shadow-[0_5px_18px_rgba(47,93,52,0.08)]': prenda === prendaSeleccionada,
+              'border-transparent bg-white hover:border-[#2F5D34]/15 hover:bg-[#F5F5F0]': prenda !== prendaSeleccionada
+            }">
+
+            <span
+              class="h-2 w-2 shrink-0 rounded-full transition"
+              [ngClass]="prenda === prendaSeleccionada
+                ? 'bg-[#F6C445]'
+                : 'bg-[#CBD5E1] group-hover:bg-[#4F8A3F]'">
+            </span>
+
+            <span
+              class="text-sm font-bold"
+              [ngClass]="prenda === prendaSeleccionada
+                ? 'text-[#1E3A24]'
+                : 'text-[#64748B] group-hover:text-[#2F5D34]'">
+
+              {{ prenda.nombre }}
+
+            </span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           IMAGEN CENTRAL
+      ====================================================== -->
+
+      <div class="relative flex min-h-120 items-center justify-center">
+
+        <!-- HALO -->
+
+        <div
+          class="absolute h-105 w-105 rounded-full bg-[#4F8A3F]/10 blur-[90px]">
+        </div>
+
+        <!-- CÍRCULO -->
+
+        <div
+          class="absolute h-90 w-90 rounded-full border border-[#2F5D34]/10 bg-[#EEF4EC]/40">
+        </div>
+
+        <div
+          class="absolute h-72 w-72 rounded-full border border-dashed border-[#F6C445]/40">
+        </div>
+
+
+        <!-- IMAGEN / 360 -->
+
+        <div
+          class="relative z-10 flex w-full cursor-grab select-none items-center justify-center active:cursor-grabbing touch-none"
+          (mousedown)="iniciarRotacion($event)"
+          (mousemove)="rotar($event)"
+          (mouseup)="terminarRotacion()"
+          (mouseleave)="terminarRotacion()"
+          (touchstart)="iniciarRotacionTouch($event)"
+          (touchmove)="rotarTouch($event)"
+          (touchend)="terminarRotacion()">
+
+          <img
+            [src]="prendaSeleccionada.imagenes[indiceImagen]"
+            [alt]="'Imagen de ' + prendaSeleccionada.nombre"
+            class="max-h-145 w-full object-contain drop-shadow-[0_25px_30px_rgba(30,58,36,0.15)] transition duration-500"
+            draggable="false">
+
+        </div>
+
+
+        <!-- INDICACIÓN -->
+
+        <div
+          class="absolute bottom-0 left-1/2 z-20 -translate-x-1/2 rounded-full border border-[#2F5D34]/10 bg-white/90 px-4 py-2 text-xs font-semibold text-[#64748B] shadow-sm backdrop-blur">
+
+          Arrastra para explorar
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           INFORMACIÓN
+      ====================================================== -->
+
+      <div>
+
+        <span
+          class="inline-flex rounded-full bg-[#FFF8DF] px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#8B5E3C]">
+
+          Elemento tradicional
+
+        </span>
+
+        <h3
+          class="mt-5 text-3xl font-black leading-tight text-[#1E3A24] md:text-4xl">
+
+          {{ prendaSeleccionada.nombre }}
+
+        </h3>
+
+        <div
+          class="mt-5 h-1 w-12 rounded-full bg-[#F6C445]">
+        </div>
+
+        <p
+          class="mt-6 text-base leading-8 text-[#64748B]">
+
+          {{ prendaSeleccionada.descripcion }}
+
+        </p>
+
+        <div
+          class="mt-8 rounded-[18px] border border-[#2F5D34]/10 bg-white p-5">
+
+          <p
+            class="text-xs font-bold uppercase tracking-[0.15em] text-[#4F8A3F]">
+
+            Patrimonio
+
+          </p>
+
+          <p
+            class="mt-2 text-sm leading-6 text-[#64748B]">
+
+            Cada pieza forma parte de una tradición que
+            conecta la vestimenta con la identidad de
+            la comunidad.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section
+  class="relative overflow-hidden bg-[#1E3A24] py-28 md:py-36">
+
+  <!-- =========================================================
+       FONDO
+  ========================================================== -->
+
+  <div
+    class="pointer-events-none absolute inset-0 opacity-[0.04]"
+    style="
+      background-image:
+        linear-gradient(to right, white 1px, transparent 1px),
+        linear-gradient(to bottom, white 1px, transparent 1px);
       background-size: 80px 80px;">
   </div>
 
-  <div class="absolute inset-0 pointer-events-none">
 
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                w-150 h-150
-                bg-[#F6C445]/25 rounded-full blur-[120px]">
-    </div>
-
-    <div class="absolute top-20 -left-50
-                w-100 h-100
-                bg-[#F6C445]/10 rounded-full blur-3xl">
-    </div>
-
+  <div
+    class="pointer-events-none absolute -left-40 top-20 h-125 w-125 rounded-full bg-[#4F8A3F]/20 blur-[130px]">
   </div>
 
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-
-    <!-- TITULO -->
-    <div class="text-center">
-      <h2 class="text-5xl font-black text-white">
-        Conoce cada prenda
-      </h2>
-    </div>
-
-    <!-- TOGGLE PERSONA -->
-    <div class="flex justify-center mt-10 gap-4">
-
-      <button
-        (click)="seleccionarPersona('varon')"
-        class="px-6 py-3 rounded-full font-bold transition border"
-        [ngClass]="personaSeleccionada === personas.varon
-          ? 'bg-[#F6C445] text-black'
-          : 'bg-transparent text-white border-white/20 hover:border-[#F6C445]'"
-      >
-        Hombre
-      </button>
-
-      <button
-        (click)="seleccionarPersona('mujer')"
-        class="px-6 py-3 rounded-full font-bold transition border"
-        [ngClass]="personaSeleccionada === personas.mujer
-          ? 'bg-[#F6C445] text-black'
-          : 'bg-transparent text-white border-white/20 hover:border-[#F6C445]'"
-      >
-        Mujer
-      </button>
-
-    </div>
-
-    <!-- GRID -->
-    <div class="grid lg:grid-cols-3 gap-10 mt-16 items-start">
-
-  <!-- LISTA PRENDAS -->
-  <div class="space-y-4">
-
-    <div
-      *ngFor="let prenda of (personaSeleccionada === personas.varon ? prendasVaron : prendasMujer)"
-      (click)="seleccionarPrenda(prenda)"
-      class="cursor-pointer p-4 rounded-xl bg-[#1a1a1a] border transition hover:border-[#F6C445]"
-      [ngClass]="{
-        'border-[#F6C445]': prenda === prendaSeleccionada,
-        'border-transparent': prenda !== prendaSeleccionada
-      }"
-    >
-      <p class="text-white font-semibold">
-        {{ prenda.nombre }}
-      </p>
-    </div>
-
+  <div
+    class="pointer-events-none absolute -right-40 bottom-20 h-125 w-125 rounded-full bg-[#F6C445]/10 blur-[130px]">
   </div>
 
-  <!-- IMAGEN CENTRAL CON GLOW -->
-  <div class="relative flex justify-center items-center">
 
-    <!-- Glow detrás de la imagen -->
-    <div class="absolute w-100 h-100 bg-[#F6C445]/30 blur-[100px] rounded-full"></div>
+  <!-- =========================================================
+       CONTENEDOR
+  ========================================================== -->
 
-    <!-- CONTENEDOR 360° -->
-    <div
-      class="relative z-10 w-full max-h-150 flex justify-center items-center cursor-grab active:cursor-grabbing select-none touch-none"
-      (mousedown)="iniciarRotacion($event)"
-      (mousemove)="rotar($event)"
-      (mouseup)="terminarRotacion()"
-      (mouseleave)="terminarRotacion()"
-      (touchstart)="iniciarRotacionTouch($event)"
-      (touchmove)="rotarTouch($event)"
-      (touchend)="terminarRotacion()"
-    >
+  <div
+    class="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
 
-      <img
-        alt="Imagen de {{ prendaSeleccionada.nombre }}"
-        [src]="prendaSeleccionada.imagenes[indiceImagen]"
-        class="w-full max-h-150 object-contain pointer-events-none select-none"
-        draggable="false"
-      >
 
-    </div>
+    <!-- HEADER -->
 
-  </div>
+    <div class="mx-auto max-w-4xl text-center">
 
-  <!-- INFO -->
-  <div>
-
-    <span class="px-4 py-2 rounded-full bg-[#F6C445]/20 text-[#F6C445]">
-      Elemento Tradicional
-    </span>
-
-    <h3 class="mt-5 text-4xl font-black text-white">
-      {{ prendaSeleccionada.nombre }}
-    </h3>
-
-    <p class="mt-6 text-slate-400 leading-8">
-      {{ prendaSeleccionada.descripcion }}
-    </p>
-
-    <p class="mt-5 text-sm text-slate-500">
-      Arrastra la imagen para explorar la prenda
-    </p>
-
-  </div>
-
-</div>
-
-  </div>
-
-</section>
-
-<section class="relative py-32 overflow-hidden bg-[#0B0B0F]">
-
-  <!-- EFECTOS DE FONDO -->
-
-  <div class="absolute top-20 left-10
-           w-125 h-125
-           bg-[#F6C445]/10
-           rounded-full
-           blur-3xl">
-  </div>
-
-  <div class="absolute bottom-20 right-10
-           w125 h-125
-           bg-[#F28C28]/10
-           rounded-full
-           blur-3xl">
-  </div>
-
-  <!-- PATRÓN ABSTRACTO -->
-
-  <div class="absolute inset-0 opacity-[0.03]" style="
-      background-image:
-      radial-gradient(#F6C445 1px, transparent 1px);
-      background-size:40px 40px;">
-  </div>
-
-  <div class="relative z-10
-           max-w-7xl mx-auto px-6">
-
-    <!-- TITULO -->
-
-    <div class="text-center">
-
-      <span class="inline-flex
-               px-5 py-2
-               rounded-full
-               bg-[#F6C445]/20
-               text-[#F6C445]">
+      <span
+        class="inline-flex rounded-full border border-[#F6C445]/20 bg-[#F6C445]/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.22em] text-[#F6C445]">
 
         Transformación Cultural
 
       </span>
 
-      <h2 class="mt-6
-               text-5xl lg:text-7xl
-               font-black
-               text-white">
+      <h2
+        class="mt-7 text-5xl font-black tracking-tight text-white md:text-6xl lg:text-7xl">
 
         Evolución Histórica
 
       </h2>
 
-      <p class="mt-6
-               max-w-3xl
-               mx-auto
-               text-slate-400
-               text-lg">
+      <div class="mx-auto mt-7 flex items-center justify-center gap-3">
 
-        La vestimenta tradicional de Huaranchal
-        ha evolucionado a través de los años,
-        conservando su esencia andina y su
-        identidad cultural.
+        <span class="h-px w-12 bg-white/15"></span>
+
+        <span class="h-2.5 w-2.5 rotate-45 bg-[#F6C445]"></span>
+
+        <span class="h-px w-12 bg-white/15"></span>
+
+      </div>
+
+      <p
+        class="mx-auto mt-7 max-w-3xl text-base leading-8 text-white/60 md:text-lg">
+
+        La vestimenta tradicional de Huaranchal ha cambiado
+        con el paso del tiempo, incorporando nuevos materiales
+        y formas sin perder los elementos que mantienen viva
+        su identidad cultural.
 
       </p>
 
     </div>
 
-    <!-- TIMELINE -->
 
-    <div class="relative
-             mt-24">
+    <!-- =======================================================
+         TIMELINE
+    ======================================================== -->
 
-      <!-- LINEA CENTRAL -->
+    <div class="relative mt-20 md:mt-28">
 
-      <div class="absolute
-               left-1/2
-               top-0
-               bottom-0
-               w-0.5
-               bg-linear-to-b
-               from-transparent
-               via-[#F6C445]
-               to-transparent
-               hidden lg:block">
+
+      <!-- LÍNEA CENTRAL -->
+
+      <div
+        class="absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#F6C445]/40 to-transparent lg:block">
       </div>
 
-      <!-- ITEM 1 -->
 
-      <div class="grid lg:grid-cols-2
-               gap-10
-               items-center
-               mb-20">
+      <!-- =====================================================
+           ITEM 1
+      ====================================================== -->
+
+      <div
+        class="relative grid gap-8 pb-20 lg:grid-cols-2 lg:gap-20">
 
         <div class="lg:text-right">
 
-          <div class="inline-block
-                   bg-white/5
-                   backdrop-blur-xl
-                   border border-white/10
-                   rounded-[30px]
-                   p-8">
+          <div
+            class="inline-block max-w-lg rounded-[24px] border border-white/10 bg-white/[0.05] p-8 backdrop-blur-sm">
 
-            <span class="text-[#F6C445]
-                     font-bold">
+            <span
+              class="text-xs font-black uppercase tracking-[0.2em] text-[#F6C445]">
 
               Siglo XIX
 
             </span>
 
-            <h3 class="mt-3
-                     text-3xl
-                     font-black
-                     text-white">
+            <h3
+              class="mt-4 text-2xl font-black text-white md:text-3xl">
 
-              Vestimenta Tradicional
+              Vestimenta tradicional
 
             </h3>
 
-            <p class="mt-4
-                     text-slate-400">
+            <p
+              class="mt-4 text-sm leading-7 text-white/55 md:text-base">
 
-              Prendas elaboradas
-              artesanalmente con lana,
-              tejidos hechos a mano y
-              diseños propios de la sierra.
+              Prendas elaboradas artesanalmente con lana,
+              tejidos hechos a mano y diseños vinculados
+              con la vida cotidiana y el entorno andino.
 
             </p>
 
@@ -584,50 +926,52 @@
 
         </div>
 
-        <div></div>
+        <div class="hidden lg:block"></div>
+
+
+        <!-- PUNTO -->
+
+        <div
+          class="absolute left-1/2 top-10 hidden h-4 w-4 -translate-x-1/2 rotate-45 border border-[#F6C445]/50 bg-[#1E3A24] lg:block">
+        </div>
 
       </div>
 
-      <!-- ITEM 2 -->
 
-      <div class="grid lg:grid-cols-2
-               gap-10
-               items-center
-               mb-20">
+      <!-- =====================================================
+           ITEM 2
+      ====================================================== -->
 
-        <div></div>
+      <div
+        class="relative grid gap-8 pb-20 lg:grid-cols-2 lg:gap-20">
+
+        <div class="hidden lg:block"></div>
 
         <div>
 
-          <div class="bg-white/5
-                   backdrop-blur-xl
-                   border border-white/10
-                   rounded-[30px]
-                   p-8">
+          <div
+            class="max-w-lg rounded-[24px] border border-white/10 bg-white/[0.05] p-8 backdrop-blur-sm">
 
-            <span class="text-[#F6C445]
-                     font-bold">
+            <span
+              class="text-xs font-black uppercase tracking-[0.2em] text-[#F6C445]">
 
               Siglo XX
 
             </span>
 
-            <h3 class="mt-3
-                     text-3xl
-                     font-black
-                     text-white">
+            <h3
+              class="mt-4 text-2xl font-black text-white md:text-3xl">
 
               Modernización
 
             </h3>
 
-            <p class="mt-4
-                     text-slate-400">
+            <p
+              class="mt-4 text-sm leading-7 text-white/55 md:text-base">
 
-              Llegan nuevos materiales
-              textiles, conservando los
-              colores y símbolos que
-              identifican a la comunidad.
+              Aparecen nuevos materiales y formas de confección,
+              mientras algunos colores, diseños y elementos
+              tradicionales continúan formando parte de la identidad local.
 
             </p>
 
@@ -635,46 +979,48 @@
 
         </div>
 
+
+        <!-- PUNTO -->
+
+        <div
+          class="absolute left-1/2 top-10 hidden h-4 w-4 -translate-x-1/2 rotate-45 border border-[#F6C445]/50 bg-[#1E3A24] lg:block">
+        </div>
+
       </div>
 
-      <!-- ITEM 3 -->
 
-      <div class="grid lg:grid-cols-2
-               gap-10
-               items-center">
+      <!-- =====================================================
+           ITEM 3
+      ====================================================== -->
+
+      <div
+        class="relative grid gap-8 lg:grid-cols-2 lg:gap-20">
 
         <div class="lg:text-right">
 
-          <div class="inline-block
-                   bg-white/5
-                   backdrop-blur-xl
-                   border border-white/10
-                   rounded-[30px]
-                   p-8">
+          <div
+            class="inline-block max-w-lg rounded-[24px] border border-[#F6C445]/20 bg-[#F6C445]/[0.06] p-8">
 
-            <span class="text-[#F6C445]
-                     font-bold">
+            <span
+              class="text-xs font-black uppercase tracking-[0.2em] text-[#F6C445]">
 
               Actualidad
 
             </span>
 
-            <h3 class="mt-3
-                     text-3xl
-                     font-black
-                     text-white">
+            <h3
+              class="mt-4 text-2xl font-black text-white md:text-3xl">
 
-              Patrimonio Vivo
+              Patrimonio vivo
 
             </h3>
 
-            <p class="mt-4
-                     text-slate-400">
+            <p
+              class="mt-4 text-sm leading-7 text-white/55 md:text-base">
 
-              La vestimenta sigue siendo
-              parte fundamental de las
-              fiestas patronales, danzas
-              y celebraciones tradicionales.
+              La vestimenta continúa presente en fiestas patronales,
+              danzas y celebraciones tradicionales, manteniendo
+              un vínculo entre las nuevas generaciones y la memoria cultural.
 
             </p>
 
@@ -682,9 +1028,32 @@
 
         </div>
 
-        <div></div>
+        <div class="hidden lg:block"></div>
+
+
+        <!-- PUNTO FINAL -->
+
+        <div
+          class="absolute left-1/2 top-10 hidden h-5 w-5 -translate-x-1/2 rounded-full border-4 border-[#1E3A24] bg-[#F6C445] shadow-[0_0_0_6px_rgba(246,196,69,0.15)] lg:block">
+        </div>
 
       </div>
+
+    </div>
+
+
+    <!-- =======================================================
+         CIERRE
+    ======================================================== -->
+
+    <div class="mt-24 text-center">
+
+      <p
+        class="text-sm font-bold uppercase tracking-[0.25em] text-white/40">
+
+        Memoria · Identidad · Tradición
+
+      </p>
 
     </div>
 
