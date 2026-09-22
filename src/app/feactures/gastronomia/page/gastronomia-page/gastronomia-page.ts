@@ -46,7 +46,7 @@ export class GastronomiaPage {
       slug: 'shambar',
       categoria: 'Sopas',
 
-      imagen: 'assets/GASTRONOMIA/shambar_01.png',
+      imagen: 'assets/GASTRONOMIA/shambar_01.webp',
       modelo: 'assets/GASTRONOMIA/Gastronomia_modelo_shambar_01.webp',
 
       descripcionCorta:
@@ -75,7 +75,7 @@ export class GastronomiaPage {
       slug: 'cuy-frito',
       categoria: 'Tradicionales',
 
-      imagen: 'assets/GASTRONOMIA/cuy_01.png',
+      imagen: 'assets/GASTRONOMIA/cuy_01.webp',
       modelo: 'assets/GASTRONOMIA/Gastronomia_modelo_cuy_01.webp',
 
       descripcionCorta:
@@ -104,7 +104,7 @@ export class GastronomiaPage {
       slug: 'cabrito',
       categoria: 'Guisos',
 
-      imagen: 'assets/GASTRONOMIA/cabrito_01.png',
+      imagen: 'assets/GASTRONOMIA/cabrito_01.webp',
       modelo: 'assets/GASTRONOMIA/Gastronomia_modelo_cabrito_01.webp',
 
       descripcionCorta:
@@ -133,7 +133,7 @@ export class GastronomiaPage {
       slug: 'humitas',
       categoria: 'Tradicionales',
 
-      imagen: 'assets/GASTRONOMIA/humitas_01.png',
+      imagen: 'assets/GASTRONOMIA/humitas_01.webp',
       modelo: 'assets/GASTRONOMIA/Gastronomia_modelo_humitas_01.webp',
 
       descripcionCorta:
