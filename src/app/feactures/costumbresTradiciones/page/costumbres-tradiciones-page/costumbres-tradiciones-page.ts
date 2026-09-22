@@ -19,7 +19,7 @@ export class CostumbresTradicionesPage {
   {
     id: 1,
     nombre: 'Fiesta Patronal',
-    imagen: 'assets/COSTUMBRES/costumbres_05.png',
+    imagen: 'assets/COSTUMBRES/costumbres_05.webp',
     descripcion: 'Celebración religiosa tradicional.',
     descripcionLarga:
       'La fiesta patronal reúne a pobladores y visitantes mediante actividades religiosas, música y expresiones culturales.'
@@ -27,7 +27,7 @@ export class CostumbresTradicionesPage {
   {
     id: 2,
     nombre: 'Faenas Comunales',
-    imagen: 'assets/COSTUMBRES/costumbres_06.png',
+    imagen: 'assets/COSTUMBRES/costumbres_06.webp',
     descripcion: 'Trabajo colaborativo entre vecinos.',
     descripcionLarga:
       'Las faenas comunales fortalecen la unión y permiten realizar obras de beneficio para toda la comunidad.'
