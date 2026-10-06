@@ -1,635 +1,285 @@
-<section
-  class="relative isolate overflow-hidden bg-[#1E3A24] py-14 text-white sm:py-20 lg:py-24"
->
-  <!-- FONDO -->
+<section class="relative isolate overflow-hidden bg-[#1E3A24] py-20 text-white sm:py-24 lg:py-28">
+
+  <!-- Fondo -->
   <img
     src="assets/INICIO/fondoPanoramica360.jpg"
     alt=""
-    class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-50"
+    class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40"
   />
-
-  <!-- CAPAS DE COLOR -->
-  <div
-    class="pointer-events-none absolute inset-0 bg-linear-to-br from-[#1E3A24]/98 via-[#1E3A24]/92 to-[#07090e]/95"
-  ></div>
-
-  <div
-    class="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#4F8A3F]/20 blur-3xl"
-  ></div>
-
-  <div
-    class="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-[#F6C445]/10 blur-3xl"
-  ></div>
-
-  <div
-    class="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#A4C639]/5 blur-3xl"
-  ></div>
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#1E3A24]/95 via-[#1E3A24]/90 to-[#07090e]/95"></div>
 
   <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-    <!-- ENCABEZADO -->
-    <div class="mb-12 max-w-3xl lg:mb-16">
-      <div class="mb-5 flex items-center gap-3">
-        <span class="h-px w-10 bg-[#F6C445]"></span>
+    <!-- CABECERA -->
+    <header class="mb-12 grid gap-6 lg:mb-16 lg:grid-cols-[1.3fr_1fr] lg:items-end">
 
-        <span
-          class="text-xs font-semibold uppercase tracking-[0.22em] text-[#F6C445]"
-        >
+      <div>
+        <p class="flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#F6C445]">
+          <span class="h-px w-10 bg-[#F6C445]"></span>
           Experiencia interactiva
-        </span>
+        </p>
+
+        <h2 class="mt-5 font-serif text-5xl leading-[1.02] md:text-7xl">
+          Huaranchal<br />
+          <span class="italic text-[#A4C639]">en 360°</span>
+        </h2>
       </div>
 
-      <h2
-        class="max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
-      >
-        Explora Huaranchal
-        <span class="text-[#A4C639]">en 360°</span>
-      </h2>
-
-      <p
-        class="mt-5 max-w-2xl text-sm leading-7 text-white/65 sm:text-base"
-      >
-        Descubre la geografía de nuestro pueblo desde diferentes perspectivas.
-        Explora cada sector de la vista aérea y acércate visualmente a los
-        paisajes que forman parte de Huaranchal.
+      <p class="max-w-md text-base leading-7 text-white/70 lg:justify-self-end">
+        Descubre la geografía de nuestro pueblo desde la vista aérea. En el celular,
+        inclínalo para recorrerla; en la computadora, arrastra o toca una zona.
       </p>
-    </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
+    </header>
+
+
     <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
 
-      <!-- ========================================================= -->
-      <!-- VISOR -->
-      <!-- ========================================================= -->
-
+      <!-- ====================== VISOR ====================== -->
       <div class="lg:col-span-7">
         <div class="relative mx-auto w-full max-w-[520px]">
 
-          <!-- MARCO EXTERIOR -->
-          <div
-            class="absolute -inset-3 rounded-[2rem] border border-white/5 bg-white/[0.02] blur-[1px]"
-          ></div>
+          <div class="absolute -inset-3 rounded-[2rem] border border-white/5 bg-white/[0.02]"></div>
 
           <div
             #viewerContainer
-            class="group relative h-[620px] w-full touch-none select-none cursor-grab overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#0D1710] shadow-[0_30px_80px_rgba(0,0,0,0.45)] active:cursor-grabbing sm:h-[700px]"
+            class="group relative h-[620px] w-full cursor-grab touch-none select-none overflow-hidden
+                   rounded-[1.75rem] border border-white/15 bg-[#0D1710]
+                   shadow-[0_30px_80px_rgba(0,0,0,0.45)] active:cursor-grabbing sm:h-[700px]"
             (mousedown)="onPointerDown($event)"
             (touchstart)="onPointerDown($event)"
           >
 
-            <!-- IMAGEN -->
-            <img
-              [src]="imagenes[indiceActual]"
-              alt="Vista panorámica de Huaranchal"
-              class="pointer-events-none h-full w-full object-cover transition-all duration-500 ease-out"
-            />
-
-            <!-- DEGRADADO SUPERIOR -->
-            <div
-              class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-black/60 to-transparent"
-            ></div>
-
-            <!-- DEGRADADO INFERIOR -->
-            <div
-              class="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-linear-to-t from-black/70 via-black/25 to-transparent"
-            ></div>
-
-            <!-- ================================================= -->
-            <!-- MATRIZ 3x3 INVISIBLE -->
-            <!-- ================================================= -->
-
-            <div
-              class="absolute inset-0 z-10 grid grid-cols-3 grid-rows-3 pointer-events-auto"
-            >
-
-              <button
-                type="button"
-                title="Arriba izquierda"
-                class="h-full w-full cursor-pointer bg-transparent transition-colors hover:bg-white/[0.025] focus:outline-none"
-                (click)="seleccionarImagenPorLado('arriba-izquierda', $event)"
-              ></button>
-
-              <button
-                type="button"
-                title="Arriba"
-                class="h-full w-full cursor-pointer bg-transparent transition-colors hover:bg-white/[0.025] focus:outline-none"
-                (click)="seleccionarImagenPorLado('arriba', $event)"
-              ></button>
-
-              <button
-                type="button"
-                title="Arriba derecha"
-                class="h-full w-full cursor-pointer bg-transparent transition-colors hover:bg-white/[0.025] focus:outline-none"
-                (click)="seleccionarImagenPorLado('arriba-derecha', $event)"
-              ></button>
-
-              <button
-                type="button"
-                title="Izquierda"
-                class="h-full w-full cursor-pointer bg-transparent transition-colors hover:bg-white/[0.025] focus:outline-none"
-                (click)="seleccionarImagenPorLado('izquierda', $event)"
-              ></button>
-
-              <button
-                type="button"
-                title="Centro"
-                class="h-full w-full cursor-pointer bg-transparent transition-colors hover:bg-white/[0.025] focus:outline-none"
-                (click)="seleccionarImagenPorLado('centro', $event)"
-              ></button>
-
-              <button
-                type="button"
-                title="Derecha"
-                class="h-full w-full cursor-pointer bg-transparent transition-colors hover:bg-white/[0.025] focus:outline-none"
-                (click)="seleccionarImagenPorLado('derecha', $event)"
-              ></button>
-
-              <button
-                type="button"
-                title="Abajo izquierda"
-                class="h-full w-full cursor-pointer bg-transparent transition-colors hover:bg-white/[0.025] focus:outline-none"
-                (click)="seleccionarImagenPorLado('abajo-izquierda', $event)"
-              ></button>
-
-              <button
-                type="button"
-                title="Abajo"
-                class="h-full w-full cursor-pointer bg-transparent transition-colors hover:bg-white/[0.025] focus:outline-none"
-                (click)="seleccionarImagenPorLado('abajo', $event)"
-              ></button>
-
-              <button
-                type="button"
-                title="Abajo derecha"
-                class="h-full w-full cursor-pointer bg-transparent transition-colors hover:bg-white/[0.025] focus:outline-none"
-                (click)="seleccionarImagenPorLado('abajo-derecha', $event)"
-              ></button>
-
+            <!-- IMÁGENES APILADAS (fundido entre vistas) -->
+            <div #capaImagenes class="pointer-events-none absolute inset-0 will-change-transform">
+              @for (img of imagenes; track $index) {
+                <img
+                  [src]="img"
+                  [alt]="$index === indiceActual ? 'Vista panorámica de Huaranchal' : ''"
+                  draggable="false"
+                  class="absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ease-out"
+                  [ngClass]="$index === indiceActual ? 'opacity-100' : 'opacity-0'"
+                />
+              }
             </div>
 
-            <!-- ================================================= -->
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/60 to-transparent"></div>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/70 via-black/25 to-transparent"></div>
+
+            <!-- ZONAS TÁCTILES 3x3 (invisibles) -->
+            <div class="pointer-events-auto absolute inset-0 z-10 grid grid-cols-3 grid-rows-3">
+              @for (s of sectores; track s.id) {
+                <button
+                  type="button"
+                  [attr.aria-label]="'Vista ' + s.id.replace('-', ' ')"
+                  [title]="s.id.replace('-', ' ')"
+                  (click)="seleccionarImagenPorLado(s.id, $event)"
+                  class="h-full w-full cursor-pointer bg-transparent transition-colors hover:bg-white/[0.025] focus:outline-none"
+                ></button>
+              }
+            </div>
+
             <!-- INFORMACIÓN SUPERIOR -->
-            <!-- ================================================= -->
+            <div class="pointer-events-none absolute left-5 right-5 top-5 z-20 flex items-center justify-between">
 
-            <div
-              class="pointer-events-none absolute left-5 right-5 top-5 z-20 flex items-center justify-between"
-            >
-
-              <div
-                class="flex items-center gap-2 rounded-full border border-white/10 bg-[#1E3A24]/75 px-3.5 py-2 backdrop-blur-md"
-              >
-                <span
-                  class="h-2 w-2 rounded-full bg-[#A4C639] shadow-[0_0_10px_rgba(164,198,57,0.8)]"
-                ></span>
-
-                <span
-                  class="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/90 sm:text-xs"
-                >
+              <div class="flex items-center gap-2 rounded-full border border-white/10 bg-[#1E3A24]/75 px-3.5 py-2 backdrop-blur-md">
+                <span class="h-2 w-2 rounded-full bg-[#A4C639] shadow-[0_0_10px_rgba(164,198,57,0.8)]"></span>
+                <span class="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/90 sm:text-xs">
                   Vista aérea
                 </span>
               </div>
 
-              <div
-                class="rounded-full border border-[#F6C445]/30 bg-[#1E3A24]/75 px-3.5 py-2 text-xs font-semibold text-[#F6C445] backdrop-blur-md"
-              >
+              <div class="rounded-full border border-[#F6C445]/30 bg-[#1E3A24]/75 px-3.5 py-2 text-xs font-semibold text-[#F6C445] backdrop-blur-md">
                 {{ indiceActual + 1 }} / {{ imagenes.length }}
               </div>
 
             </div>
 
-            <!-- ================================================= -->
-            <!-- INDICADOR CENTRAL -->
-            <!-- ================================================= -->
+            <!-- INDICACIÓN / ACTIVAR MOVIMIENTO -->
+            <div class="pointer-events-none absolute inset-x-0 bottom-16 z-30 flex justify-center px-4">
 
-            <div
-              class="pointer-events-none absolute inset-x-0 bottom-16 z-20 flex justify-center px-4"
-            >
-              <div
-                class="flex items-center gap-3 rounded-full border border-white/10 bg-[#1E3A24]/80 px-4 py-2.5 text-xs text-white/80 shadow-xl backdrop-blur-md"
-              >
-                <span
-                  class="flex h-7 w-7 items-center justify-center rounded-full bg-[#F6C445] text-[#1E3A24]"
-                >
-                  <svg
-                    class="h-4 w-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+              @if (giroActivo) {
+
+                <div class="flex items-center gap-3 rounded-full border border-white/10 bg-[#1E3A24]/85 py-2 pl-5 pr-2 text-xs text-white/85 shadow-xl backdrop-blur-md">
+                  <span>Inclina el celular para recorrer la vista</span>
+                  <button
+                    type="button"
+                    (click)="recentrar()"
+                    class="pointer-events-auto rounded-full bg-white/10 px-3 py-1.5 font-semibold text-[#F6C445] active:scale-95"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.8"
-                      d="M8 7h8M8 12h8M8 17h8"
-                    />
-                  </svg>
-                </span>
+                    Recentrar
+                  </button>
+                </div>
 
-                <span>
-                  Toca una zona o arrastra para explorar
-                </span>
-              </div>
+              } @else if (puedeOfrecerGiro) {
+
+                <button
+                  type="button"
+                  (click)="activarGiro()"
+                  class="pointer-events-auto flex items-center gap-3 rounded-full bg-[#F6C445] py-2.5 pl-3 pr-5
+                         text-sm font-bold text-[#1E3A24] shadow-xl active:scale-95"
+                >
+                  <span class="flex h-7 w-7 items-center justify-center rounded-full bg-[#1E3A24]/15">
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="7" y="2" width="10" height="20" rx="2" />
+                      <path d="M11 18h2" />
+                    </svg>
+                  </span>
+                  Activar movimiento
+                </button>
+
+              } @else {
+
+                <div class="rounded-full border border-white/10 bg-[#1E3A24]/80 px-4 py-2.5 text-xs text-white/80 shadow-xl backdrop-blur-md">
+                  @if (giroDenegado) {
+                    Sin permiso de movimiento. Toca una zona o arrastra.
+                  } @else if (giroSinDatos) {
+                    Tu dispositivo no envía datos de movimiento. Toca una zona o arrastra.
+                  } @else {
+                    Toca una zona o arrastra para explorar
+                  }
+                </div>
+
+              }
+
             </div>
 
-            <!-- ================================================= -->
             <!-- PROGRESO -->
-            <!-- ================================================= -->
-
-            <div
-              class="pointer-events-none absolute bottom-5 left-0 right-0 z-20 flex justify-center gap-1.5"
-            >
+            <div class="pointer-events-none absolute bottom-5 left-0 right-0 z-20 flex justify-center gap-1.5">
               @for (img of imagenes; track $index) {
-
                 <span
                   class="h-1.5 rounded-full transition-all duration-300"
-                  [class.w-6]="$index === indiceActual"
-                  [class.bg-[#F6C445]]="$index === indiceActual"
-                  [class.shadow-[0_0_8px_rgba(246,196,69,0.5)]]="$index === indiceActual"
-                  [class.w-1.5]="$index !== indiceActual"
-                  [class.bg-white/30]="$index !== indiceActual"
+                  [ngClass]="$index === indiceActual
+                    ? 'w-6 bg-[#F6C445] shadow-[0_0_8px_rgba(246,196,69,0.5)]'
+                    : 'w-1.5 bg-white/30'"
                 ></span>
-
               }
             </div>
 
           </div>
-
         </div>
       </div>
 
-      <!-- ========================================================= -->
-      <!-- INFORMACIÓN + BRÚJULA -->
-      <!-- ========================================================= -->
 
+      <!-- ================= INFORMACIÓN + BRÚJULA ================= -->
       <div class="lg:col-span-5">
-
         <div class="mx-auto max-w-[420px] lg:mx-0">
 
-          <!-- IDENTIDAD -->
           <div class="mb-8">
 
             <div class="mb-4 flex items-center gap-2">
-              <span
-                class="rounded-full border border-[#F6C445]/25 bg-[#F6C445]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#F6C445]"
-              >
+              <span class="rounded-full border border-[#F6C445]/25 bg-[#F6C445]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#F6C445]">
                 Territorio
               </span>
-
-              <span class="text-xs text-white/35">
-                Valle Alto Chicama
-              </span>
+              <span class="text-xs text-white/40">Valle Alto Chicama</span>
             </div>
 
-            <h3
-              class="text-2xl font-bold leading-tight text-white sm:text-3xl"
-            >
+            <h3 class="font-serif text-3xl leading-tight sm:text-4xl">
               Una mirada diferente
-              <span class="text-[#A4C639]">a nuestra tierra.</span>
+              <span class="italic text-[#A4C639]">a nuestra tierra.</span>
             </h3>
 
-            <p
-              class="mt-4 text-sm leading-7 text-white/60 sm:text-base"
-            >
+            <p class="mt-4 text-sm leading-7 text-white/65 sm:text-base">
               Recorre visualmente Huaranchal y descubre cómo se distribuyen
-              sus paisajes, montañas y espacios naturales desde una perspectiva
-              aérea.
+              sus paisajes, montañas y espacios naturales desde una perspectiva aérea.
             </p>
 
           </div>
 
-          <!-- ================================================= -->
-          <!-- BRÚJULA -->
-          <!-- ================================================= -->
 
-          <div
-            class="rounded-[1.75rem] border border-white/10 bg-white/[0.045] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:p-6"
-          >
+          <div class="rounded-[1.75rem] border border-white/10 bg-white/[0.045] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:p-6">
 
             <div class="mb-5 flex items-center justify-between">
-
               <div>
-                <p
-                  class="text-[10px] font-bold uppercase tracking-[0.18em] text-white/40"
-                >
-                  Navegación
-                </p>
-
-                <h4 class="mt-1 text-sm font-semibold text-white">
-                  Explora por dirección
+                <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">Navegación</p>
+                <h4 class="mt-1 text-sm font-semibold">
+                  {{ giroActivo ? 'Estás mirando hacia' : 'Explora por dirección' }}
                 </h4>
               </div>
 
-              <span
-                class="rounded-full bg-[#F6C445]/10 px-2.5 py-1 text-[10px] font-semibold text-[#F6C445]"
-              >
+              <span class="rounded-full bg-[#F6C445]/10 px-2.5 py-1 text-[10px] font-semibold text-[#F6C445]">
                 9 vistas
               </span>
-
             </div>
 
-            <!-- MATRIZ DE CONTROL -->
             <div class="grid grid-cols-3 gap-2.5">
 
-              <!-- ARRIBA IZQUIERDA -->
-              <button
-                type="button"
-                (click)="seleccionarImagenPorLado('arriba-izquierda', $event)"
-                class="flex h-14 items-center justify-center rounded-xl border transition-all duration-300 active:scale-95"
-                [class.border-[#F6C445]]="indiceActual === mapaDirecciones['arriba-izquierda']"
-                [class.bg-[#F6C445]]="indiceActual === mapaDirecciones['arriba-izquierda']"
-                [class.text-[#1E3A24]]="indiceActual === mapaDirecciones['arriba-izquierda']"
-                [class.shadow-[0_0_18px_rgba(246,196,69,0.25)]]="indiceActual === mapaDirecciones['arriba-izquierda']"
-                [class.border-white/10]="indiceActual !== mapaDirecciones['arriba-izquierda']"
-                [class.bg-white/5]="indiceActual !== mapaDirecciones['arriba-izquierda']"
-                [class.text-white/60]="indiceActual !== mapaDirecciones['arriba-izquierda']"
-                [class.hover:bg-white/10]="indiceActual !== mapaDirecciones['arriba-izquierda']"
-              >
-                <svg
-                  class="h-5 w-5 -rotate-45"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 10l7-7m0 0l7 7m-7-7v18"
-                  />
-                </svg>
-              </button>
+              @for (s of sectores; track s.id) {
 
-              <!-- ARRIBA -->
-              <button
-                type="button"
-                (click)="seleccionarImagenPorLado('arriba', $event)"
-                class="flex h-14 items-center justify-center rounded-xl border transition-all duration-300 active:scale-95"
-                [class.border-[#F6C445]]="indiceActual === mapaDirecciones['arriba']"
-                [class.bg-[#F6C445]]="indiceActual === mapaDirecciones['arriba']"
-                [class.text-[#1E3A24]]="indiceActual === mapaDirecciones['arriba']"
-                [class.shadow-[0_0_18px_rgba(246,196,69,0.25)]]="indiceActual === mapaDirecciones['arriba']"
-                [class.border-white/10]="indiceActual !== mapaDirecciones['arriba']"
-                [class.bg-white/5]="indiceActual !== mapaDirecciones['arriba']"
-                [class.text-white/60]="indiceActual !== mapaDirecciones['arriba']"
-                [class.hover:bg-white/10]="indiceActual !== mapaDirecciones['arriba']"
-              >
-                <svg
-                  class="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 10l7-7m0 0l7 7m-7-7v18"
-                  />
-                </svg>
-              </button>
+                @if (giroActivo) {
 
-              <!-- ARRIBA DERECHA -->
-              <button
-                type="button"
-                (click)="seleccionarImagenPorLado('arriba-derecha', $event)"
-                class="flex h-14 items-center justify-center rounded-xl border transition-all duration-300 active:scale-95"
-                [class.border-[#F6C445]]="indiceActual === mapaDirecciones['arriba-derecha']"
-                [class.bg-[#F6C445]]="indiceActual === mapaDirecciones['arriba-derecha']"
-                [class.text-[#1E3A24]]="indiceActual === mapaDirecciones['arriba-derecha']"
-                [class.shadow-[0_0_18px_rgba(246,196,69,0.25)]]="indiceActual === mapaDirecciones['arriba-derecha']"
-                [class.border-white/10]="indiceActual !== mapaDirecciones['arriba-derecha']"
-                [class.bg-white/5]="indiceActual !== mapaDirecciones['arriba-derecha']"
-                [class.text-white/60]="indiceActual !== mapaDirecciones['arriba-derecha']"
-                [class.hover:bg-white/10]="indiceActual !== mapaDirecciones['arriba-derecha']"
-              >
-                <svg
-                  class="h-5 w-5 rotate-45"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 10l7-7m0 0l7 7m-7-7v18"
-                  />
-                </svg>
-              </button>
+                  <!-- Indicador (no interactivo) mientras el giroscopio está activo -->
+                  <div
+                    class="flex h-14 items-center justify-center rounded-xl border transition-all duration-300"
+                    [ngClass]="esActivo(s.id)
+                      ? 'border-[#F6C445] bg-[#F6C445]/20'
+                      : 'border-white/10 bg-white/5'"
+                  >
+                    <span
+                      class="rounded-full transition-all duration-300"
+                      [ngClass]="esActivo(s.id) ? 'h-3 w-3 bg-[#F6C445]' : 'h-1.5 w-1.5 bg-white/30'"
+                    ></span>
+                  </div>
 
-              <!-- IZQUIERDA -->
-              <button
-                type="button"
-                (click)="seleccionarImagenPorLado('izquierda', $event)"
-                class="flex h-14 items-center justify-center rounded-xl border transition-all duration-300 active:scale-95"
-                [class.border-[#F6C445]]="indiceActual === mapaDirecciones['izquierda']"
-                [class.bg-[#F6C445]]="indiceActual === mapaDirecciones['izquierda']"
-                [class.text-[#1E3A24]]="indiceActual === mapaDirecciones['izquierda']"
-                [class.shadow-[0_0_18px_rgba(246,196,69,0.25)]]="indiceActual === mapaDirecciones['izquierda']"
-                [class.border-white/10]="indiceActual !== mapaDirecciones['izquierda']"
-                [class.bg-white/5]="indiceActual !== mapaDirecciones['izquierda']"
-                [class.text-white/60]="indiceActual !== mapaDirecciones['izquierda']"
-                [class.hover:bg-white/10]="indiceActual !== mapaDirecciones['izquierda']"
-              >
-                <svg
-                  class="h-5 w-5 -rotate-90"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 10l7-7m0 0l7 7m-7-7v18"
-                  />
-                </svg>
-              </button>
+                } @else {
 
-              <!-- CENTRO -->
-              <button
-                type="button"
-                (click)="seleccionarImagenPorLado('centro', $event)"
-                class="flex h-14 items-center justify-center rounded-xl border transition-all duration-300 active:scale-95"
-                [class.border-[#F6C445]]="indiceActual === mapaDirecciones['centro']"
-                [class.bg-[#F6C445]]="indiceActual === mapaDirecciones['centro']"
-                [class.text-[#1E3A24]]="indiceActual === mapaDirecciones['centro']"
-                [class.shadow-[0_0_18px_rgba(246,196,69,0.25)]]="indiceActual === mapaDirecciones['centro']"
-                [class.border-white/10]="indiceActual !== mapaDirecciones['centro']"
-                [class.bg-white/5]="indiceActual !== mapaDirecciones['centro']"
-                [class.text-white/60]="indiceActual !== mapaDirecciones['centro']"
-                [class.hover:bg-white/10]="indiceActual !== mapaDirecciones['centro']"
-              >
-                <svg
-                  class="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                  />
-                </svg>
-              </button>
+                  <button
+                    type="button"
+                    (click)="seleccionarImagenPorLado(s.id, $event)"
+                    [attr.aria-label]="'Ver ' + s.id.replace('-', ' ')"
+                    [attr.aria-pressed]="esActivo(s.id)"
+                    class="flex h-14 items-center justify-center rounded-xl border transition-all duration-300 active:scale-95"
+                    [ngClass]="esActivo(s.id)
+                      ? 'border-[#F6C445] bg-[#F6C445] text-[#1E3A24] shadow-[0_0_18px_rgba(246,196,69,0.25)]'
+                      : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10'"
+                  >
+                    @if (s.id === 'centro') {
+                      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
+                    } @else {
+                      <svg
+                        class="h-5 w-5"
+                        [style.transform]="'rotate(' + s.rotacion + 'deg)'"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                      </svg>
+                    }
+                  </button>
 
-              <!-- DERECHA -->
-              <button
-                type="button"
-                (click)="seleccionarImagenPorLado('derecha', $event)"
-                class="flex h-14 items-center justify-center rounded-xl border transition-all duration-300 active:scale-95"
-                [class.border-[#F6C445]]="indiceActual === mapaDirecciones['derecha']"
-                [class.bg-[#F6C445]]="indiceActual === mapaDirecciones['derecha']"
-                [class.text-[#1E3A24]]="indiceActual === mapaDirecciones['derecha']"
-                [class.shadow-[0_0_18px_rgba(246,196,69,0.25)]]="indiceActual === mapaDirecciones['derecha']"
-                [class.border-white/10]="indiceActual !== mapaDirecciones['derecha']"
-                [class.bg-white/5]="indiceActual !== mapaDirecciones['derecha']"
-                [class.text-white/60]="indiceActual !== mapaDirecciones['derecha']"
-                [class.hover:bg-white/10]="indiceActual !== mapaDirecciones['derecha']"
-              >
-                <svg
-                  class="h-5 w-5 rotate-90"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 10l7-7m0 0l7 7m-7-7v18"
-                  />
-                </svg>
-              </button>
+                }
 
-              <!-- ABAJO IZQUIERDA -->
-              <button
-                type="button"
-                (click)="seleccionarImagenPorLado('abajo-izquierda', $event)"
-                class="flex h-14 items-center justify-center rounded-xl border transition-all duration-300 active:scale-95"
-                [class.border-[#F6C445]]="indiceActual === mapaDirecciones['abajo-izquierda']"
-                [class.bg-[#F6C445]]="indiceActual === mapaDirecciones['abajo-izquierda']"
-                [class.text-[#1E3A24]]="indiceActual === mapaDirecciones['abajo-izquierda']"
-                [class.shadow-[0_0_18px_rgba(246,196,69,0.25)]]="indiceActual === mapaDirecciones['abajo-izquierda']"
-                [class.border-white/10]="indiceActual !== mapaDirecciones['abajo-izquierda']"
-                [class.bg-white/5]="indiceActual !== mapaDirecciones['abajo-izquierda']"
-                [class.text-white/60]="indiceActual !== mapaDirecciones['abajo-izquierda']"
-                [class.hover:bg-white/10]="indiceActual !== mapaDirecciones['abajo-izquierda']"
-              >
-                <svg
-                  class="h-5 w-5 -rotate-135"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 10l7-7m0 0l7 7m-7-7v18"
-                  />
-                </svg>
-              </button>
-
-              <!-- ABAJO -->
-              <button
-                type="button"
-                (click)="seleccionarImagenPorLado('abajo', $event)"
-                class="flex h-14 items-center justify-center rounded-xl border transition-all duration-300 active:scale-95"
-                [class.border-[#F6C445]]="indiceActual === mapaDirecciones['abajo']"
-                [class.bg-[#F6C445]]="indiceActual === mapaDirecciones['abajo']"
-                [class.text-[#1E3A24]]="indiceActual === mapaDirecciones['abajo']"
-                [class.shadow-[0_0_18px_rgba(246,196,69,0.25)]]="indiceActual === mapaDirecciones['abajo']"
-                [class.border-white/10]="indiceActual !== mapaDirecciones['abajo']"
-                [class.bg-white/5]="indiceActual !== mapaDirecciones['abajo']"
-                [class.text-white/60]="indiceActual !== mapaDirecciones['abajo']"
-                [class.hover:bg-white/10]="indiceActual !== mapaDirecciones['abajo']"
-              >
-                <svg
-                  class="h-5 w-5 rotate-180"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 10l7-7m0 0l7 7m-7-7v18"
-                  />
-                </svg>
-              </button>
-
-              <!-- ABAJO DERECHA -->
-              <button
-                type="button"
-                (click)="seleccionarImagenPorLado('abajo-derecha', $event)"
-                class="flex h-14 items-center justify-center rounded-xl border transition-all duration-300 active:scale-95"
-                [class.border-[#F6C445]]="indiceActual === mapaDirecciones['abajo-derecha']"
-                [class.bg-[#F6C445]]="indiceActual === mapaDirecciones['abajo-derecha']"
-                [class.text-[#1E3A24]]="indiceActual === mapaDirecciones['abajo-derecha']"
-                [class.shadow-[0_0_18px_rgba(246,196,69,0.25)]]="indiceActual === mapaDirecciones['abajo-derecha']"
-                [class.border-white/10]="indiceActual !== mapaDirecciones['abajo-derecha']"
-                [class.bg-white/5]="indiceActual !== mapaDirecciones['abajo-derecha']"
-                [class.text-white/60]="indiceActual !== mapaDirecciones['abajo-derecha']"
-                [class.hover:bg-white/10]="indiceActual !== mapaDirecciones['abajo-derecha']"
-              >
-                <svg
-                  class="h-5 w-5 rotate-135"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 10l7-7m0 0l7 7m-7-7v18"
-                  />
-                </svg>
-              </button>
+              }
 
             </div>
 
-            <!-- PIE DE LA BRÚJULA -->
-            <div
-              class="mt-5 flex items-center justify-between border-t border-white/10 pt-4"
-            >
-              <span class="text-[11px] text-white/35">
-                Selecciona una dirección
+            <div class="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
+              <span class="text-[11px] text-white/40">
+                {{ giroActivo ? 'Mueve el celular para cambiar de vista' : 'Selecciona una dirección' }}
               </span>
 
-              <span
-                class="flex items-center gap-1.5 text-[11px] font-medium text-[#A4C639]"
-              >
+              <span class="flex items-center gap-1.5 text-[11px] font-medium text-[#A4C639]">
                 <span class="h-1.5 w-1.5 rounded-full bg-[#A4C639]"></span>
                 Vista activa
               </span>
             </div>
 
-          </div>
+            @if (giroActivo) {
+              <button
+                type="button"
+                (click)="desactivarGiro()"
+                class="mt-4 w-full rounded-xl border border-white/15 py-2.5 text-xs font-semibold text-white/70 transition-colors hover:bg-white/10"
+              >
+                Desactivar movimiento
+              </button>
+            }
 
-          <!-- PEQUEÑO TEXTO INFERIOR -->
-          <div
-            class="mt-6 flex items-center justify-center gap-3 text-center lg:justify-start"
-          >
-            <span class="h-px w-8 bg-white/15"></span>
-
-            <p
-              class="text-[10px] font-medium uppercase tracking-[0.16em] text-white/30"
-            >
-              Conoce • Explora • Comparte
-            </p>
-
-            <span class="h-px w-8 bg-white/15"></span>
           </div>
 
         </div>
