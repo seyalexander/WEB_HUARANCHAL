@@ -2,407 +2,183 @@
     id="productos"
     class="relative overflow-hidden bg-[#FAFAF7] py-24 text-[#1E293B] md:py-32"
 >
+    <div class="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
 
-    <!-- =========================================================
-         DECORACIÓN DE FONDO
-         ========================================================= -->
+        <!-- CABECERA -->
+        <header class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
 
-    <div
-        class="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#A4C639]/10 blur-3xl"
-    ></div>
-
-    <div
-        class="pointer-events-none absolute -right-40 bottom-10 h-[28rem] w-[28rem] rounded-full bg-[#F6C445]/10 blur-3xl"
-    ></div>
-
-    <div
-        class="pointer-events-none absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 rounded-full bg-[#4F8A3F]/5 blur-3xl"
-    ></div>
-
-
-    <!-- =========================================================
-         DECORACIÓN ORGÁNICA
-         ========================================================= -->
-
-    <svg
-        class="pointer-events-none absolute -right-10 top-20 h-72 w-72 text-[#2F5D34]/5 md:right-10 md:h-96 md:w-96"
-        viewBox="0 0 400 400"
-        fill="none"
-    >
-
-        <circle
-            cx="200"
-            cy="200"
-            r="150"
-            stroke="currentColor"
-            stroke-width="1"
-        />
-
-        <circle
-            cx="200"
-            cy="200"
-            r="110"
-            stroke="currentColor"
-            stroke-width="1"
-        />
-
-        <circle
-            cx="200"
-            cy="200"
-            r="70"
-            stroke="currentColor"
-            stroke-width="1"
-        />
-
-    </svg>
-
-
-    <!-- =========================================================
-         CONTENIDO
-         ========================================================= -->
-
-    <div
-        class="relative z-10 mx-auto max-w-7xl px-6 md:px-8"
-    >
-
-        <!-- =====================================================
-             CABECERA
-             ===================================================== -->
-
-        <header
-            class="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end"
-        >
-
-            <div class="max-w-3xl">
-
-                <!-- ETIQUETA -->
-
-                <div class="mb-6 flex items-center gap-4">
-
-                    <div
-                        class="h-px w-12 bg-[#F6C445]"
-                    ></div>
-
-                    <span
-                        class="text-[10px] font-black uppercase tracking-[3px] text-[#2F5D34]"
-                    >
-                        Productos emblemáticos
-                    </span>
-
-                </div>
-
-
-                <!-- TÍTULO -->
-
-                <h2
-                    class="text-5xl font-black leading-[0.9] tracking-[-0.045em] text-[#1E3A24] sm:text-6xl md:text-7xl"
-                >
-
-                    Sabores de
-
-                    <span class="block text-[#4F8A3F]">
-                        Huaranchal
-                    </span>
-
-                </h2>
-
-
-                <!-- DESCRIPCIÓN -->
-
-                <p
-                    class="mt-7 max-w-2xl text-base leading-7 text-[#64748B] sm:text-lg sm:leading-8"
-                >
-                    Descubre los productos agrícolas que representan la identidad,
-                    tradición y riqueza natural de Huaranchal.
+            <div class="max-w-2xl">
+                <p class="flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#2F5D34]">
+                    <span class="h-px w-10 bg-[#F6C445]"></span>
+                    Productos emblemáticos
                 </p>
 
+                <h2 class="mt-5 font-serif text-5xl leading-[1.02] text-[#1E3A24] md:text-7xl">
+                    Sabores de<br />
+                    <span class="italic text-[#4F8A3F]">Huaranchal</span>
+                </h2>
             </div>
 
-
-            <!-- IDENTIDAD -->
-
-            <div
-                class="hidden lg:block"
-            >
-
-                <div
-                    class="flex items-center gap-4 text-right"
-                >
-
-                    <div>
-
-                        <span
-                            class="block text-[9px] font-black uppercase tracking-[3px] text-[#6F8F45]"
-                        >
-                            Tierra
-                        </span>
-
-                        <span
-                            class="mt-1 block text-sm font-semibold text-[#1E293B]"
-                        >
-                            Productos de nuestra tierra
-                        </span>
-
-                    </div>
-
-
-                    <div
-                        class="flex h-14 w-14 items-center justify-center rounded-full border border-[#E2E8F0] bg-white shadow-[0_2px_10px_rgba(30,41,59,0.06)]"
-                    >
-
-                        <div
-                            class="h-2.5 w-2.5 rounded-full bg-[#F6C445]"
-                        ></div>
-
-                    </div>
-
-                </div>
-
-            </div>
+            <p class="max-w-sm text-base leading-7 text-[#64748B]">
+                Descubre los productos agrícolas que representan la identidad,
+                tradición y riqueza natural de Huaranchal.
+            </p>
 
         </header>
 
 
-        <!-- =====================================================
-             PRODUCTOS
-             ===================================================== -->
+        <!-- PANELES -->
+        <div class="mt-14 flex flex-col gap-4 md:mt-20 lg:flex-row lg:gap-5">
 
-        <div
-            class="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-20 lg:grid-cols-4 md:gap-6"
-        >
+            @for (producto of productos; track producto.nombre; let i = $index) {
 
-            @for (
-                producto of productos;
-                track producto.nombre;
-                let i = $index
-            ) {
-
-            <article
-                pAnimateOnScroll
-                enterClass="animate-enter fade-in-10 {{ producto.animacion }} animate-duration-1000"
-                leaveClass="animate-leave fade-out-0"
-                (click)="activarFruta(producto)"
-                class="product-card group relative h-107.5 cursor-pointer overflow-visible rounded-[28px] md:h-125"
-            >
-
-                <!-- =================================================
-                     SUPERFICIE
-                     ================================================= -->
-
-                <div
-                    class="product-card-surface absolute inset-0 overflow-hidden rounded-[28px] bg-[#2F5D34] shadow-[0_8px_24px_rgba(47,93,52,0.18)]"
+                <article
+                    pAnimateOnScroll
+                    enterClass="animate-enter fade-in-10 {{ producto.animacion }} animate-duration-1000"
+                    leaveClass="animate-leave fade-out-0"
+                    tabindex="0"
+                    [attr.data-activo]="i === activo"
+                    (mouseenter)="activo = i"
+                    (focus)="activo = i"
+                    (click)="seleccionar(i, producto)"
+                    class="product-card group relative h-96 cursor-pointer
+                           lg:h-[34rem] lg:flex-1
+                           lg:transition-[flex] lg:duration-700 lg:ease-[cubic-bezier(0.22,1,0.36,1)]
+                           lg:data-[activo=true]:flex-[5]"
                 >
 
-                    <!-- IMAGEN -->
+                    <!-- SUPERFICIE (recorta la foto) -->
+                    <div class="absolute inset-0 overflow-hidden rounded-[28px] bg-[#2F5D34]
+                                shadow-[0_8px_24px_rgba(47,93,52,0.18)]">
 
-                    <img
-                        [src]="producto.imagen"
-                        [alt]="producto.nombre + ' de Huaranchal'"
-                        class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
-                    >
+                        <img
+                            [src]="producto.imagen"
+                            [alt]="producto.nombre + ' de Huaranchal'"
+                            class="absolute inset-0 h-full w-full object-cover
+                                   transition-transform duration-1000 ease-out group-hover:scale-105"
+                        />
 
+                        <!-- Degradado base -->
+                        <div class="absolute inset-0 bg-linear-to-t from-[#1E3A24] via-[#1E3A24]/30 to-transparent"></div>
 
-                    <!-- OVERLAY BASE -->
+                        <!-- Oscurece los paneles cerrados -->
+                        <div
+                            class="absolute inset-0 bg-[#1E3A24]/0 transition-colors duration-700
+                                   lg:group-data-[activo=false]:bg-[#1E3A24]/55"
+                        ></div>
 
-                    <div
-                        class="absolute inset-0 bg-linear-to-t from-[#1E3A24] via-[#2F5D34]/25 to-transparent"
-                    ></div>
+                        <!-- Luz amarilla detrás del personaje -->
+                        <div
+                            class="pointer-events-none absolute bottom-0 right-0 hidden h-3/4 w-1/2 rounded-full
+                                   bg-[#F6C445]/20 opacity-0 blur-[70px] transition-opacity duration-1000
+                                   lg:block lg:group-data-[activo=true]:opacity-100"
+                        ></div>
 
-
-                    <!-- OVERLAY HOVER -->
-
-                    <div
-                        class="absolute inset-0 z-5 bg-black/0 backdrop-blur-0 transition-all duration-700 ease-out lg:group-hover:bg-black/30 lg:group-hover:backdrop-blur-[3px]"
-                    ></div>
-
-
-                    <!-- CONTRASTE HOVER -->
-
-                    <div
-                        class="absolute inset-0 z-6 bg-linear-to-r from-black/0 via-black/20 to-black/45 opacity-0 transition-opacity duration-700 lg:group-hover:opacity-100"
-                    ></div>
-
-
-                    <!-- BRILLO AMARILLO -->
-
-                    <div
-                        class="absolute inset-0 z-7 bg-linear-to-t from-[#F6C445]/20 via-transparent to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-                    ></div>
-
-
-                    <!-- BRILLO NARANJA SUTIL -->
-
-                    <div
-                        class="absolute -right-20 -top-20 z-8 h-48 w-48 rounded-full bg-[#F28C28]/10 blur-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-                    ></div>
-
-
-                    <!-- ETIQUETA -->
-
-                    <div
-                        class="absolute left-5 top-5 z-30"
-                    >
-
+                        <!-- Número -->
                         <span
-                            class="inline-flex rounded-full border border-white/15 bg-[#1E3A24]/40 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[1.5px] text-white backdrop-blur-md"
+                            class="absolute left-6 top-5 font-serif text-3xl font-light text-transparent
+                                   [-webkit-text-stroke:1px_rgba(255,255,255,0.7)]"
+                        >
+                            {{ (i + 1).toString().padStart(2, '0') }}
+                        </span>
+
+                        <!-- Etiqueta -->
+                        <span
+                            class="absolute right-5 top-5 rounded-full border border-white/15 bg-[#1E3A24]/40
+                                   px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[1.5px] text-white
+                                   backdrop-blur-md transition-opacity duration-500
+                                   lg:opacity-0 lg:group-data-[activo=true]:opacity-100"
                         >
                             Producto local
                         </span>
 
-                    </div>
-
-                </div>
-
-
-                <!-- =================================================
-                     PERSONAJE
-                     ================================================= -->
-
-                <img
-                    [src]="producto.personaje"
-                    [alt]="'Personaje mostrando ' + producto.nombre"
-                    class="product-character pointer-events-none absolute bottom-1.25 left-2.5 z-20 hidden h-[92%] max-w-97.5 translate-y-[30%] scale-[0.88] object-contain object-bottom opacity-0 drop-shadow-[0_15px_25px_rgba(0,0,0,0.45)] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] lg:block lg:group-hover:translate-y-0 lg:group-hover:scale-100 lg:group-hover:opacity-100"
-                >
-
-
-                <!-- =================================================
-                     LUZ DETRÁS DEL PERSONAJE
-                     ================================================= -->
-
-                <div
-                    class="pointer-events-none absolute bottom-[8%] right-[10%] z-10 hidden h-[70%] w-[55%] rounded-full bg-[#F6C445]/10 blur-[70px] opacity-0 transition-opacity duration-1000 lg:block lg:group-hover:opacity-100"
-                ></div>
-
-
-                <!-- =================================================
-                     CONTENIDO
-                     ================================================= -->
-
-                <div
-                    class="pointer-events-none absolute bottom-0 left-0 right-0 z-30 text-white"
-                >
-
-                    <!-- OVERLAY CONTENIDO -->
-
-                    <div
-                        class="absolute inset-x-0 bottom-0 h-[115%] rounded-2xl bg-[linear-gradient(to_top,rgb(30,58,36)_0%,rgba(30,58,36,0.88)_20%,rgba(30,58,36,0.35)_55%,rgba(30,58,36,0.05)_78%,transparent_100%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-                    ></div>
-
-
-                    <div
-                        class="relative p-6 md:p-7"
-                    >
-
-                        <!-- LÍNEA -->
-
-                        <div
-                            class="mb-4 h-1 w-10 rounded-full bg-[#F6C445] transition-all duration-500 group-hover:w-16"
-                        ></div>
-
-
-                        <!-- NOMBRE -->
-
-                        <h3
-                            class="text-3xl font-black tracking-[-0.03em] md:text-4xl"
+                        <!-- Nombre vertical (solo panel cerrado, desktop) -->
+                        <span
+                            class="absolute bottom-6 left-1/2 hidden -translate-x-1/2 rotate-180
+                                   font-serif text-2xl text-white transition-opacity duration-500
+                                   [writing-mode:vertical-rl] lg:block lg:group-data-[activo=true]:opacity-0"
                         >
                             {{ producto.nombre }}
-                        </h3>
+                        </span>
 
-
-                        <!-- DESCRIPCIÓN -->
-
-                        <p
-                            class="mt-3 max-w-sm text-sm leading-6 text-white/75 md:text-base"
+                        <!-- Contenido (panel abierto) -->
+                        <div
+                            class="absolute inset-x-0 bottom-0 p-6 text-white md:p-8 lg:w-[26rem]
+                                   lg:opacity-0 lg:transition-opacity lg:duration-500
+                                   lg:group-data-[activo=false]:pointer-events-none
+                                   lg:group-data-[activo=true]:opacity-100 lg:group-data-[activo=true]:delay-300"
                         >
-                            {{ producto.descripcion }}
-                        </p>
+                            <div class="mb-4 h-1 w-10 rounded-full bg-[#F6C445]"></div>
 
+                            <h3 class="font-serif text-4xl md:text-5xl">
+                                {{ producto.nombre }}
+                            </h3>
 
-                        <!-- INDICADOR -->
+                            <p class="mt-3 text-sm leading-6 text-white/85 md:text-base">
+                                {{ producto.descripcion }}
+                            </p>
 
-                        <button
-                            (click)="$event.stopPropagation()"
-                            class="pointer-events-auto relative z-50 mt-5 inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-[#F6C445] opacity-90 transition-all duration-300 hover:opacity-100 hover:underline"
-                        >
+                            <p class="mt-3 hidden text-sm leading-6 text-white/60 lg:line-clamp-3 lg:block">
+                                {{ producto.descripcionExtendida }}
+                            </p>
 
-                            <span>
-                                Conoce este producto
-                            </span>
-
-                            <span
-                                class="transition-transform duration-500 group-hover:translate-x-2"
+                            <a
+                                routerLink="/Agricultura"
+                                (click)="$event.stopPropagation()"
+                                class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#F6C445]
+                                       hover:underline"
                             >
-                                →
-                            </span>
-
-                        </button>
+                                Conoce este producto <span aria-hidden="true">→</span>
+                            </a>
+                        </div>
 
                     </div>
 
-                </div>
+                    <!-- PERSONAJE (fuera de la superficie para que se asome por arriba) -->
+                    <img
+                        [src]="producto.personaje"
+                        [alt]="'Personaje mostrando ' + producto.nombre"
+                        class="pointer-events-none absolute right-2 top-[-1.5rem] z-20 hidden h-[calc(100%+1.5rem)]
+                               max-w-[20rem] object-contain object-bottom
+                               drop-shadow-[0_15px_25px_rgba(0,0,0,0.45)]
+                               transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+                               lg:block lg:translate-y-10 lg:scale-90 lg:opacity-0
+                               lg:group-data-[activo=true]:translate-y-0
+                               lg:group-data-[activo=true]:scale-100
+                               lg:group-data-[activo=true]:opacity-100
+                               lg:group-data-[activo=true]:delay-200"
+                    />
 
-
-                <!-- =================================================
-                     PARTÍCULAS
-                     ================================================= -->
-
-                @if (productoActivo === producto) {
-
-                    @for (
-                        particula of particulasFruta;
-                        track particula.id
-                    ) {
-
-                        <img
-                            [src]="producto.fruta"
-                            [alt]="producto.nombre"
-                            class="fruit-particle pointer-events-none"
-                            [style.left.%]="particula.x"
-                            [style.top.%]="particula.y"
-                            [style.--fruit-x]="particula.destinoX + 'px'"
-                            [style.--fruit-y]="particula.destinoY + 'px'"
-                            [style.--fruit-rotation]="particula.rotacion + 'deg'"
-                            [style.--fruit-scale]="particula.escala"
-                            [style.--fruit-duration]="particula.duracion + 'ms'"
-                            [style.animation-delay]="particula.retraso + 'ms'"
-                        >
-
+                    <!-- PARTÍCULAS -->
+                    @if (productoActivo === producto) {
+                        @for (particula of particulasFruta; track particula.id) {
+                            <img
+                                [src]="producto.fruta"
+                                [alt]="producto.nombre"
+                                class="fruit-particle pointer-events-none"
+                                [style.left.%]="particula.x"
+                                [style.top.%]="particula.y"
+                                [style.--fruit-x]="particula.destinoX + 'px'"
+                                [style.--fruit-y]="particula.destinoY + 'px'"
+                                [style.--fruit-rotation]="particula.rotacion + 'deg'"
+                                [style.--fruit-scale]="particula.escala"
+                                [style.--fruit-duration]="particula.duracion + 'ms'"
+                                [style.animation-delay]="particula.retraso + 'ms'"
+                            />
+                        }
                     }
 
-                }
-
-            </article>
-
+                </article>
             }
 
         </div>
 
 
-        <!-- =====================================================
-             CIERRE
-             ===================================================== -->
-
-        <div
-            class="mt-12 flex items-center justify-center gap-4 text-center"
-        >
-
-            <div
-                class="h-px w-10 bg-[#E2E8F0]"
-            ></div>
-
-            <span
-                class="text-[9px] font-black uppercase tracking-[3px] text-[#6F8F45]"
-            >
-                Sabores de nuestra tierra
-            </span>
-
-            <div
-                class="h-px w-10 bg-[#E2E8F0]"
-            ></div>
-
-        </div>
+        <!-- AYUDA -->
+        <p class="mt-10 text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-[#6F8F45]">
+            <span class="hidden lg:inline">Pasa el cursor sobre cada producto · haz clic para sorprenderte</span>
+            <span class="lg:hidden">Toca un producto para sorprenderte</span>
+        </p>
 
     </div>
-
 </section>
-

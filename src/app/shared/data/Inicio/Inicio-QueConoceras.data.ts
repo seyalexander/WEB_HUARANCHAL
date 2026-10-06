@@ -22,7 +22,7 @@ export const experienciasInicio: InicioQueConoceras[] = [
         descripcion: 'Cascadas escondidas entre la vegetación, donde el agua se convierte en parte del paisaje.',
         imagen: 'assets/CATARATA-IMG.jpeg',
         routerLink: '/Lugares',
-        color: '#2F5D34',
+        color: '#3FA9F5',
         animacion: 'slide-in-from-t-20',
         posicion: 'centro',
         svg: 'cataratas'

@@ -1,352 +1,219 @@
 <section
   class="relative isolate overflow-hidden border-t border-[#E2E8F0] bg-[#FAFAF7] py-20 text-[#1E293B] sm:py-24 lg:py-28"
 >
+  <div class="mx-auto max-w-7xl px-6 md:px-8">
 
-  <!-- ========================================================= -->
-  <!-- DECORACIÓN DE FONDO -->
-  <!-- ========================================================= -->
-
-  <div
-    class="pointer-events-none absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-[#A4C639]/10 blur-3xl"
-  ></div>
-
-  <div
-    class="pointer-events-none absolute -right-40 top-1/3 h-[550px] w-[550px] rounded-full bg-[#F6C445]/10 blur-3xl"
-  ></div>
-
-  <div
-    class="pointer-events-none absolute bottom-0 left-1/3 h-96 w-96 rounded-full bg-[#4F8A3F]/5 blur-3xl"
-  ></div>
-
-
-  <!-- PATRÓN -->
-
-  <div
-    class="pointer-events-none absolute inset-0 opacity-40 [background-image:radial-gradient(#CBD5E1_0.8px,transparent_0.8px)] [background-size:24px_24px]"
-  ></div>
-
-
-  <div class="relative z-10">
-
-
-    <!-- ======================================================= -->
     <!-- CABECERA -->
-    <!-- ======================================================= -->
+    <header class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
 
-    <div
-      class="mx-auto mb-14 max-w-7xl px-4 text-center sm:px-6 lg:mb-16 lg:px-8"
-    >
-
-      <div class="mb-5 flex items-center justify-center gap-3">
-
-        <span class="h-px w-10 bg-[#F6C445]"></span>
-
-        <span
-          class="text-xs font-bold uppercase tracking-[0.22em] text-[#2F5D34]"
-        >
+      <div class="max-w-2xl">
+        <p class="flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#2F5D34]">
+          <span class="h-px w-10 bg-[#F6C445]"></span>
           Territorio de Huaranchal
-        </span>
+        </p>
 
-        <span class="h-px w-10 bg-[#F6C445]"></span>
-
+        <h2 class="mt-5 font-serif text-5xl leading-[1.02] text-[#1E3A24] md:text-7xl">
+          Nuestros <span class="italic text-[#4F8A3F]">caseríos</span>
+        </h2>
       </div>
 
-
-      <h2
-        class="text-4xl font-extrabold tracking-tight text-[#1E3A24] sm:text-5xl lg:text-6xl"
-      >
-        Nuestros
-        <span class="text-[#4F8A3F]">
-          caseríos
-        </span>
-      </h2>
-
-
-      <p
-        class="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#64748B] sm:text-base"
-      >
-        21 poblados y caseríos forman parte del territorio de Huaranchal.
-        Cada uno guarda paisajes, tradiciones y formas de vida que enriquecen
-        nuestra identidad.
+      <p class="max-w-sm text-base leading-7 text-[#64748B]">
+        {{ puntos.length }} poblados y caseríos forman parte del territorio de Huaranchal.
+        Recórrelos de valle a cumbre y descubre qué guarda cada uno.
       </p>
 
-    </div>
+    </header>
 
 
-    <!-- ======================================================= -->
-    <!-- CARRUSEL -->
-    <!-- ======================================================= -->
-
-    <div class="relative">
-
-
-      <!-- ===================================================== -->
-      <!-- VENTANA DEL CARRUSEL -->
-      <!-- ===================================================== -->
-
-      <div class="relative overflow-hidden">
-
-
-        <!-- DEGRADADO IZQUIERDO -->
-
-        <div
-          class="pointer-events-none absolute inset-y-0 left-0 z-20 w-20 bg-gradient-to-r from-[#FAFAF7] to-transparent sm:w-36 lg:w-48"
-        ></div>
-
-
-        <!-- DEGRADADO DERECHO -->
-
-        <div
-          class="pointer-events-none absolute inset-y-0 right-0 z-20 w-20 bg-gradient-to-l from-[#FAFAF7] to-transparent sm:w-36 lg:w-48"
-        ></div>
-
-
-        <!-- ================================================= -->
-        <!-- FILA SUPERIOR -->
-        <!-- ================================================= -->
-
-        <div
-          class="caserios-track caserios-track-left flex w-max gap-4 py-4"
-        >
-
-          <!-- PRIMERA VUELTA -->
-
-          @for (c of filaSuperior; track c.id) {
-
-            <div
-              class="caserio-card group flex h-[108px] w-[235px] shrink-0 items-center rounded-2xl border border-[#DDE6DC] bg-white px-5 shadow-[0_8px_24px_rgba(30,41,59,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#2F5D34] hover:shadow-[0_14px_30px_rgba(47,93,52,0.12)]"
-            >
-
-              <span
-                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#EEF4EC] text-xs font-extrabold text-[#2F5D34] transition-colors duration-300 group-hover:bg-[#2F5D34] group-hover:text-white"
-              >
-                {{ c.id < 10 ? '0' + c.id : c.id }}
-              </span>
-
-
-              <div class="ml-4 min-w-0">
-
-                <h3
-                  class="truncate text-sm font-extrabold tracking-tight text-[#1E3A24] sm:text-base"
-                >
-                  {{ c.nombre }}
-                </h3>
-
-                <p
-                  class="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#94A3B8]"
-                >
-                  {{ c.altitud }}
-                </p>
-
-              </div>
-
-
-              <span
-                class="ml-auto h-2 w-2 shrink-0 rounded-full bg-[#4F8A3F] transition-all duration-300 group-hover:scale-125 group-hover:bg-[#F6C445]"
-              ></span>
-
-            </div>
-
-          }
-
-
-          <!-- SEGUNDA VUELTA -->
-
-          @for (c of filaSuperior; track 'top-clone-' + c.id) {
-
-            <div
-              class="caserio-card group flex h-27 w-58.75 shrink-0 items-center rounded-2xl border border-[#DDE6DC] bg-white px-5 shadow-[0_8px_24px_rgba(30,41,59,0.05)]"
-            >
-
-              <span
-                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#EEF4EC] text-xs font-extrabold text-[#2F5D34]"
-              >
-                {{ c.id < 10 ? '0' + c.id : c.id }}
-              </span>
-
-
-              <div class="ml-4 min-w-0">
-
-                <h3
-                  class="truncate text-sm font-extrabold tracking-tight text-[#1E3A24]"
-                >
-                  {{ c.nombre }}
-                </h3>
-
-                <p
-                  class="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#94A3B8]"
-                >
-                  {{ c.altitud }}
-                </p>
-
-              </div>
-
-
-              <span
-                class="ml-auto h-2 w-2 shrink-0 rounded-full bg-[#4F8A3F]"
-              ></span>
-
-            </div>
-
-          }
-
-        </div>
-
-
-        <!-- ================================================= -->
-        <!-- FILA INFERIOR -->
-        <!-- ================================================= -->
-
-        <div
-          class="caserios-track caserios-track-right flex w-max gap-4 py-4"
-        >
-
-          <!-- PRIMERA VUELTA -->
-
-          @for (c of filaInferior; track c.id) {
-
-            <div
-              class="caserio-card group flex h-[108px] w-[235px] shrink-0 items-center rounded-2xl border border-[#DDE6DC] bg-white px-5 shadow-[0_8px_24px_rgba(30,41,59,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#2F5D34] hover:shadow-[0_14px_30px_rgba(47,93,52,0.12)]"
-            >
-
-              <span
-                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#EEF4EC] text-xs font-extrabold text-[#2F5D34] transition-colors duration-300 group-hover:bg-[#2F5D34] group-hover:text-white"
-              >
-                {{ c.id < 10 ? '0' + c.id : c.id }}
-              </span>
-
-
-              <div class="ml-4 min-w-0">
-
-                <h3
-                  class="truncate text-sm font-extrabold tracking-tight text-[#1E3A24] sm:text-base"
-                >
-                  {{ c.nombre }}
-                </h3>
-
-                <p
-                  class="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#94A3B8]"
-                >
-                  {{ c.altitud }}
-                </p>
-
-              </div>
-
-
-              <span
-                class="ml-auto h-2 w-2 shrink-0 rounded-full bg-[#4F8A3F] transition-all duration-300 group-hover:scale-125 group-hover:bg-[#F6C445]"
-              ></span>
-
-            </div>
-
-          }
-
-
-          <!-- SEGUNDA VUELTA -->
-
-          @for (c of filaInferior; track 'bottom-clone-' + c.id) {
-
-            <div
-              class="caserio-card group flex h-[108px] w-[235px] shrink-0 items-center rounded-2xl border border-[#DDE6DC] bg-white px-5 shadow-[0_8px_24px_rgba(30,41,59,0.05)]"
-            >
-
-              <span
-                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#EEF4EC] text-xs font-extrabold text-[#2F5D34]"
-              >
-                {{ c.id < 10 ? '0' + c.id : c.id }}
-              </span>
-
-
-              <div class="ml-4 min-w-0">
-
-                <h3
-                  class="truncate text-sm font-extrabold tracking-tight text-[#1E3A24] sm:text-base"
-                >
-                  {{ c.nombre }}
-                </h3>
-
-                <p
-                  class="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#94A3B8]"
-                >
-                  {{ c.altitud }}
-                </p>
-
-              </div>
-
-
-              <span
-                class="ml-auto h-2 w-2 shrink-0 rounded-full bg-[#4F8A3F]"
-              ></span>
-
-            </div>
-
-          }
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-
-    <!-- ======================================================= -->
-    <!-- PIE / CTA -->
-    <!-- ======================================================= -->
-
+    <!-- PANEL -->
     <div
-      class="mx-auto mt-12 flex max-w-7xl flex-col items-center px-4 text-center sm:mt-14"
+      pAnimateOnScroll
+      enterClass="animate-enter fade-in-10 slide-in-from-b-10 animate-duration-1000"
+      leaveClass="animate-leave fade-out-0"
+      class="mt-14 overflow-hidden rounded-[32px] bg-[#1E3A24] text-white
+             shadow-[0_20px_60px_rgba(30,58,36,0.25)] md:mt-16"
     >
 
-      <div class="mb-3 flex items-center gap-3">
+      <!-- DATOS CLAVE -->
+      <div class="grid grid-cols-3 divide-x divide-white/10 border-b border-white/10">
 
-        <span class="h-px w-8 bg-[#F6C445]"></span>
+        <div class="px-4 py-5 md:px-8">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-white/50">Punto más alto</p>
+          <p class="mt-1 font-serif text-base md:text-2xl">{{ masAlto.caserio.nombre }}</p>
+          <p class="text-xs text-[#F6C445]">{{ masAlto.caserio.altitud }}</p>
+        </div>
 
-        <span
-          class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#94A3B8]"
-        >
-          21 caseríos
-        </span>
+        <div class="px-4 py-5 md:px-8">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-white/50">Punto más bajo</p>
+          <p class="mt-1 font-serif text-base md:text-2xl">{{ masBajo.caserio.nombre }}</p>
+          <p class="text-xs text-[#F6C445]">{{ masBajo.caserio.altitud }}</p>
+        </div>
 
-        <span class="h-px w-8 bg-[#F6C445]"></span>
+        <div class="px-4 py-5 md:px-8">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-white/50">Desnivel</p>
+          <p class="mt-1 font-serif text-base md:text-2xl">{{ desnivel | number }} m</p>
+          <p class="text-xs text-[#F6C445]">entre caseríos</p>
+        </div>
 
       </div>
 
 
-      <p
-        class="text-lg font-bold tracking-tight text-[#1E3A24] sm:text-xl"
-      >
-        Un territorio, muchas historias.
+      <!-- SILUETA DE MONTAÑA -->
+      <div class="overflow-x-auto">
+        <div class="relative mx-auto h-80 min-w-[760px] md:h-[26rem]">
+
+          <!-- Guías de altitud -->
+          @for (g of guias; track g.etiqueta) {
+            <div
+              class="absolute inset-x-0 border-t border-dashed border-white/10"
+              [style.top.%]="g.y"
+            >
+              <span class="absolute left-3 top-0 -translate-y-1/2 text-[10px] text-white/40">
+                {{ g.etiqueta }}
+              </span>
+            </div>
+          }
+
+          <!-- Cordilleras -->
+          <svg
+            class="absolute inset-0 h-full w-full"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path [attr.d]="areaFondo" fill="#2F5D34" fill-opacity="0.45" />
+            <path [attr.d]="areaFrente" fill="#4F8A3F" fill-opacity="0.35" />
+            <path
+              [attr.d]="lineaFrente"
+              fill="none"
+              stroke="#A4C639"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+              vector-effect="non-scaling-stroke"
+            />
+            <line
+              [attr.x1]="seleccionado.x"
+              [attr.x2]="seleccionado.x"
+              [attr.y1]="seleccionado.y"
+              y2="100"
+              stroke="#F6C445"
+              stroke-width="1"
+              stroke-dasharray="3 3"
+              vector-effect="non-scaling-stroke"
+            />
+          </svg>
+
+          <!-- Puntos (un botón por caserío) -->
+          @for (p of puntos; track p.caserio.id) {
+            <button
+              type="button"
+              class="group absolute z-10 flex h-6 w-6 -translate-x-1/2 -translate-y-1/2
+                     items-center justify-center rounded-full focus:outline-none"
+              [style.left.%]="p.x"
+              [style.top.%]="p.y"
+              [attr.aria-label]="p.caserio.nombre + ', ' + p.caserio.altitud"
+              [attr.aria-pressed]="seleccionado === p"
+              (mouseenter)="seleccionar(p)"
+              (focus)="seleccionar(p)"
+              (click)="seleccionar(p)"
+            >
+
+              @if (seleccionado === p) {
+                <span class="absolute h-6 w-6 animate-ping rounded-full bg-[#F6C445]/40"></span>
+              }
+
+              <span
+                class="relative block rounded-full border-2 transition-all duration-300"
+                [ngClass]="seleccionado === p
+                  ? 'h-4 w-4 border-[#F6C445] bg-[#F6C445]'
+                  : 'h-2.5 w-2.5 border-[#A4C639] bg-[#1E3A24] group-hover:scale-125'"
+              ></span>
+
+              @if (seleccionado === p) {
+                <span
+                  class="pointer-events-none absolute bottom-full mb-2 whitespace-nowrap rounded-full
+                         bg-[#F6C445] px-3 py-1 text-xs font-bold text-[#1E3A24]"
+                  [ngClass]="{
+                    'left-1/2 -translate-x-1/2': p.x >= 14 && p.x <= 86,
+                    'left-0': p.x < 14,
+                    'right-0': p.x > 86
+                  }"
+                >
+                  {{ p.caserio.nombre }}
+                </span>
+              }
+
+            </button>
+          }
+
+          <!-- Eje de distancia -->
+          <div class="pointer-events-none absolute inset-x-0 bottom-3">
+            @for (t of ticks; track t.km) {
+              <span
+                class="absolute -translate-x-1/2 text-[10px] uppercase tracking-widest text-white/50"
+                [style.left.%]="t.x"
+              >
+                {{ t.km === 0 ? 'Centro' : t.km + ' km' }}
+              </span>
+            }
+          </div>
+
+        </div>
+      </div>
+
+      <p class="px-6 pb-6 text-[11px] leading-5 text-white/40 md:px-10">
+        Silueta esquemática: cada punto es un caserío, colocado según su distancia al centro
+        y a la altura de su altitud. No es un corte exacto del terreno.
       </p>
 
 
-      <p
-        class="mt-2 max-w-lg text-xs leading-6 text-[#64748B] sm:text-sm"
-      >
-        Conoce más sobre los lugares que forman parte de Huaranchal,
-        sus características, ubicación y riqueza cultural.
-      </p>
-
-
-      <!-- <a
-        routerLink="/caserios"
-        class="group mt-6 inline-flex items-center gap-3 rounded-xl bg-[#2F5D34] px-6 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-[0_8px_20px_rgba(47,93,52,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#24502B] hover:shadow-[0_12px_28px_rgba(47,93,52,0.25)]"
+      <!-- FICHA DEL CASERÍO -->
+      <div
+        class="grid gap-8 border-t border-white/10 p-6 md:grid-cols-[1.4fr_1fr_1fr_auto] md:items-center md:p-10"
       >
 
-        Conocer los caseríos
+        <div>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#F6C445]">
+            Caserío {{ posicion }} de {{ puntos.length }}
+          </p>
+          <h3 class="mt-2 font-serif text-4xl md:text-5xl">
+            {{ seleccionado.caserio.nombre }}
+          </h3>
+          <p class="mt-3 max-w-md text-sm leading-6 text-white/70">
+            {{ seleccionado.caserio.destacado }}
+          </p>
+        </div>
 
-        <span
-          class="text-base transition-transform duration-300 group-hover:translate-x-1"
-        >
-          →
-        </span>
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.25em] text-white/50">Altitud</p>
+          <p class="mt-1 font-serif text-3xl">{{ seleccionado.caserio.altitud }}</p>
+        </div>
 
-      </a> -->
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.25em] text-white/50">Distancia al centro</p>
+          <p class="mt-1 font-serif text-3xl">{{ seleccionado.caserio.distanciaCentro }}</p>
+        </div>
+
+        <div class="flex gap-2">
+          <button
+            type="button"
+            (click)="mover(-1)"
+            aria-label="Caserío anterior"
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/20
+                   transition-colors hover:bg-white/10"
+          >←</button>
+          <button
+            type="button"
+            (click)="mover(1)"
+            aria-label="Caserío siguiente"
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/20
+                   transition-colors hover:bg-white/10"
+          >→</button>
+        </div>
+
+      </div>
 
     </div>
-
 
   </div>
-
 </section>
-

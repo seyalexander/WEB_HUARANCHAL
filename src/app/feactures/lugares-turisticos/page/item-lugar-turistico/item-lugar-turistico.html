@@ -241,18 +241,18 @@
 
     <!-- GALERIA -->
     @if (tabSeleccionado === 'galeria') {
-
+    
     <app-lugar-turistico-galeria hero="hero" (filtrarOutput)="filtrar($event)"
         [categoriaSeleccionada]="categoriaSeleccionada" [galeria]="galeria" [mostrarTodas]="mostrarTodas"
         [galeriaFiltrada]="galeriaFiltrada" (abrirImagenOutput)="abrirImagen( $event)"
         (mostrarGaleriaCompletaOutput)="mostrarGaleriaCompleta()" (ocultarGaleriaOutput)="ocultarGaleria()"
         [fotosFavoritas]="fotosFavoritas" />
-
+    
     <p-galleria [value]="galeria" [(visible)]="mostrarGalleria" [(activeIndex)]="imagenSeleccionada"
-        (visibleChange)="mostrarGalleria = $event" [fullScreen]="true" [showItemNavigators]="true"
-        [showThumbnails]="true" [showIndicators]="true" [circular]="true" [numVisible]="6" [baseZIndex]="99999"
+        (visibleChange)="mostrarGalleria = $event" [fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="true"
+        [showIndicators]="true" [circular]="true" [numVisible]="6" [baseZIndex]="99999"
         [containerStyle]="{'max-width': '95vw'}">
-
+    
         <ng-template #item let-item>
             <div class="flex flex-col items-center justify-center w-full h-full min-h-[80vh]">
                 <img [src]="item.foto" [alt]="item.titulo || 'Imagen ampliada'"
@@ -265,7 +265,7 @@
                 }
             </div>
         </ng-template>
-
+    
         <ng-template #thumbnail let-item>
             <div class="flex items-center justify-center p-1">
                 <img [src]="item.foto" alt="Miniatura" class="w-20 h-14 object-cover rounded-lg">

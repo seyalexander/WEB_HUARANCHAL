@@ -1,390 +1,127 @@
-<section class="relative overflow-hidden bg-[#FAFAF7] py-24 md:py-32">
+<section class="relative overflow-hidden bg-[var(--color-primary-dark)] py-16 md:py-24">
 
-    <!-- =====================================================
-         FONDO TOPOGRÁFICO
-    ====================================================== -->
-
-    <div class="pointer-events-none absolute inset-0 opacity-[0.025]">
-
-        <svg class="h-full w-full" xmlns="http://www.w3.org/2000/svg">
-
-            <defs>
-
-                <pattern
-                    id="topografia-experiencias"
-                    width="520"
-                    height="520"
-                    patternUnits="userSpaceOnUse"
-                >
-
-                    <path
-                        d="M40 260 C120 140, 220 120, 320 190 S460 360, 520 250"
-                        fill="none"
-                        stroke="#2F5D34"
-                        stroke-width="2"
-                    />
-
-                    <path
-                        d="M0 310 C110 190, 220 180, 330 250 S450 390, 540 300"
-                        fill="none"
-                        stroke="#2F5D34"
-                        stroke-width="2"
-                    />
-
-                    <path
-                        d="M80 380 C160 270, 270 250, 370 320 S470 430, 560 350"
-                        fill="none"
-                        stroke="#2F5D34"
-                        stroke-width="2"
-                    />
-
-                </pattern>
-
-            </defs>
-
-            <rect
-                width="100%"
-                height="100%"
-                fill="url(#topografia-experiencias)"
-            />
-
-        </svg>
-
-    </div>
-
-
-    <!-- =====================================================
-         DETALLES DE LUZ
-    ====================================================== -->
-
+    <!-- Textura de fondo -->
     <div
-        class="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-[#A4C639]/10 blur-3xl"
+        class="pointer-events-none absolute inset-0 opacity-[0.04]
+               bg-[radial-gradient(circle_at_center,var(--color-text-light)_1px,transparent_1px)]
+               bg-[size:18px_18px]"
     ></div>
 
-    <div
-        class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-[#F6C445]/10 blur-3xl"
-    ></div>
+    <div class="relative mx-auto max-w-6xl px-6">
 
-
-    <!-- =====================================================
-         CONTENEDOR
-    ====================================================== -->
-
-    <div class="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
-
-
-        <!-- =================================================
-             CABECERA
-        ================================================== -->
-
-        <header class="mx-auto max-w-3xl text-center">
-
-            <!-- ETIQUETA -->
-
-            <div class="inline-flex items-center gap-3">
-
-                <span class="h-px w-8 bg-[#F28C28]"></span>
-
-                <span
-                    class="text-xs font-bold uppercase tracking-[3px] text-[#2F5D34] md:text-sm"
-                >
-                    Experiencias de Huaranchal
-                </span>
-
-                <span class="h-px w-8 bg-[#F28C28]"></span>
-
+        <!-- Encabezado editorial -->
+        <header class="mb-12 flex flex-col gap-4 md:mb-16 md:flex-row md:items-end md:justify-between">
+            <div>
+                <p class="text-xs uppercase tracking-[0.3em] text-white/50">Qué conocerás</p>
+                <h2 class="mt-3 font-serif text-4xl leading-[1.05] text-white md:text-6xl">
+                    Cuatro formas de<br />
+                    <span class="italic text-white/60">perderte aquí</span>
+                </h2>
             </div>
-
-
-            <!-- TÍTULO -->
-
-            <h2
-                class="mt-5 text-4xl font-black tracking-tight text-[#1E3A24] sm:text-5xl md:text-6xl"
-            >
-
-                Un territorio que
-
-                <span class="text-[#2F5D34]">
-                    se vive
-                </span>
-
-            </h2>
-
-
-            <!-- DESCRIPCIÓN -->
-
-            <p
-                class="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#64748B] md:text-lg"
-            >
-
-                Naturaleza, agua, descanso y sabores se encuentran
-                en Huaranchal. Descubre algunas de las experiencias
-                que forman parte de nuestra identidad.
-
+            <p class="max-w-xs text-sm leading-relaxed text-white/60">
+                Escribe aquí una frase corta que resuma la esencia del lugar.
             </p>
-
         </header>
 
+        <div class="grid grid-cols-1 items-start gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
-        <!-- =================================================
-             EXPERIENCIAS
-        ================================================== -->
-
-        <div
-            class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4"
-        >
-
-            @for (
-                experiencia of experiencias;
-                track experiencia.id;
-                let i = $index
-            ) {
+            @for (experiencia of experiencias; track experiencia.id) {
 
                 <article
                     pAnimateOnScroll
                     [enterClass]="'animate-enter fade-in-10 ' + experiencia.animacion + ' animate-duration-1000'"
                     leaveClass="animate-leave fade-out-0"
-                    class="group relative"
+                    class="group lg:even:mt-12"
                 >
-
-                    <!-- =================================================
-                         TARJETA
-                    ================================================== -->
-
-                    <div
-                        class="relative h-full overflow-hidden   transition-all duration-500 hover:-translate-y-2 hover:border-[#A4C639] hover:shadow-[0_18px_45px_rgba(47,93,52,0.10)]"
+                    <a
+                        [routerLink]="experiencia.routerLink"
+                        class="relative flex h-96 flex-col justify-between overflow-hidden rounded-3xl
+                               border border-white/10 p-5 lg:h-[30rem]"
                     >
 
+                        <!-- Foto -->
+                        <img
+                            [src]="experiencia.imagen"
+                            [alt]="experiencia.nombre"
+                            loading="lazy"
+                            class="absolute inset-0 h-full w-full object-cover
+                                   transition-transform duration-700 group-hover:scale-110"
+                        />
 
-                        <!-- =================================================
-                             IMAGEN / ICONO
-                        ================================================== -->
+                        <!-- Degradado para legibilidad -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20"></div>
 
+                        <!-- Tinte del color de la experiencia al hacer hover -->
                         <div
-                            class="relative flex aspect-6/3 items-center justify-center overflow-hidden "
-                        >
-
-                            @switch (experiencia.svg) {
-
-                                @case ('naturaleza') {
-
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="82"
-                                        height="82"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        [attr.stroke]="experiencia.color"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="transition-transform duration-500 group-hover:scale-110"
-                                    >
-
-                                        <path d="M3 20h18" />
-                                        <path d="m5 20 5-9 4 5 2-3 3 7" />
-                                        <path d="M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
-
-                                    </svg>
-
-                                }
-
-
-                                @case ('cataratas') {
-
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="82"
-                                        height="82"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        [attr.stroke]="experiencia.color"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="transition-transform duration-500 group-hover:scale-110"
-                                    >
-
-                                        <path d="M2 9a10 10 0 1 0 20 0" />
-                                        <path d="M12 19a10 10 0 0 1 10-10" />
-                                        <path d="M2 9a10 10 0 0 1 10 10" />
-                                        <path d="M12 4a9.7 9.7 0 0 1 2.99 7.5" />
-                                        <path d="M9.01 11.5a9.7 9.7 0 0 1 2.99-7.5" />
-
-                                    </svg>
-
-                                }
-
-
-                                @case ('termales') {
-
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="82"
-                                        height="82"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        [attr.stroke]="experiencia.color"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="transition-transform duration-500 group-hover:scale-110"
-                                    >
-
-                                        <path d="M8 3c0 2 2 2 2 4s-2 2-2 4" />
-                                        <path d="M14 3c0 2 2 2 2 4s-2 2-2 4" />
-                                        <path d="M4 13h16" />
-                                        <path d="M5 17h14" />
-                                        <path d="M7 21h10" />
-
-                                    </svg>
-
-                                }
-
-
-                                @case ('gastronomia') {
-
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="82"
-                                        height="82"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        [attr.stroke]="experiencia.color"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="transition-transform duration-500 group-hover:scale-110"
-                                    >
-
-                                        <path d="M3 2v7a4 4 0 0 0 4 4h1" />
-                                        <path d="M7 2v11" />
-                                        <path d="M11 2v7a4 4 0 0 1-4 4" />
-                                        <path d="M7 13v9" />
-                                        <path d="M17 2v20" />
-                                        <path d="M17 2c2 0 4 2 4 5v3h-4" />
-
-                                    </svg>
-
-                                }
-
-                            }
-
-                        </div>
-
-
-                        <!-- =================================================
-                             CONTENIDO
-                        ================================================== -->
-
-                        <div class="p-6 md:p-7">
-
-
-                            <!-- ACENTO -->
-
-                            <div class="mb-5 flex items-center gap-3">
-
-                                <span
-                                    class="h-1 w-10 rounded-full"
-                                    [style.background]="experiencia.color"
-                                ></span>
-
-                                <span
-                                    class="h-px flex-1 bg-[#E2E8F0]"
-                                ></span>
-
-                            </div>
-
-
-                            <!-- TÍTULO -->
-
-                            <h3
-                                class="text-2xl font-black tracking-tight text-[#1E3A24] transition-colors duration-300 group-hover:text-[#2F5D34]"
-                            >
-
-                                {{ experiencia.nombre }}
-
-                            </h3>
-
-
-                            <!-- DESCRIPCIÓN -->
-
-                            <p
-                                class="mt-3 text-sm leading-7 text-[#64748B]"
-                            >
-
-                                {{ experiencia.descripcion }}
-
-                            </p>
-
-
-                            <!-- ENLACE -->
-
-                            <a
-                                [href]="experiencia.routerLink"
-                                class="mt-6 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[2px] text-[#2F5D34] transition-all duration-300 hover:text-[#F28C28]"
-                            >
-
-                                <span>
-                                    Descubrir
-                                </span>
-
-                                <span
-                                    class="transition-transform duration-300 group-hover:translate-x-1"
-                                >
-                                    →
-                                </span>
-
-                            </a>
-
-                        </div>
-
-
-                        <!-- =================================================
-                             DETALLE INFERIOR
-                        ================================================== -->
-
-                        <div
-                            class="absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
-                            [style.background]="experiencia.color"
+                            class="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                            [style.background]="'linear-gradient(to top, ' + experiencia.color + '99, transparent 70%)'"
                         ></div>
 
-                    </div>
+                        <!-- Parte superior: número + icono -->
+                        <div class="relative flex items-start justify-between">
+                            <span
+                                class="font-serif text-5xl font-light leading-none text-transparent
+                                       [-webkit-text-stroke:1px_rgba(255,255,255,0.7)]"
+                            >
+                                {{ experiencia.numero }}
+                            </span>
 
+                            <span
+                                class="flex h-11 w-11 items-center justify-center rounded-full
+                                       border border-white/30 bg-black/30 backdrop-blur-sm"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="white"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    @for (d of iconos[experiencia.svg]; track d) {
+                                        <path [attr.d]="d" />
+                                    }
+                                </svg>
+                            </span>
+                        </div>
+
+                        <!-- Parte inferior: textos -->
+                        <div class="relative">
+                            <p
+                                class="text-[11px] font-medium uppercase tracking-[0.25em]"
+                                [style.color]="experiencia.color"
+                            >
+                                {{ experiencia.etiqueta }}
+                            </p>
+
+                            <h3 class="mt-1 font-serif text-2xl text-white">
+                                {{ experiencia.nombre }}
+                            </h3>
+
+                            <!-- Descripción: visible en móvil, se revela con hover en desktop -->
+                            <div
+                                class="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500
+                                       lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr]
+                                       lg:group-focus-within:grid-rows-[1fr]"
+                            >
+                                <div class="overflow-hidden">
+                                    <p class="pt-3 text-sm leading-relaxed text-white/80">
+                                        {{ experiencia.descripcion }}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 flex items-center gap-2 text-xs uppercase tracking-widest text-white/70
+                                        transition-all duration-300 group-hover:gap-4 group-hover:text-white">
+                                Explorar <span aria-hidden="true">→</span>
+                            </div>
+                        </div>
+
+                    </a>
                 </article>
-
             }
 
         </div>
-
-
-        <!-- =================================================
-             FRASE DE CIERRE
-        ================================================== -->
-
-        <div
-            class="mt-16 flex items-center justify-center gap-4 md:mt-20"
-        >
-
-            <span
-                class="h-px w-12 bg-[#CBD5C8] md:w-20"
-            ></span>
-
-            <span
-                class="text-[10px] font-bold uppercase tracking-[3px] text-[#64748B] md:text-xs"
-            >
-
-                Empieza a descubrir Huaranchal
-
-            </span>
-
-            <span
-                class="h-px w-12 bg-[#CBD5C8] md:w-20"
-            ></span>
-
-        </div>
-
-
     </div>
-
 </section>

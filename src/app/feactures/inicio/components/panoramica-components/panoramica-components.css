@@ -17,3 +17,17 @@
     opacity: 1;
   }
 }
+
+/* Regla de marcas: una marca larga cada 120px y marcas cortas cada 24px.
+   El ancho extra a cada lado permite el desplazamiento sin dejar huecos. */
+.regla-mirador {
+  left: -120px;
+  width: calc(100% + 240px);
+  background-image:
+    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.6) 0 1px, transparent 1px 120px),
+    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.3) 0 1px, transparent 1px 24px);
+  background-size: 100% 100%, 100% 50%;
+  background-position: 0 0, 0 100%;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
